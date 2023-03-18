@@ -1,3 +1,11 @@
+/*intialise//
+var masterValues = {};
+masterValues["charaID"] = 10106;
+masterValues["unitcard"] = card10106;
+masterValues["charaAwaked"] = false;
+masterValues["baseClass"] = masterValues.unitcard["classId"];
+//intialise*/
+
 function testLevelCC(){
     let level = Number(document.getElementById("input-level").value);
     let cc = Number(document.getElementById("input-cc").value);
@@ -19,7 +27,28 @@ function testLevelCC(){
         document.getElementById("input-cc").value = 0
     }
 }
-
+function selfConditionUpdate(){
+    let cc = Number(document.getElementById("input-cc").value)
+    let job = job_data["table"][job_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
+    if (masterValues.unitcard["moveAction"] == 5){
+        selfConditions["5"] = 1;
+    } else {selfConditions["6"] = 1;}
+    //selfConditions - 15?
+    //selfConditions - 21?
+    //selfConditions - 22?
+    if (masterValues.charaAwaked){
+        selfConditions["26"] = 1;
+    } else {selfConditions["26"] = 0;}
+    selfConditions["1002"] = masterValues.unitcard["element"];
+    selfConditions["1003"] = masterValues.unitcard["rarityId"];
+    selfConditions["1004"] = masterValues.unitcard["mainTribe"];
+    selfConditions["1005"] = masterValues.unitcard["gender"];
+    selfConditions["1006"] = job["system_id"];
+    selfConditions["1007"] = masterValues.baseClass+cc;
+    selfConditions["1008"] = masterValues.unitcard["id"];
+    
+    //selfConditions - 15?
+}
 function equipImageChange(){
     let cc = Number(document.getElementById("input-cc").value) + 1;
     let weapon = document.getElementById("equipweapon")
@@ -30,33 +59,41 @@ function equipImageChange(){
     let headabbr = document.getElementById("equipheadabbr")
     let bodyabbr = document.getElementById("equipbodyabbr")
     let accessoryabbr = document.getElementById("equipaccessoryabbr")
-    weapon.src = "../../img/equipment-icons/"+equipConvert[baseClass.toString()][0]+cc.toString()+".png"
-    head.src = "../../img/equipment-icons/"+equipConvert[baseClass.toString()][1]+cc.toString()+".png"
-    body.src = "../../img/equipment-icons/"+equipConvert[baseClass.toString()][2]+cc.toString()+".png"
-    accessory.src = "../../img/equipment-icons/"+equipConvert[baseClass.toString()][3]+cc.toString()+".png"
-    weaponabbr.title = equipAbbr[(baseClass+cc-1).toString()][0]
-    headabbr.title = equipAbbr[(baseClass+cc-1).toString()][1]
-    bodyabbr.title = equipAbbr[(baseClass+cc-1).toString()][2]
-    accessoryabbr.title = equipAbbr[(baseClass+cc-1).toString()][3]
+    weapon.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][0]+cc.toString()+".png"
+    head.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][1]+cc.toString()+".png"
+    body.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][2]+cc.toString()+".png"
+    accessory.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][3]+cc.toString()+".png"
+    weaponabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][0]
+    headabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][1]
+    bodyabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][2]
+    accessoryabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][3]
 }
 
 function allDPS(){
     testLevelCC()
-    var level = Number(document.getElementById("input-level").value)
-    var cc = Number(document.getElementById("input-cc").value)
-    
-    calculateStat(level,cc,"HP");
-    calculateStat(level,cc,"Atk");
-    calculateStat(level,cc,"pDef");
-    calculateStat(level,cc,"mDef");
-    calculateStat(level,cc,"aSpd");
-    calculateStat(level,cc,"PAD");
-    calculateStat(level,cc,"Range");
-    calculateStat(level,cc,"Block");
-
+    var level = Number(document.getElementById("input-level").value);
+    var cc = Number(document.getElementById("input-cc").value);
+    calculateStat(level,cc,"stat1");
+    calculateStat(level,cc,"stat2");
+    calculateStat(level,cc,"stat3");
+    calculateStat(level,cc,"stat4");
+    calculateStat(level,cc,"stat5");
+    calculateStat(level,cc,"stat6");
+    calculateStat(level,cc,"stat7");
+    calculateStat(level,cc,"stat8");
+    calculateStat(level,cc,"stat9");
+    calculateStat(level,cc,"stat10");
 }
 
 function calculateStat(level,cc,type){
+    console.log("-----");
+    masterValues.allBuff = {}; //reset for each stat calc
+    let job = job_data["table"][job_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
+    let classObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
+    let traitObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.charaID-10000)})];
+    let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
+    let skillchangenumber = Number(document.getElementById("skill-change-select").value);
+    let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
     if (level < 31) {
         var a = 0;
     } else if (level > 30 && level < 61){
@@ -85,11 +122,38 @@ function calculateStat(level,cc,type){
         }
     } catch(err){}
     //RAW STAT//
-    if (type == "aSpd" || type == "PAD" || type == "Range"|| type == "Block"){
-        var rawStat = Math.floor(char["CC"+cc+type])
-    } else {
-        var rawStat = Math.floor(char[type] * x);
-    }
+    if (type == "stat1"){
+        var rawStat = Math.floor(masterValues.unitcard["life"] * x);
+    } else if (type == "stat2"){
+        var rawStat = Math.floor(masterValues.unitcard["power"] * x);
+    } else if (type == "stat3"){
+        var rawStat = Math.floor(masterValues.unitcard["defense"] * x);
+    } else if (type == "stat4"){
+        var rawStat = Math.floor(masterValues.unitcard["magicDefense"] * x);
+    } else if (type == "stat5"){
+        var rawStat = Math.floor(job["moveSpeed"]);
+    } else if (type == "stat6"){
+        var rawStat = Math.floor(100+job["attackSpeed"]);
+    } else if (type == "stat7"){
+        var rawStat = Math.floor(job["attackInterval"]);
+    } else if (type == "stat8"){
+        var rawStat = Math.floor(job["attackRange"]);
+    } else if (type == "stat9"){
+        var rawStat = Math.floor(job["attackCount"]);
+    } else if (type == "stat10"){
+        var rawStat = Math.floor(job["blockNum"]);
+    } else if (type == "stat11"){
+        var rawStat = Math.floor(job["targetNum"]);
+    } else if (type == "stat15"){
+        var rawStat = Math.floor(job["cost"]+masterValues.unitcard["cost"]);
+    } else if (type == "stat21"){
+        var rawStat = Math.floor(job["targetType"]);
+    } else if (type == "stat22"){
+        var rawStat = Math.floor(job["hitType"]);
+    } else if (["stat17",""].includes(type)){
+        var rawStat = 0;
+    } else {}
+    //console.log("rawStat: "+rawStat);
     //RAW STAT//
     for (let i = 3; i < 6; i++){
         if (document.getElementById("talent"+i.toString()+"check").checked) {
@@ -100,9 +164,245 @@ function calculateStat(level,cc,type){
             } else {}
         } else {}
     }
-    //console.log(type+":"+rawStat)
-    
-    //console.log(remainHP);
+    console.log(type+" + talent:"+rawStat);
+    //subskill//
+    var subskillID_1 = getAttachID("subskill1");
+    var subskillID_2 = getAttachID("subskill2");
+    if (subskillID_1 == -1 || subskillID_2 == -1){
+        //console.log("Either subskill is 'None'")
+        if (subskillID_1 == -1 && subskillID_2 != -1) {
+            //subskill 2 is active
+            let attachObject = attach_ability_data.table[subskillID_2];
+            cycleAllTalents(attachObject,type,"attach");
+        } else if (subskillID_1 != -1 && subskillID_2 == -1) {
+            //subskill 1 is active
+            let attachObject = attach_ability_data.table[subskillID_1];
+            cycleAllTalents(attachObject,type,"attach");
+        } else {
+            //no subskill is active
+        }
+    } else if (attach_ability_data.table[subskillID_1].name.split(" ")[0] == attach_ability_data.table[subskillID_2].name.split(" ")[0]){
+        //console.log("Same kind of subskill")
+        if (subskillID_1 >= subskillID_2){
+            let attachObject = attach_ability_data.table[subskillID_1];
+            cycleAllTalents(attachObject,type,"attach");
+        } else {
+            let attachObject = attach_ability_data.table[subskillID_2];
+            cycleAllTalents(attachObject,type,"attach");
+        }
+    } else {
+        //console.log("Different kind of subskill")
+        //SUBSKILL ADDITIVE PROBLEM!! elute
+        let attachObject = attach_ability_data.table[subskillID_1];
+        cycleAllTalents(attachObject,type,"attach");
+        attachObject = attach_ability_data.table[subskillID_2];
+        cycleAllTalents(attachObject,type,"attach",true);
+    }
+    //trait and class//
+    cycleAllTalents(classObject,type,"class");
+    cycleAllTalents(traitObject,type,"trait");
+    console.log("allbuff-at-cl-tr:",masterValues.allBuff); //here
+    //((元能力値+潜在覚醒能力値)*乗算効果 + 加算効果)*編成バフ
+    let multEffect1 = Number(addMinusRateActual(masterValues.allBuff,[23],"rate"))+1-1;
+    let addEffect1 = Number(addMinusRateActual(masterValues.allBuff,[23],"actual"));
+    let equipEffect = Number(equipValues("1",type,cc) + equipValues("2",type,cc) + equipValues("3",type,cc) + equipValues("4",type,cc));
+    let pdEffect = pdMultValues(type)+1-1;
+    console.log("multEffect1: "+multEffect1);
+    console.log("addEffect1: "+addEffect1);
+    console.log("equipEffect:"+equipEffect);
+    console.log("pdEffect: "+pdEffect);
+    let outputMenu = Math.floor((Math.floor(rawStat * multEffect1) + addEffect1 + equipEffect) * pdEffect)+1-1;
+    let upperStat = 10*outputMenu;
+    let lowerStat = Math.floor(0.5*outputMenu);
+    try {
+        document.getElementById("dps-output-menu-value-"+type).innerHTML = outputMenu;
+    } catch (error) {
+        console.log("Error-outputMenu: "+ type);
+    }
+    //outputMenu over//
+
+    //cycleAllTalents(skillObject,type,"skill");
+    //console.log("allbuffskill:",masterValues.allBuff);
+    //updateText
+}
+
+function addMinusRateActual(allBuff,timingList,actualRateFixed){
+    if (actualRateFixed === "rate"){var output = 1;}
+    else {var output = 0;}
+    for (let key in allBuff){
+        console.log(key);
+        if (timingList.includes(Number(key.split("-")[2])) && key.split("-")[0] === actualRateFixed){
+            console.log(allBuff[key]);
+            if (actualRateFixed === "rate"){
+                if (key.split("-")[1] === "plus"){
+                    output *= allBuff[key].reduce((acc,curr)=>(acc)*(1+curr/100),1);
+                } else if (key.split("-")[1] === "minus"){
+                    output *= allBuff[key].reduce((acc,curr)=>(acc)*(1-curr/100),1);
+                } else {/*keysplit === none*/}
+            } else if (actualRateFixed === "actual"){
+                if (key.split("-")[1] === "plus"){
+                    output += allBuff[key].reduce((acc,curr)=>acc+curr);
+                } else if (key.split("-")[1] === "minus"){
+                    output += allBuff[key].reduce((acc,curr)=>acc-curr);
+                } else {/*keysplit === none*/}
+            } else {/*actualRateFixed is fixed*/}
+        } else {} //wrong timing or wrong countType
+    }
+    return output;
+}
+//only use addWithPrevious if there is already an array
+//addwithprevious only works on stats below 1000 (or stat67)
+function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false){
+    let allTalents = abilityObject["talentList"];
+    for (let i=0; i<allTalents.length;i++){
+        if (eBuffTypeParse(allTalents[i]["talentId"])[0] === type){
+            /*console.log("type matches");*/
+            let conditionRecord = {"trigger":true,"active":true};
+            for (let j=0;j<allTalents[i]["triggerData"].length;j++){
+                let conditionRef = selfConditions[allTalents[i]["triggerData"][j]["type"]];
+                for (let k=0;k<allTalents[i]["triggerData"][j]["num"].length;k++){
+                    //console.log("conditionRef: "+conditionRef);
+                    //console.log("option: "+allTalents[i]["triggerData"][j]["option"][k]);
+                    //console.log("hurdle: "+allTalents[i]["triggerData"][j]["num"][k]);
+                    if (conditionalOption(conditionRef,allTalents[i]["triggerData"][j]["option"][k],allTalents[i]["triggerData"][j]["num"][k])){
+                    } else {conditionRecord["trigger"]=false;}
+                }
+            }
+            for (let j=0;j<allTalents[i]["activeData"].length;j++){
+                let conditionRef = selfConditions[allTalents[i]["activeData"][j]["type"]];
+                for (let k=0;k<allTalents[i]["activeData"][j]["num"].length;k++){
+                    if (conditionalOption(conditionRef,allTalents[i]["activeData"][j]["option"][k],allTalents[i]["activeData"][j]["num"][k])){
+                    } else {conditionRecord["active"]=false;}
+                }
+            }
+            console.log(conditionRecord);
+            let range = allTalents[i]["range"];
+            if (conditionRecord.active && conditionRecord.trigger && (range===1||range===2||range===3)){
+                /*console.log("pushed to buff array");*/
+                let param,timing,param0,param1,param2;
+                if (parseType === "skill"){
+                    let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
+                    let minParam = allTalents[i]["param"][0]["num"][0];
+                    let maxParam = allTalents[i]["maxParam"][0]["num"][0];
+                    if (maxParam === 0){maxParam = minParam} else {}
+                    //param is parameter in stats
+                    //param is chance of debuff in status
+                    if (allTalents[i]["param"].length === 1){
+                        timing = allTalents[i]["timing"].toString();
+                        param0 = Math.floor(minParam + (maxParam-minParam)/4*(skilllevelnumber-1));
+                        param = [param0];
+                    } else if (allTalents[i]["param"].length === 2){
+                        timing = allTalents[i]["timing"].toString();
+                        param0 = Math.floor(minParam + (maxParam-minParam)/4*(skilllevelnumber-1));
+                        param1 = allTalents[i]["param"][1]["num"][0];
+                        param = [param0,param1];
+                    } else if (allTalents[i]["param"].length > 2){
+                        timing = allTalents[i]["timing"].toString();
+                        param0 = Math.floor(minParam + (maxParam-minParam)/4*(skilllevelnumber-1));
+                        param1 = allTalents[i]["param"][1]["num"][0];
+                        param2 = allTalents[i]["param"][2]["num"][0];
+                        param = [param0,param1,param2];
+                    } else {}
+                } else {
+                    //not skill (as of now)
+                    param0 = allTalents[i]["param"][0]["num"][0];
+                    timing = allTalents[i]["timing"].toString();
+                    param = [param0];
+                }//here
+                try {
+                    //fixed talent
+                    if (eBuffTypeParse(allTalents[i]["talentId"])[1].split("-")[0] === "fixed"){
+                        console.log("isFixedTalent");
+                        let ABarray = masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing];
+                        let forError = ABarray.length;
+                        //if here, means there is a value here
+                        console.log("need to replace");
+                        ABarray[ABarray.length-1][0] = param[0];
+                    }
+                    //movspd and redploy
+                    else if (type === "stat5" || type === "stat146"){
+                        let ABarray = masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing];
+                        console.log("still here");
+                        if (param[0] > ABarray[ABarray.length-1][0]){
+                            ABarray[ABarray.length-1][0] = param[0];
+                        } else {
+                            //no change, param not added
+                        }
+                    }
+                    else if (addWithPrevious && allTalents[i]["talentId"] < 1000){
+                        let ABarray = masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing];
+                        ABarray[ABarray.length-1][0] = ABarray[ABarray.length-1][0] + param[0];
+                    }
+                    else {
+                        masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
+                    }
+                } catch (err) {
+                    console.log("create new entry");
+                    masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing] = [param];
+                }
+            } else {/*console.log("trigger or active not met")*/;}
+        } else {/*console.log("type not match");*/}
+        //console.log("allbuff:",masterValues.allBuff);
+    }
+}
+function eBuffTypeParse(num){
+    try {
+        let bufftype = eBuffType[num];
+        return bufftype;
+    } catch (error) {
+        console.log("Not in object!");
+    }
+}
+
+function pdMultValues(type){ //timing = 4//
+    let totalPartyBuff = 0;
+    for (i=0;i<partychecks.length;i++){
+        if (partychecks[i].checked){
+            if (partybuffref[partychecks[i].id].cond.length == 0){
+                try {
+                    totalPartyBuff += partybuffref[partychecks[i].id][type][0];
+                } catch (err) {}
+            }
+            else if (partybuffref[partychecks[i].id].cond.includes(masterValues.unitcard["element"])||partybuffref[partychecks[i].id].cond.includes(masterValues.baseClass)){
+                try {
+                    totalPartyBuff += partybuffref[partychecks[i].id][type][0];
+                } catch (err) {}
+            }
+        }
+    }
+    totalPartyBuff = totalPartyBuff/100 + 1
+    //console.log(type+"-pBuff:",totalPartyBuff)
+    for (i=0;i<divinechecks.length;i++){
+        let divineCB = divinechecks[i];
+        let divineLV = Number(document.getElementById("level"+divineCB.id.split("divine")[1]).value);
+        //console.log(partybuffref[divineCB.id].cond)
+        if (divineCB.checked){
+            if (partybuffref[divineCB.id].cond.length == 0){
+                try {
+                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]/100 + 1);
+                    break
+                } catch (err) {//console.log("No buff")
+                }
+            }
+            else if (partybuffref[divineCB.id].cond.includes(masterValues.unitcard["element"])||partybuffref[divineCB.id].cond.includes(masterValues.baseClass)){
+                try {
+                    //console.log(partybuffref[divineCB.id][type][divineLV-1])
+                    if (typeof partybuffref[divineCB.id][type][divineLV-1] == "number"){
+                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]/100 + 1);
+                    break
+                    } else {}
+                } catch (err) {//console.log("No buff")
+                    totalPartyBuff *= 1
+                }
+            } else {//console.log("Error 3")
+            }
+        } else {}
+    }
+    console.log(type+"-pdBuff:",totalPartyBuff)
+    return totalPartyBuff
+}
+
+function oldAllDPS(){
     let RateBuff1 = [0];
     let AddBuff1 = [0];
     let RateBuff2 = [0];
@@ -113,46 +413,46 @@ function calculateStat(level,cc,type){
         //console.log("Either subskill is 'None'")
         if (subskillID_1 == -1 && subskillID_2 != -1) {
             //subskill 2 is active
-            let attachTalentList = attachData.table[subskillID_2].talentList;
-            RateBuff1.push(extractAttachTalent(attachTalentList,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachTalentList,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachTalentList,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachTalentList,type,1)[1])
+            let attachObject = attach_ability_data.table[subskillID_2].talentList;
+            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
+            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
+            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
+            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
         } else if (subskillID_1 != -1 && subskillID_2 == -1) {
             //subskill 1 is active
-            let attachTalentList = attachData.table[subskillID_1].talentList;
-            RateBuff1.push(extractAttachTalent(attachTalentList,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachTalentList,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachTalentList,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachTalentList,type,1)[1])
+            let attachObject = attach_ability_data.table[subskillID_1].talentList;
+            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
+            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
+            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
+            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
         } else {
             //no subskill is active
         }
-    } else if (attachData.table[subskillID_1].name.split(" ")[0] == attachData.table[subskillID_2].name.split(" ")[0]){
+    } else if (attach_ability_data.table[subskillID_1].name.split(" ")[0] == attach_ability_data.table[subskillID_2].name.split(" ")[0]){
         //console.log("Same kind of subskill")
         if (subskillID_1 >= subskillID_2){
-            let attachTalentList = attachData.table[subskillID_1].talentList;
-            RateBuff1.push(extractAttachTalent(attachTalentList,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachTalentList,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachTalentList,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachTalentList,type,1)[1])
+            let attachObject = attach_ability_data.table[subskillID_1].talentList;
+            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
+            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
+            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
+            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
         } else {
-            let attachTalentList = attachData.table[subskillID_2].talentList;
-            RateBuff1.push(extractAttachTalent(attachTalentList,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachTalentList,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachTalentList,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachTalentList,type,1)[1])
+            let attachObject = attach_ability_data.table[subskillID_2].talentList;
+            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
+            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
+            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
+            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
         }
     } else {
         //console.log("Different kind of subskill")
-        let attachTalentList = attachData.table[subskillID_1].talentList;
-        let tempSubskill1 = extractAttachTalent(attachTalentList,type,23)
-        let tempSubskill2 = extractAttachTalent(attachTalentList,type,1)
-        attachTalentList = attachData.table[subskillID_2].talentList;
-        RateBuff1.push(extractAttachTalent(attachTalentList,type,23)[0]+tempSubskill1[0])
-        AddBuff1.push(extractAttachTalent(attachTalentList,type,23)[1]+tempSubskill1[1])
-        RateBuff2.push(extractAttachTalent(attachTalentList,type,1)[0]+tempSubskill2[0])
-        AddBuff2.push(extractAttachTalent(attachTalentList,type,1)[1]+tempSubskill2[1])
+        let attachObject = attach_ability_data.table[subskillID_1].talentList;
+        let tempSubskill1 = extractAttachTalent(attachObject,type,23)
+        let tempSubskill2 = extractAttachTalent(attachObject,type,1)
+        attachObject = attach_ability_data.table[subskillID_2].talentList;
+        RateBuff1.push(extractAttachTalent(attachObject,type,23)[0]+tempSubskill1[0])
+        AddBuff1.push(extractAttachTalent(attachObject,type,23)[1]+tempSubskill1[1])
+        RateBuff2.push(extractAttachTalent(attachObject,type,1)[0]+tempSubskill2[0])
+        AddBuff2.push(extractAttachTalent(attachObject,type,1)[1]+tempSubskill2[1])
     }
     //↓ATTACH AND SELF-BUFF STAT↓//
     RateBuff1.push(selfBuff[type][0])
@@ -162,11 +462,15 @@ function calculateStat(level,cc,type){
     console.log(type+"Rate1:",RateBuff1Mult,type+"Add1:",AddBuff1Mult);
     rawStat = Math.floor(rawStat * RateBuff1Mult + AddBuff1Mult);
     //↑ATTACH AND SELF-BUFF STAT↑//
+
+
+
+    /*
     //EQUIPMENT STAT//
     rawStat += equipValues("1",type,cc) + equipValues("2",type,cc) + equipValues("3",type,cc) + equipValues("4",type,cc);
     //PARTY+DIVINE STAT//
     //console.log(rawStat);
-    rawStat = Math.floor(rawStat * partyValues(type));
+    rawStat = Math.floor(rawStat * pdMultValues(type));
     rawStat = Math.floor(rawStat + divineAdd(type));
     var upperStat = Math.floor(rawStat * 10);
     var lowerStat = Math.floor(rawStat * 0.5);
@@ -176,18 +480,18 @@ function calculateStat(level,cc,type){
     //START OF BATTLE STATS//
     //ATTRIBUTE TILE//
     if (document.getElementById("shared20001").checked){
-        if (type === "Atk"||type === "pDef"||type === "mDef"){
+        if (type === "stat2"||type === "stat3"||type === "stat4"){
             RateBuff2.push(15*attrEffect);
-        } else if (type === "Range"){
+        } else if (type === "stat7"){
             RateBuff2.push(10*attrEffect);
         } else {}
     }
     //TACTICS GUARD//
-    if (type === "pDef"){
+    if (type === "stat3"){
         RateBuff2.push(Number(document.getElementById("shared20003").value)*4);
     }
     //ATKUP WHILE MOVE (1090)//
-    if (type === "Atk"){
+    if (type === "stat2"){
         if (Number(document.getElementById("subskill1").value) === 1090 || Number(document.getElementById("subskill2").value === 1090)){
             if (document.getElementById("shared20004").checked){
                 RateBuff2.push(100);
@@ -219,17 +523,21 @@ function calculateStat(level,cc,type){
     console.log(type+"Rate2:",RateBuff2Mult,type+"Add2:",AddBuff2Mult);
     let battleStat = Math.floor(rawStat * RateBuff2Mult + AddBuff2Mult);
     if (battleStat < lowerStat){
-        battleStat = lowerStat
+        battleStat = lowerStat;
     } else if (battleStat > upperStat){
-        battleStat = upperStat
+        battleStat = upperStat;
     } else {}
-    document.getElementById("dps-output-battle-value-"+type).innerHTML = battleStat
+    document.getElementById("dps-output-battle-value-"+type).innerHTML = battleStat;
     //EX Skill//
     let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
     let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
     getOwnSkillRates(type)
 
     
+
+
+
+    */
 }
 function getOwnSkillRates(type){
     let totalOwnSkillRate = 0;
@@ -239,12 +547,12 @@ function getOwnSkillRates(type){
 
 function charaSpecificSkillRates(type){
     let totalSpecificRate = 0;
-    let CSnumber = document.getElementsByClassName("chara-specific-"+charID.toString()).length;
+    let CSnumber = document.getElementsByClassName("chara-specific-"+masterValues.charaID.toString()).length;
     for (let i=1;i<(CSnumber+1);i++){
-        let charaSpecificIndex = document.getElementById("charaSpecific"+charID.toString()+"-"+i.toString()).value;
-        if (charAwaked){
+        let charaSpecificIndex = document.getElementById("charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()).value;
+        if (masterValues.charaAwaked){
             try {
-                let CSList = charaSpecificRef["charaSpecific"+charID.toString()+"-"+i.toString()+"a"][type];
+                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()+"a"][type];
                 if (typeof CSList[0] === "number"){
                     if (charaSpecificIndex > CSList.length){
                         totalSpecificRate += CSList[CSList.length-1];
@@ -255,7 +563,7 @@ function charaSpecificSkillRates(type){
             } catch (err) {}
         } else {
             try {
-                let CSList = charaSpecificRef["charaSpecific"+charID.toString()+"-"+i.toString()][type];
+                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()][type];
                 if (typeof CSList[0] === "number"){
                     if (charaSpecificIndex > CSList.length){
                         totalSpecificRate += CSList[CSList.length-1];
@@ -270,12 +578,12 @@ function charaSpecificSkillRates(type){
 }
 function charaSpecificSkillAdds(type){
     let totalSpecificAdd = 0;
-    let CSnumber = document.getElementsByClassName("chara-specific-"+charID.toString()).length;
+    let CSnumber = document.getElementsByClassName("chara-specific-"+masterValues.charaID.toString()).length;
     for (let i=1;i<(CSnumber+1);i++){
-        let charaSpecificIndex = document.getElementById("charaSpecific"+charID.toString()+"-"+i.toString()).value;
-        if (charAwaked){
+        let charaSpecificIndex = document.getElementById("charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()).value;
+        if (masterValues.charaAwaked){
             try {
-                let CSList = charaSpecificRef["charaSpecific"+charID.toString()+"-"+i.toString()+"a"][type];
+                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()+"a"][type];
                 if (typeof CSList[0] === "string"){
                     if (charaSpecificIndex > CSList.length){
                         totalSpecificAdd += Number(CSList[CSList.length-1].split("a")[1]);
@@ -286,7 +594,7 @@ function charaSpecificSkillAdds(type){
             } catch (err) {}
         } else {
             try {
-                let CSList = charaSpecificRef["charaSpecific"+charID.toString()+"-"+i.toString()][type];
+                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()][type];
                 if (typeof CSList[0] === "string"){
                     if (charaSpecificIndex > CSList.length){
                         totalSpecificAdd += Number(CSList[CSList.length-1].split("a")[1]);
@@ -311,7 +619,7 @@ function allAlliesSkillRate(type){
                     break
                 } catch (err) {//console.log("No buff")
                 }
-            } else if (partybuffref[otherSkillCB.id].cond.includes(char["attribute"])||partybuffref[otherSkillCB.id].cond.includes(baseClass)){
+            } else if (partybuffref[otherSkillCB.id].cond.includes(char["attribute"])||partybuffref[otherSkillCB.id].cond.includes(masterValues.baseClass)){
                 try {
                     totalAllAlliesSkill += Number(partybuffref[otherSkillCB.id][type][otherSkillLV-1]);
                     break
@@ -341,7 +649,7 @@ function divineAdd(type){
                 } catch (err) {//console.log("No buff")
                 }
             }
-            else if (partybuffref[divineCB.id].cond.includes(char["attribute"])||partybuffref[divineCB.id].cond.includes(baseClass)){
+            else if (partybuffref[divineCB.id].cond.includes(char["attribute"])||partybuffref[divineCB.id].cond.includes(masterValues.baseClass)){
                 try {
                     if (typeof partybuffref[divineCB.id][type][divineLV-1] == "string");
                     console.log("String");
@@ -358,54 +666,6 @@ function divineAdd(type){
     return totalDivineAddBuff;
 }
 
-function partyValues(type){
-    let totalPartyBuff = 0;
-    for (i=0;i<partychecks.length;i++){
-        if (partychecks[i].checked){
-            if (partybuffref[partychecks[i].id].cond.length == 0){
-                try {
-                    totalPartyBuff += partybuffref[partychecks[i].id][type][0];
-                } catch (err) {}
-            }
-            else if (partybuffref[partychecks[i].id].cond.includes(char["attribute"])||partybuffref[partychecks[i].id].cond.includes(baseClass)){
-                try {
-                    totalPartyBuff += partybuffref[partychecks[i].id][type][0];
-                } catch (err) {}
-            }
-        }
-    }
-    totalPartyBuff = totalPartyBuff/100 + 1
-    //console.log(type+"-pBuff:",totalPartyBuff)
-    for (i=0;i<divinechecks.length;i++){
-        let divineCB = divinechecks[i];
-        let divineLV = Number(document.getElementById("level"+divineCB.id.split("divine")[1]).value);
-        //console.log(partybuffref[divineCB.id].cond)
-        if (divineCB.checked){
-            if (partybuffref[divineCB.id].cond.length == 0){
-                try {
-                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]/100 + 1);
-                    break
-                } catch (err) {//console.log("No buff")
-                }
-            }
-            else if (partybuffref[divineCB.id].cond.includes(char["attribute"])||partybuffref[divineCB.id].cond.includes(baseClass)){
-                try {
-                    //console.log(partybuffref[divineCB.id][type][divineLV-1])
-                    if (typeof partybuffref[divineCB.id][type][divineLV-1] == "number"){
-                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]/100 + 1);
-                    break
-                    } else {}
-                } catch (err) {//console.log("No buff")
-                    totalPartyBuff *= 1
-                }
-            } else {//console.log("Error 3")
-            }
-        } else {}
-    }
-    console.log(type+"-pdBuff:",totalPartyBuff)
-    return totalPartyBuff
-}
-
 function equipValues(equipnumber,type,cc){
     let value;
     if (document.getElementById("equip"+equipnumber).checked){
@@ -418,7 +678,7 @@ function extractAttachTalent(list,type,time){
     let attachTalentRate = 0;
     let attachTalentActual = 0;
     let attachTalentFixed = -1;
-    if (type == "HP"){
+    if (type == "stat1"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,1,time)
             attachTalentRate -= talentParseParamOnly(list,2,time)
@@ -426,7 +686,7 @@ function extractAttachTalent(list,type,time){
             attachTalentActual -= talentParseParamOnly(list,4,time)
             attachTalentFixed = talentParseParamOnly(list,5,time)
             }
-    } else if (type == "Atk"){
+    } else if (type == "stat2"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,6,time)
             attachTalentRate -= talentParseParamOnly(list,7,time)
@@ -434,7 +694,7 @@ function extractAttachTalent(list,type,time){
             attachTalentActual -= talentParseParamOnly(list,9,time)
             attachTalentFixed = talentParseParamOnly(list,10,time)
             }
-    } else if (type == "pDef"){
+    } else if (type == "stat3"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,11,time)
             attachTalentRate -= talentParseParamOnly(list,12,time)
@@ -442,7 +702,7 @@ function extractAttachTalent(list,type,time){
             attachTalentActual -= talentParseParamOnly(list,14,time)
             attachTalentFixed = talentParseParamOnly(list,15,time)
             }
-    } else if (type == "mDef"){
+    } else if (type == "stat4"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,16,time)
             attachTalentRate -= talentParseParamOnly(list,17,time)
@@ -450,7 +710,7 @@ function extractAttachTalent(list,type,time){
             attachTalentActual -= talentParseParamOnly(list,19,time)
             attachTalentFixed = talentParseParamOnly(list,20,time)
             }
-    } else if (type == "aSpd"){
+    } else if (type == "stat5"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,26,time)
             attachTalentRate -= talentParseParamOnly(list,27,time)
@@ -458,7 +718,7 @@ function extractAttachTalent(list,type,time){
             attachTalentActual -= talentParseParamOnly(list,29,time)
             attachTalentFixed = talentParseParamOnly(list,30,time)
             }
-    } else if (type == "PAD"){
+    } else if (type == "stat6"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,31,time)
             attachTalentRate -= talentParseParamOnly(list,32,time)
@@ -466,7 +726,7 @@ function extractAttachTalent(list,type,time){
             attachTalentActual -= talentParseParamOnly(list,34,time)
             attachTalentFixed = talentParseParamOnly(list,35,time)
             }
-    } else if (type == "Range"){
+    } else if (type == "stat7"){
         for (i = 0;i<list.length;i++){
             attachTalentRate += talentParseParamOnly(list,36,time)
             attachTalentRate -= talentParseParamOnly(list,37,time)
@@ -489,10 +749,10 @@ function talentParseParamOnly(list,bufftype,time) {
                     return (100-remainHP)/100 * Number(list[i].param[0].num[0]);
                 }
             } else if (list[i].activeData[0].type == 1006) {
-                if ((baseClass+1000).toString().slice(1,2) == list[i].activeData[0].num[0]){
+                if ((masterValues.baseClass+1000).toString().slice(1,2) == list[i].activeData[0].num[0]){
                     return Number(list[i].param[0].num[0]);
                 } else if (bufftype%5 == 0) {return -1;} else {return 0;}
-            } else if (baseClass >= list[i].activeData[0].num[0] && baseClass <= list[i].activeData[1].num[0]){
+            } else if (masterValues.baseClass >= list[i].activeData[0].num[0] && masterValues.baseClass <= list[i].activeData[1].num[0]){
                 return Number(list[i].param[0].num[0])
             } else if (bufftype%5 == 0) {return -1;} else {return 0;}
         } else {
@@ -503,19 +763,19 @@ function talentParseParamOnly(list,bufftype,time) {
 
 function talentIdentifier(talentText){
     if (talentText.slice(0,2) == "最大"){
-        return "HP";
+        return "stat1";
     } else if (talentText.slice(0,2) == "攻撃"){
         if (talentText.slice(0,3) == "攻撃力") {
-            return "Atk";
+            return "stat2";
         } else if (talentText.slice(0,3) == "攻撃速") {
-            return "aSpd";
+            return "stat6";
         }
     } else if (talentText.slice(0,2) == "物理"){
-        return "pDef";
+        return "stat3";
     } else if (talentText.slice(0,2) == "魔法"){
-        return "mDef";
+        return "stat4";
     } else if (talentText.slice(0,2) == "射程"){
-        return "Range";
+        return "stat7";
     } else {
         return
     }
@@ -524,13 +784,13 @@ function talentIdentifier(talentText){
 function getAttachID(subskillSelectID){
     let requireCheck = [1040,1041,1042,1043,1044,1045,1090];
     let subskillSelect = Number(document.getElementById(subskillSelectID).value);
-    let subskillIndex = attachData.table.findIndex(object => {return object.id === subskillSelect})
+    let subskillIndex = attach_ability_data.table.findIndex(object => {return object.id === subskillSelect})
     if (requireCheck.includes(subskillSelect)){
         document.getElementById(subskillSelectID+"condcheck").innerHTML = "「条件」をチェック！";
     } else {
         document.getElementById(subskillSelectID+"condcheck").innerHTML = "";
     }
-    return subskillIndex
+    return subskillIndex;
 }
 
 function updateBlockCount(){
@@ -543,21 +803,9 @@ function updateBlockCount(){
     }
 }
 function talenttext(){
-    document.getElementById("talent3").innerHTML = char.awakeData["3"];
-    document.getElementById("talent4").innerHTML = char.awakeData["4"];
-    document.getElementById("talent5").innerHTML = char.awakeData["5"];
-}
-function skilltextreplace(){
-    let skillaltnumber = "skillText"+document.getElementById("skill-alt-select").value;
-    let skilllevelnumber = "lv"+document.getElementById("skill-level-select").value;
-    document.getElementById("dps-output-menu-skill-text").innerHTML = char[skillaltnumber][skilllevelnumber].split("(Cooldown")[0];
-    document.getElementById("dps-output-battle-skill-text").innerHTML = char[skillaltnumber][skilllevelnumber].split("(Cooldown")[0];
-    document.getElementById("dps-output-skill-skill-text").innerHTML = char[skillaltnumber][skilllevelnumber].split("(Cooldown")[0];
-}
-function traittextreplace(){
-    document.getElementById("dps-output-menu-trait-text").innerHTML =  char.traitText.replace("awaked","フル覚醒");
-    document.getElementById("dps-output-battle-trait-text").innerHTML =  char.traitText.replace("awaked","フル覚醒");
-    document.getElementById("dps-output-skill-trait-text").innerHTML =  char.traitText.replace("awaked","フル覚醒");
+    document.getElementById("talent3").innerHTML = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === masterValues.unitcard["awakingAbilityId3"]})]["name"];
+    document.getElementById("talent4").innerHTML = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === masterValues.unitcard["awakingAbilityId4"]})]["name"];
+    document.getElementById("talent5").innerHTML = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === masterValues.unitcard["awakingAbilityId5"]})]["name"];
 }
 function divineOneOnly(divineid){
     for (i=0;i<divinechecks.length;i++){
@@ -565,20 +813,129 @@ function divineOneOnly(divineid){
     }
     document.getElementById(divineid).checked = true;
 }
-
-
-
-window.addEventListener("load", talenttext);
-window.addEventListener("load", traittextreplace);
-window.addEventListener("load", skilltextreplace);
-window.addEventListener("load",equipImageChange);
-window.addEventListener("load",allDPS);
-
-
-
-
-
-
+function skilltextreplace(){
+    let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
+    let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
+    let skillchangenumber = Number(document.getElementById("skill-change-select").value);
+    let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
+    //manipulation//
+    let baseText = skillObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>"); //replace "\r","\n" in future(?)
+    let beforeArray = baseText.match(/(?<=\[)[^\][]*(?=])/g);
+    let maxDuration = skillObject["maxDurationTime"];
+    let minDuration = skillObject["minDurationTime"];
+    for (let i=0; i<beforeArray.length;i++){
+        let B4Asplit = beforeArray[i].split(",")
+        if (beforeArray[i] === "duration"){
+            let replaceDuration = Math.floor((minDuration + (maxDuration-minDuration)/4*(skilllevelnumber-1))/30);
+            baseText = baseText.replace("duration",replaceDuration.toString());
+        } else if (B4Asplit[0] === "MAG") {
+            let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+            let maxParam = skillObject["talentList"][B4Asplit[1]]["maxParam"][B4Asplit[2]]["num"][0];
+            if (maxParam === 0){maxParam = minParam} else {}
+            let replaceParam = Math.floor(minParam + (maxParam-minParam)/4*(skilllevelnumber-1))/100;
+            if (skillObject["talentList"][B4Asplit[1]]["param"].length === 1){
+                replaceParam += 1;
+            } else {
+                let plusOneTest = false;
+                //changed j=0 to j=1, not sure if affects
+                for (let j=1;j<skillObject["talentList"][B4Asplit[1]]["param"].length;j++){
+                    if (skillObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 1 || skillObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 2){
+                        plusOneTest = true;
+                    } else {}
+                }
+                if (plusOneTest){} else {replaceParam+=1;}
+            }
+            baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+        } else if (B4Asplit[0] === "0"){
+            let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+            let maxParam = skillObject["talentList"][B4Asplit[1]]["maxParam"][B4Asplit[2]]["num"][0];
+            let replaceParam = Math.floor((minParam + (maxParam-minParam)/4*(skilllevelnumber-1)));
+            baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+        }
+    }
+    let pattern = baseText.match(/\[(attack|hp|defense|mdefense),\[(\d|\.)*\]\]/g);
+    if (pattern !== null){
+        for (let i=0; i<pattern.length;i++){
+            let replaceText = "("+pattern[i]+")";
+            replaceText = replaceText.replace("hp,","HP×");
+            replaceText = replaceText.replace("attack,","攻撃力×");
+            replaceText = replaceText.replace("defense,","物理防御×");
+            replaceText = replaceText.replace("mdefense,","魔法防御×");
+            baseText = baseText.replace(pattern[i],replaceText);
+        }
+    }
+    baseText = baseText.replace(/\[/g,"").replace(/\]/g,"");
+    document.getElementById("dps-output-menu-skill-text").innerHTML = baseText;
+    document.getElementById("dps-output-battle-skill-text").innerHTML = baseText;
+    document.getElementById("dps-output-skill-skill-text").innerHTML = baseText;
+}
+function traittextreplace(){
+    let traitObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.charaID-10000)})];
+    //manipulation//
+    let baseText = traitObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>"); //replace "\r","\n" in future(?)
+    console.log(baseText);
+    let beforeArray = baseText.match(/(?<=\[)[^\][]*(?=])/g);
+    console.log(beforeArray);
+    for (let i=0; i<beforeArray.length;i++){
+        let B4Asplit = beforeArray[i].split(",")
+        if (B4Asplit[0] === "awaked"){
+        } else if (B4Asplit[0] === "MAG") {
+            let replaceParam = traitObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0]/100;
+            console.log(replaceParam);
+            if (traitObject["talentList"][B4Asplit[1]]["param"].length === 1){
+                replaceParam += 1;
+            } else {
+                let plusOneTest = false;
+                //changed j=0 to j=1, not sure if affects
+                for (let j=1;j<traitObject["talentList"][B4Asplit[1]]["param"].length;j++){
+                    if (traitObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 1 || skillObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 2){
+                        plusOneTest = true;
+                    } else {}
+                }
+                if (plusOneTest){} else {replaceParam+=1;}
+            }
+            baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+        } else if (B4Asplit[0] === "0"){
+            let replaceParam = traitObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+            baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+        }
+    }
+    console.log(baseText);
+    //need notawaked also, look at loren (10028)
+    let pattern = baseText.match(/\[awaked,.*\]/g);
+    if (pattern !== null){
+        for (let i=0; i<pattern.length;i++){
+            let replaceText = "("+pattern[i]+")";
+            replaceText = replaceText.replace("awaked,","フル覚醒で");
+            baseText = baseText.replace(pattern[i],replaceText);
+        }
+    }
+    baseText = baseText.replace(/\[/g,"").replace(/\]/g,"");
+    document.getElementById("dps-output-menu-trait-text").innerHTML = baseText;
+    document.getElementById("dps-output-battle-trait-text").innerHTML = baseText;
+    document.getElementById("dps-output-skill-trait-text").innerHTML = baseText;
+}
+function conditionalOption(conditional, option, value){
+    if (option === ""){
+        return (conditional === value);
+    } else if (option === "!") {
+        return (conditional !== value);
+    } else if (option === ">") {
+        return (conditional > value);
+    } else if (option === ">=") {
+        return (conditional >= value);
+    } else if (option === "<") {
+        return (conditional < value);
+    } else if (option === "<=") {
+        return (conditional <= value);
+    } else {return true;}
+}
+/*
+const text = "[Some text] ][with[ [some important info]";
+console.log( text.match(/(?<=\[)[^\][]*(?=])/g) );
+console.log( Array.from(text.matchAll(/\[([^\][]*)]/g), x => x[1]) );
+// Both return ["Some text", "some important info"]
+*/ 
 
 //super-long/repetitive code starts here
 function attachOptions1() {
@@ -792,5 +1149,15 @@ attachOptions.forEach(option =>
   )
 );
 }
+//loaders//
+window.addEventListener("load", talenttext);
+window.addEventListener("load", traittextreplace);
+window.addEventListener("load", skilltextreplace);
+window.addEventListener("load",equipImageChange);
+window.addEventListener("load",selfConditionUpdate);
+window.addEventListener("load",allDPS);
+//repetitive//
 window.addEventListener("load", attachOptions1);
 window.addEventListener("load", attachOptions2);
+//test//
+console.log(undefined !== 3);

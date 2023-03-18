@@ -85,7 +85,7 @@ tr, td{
 
 @font-face {
     font-family: mtdfont;
-    src: url(../font/FOT-NewRodinProN-EB.otf);
+    src: url(../font/Mplus2-Medium.otf);
     font-weight: bold;
 }
 @font-face {
@@ -107,20 +107,16 @@ hr{
 }
 
 #dps-input{
-    width: 50%;
-    flex: 1;
+    width: 100%;
 }
 #dps-dps{
-    width: 50%;
-    flex: 1;
+    width: 100%;
 }
 #dps-output{
-    width: 50%;
-    flex: 1;
+    width: 100%;
 }
 #dps-info{
-    width: 50%;
-    flex: 1;
+    width: 100%;
 }
 
 #dps-input td{

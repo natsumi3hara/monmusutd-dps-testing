@@ -1,0 +1,151 @@
+const summon_point_data = {
+	"m_GameObject": {
+		"m_FileID": 0,
+		"m_PathID": 0
+	},
+	"m_Enabled": 1,
+	"m_Script": {
+		"m_FileID": 0,
+		"m_PathID": 8067521045042604447
+	},
+	"m_Name": "summon_point_data",
+	"table": [{
+		"id": 1,
+		"rarity": 0,
+		"name": "属性一致",
+		"kana": "",
+		"text": "召喚点と配置ユニットの属性が一致した場合",
+		"restrictionForClass": 0,
+		"restrictionForTribe": 0,
+		"restrictionForElement": 0,
+		"restrictionForFamily": 0,
+		"talentList": [{
+			"talentId": 6,
+			"param": [{
+				"num": [15]
+			}],
+			"maxParam": [{
+				"num": [0]
+			}],
+			"timing": 20,
+			"range": 1,
+			"triggerData": [],
+			"activeData": []
+		}, {
+			"talentId": 11,
+			"param": [{
+				"num": [15]
+			}],
+			"maxParam": [{
+				"num": [0]
+			}],
+			"timing": 20,
+			"range": 1,
+			"triggerData": [],
+			"activeData": []
+		}, {
+			"talentId": 16,
+			"param": [{
+				"num": [15]
+			}],
+			"maxParam": [{
+				"num": [0]
+			}],
+			"timing": 20,
+			"range": 1,
+			"triggerData": [],
+			"activeData": []
+		}, {
+			"talentId": 36,
+			"param": [{
+				"num": [10]
+			}, {
+				"num": [0]
+			}, {
+				"num": [0]
+			}, {
+				"num": [10047]
+			}],
+			"maxParam": [{
+				"num": [0]
+			}, {
+				"num": [0]
+			}, {
+				"num": [0]
+			}, {
+				"num": [0]
+			}],
+			"timing": 20,
+			"range": 1,
+			"triggerData": [],
+			"activeData": []
+		}],
+		"recipeId": 0,
+		"skipend": 0
+	}, {
+		"id": 101,
+		"rarity": 0,
+		"name": "宝箱入手",
+		"kana": "",
+		"text": "",
+		"restrictionForClass": 0,
+		"restrictionForTribe": 0,
+		"restrictionForElement": 0,
+		"restrictionForFamily": 0,
+		"talentList": [],
+		"recipeId": 0,
+		"skipend": 0
+	}, {
+		"id": 102,
+		"rarity": 0,
+		"name": "宝箱入手",
+		"kana": "",
+		"text": "",
+		"restrictionForClass": 0,
+		"restrictionForTribe": 0,
+		"restrictionForElement": 0,
+		"restrictionForFamily": 0,
+		"talentList": [],
+		"recipeId": 0,
+		"skipend": 0
+	}, {
+		"id": 103,
+		"rarity": 0,
+		"name": "宝箱入手",
+		"kana": "",
+		"text": "",
+		"restrictionForClass": 0,
+		"restrictionForTribe": 0,
+		"restrictionForElement": 0,
+		"restrictionForFamily": 0,
+		"talentList": [],
+		"recipeId": 0,
+		"skipend": 0
+	}, {
+		"id": 104,
+		"rarity": 0,
+		"name": "宝箱入手",
+		"kana": "",
+		"text": "",
+		"restrictionForClass": 0,
+		"restrictionForTribe": 0,
+		"restrictionForElement": 0,
+		"restrictionForFamily": 0,
+		"talentList": [],
+		"recipeId": 0,
+		"skipend": 0
+	}, {
+		"id": 105,
+		"rarity": 0,
+		"name": "宝箱入手",
+		"kana": "",
+		"text": "",
+		"restrictionForClass": 0,
+		"restrictionForTribe": 0,
+		"restrictionForElement": 0,
+		"restrictionForFamily": 0,
+		"talentList": [],
+		"recipeId": 0,
+		"skipend": 0
+	}]
+}

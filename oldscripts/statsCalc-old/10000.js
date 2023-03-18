@@ -1,0 +1,26 @@
+var equip = {
+    "0":[
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0}
+    ],
+    "1":[
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0}
+    ],
+    "2":[
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0}
+    ],
+    "3":[
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0},
+        {"stat1":0,"Atk":0,"pDef":0,"mDef":0,"aSpd":0,"Range":0,"PAD":0,"Block":0}
+    ]
+}
