@@ -72,7 +72,7 @@ document.write(`
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">HP残量</span>
-                <span class="shared-buff-label"><input id="shared20002" type="number" min="0" max="100" value="100" style="width:65%;height:50%;margin:2px auto;border:none;" onChange="allDPS();">&nbsp;%</span>
+                <span class="shared-buff-label"><input id="shared20002" type="number" min="0" max="100" value="100" style="width:65%;height:50%;margin:2px auto;border:none;" onchange="equipImageChange();selfConditionChange('2000',this.value);selfReferenceChange('200',this.value);allDPS();">&nbsp;%</span>
                 <span class="shared-buff-label"></span>
             </div>
         </div>
@@ -105,14 +105,14 @@ document.write(`
 <script>
 let sharedchecks = document.getElementsByClassName("shared-check")
 for (let i=0;i<sharedchecks.length;i++){
-    if (sharedchecks[i].id == "shared"+masterValues.charaID.toString()){
+    if (sharedchecks[i].id == "shared"+charID.toString()){
         sharedchecks[i].disabled = true;
         sharedchecks[i].checked = true;
     } else {}
-    if (sharedchecks[i].id == "awake"+masterValues.charaID.toString() && charAwaked){
+    if (sharedchecks[i].id == "awake"+charID.toString() && charAwaked){
         sharedchecks[i].disabled = true;
         sharedchecks[i].checked = true;
-    } else if (sharedchecks[i].id == "awake"+masterValues.charaID.toString()){
+    } else if (sharedchecks[i].id == "awake"+charID.toString()){
         sharedchecks[i].disabled = true;
     } else {}
 }
