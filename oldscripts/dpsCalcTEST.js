@@ -27,6 +27,17 @@ function testLevelCC(){
         document.getElementById("input-cc").value = 0
     }
 }
+function printHI(){
+    console.log("hi");
+}
+function selfConditionChange(index,value){
+    selfConditions[index] = value;
+    console.log(selfConditions["2000"]);
+}
+function selfReferenceChange(index,value){
+    selfReference[index] = value;
+    console.log(selfReference["200"]);
+}
 function selfConditionUpdate(){
     let cc = Number(document.getElementById("input-cc").value)
     let job = job_data["table"][job_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
@@ -51,22 +62,22 @@ function selfConditionUpdate(){
 }
 function equipImageChange(){
     let cc = Number(document.getElementById("input-cc").value) + 1;
-    let weapon = document.getElementById("equipweapon")
-    let head = document.getElementById("equiphead")
-    let body = document.getElementById("equipbody")
-    let accessory = document.getElementById("equipaccessory")
-    let weaponabbr = document.getElementById("equipweaponabbr")
-    let headabbr = document.getElementById("equipheadabbr")
-    let bodyabbr = document.getElementById("equipbodyabbr")
-    let accessoryabbr = document.getElementById("equipaccessoryabbr")
-    weapon.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][0]+cc.toString()+".png"
-    head.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][1]+cc.toString()+".png"
-    body.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][2]+cc.toString()+".png"
-    accessory.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][3]+cc.toString()+".png"
-    weaponabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][0]
-    headabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][1]
-    bodyabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][2]
-    accessoryabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][3]
+    let weapon = document.getElementById("equipweapon");
+    let head = document.getElementById("equiphead");
+    let body = document.getElementById("equipbody");
+    let accessory = document.getElementById("equipaccessory");
+    let weaponabbr = document.getElementById("equipweaponabbr");
+    let headabbr = document.getElementById("equipheadabbr");
+    let bodyabbr = document.getElementById("equipbodyabbr");
+    let accessoryabbr = document.getElementById("equipaccessoryabbr");
+    weapon.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][0]+cc.toString()+".png";
+    head.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][1]+cc.toString()+".png";
+    accessory.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][2]+cc.toString()+".png";
+    body.src = "../../img/equipment-icons/"+equipConvert[masterValues.baseClass.toString()][3]+cc.toString()+".png";
+    weaponabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][0];
+    headabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][1];
+    bodyabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][3];
+    accessoryabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][2];
 }
 
 function allDPS(){
@@ -203,15 +214,15 @@ function calculateStat(level,cc,type){
     cycleAllTalents(traitObject,type,"trait");
     console.log("allbuff-at-cl-tr:",masterValues.allBuff); //here
     //((元能力値+潜在覚醒能力値)*乗算効果 + 加算効果)*編成バフ
-    let multEffect1 = Number(addMinusRateActual(masterValues.allBuff,[23],"rate"))+1-1;
+    let multEffect1 = Number(addMinusRateActual(masterValues.allBuff,[23],"rate"));
     let addEffect1 = Number(addMinusRateActual(masterValues.allBuff,[23],"actual"));
     let equipEffect = Number(equipValues("1",type,cc) + equipValues("2",type,cc) + equipValues("3",type,cc) + equipValues("4",type,cc));
-    let pdEffect = pdMultValues(type)+1-1;
+    let pdEffect = pdMultValues(type);
     console.log("multEffect1: "+multEffect1);
     console.log("addEffect1: "+addEffect1);
     console.log("equipEffect:"+equipEffect);
     console.log("pdEffect: "+pdEffect);
-    let outputMenu = Math.floor((Math.floor(rawStat * multEffect1) + addEffect1 + equipEffect) * pdEffect)+1-1;
+    let outputMenu = Math.floor((Math.floor(rawStat * multEffect1 / 100) + addEffect1 + equipEffect) * pdEffect / 100);
     let upperStat = 10*outputMenu;
     let lowerStat = Math.floor(0.5*outputMenu);
     try {
@@ -227,29 +238,114 @@ function calculateStat(level,cc,type){
 }
 
 function addMinusRateActual(allBuff,timingList,actualRateFixed){
-    if (actualRateFixed === "rate"){var output = 1;}
+    if (actualRateFixed === "rate"){var output = 100;}
     else {var output = 0;}
+    var count = 0;
     for (let key in allBuff){
         console.log(key);
         if (timingList.includes(Number(key.split("-")[2])) && key.split("-")[0] === actualRateFixed){
-            console.log(allBuff[key]);
+            count += allBuff[key].length;
+            console.log("allBuff[key]: "+allBuff[key]);
+            //
             if (actualRateFixed === "rate"){
                 if (key.split("-")[1] === "plus"){
-                    output *= allBuff[key].reduce((acc,curr)=>(acc)*(1+curr/100),1);
+                    output *= allBuff[key].reduce(outputAccumRatePlus,1);
                 } else if (key.split("-")[1] === "minus"){
-                    output *= allBuff[key].reduce((acc,curr)=>(acc)*(1-curr/100),1);
+                    output *= allBuff[key].reduce((acc,curr)=>((Number(acc))*(100-Number(curr))),1);
                 } else {/*keysplit === none*/}
             } else if (actualRateFixed === "actual"){
                 if (key.split("-")[1] === "plus"){
-                    output += allBuff[key].reduce((acc,curr)=>acc+curr);
+                    output += allBuff[key].reduce(outputAccumActual,0);
                 } else if (key.split("-")[1] === "minus"){
-                    output += allBuff[key].reduce((acc,curr)=>acc-curr);
+                    output -= allBuff[key].reduce(outputAccumActual,0);
                 } else {/*keysplit === none*/}
             } else {/*actualRateFixed is fixed*/}
         } else {} //wrong timing or wrong countType
     }
-    return output;
+    if (actualRateFixed === "rate"){
+        console.log("returned output: "+output);
+        return output / (100**(count));
+    } else {return output;}
 }
+function outputAccumRatePlus(accum, allBuffKey){
+    console.log(allBuffKey);
+    if (allBuffKey.length === 1) {
+        console.log("length 1");
+        console.log(accum * (100+allBuffKey[0][0]));
+        return accum * (100+allBuffKey[0][0]);
+    } else if (allBuffKey.length === 2) {
+        console.log(accum + allBuffKey[0][0]);
+        return accum * (100+allBuffKey[0][0]);
+    } else if (allBuffKey.length === 3) {
+        console.log("length 3");
+        if (allBuffKey[2][0] === 0){
+            return accum * (100+allBuffKey[0][0]);
+        } else {}
+        let referenceValue = selfReference[allBuffKey[2][0].toString()];
+        let referenceValueMax = allBuffKey[2][1];
+        let toBeAdd = 0;
+        if (allBuffKey[2][0] === 200){
+            if (referenceValue <= referenceValueMax) {
+                toBeAdd = allBuffKey[0][0];
+            } else {
+                toBeAdd = (allBuffKey[0][0] * (100-referenceValue)/(100-referenceValueMax));
+            }
+        } else {
+            if (referenceValue >= referenceValueMax) {
+                toBeAdd = allBuffKey[0][0];
+            } else {
+                toBeAdd = (allBuffKey[0][0] * referenceValue / referenceValueMax);
+            }
+        }
+        console.log(accum + toBeAdd);
+        return accum + toBeAdd;
+    } else {console.log("length 0 or more than 3");}
+}
+
+
+
+
+
+function outputAccumActual(accum, allBuffKey){
+    console.log(allBuffKey);
+    if (allBuffKey.length === 1) {
+        console.log("length 1");
+        console.log(accum + allBuffKey[0][0]);
+        return accum + allBuffKey[0][0];
+    } else if (allBuffKey.length === 2) {
+        console.log("length 2");
+        console.log(accum + allBuffKey[0][0]);
+        return accum + allBuffKey[0][0];
+    } else if (allBuffKey.length === 3) {
+        console.log("length 3");
+        if (allBuffKey[2][0] === 0){
+            return accum + allBuffKey[0][0];
+        } else {}
+        let referenceValue = selfReference[allBuffKey[2][0].toString()];
+        let referenceValueMax = allBuffKey[2][1];
+        let toBeAdd = 0;
+        if (allBuffKey[2][0] === 200){
+            if (referenceValue <= referenceValueMax) {
+                toBeAdd = allBuffKey[0][0];
+            } else {
+                toBeAdd = (allBuffKey[0][0] * (100-referenceValue)/(100-referenceValueMax));
+            }
+        } else {
+            if (referenceValue >= referenceValueMax) {
+                toBeAdd = allBuffKey[0][0];
+            } else {
+                toBeAdd = (allBuffKey[0][0] * referenceValue / referenceValueMax);
+            }
+        }
+        console.log(accum + toBeAdd);
+        return accum + toBeAdd;
+    } else {console.log("length 0 or more than 3");}
+}
+
+
+
+
+
 //only use addWithPrevious if there is already an array
 //addwithprevious only works on stats below 1000 (or stat67)
 function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false){
@@ -305,16 +401,30 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false){
                     } else {}
                 } else {
                     //not skill (as of now)
-                    param0 = allTalents[i]["param"][0]["num"][0];
-                    timing = allTalents[i]["timing"].toString();
-                    param = [param0];
+                    if (allTalents[i]["param"].length === 1){
+                        timing = allTalents[i]["timing"].toString();
+                        param0 = allTalents[i]["param"][0]["num"];
+                        param = [param0];
+                    } else if (allTalents[i]["param"].length === 2){
+                        timing = allTalents[i]["timing"].toString();
+                        param0 = allTalents[i]["param"][0]["num"];
+                        param1 = allTalents[i]["param"][1]["num"];
+                        param = [param0,param1];
+                    } else if (allTalents[i]["param"].length > 2){
+                        timing = allTalents[i]["timing"].toString();
+                        param0 = allTalents[i]["param"][0]["num"];
+                        param1 = allTalents[i]["param"][1]["num"];
+                        param2 = allTalents[i]["param"][2]["num"];
+                        param = [param0,param1,param2];
+                    } else {}
                 }//here
+                console.log(addWithPrevious,allTalents[i]["talentId"] < 1000);
                 try {
                     //fixed talent
                     if (eBuffTypeParse(allTalents[i]["talentId"])[1].split("-")[0] === "fixed"){
                         console.log("isFixedTalent");
                         let ABarray = masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing];
-                        let forError = ABarray.length;
+                        let forError = ABarray.length; // will throw an error if ref//
                         //if here, means there is a value here
                         console.log("need to replace");
                         ABarray[ABarray.length-1][0] = param[0];
@@ -330,10 +440,12 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false){
                         }
                     }
                     else if (addWithPrevious && allTalents[i]["talentId"] < 1000){
+                        console.log("addwithprevious");
                         let ABarray = masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing];
-                        ABarray[ABarray.length-1][0] = ABarray[ABarray.length-1][0] + param[0];
+                        ABarray[ABarray.length-1][0] = Number(ABarray[ABarray.length-1][0]) + Number(param[0]);
                     }
                     else {
+                        console.log("not addwithprevious");
                         masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
                     }
                 } catch (err) {
@@ -355,7 +467,7 @@ function eBuffTypeParse(num){
 }
 
 function pdMultValues(type){ //timing = 4//
-    let totalPartyBuff = 0;
+    let totalPartyBuff = 100;
     for (i=0;i<partychecks.length;i++){
         if (partychecks[i].checked){
             if (partybuffref[partychecks[i].id].cond.length == 0){
@@ -370,7 +482,6 @@ function pdMultValues(type){ //timing = 4//
             }
         }
     }
-    totalPartyBuff = totalPartyBuff/100 + 1
     //console.log(type+"-pBuff:",totalPartyBuff)
     for (i=0;i<divinechecks.length;i++){
         let divineCB = divinechecks[i];
@@ -382,24 +493,25 @@ function pdMultValues(type){ //timing = 4//
                     totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]/100 + 1);
                     break
                 } catch (err) {//console.log("No buff")
+                    totalPartyBuff *= 100;
                 }
             }
             else if (partybuffref[divineCB.id].cond.includes(masterValues.unitcard["element"])||partybuffref[divineCB.id].cond.includes(masterValues.baseClass)){
                 try {
                     //console.log(partybuffref[divineCB.id][type][divineLV-1])
                     if (typeof partybuffref[divineCB.id][type][divineLV-1] == "number"){
-                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]/100 + 1);
+                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]+100);
                     break
                     } else {}
                 } catch (err) {//console.log("No buff")
-                    totalPartyBuff *= 1
+                    totalPartyBuff *= 100;
                 }
             } else {//console.log("Error 3")
             }
         } else {}
     }
     console.log(type+"-pdBuff:",totalPartyBuff)
-    return totalPartyBuff
+    return totalPartyBuff/100;
 }
 
 function oldAllDPS(){
@@ -665,12 +777,12 @@ function divineAdd(type){
     console.log(type+"-dAddBuff:",totalDivineAddBuff);
     return totalDivineAddBuff;
 }
-
 function equipValues(equipnumber,type,cc){
     let value;
     if (document.getElementById("equip"+equipnumber).checked){
         value = equip[cc][Number(equipnumber)-1][type];
-    } else {value = 0}
+        if (value === undefined){value = 0;}else{}
+    } else {value = 0;}
     return value;
 }
 
@@ -775,7 +887,7 @@ function talentIdentifier(talentText){
     } else if (talentText.slice(0,2) == "魔法"){
         return "stat4";
     } else if (talentText.slice(0,2) == "射程"){
-        return "stat7";
+        return "stat8";
     } else {
         return
     }
@@ -875,7 +987,13 @@ function traittextreplace(){
     let baseText = traitObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>"); //replace "\r","\n" in future(?)
     console.log(baseText);
     let beforeArray = baseText.match(/(?<=\[)[^\][]*(?=])/g);
-    console.log(beforeArray);
+    console.log(typeof beforeArray);
+    if (!beforeArray){
+        document.getElementById("dps-output-menu-trait-text").innerHTML = baseText;
+        document.getElementById("dps-output-battle-trait-text").innerHTML = baseText;
+        document.getElementById("dps-output-skill-trait-text").innerHTML = baseText;
+        return;
+    } else {}
     for (let i=0; i<beforeArray.length;i++){
         let B4Asplit = beforeArray[i].split(",")
         if (B4Asplit[0] === "awaked"){
@@ -888,7 +1006,7 @@ function traittextreplace(){
                 let plusOneTest = false;
                 //changed j=0 to j=1, not sure if affects
                 for (let j=1;j<traitObject["talentList"][B4Asplit[1]]["param"].length;j++){
-                    if (traitObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 1 || skillObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 2){
+                    if (traitObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 1 || traitObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 2){
                         plusOneTest = true;
                     } else {}
                 }
@@ -900,13 +1018,27 @@ function traittextreplace(){
             baseText = baseText.replace(beforeArray[i], replaceParam.toString());
         }
     }
-    console.log(baseText);
+    //console.log(baseText);
     //need notawaked also, look at loren (10028)
+    let patternP = baseText.match(/\[(attack|hp|defense|mdefense),\[(\d|\.)*\]\]/g);
+    if (patternP !== null){
+        for (let i=0; i<patternP.length;i++){
+            let replaceText = "("+patternP[i]+")";
+            replaceText = replaceText.replace("hp,","HP×");
+            replaceText = replaceText.replace("attack,","攻撃力×");
+            replaceText = replaceText.replace("defense,","物理防御×");
+            replaceText = replaceText.replace("mdefense,","魔法防御×");
+            replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+            baseText = baseText.replace(patternP[i],replaceText);
+        }
+    }
+    //console.log(baseText);
     let pattern = baseText.match(/\[awaked,.*\]/g);
     if (pattern !== null){
         for (let i=0; i<pattern.length;i++){
             let replaceText = "("+pattern[i]+")";
             replaceText = replaceText.replace("awaked,","フル覚醒で");
+            console.log(replaceText);
             baseText = baseText.replace(pattern[i],replaceText);
         }
     }

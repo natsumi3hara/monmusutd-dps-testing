@@ -67,3 +67,19 @@ var selfConditions = {
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
 	"40002": 0, //limit (いろいろ)
 }
+var selfReference = {
+	"0": 0, //None
+	"1": 0, //Life (無用?)
+	"2": 0, //Power (無用?)
+	"3": 0, //Defense (無用?)
+	"11": 0, //currentLife (無用?)
+	"12": 0, //currentPower (無用?)
+	"13": 0, //currentDefense (無用?)
+	"100": 0, //existenceTime
+	"101": 0, //givenDamage (無用?)
+	"102": 1000, //takenDamage
+	"103": 0, //givenHealing (無用?)
+	"104": 0, //takenHealing (無用?)
+	"105": 0, //skillCount (無用?) soleia is 2008↑
+	"200": 100, //hpRate
+}

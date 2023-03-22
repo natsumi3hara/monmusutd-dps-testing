@@ -1,0 +1,33 @@
+var formula = {
+    "stat1":[13,0.0866666667,0.0628333333,0.052,0.0465833333,2.7581,2.1118,2.7695],
+    "stat2":[2.1,0.014,0.0101666667,0.0111111111,0.01175,0.3185,0.34664,0.4165],
+    "stat3":[0.65,0.0043333333,0.0031666667,0.0034444444,0.0035833333,0.268,0.315,0.3498],
+    "stat4":[0.9,0.006,0.0043333333,0.0047777778,0.005,0.37181,0.44849,0.50719]
+}
+//weapon,head,accessory,body
+var equip = {
+    "0":[
+        {"stat1":50,"stat2":12,"stat3":0,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":9,"stat4":11,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":100,"stat2":0,"stat3":0,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":12,"stat4":8,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "1":[
+        {"stat1":90,"stat2":18,"stat3":0,"stat4":15,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":11,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":120,"stat2":0,"stat3":0,"stat4":13,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "2":[
+        {"stat1":120,"stat2":26,"stat3":0,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":13,"stat4":17,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":140,"stat2":0,"stat3":0,"stat4":16,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":18,"stat4":12,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "3":[
+        {"stat1":135,"stat2":29,"stat3":0,"stat4":22,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":160,"stat2":0,"stat3":0,"stat4":19,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ]
+}

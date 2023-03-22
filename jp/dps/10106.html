@@ -7,7 +7,6 @@
         <link href="../../css/dpsTEST.css" rel="stylesheet" type="text/css"/>
         <script src="../../scripts/_dataO/allData.js"></script>
         <script src="../../scripts/_dataO/allUnitcard.js"></script>
-        <script src="../../scripts/statsCalc/12011.js"></script>
         <script src="../../scripts/statsCalc/eBuffType.js"></script>
         <script src="../../scripts/statsCalc/partybuff.js"></script>
         <script src="../../oldscripts/dpsCalcTEST.js"></script>
@@ -22,6 +21,7 @@
             masterValues["baseClass"] = masterValues.unitcard["classId"];
             masterValues["allBuff"] = {} //temp global storage for each stat calc
         </script>
+        <script>document.write('<script src="../../scripts/statsCalc/'+masterValues["baseClass"].toString()+'.js"><\/script>');</script>
     </head>
     <body>
         <div id="chara-selection">
@@ -53,10 +53,10 @@
                                     <img src="../../img/equipment-icons/0000.png" id="equiphead" class="equip-icon"></abbr>
                                 <input type="checkbox" id="equip2" class="larger-check" style="vertical-align: middle;" onchange="allDPS();"><br>
                                 <abbr id="equipbodyabbr" title="" style="cursor: help;">
-                                    <img src="../../img/equipment-icons/0000.png" id="equipbody" class="equip-icon"></abbr>
+                                    <img src="../../img/equipment-icons/0000.png" id="equipaccessory" class="equip-icon"></abbr>
                                 <input type="checkbox" id="equip3" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
                                 <abbr id="equipaccessoryabbr" title="" style="cursor: help;">
-                                    <img src="../../img/equipment-icons/0000.png" id="equipaccessory" class="equip-icon"></abbr>
+                                    <img src="../../img/equipment-icons/0000.png" id="equipbody" class="equip-icon"></abbr>
                                 <input type="checkbox" id="equip4" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
                             </div>
                             <table style="width:50%;text-align: center;vertical-align: middle;">

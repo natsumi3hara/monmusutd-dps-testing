@@ -97,7 +97,7 @@ var partybuffref = {
     },
     "divine30003": {
         "cond":[],
-        "stat6":[-20,-21,-22,-23,-25]
+        "stat7":[-20,-21,-22,-23,-25]
         //skillCooldownは後で
     },
     "divine30004": {

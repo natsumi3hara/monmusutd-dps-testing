@@ -72,7 +72,7 @@ document.write(`
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">HP残量</span>
-                <span class="shared-buff-label"><input id="shared20002" type="number" min="0" max="100" value="100" style="width:65%;height:50%;margin:2px auto;border:none;" onChange="allDPS();">&nbsp;%</span>
+                <span class="shared-buff-label"><input id="shared20002" type="number" min="0" max="100" value="100" style="width:65%;height:50%;margin:2px auto;border:none;" onchange="equipImageChange();selfConditionChange('2000',this.value);selfReferenceChange('200',this.value);allDPS();">&nbsp;%</span>
                 <span class="shared-buff-label"></span>
             </div>
         </div>
