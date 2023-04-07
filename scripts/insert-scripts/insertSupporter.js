@@ -58,7 +58,7 @@ document.write(`
             <div class="flex-container-supporter-buff-inner2">
                 <span class="supporter-buff-label"></span>
                 <span class="supporter-buff-label">合計</span>
-                <input id="supporter-buff-value-Atk" class="supporter-value-input" type="number" min="0" max="9999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;font-size:0.75em;">
+                <input id="supporter-buff-value-stat2" class="supporter-value-input" type="number" min="0" max="9999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;font-size:0.75em;" onchange="allDPS();">
                 <span class="supporter-buff-label"></span>
             </div>
         </div>
@@ -70,7 +70,7 @@ document.write(`
             <div class="flex-container-supporter-buff-inner2">
                 <span class="supporter-buff-label"></span>
                 <span class="supporter-buff-label">合計</span>
-                <input id="supporter-buff-value-pDef" class="supporter-value-input" type="number" min="0" max="9999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;">
+                <input id="supporter-buff-value-stat3" class="supporter-value-input" type="number" min="0" max="9999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="supporter-buff-label"></span>
             </div>
         </div>
@@ -82,7 +82,7 @@ document.write(`
             <div class="flex-container-supporter-buff-inner2">
                 <span class="supporter-buff-label"></span>
                 <span class="supporter-buff-label">合計</span>
-                <input id="supporter-buff-value-mDef" class="supporter-value-input" type="number" min="0" max="9999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;">
+                <input id="supporter-buff-value-stat4" class="supporter-value-input" type="number" min="0" max="9999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="supporter-buff-label"></span>
             </div>
         </div>

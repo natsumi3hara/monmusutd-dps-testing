@@ -50,7 +50,7 @@ document.write(`
 
 </style>
 <button type="button" class="collapsible-button">共通（クリックで開く）</button>
-<div class="collapsible-content" style="display:block;">
+<div class="collapsible-content" style="display:none;">
     <div id="flex-container-shared-buff">
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
@@ -72,7 +72,7 @@ document.write(`
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">HP残量</span>
-                <span class="shared-buff-label"><input id="shared20002" type="number" min="0" max="100" value="100" style="width:65%;height:50%;margin:2px auto;border:none;" onchange="equipImageChange();selfConditionChange('2000',this.value);selfReferenceChange('200',this.value);allDPS();">&nbsp;%</span>
+                <span class="shared-buff-label"><input id="shared20002" type="number" min="0" max="100" value="100" style="width:65%;height:50%;margin:2px auto;border:none;" onchange="equipImageChange();selfConditionChange('2000',this.value);selfReferenceChange('200',this.value);enemyConditionChange('2000',this.value);allDPS();">&nbsp;%</span>
                 <span class="shared-buff-label"></span>
             </div>
         </div>
@@ -91,12 +91,37 @@ document.write(`
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
                 <abbr title="移動中、攻撃力+100%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
-                <span class="shared-buff-name">疾風怒濤</span>
+                <span class="shared-buff-name">移動バフ</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label"></span>
-                <span class="shared-buff-label">移動</span>
-                <input type="checkbox" id="shared20004" class="larger-check shared-check" onChange="allDPS();">
+                <span class="shared-buff-label">移動中</span>
+                <input type="checkbox" id="shared20004" class="larger-check shared-check" onChange="isMove(this.checked);allDPS();">
+                <span class="shared-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="付与した味方の攻撃力を20秒+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_50012_0_s.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">リコ</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label">覚醒?</span>
+                <input type="checkbox" id="shared20005-1" class="larger-check shared-check" onChange="allDPS();">
+                <span class="shared-buff-label">トークン数</span>
+                <input id="shared20005-2" type="number" min="0" max="30" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                
+            </div>
+        </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="風属性味方の攻撃力+25%" style="cursor: help;"><img src="../../img/chara-icons/icon_40210_0_s.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">ヤーセファ</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label">トークン数</span>
+                <input id="shared20006" type="number" min="0" max="4" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                 <span class="shared-buff-label"></span>
             </div>
         </div>
@@ -105,14 +130,14 @@ document.write(`
 <script>
 let sharedchecks = document.getElementsByClassName("shared-check")
 for (let i=0;i<sharedchecks.length;i++){
-    if (sharedchecks[i].id == "shared"+charID.toString()){
+    if (sharedchecks[i].id == "shared"+masterValues.charaID.toString()){
         sharedchecks[i].disabled = true;
         sharedchecks[i].checked = true;
     } else {}
-    if (sharedchecks[i].id == "awake"+charID.toString() && charAwaked){
+    if (sharedchecks[i].id == "awake"+masterValues.charaID.toString() && charAwaked){
         sharedchecks[i].disabled = true;
         sharedchecks[i].checked = true;
-    } else if (sharedchecks[i].id == "awake"+charID.toString()){
+    } else if (sharedchecks[i].id == "awake"+masterValues.charaID.toString()){
         sharedchecks[i].disabled = true;
     } else {}
 }

@@ -45,14 +45,62 @@ document.write(`
     <div id="flex-container-otherPassive-buff">
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10060_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">バウ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10060" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10067_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">ディリオ</span>
             </div>
             <div class="flex-container-otherPassive-buff-inner2">
-                <span class="otherPassive-buff-label">編集</span>
-                <input type="checkbox" id="otherPassive10067" class="larger-check otherPassive-check">
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10067" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">完凸</span>
-                <input type="checkbox" id="awake10067" class="larger-check otherPassive-check">
+                <input type="checkbox" id="awake10067" class="larger-check otherPassive-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10121_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ペント</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10121" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10137_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">灯火ミテラス</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">覚醒?</span>
+                <input type="checkbox" id="otherPassive10137-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">攻撃力</span>
+                <input id="otherPassive10137-2" type="number" min="0" max="9999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10148_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">たまも</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">覚醒?</span>
+                <input type="checkbox" id="otherPassive10148-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">物理防御</span>
+                <input id="otherPassive10148-2" type="number" min="0" max="9999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
     </div>
@@ -60,14 +108,13 @@ document.write(`
 <script>
 let otherPassivechecks = document.getElementsByClassName("otherPassive-check")
 for (let i=0;i<otherPassivechecks.length;i++){
-    if (otherPassivechecks[i].id == "otherPassive"+masterValues.charaID.toString()){
+    if (otherPassivechecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
         otherPassivechecks[i].disabled = true;
-        otherPassivechecks[i].checked = true;
     } else {}
-    if (otherPassivechecks[i].id == "awake"+masterValues.charaID.toString() && charAwaked){
+    if (otherPassivechecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && charAwaked){
         otherPassivechecks[i].disabled = true;
         otherPassivechecks[i].checked = true;
-    } else if (otherPassivechecks[i].id == "awake"+masterValues.charaID.toString()){
+    } else if (otherPassivechecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString()){
         otherPassivechecks[i].disabled = true;
     } else {}
 }

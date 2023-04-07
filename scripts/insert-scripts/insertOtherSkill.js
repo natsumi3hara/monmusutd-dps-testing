@@ -45,6 +45,18 @@ document.write(`
     <div id="flex-container-otherSkill-buff">
         <div class="flex-container-otherSkill-buff-inner">
             <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10070_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">ヴィルエ</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10070" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">発動回数</span>
+                <input id="level10070" class="otherSkill-level" type="number" min="1" max="10" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
                 <img src="../../img/chara-icons/icon_10103_0_s.png" class="otherSkill-buff-img">
                 <span class="otherSkill-buff-name">メアルス</span>
             </div>
@@ -53,6 +65,18 @@ document.write(`
                 <input type="checkbox" id="otherSkill10103" class="larger-check otherSkill-check" onChange="allDPS();">
                 <span class="otherSkill-buff-label">スキルLv</span>
                 <input id="level10103" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10139_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">ラピス</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10139" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10139" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
             </div>
         </div>
     </div>

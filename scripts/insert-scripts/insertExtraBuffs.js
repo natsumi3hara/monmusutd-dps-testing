@@ -51,173 +51,197 @@ document.write(`
 </style>
 <button type="button" class="collapsible-button">その他バフ/デバフ（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
-    <p style="margin:0px 1px;background-color:#ff788c;font-size:smaller; font-family:mtdfontlight;">(戦闘中に発動するバフ/デバフ)<br>ここの数字を<b>加算して</b>入力してください<br>(例1) +50%の乗算バフと-20%の乗算デバフが重なれば+30%になる<br>(例2) +20の加算バフと-60の加算デバフが重なれば-40になる</p>
+    <p style="margin:0px 1px;background-color:#ff788c;font-size:smaller; font-family:mtdfontlight;">(戦闘中に発動するバフ/デバフ)<br>ここの数字を<b>加して</b>入力してください<br>(例1) +50%の乗バフと-20%の乗デバフが重なれば+30%になる<br>(例2) +20の加バフと-60の加デバフが重なれば-40になる</p>
     <div id="flex-container-extra-buff">
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">HP(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-HP-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
-                <span class="extra-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-extra-buff-inner">
-            <div class="flex-container-extra-buff-inner2">
-                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">HP(加算)</span>
-            </div>
-            <div class="flex-container-extra-buff-inner2">
-                <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-HP-2" type="number" min="-9999" max="99999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">HP(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat1-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">攻撃(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-Atk-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
-                <span class="extra-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-extra-buff-inner">
-            <div class="flex-container-extra-buff-inner2">
-                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">攻撃(加算)</span>
-            </div>
-            <div class="flex-container-extra-buff-inner2">
-                <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-Atk-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">HP(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat1-2" type="number" min="-9999" max="99999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">物防(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-pDef-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
-                <span class="extra-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-extra-buff-inner">
-            <div class="flex-container-extra-buff-inner2">
-                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">物防(加算)</span>
-            </div>
-            <div class="flex-container-extra-buff-inner2">
-                <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-pDef-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">攻撃(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat2-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">魔防(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-mDef-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
-                <span class="extra-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-extra-buff-inner">
-            <div class="flex-container-extra-buff-inner2">
-                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">魔防(加算)</span>
-            </div>
-            <div class="flex-container-extra-buff-inner2">
-                <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-mDef-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">攻撃(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat2-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">攻速(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-aSpd-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
-                <span class="extra-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-extra-buff-inner">
-            <div class="flex-container-extra-buff-inner2">
-                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">攻速(加算)</span>
-            </div>
-            <div class="flex-container-extra-buff-inner2">
-                <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-aSpd-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">物防(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat3-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">射程(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-Range-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
-                <span class="extra-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-extra-buff-inner">
-            <div class="flex-container-extra-buff-inner2">
-                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">射程(加算)</span>
-            </div>
-            <div class="flex-container-extra-buff-inner2">
-                <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-Range-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">物防(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat3-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">硬直(乗算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-PAD-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
+                <span class="extra-buff-label">魔防(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat4-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>
         <div class="flex-container-extra-buff-inner">
             <div class="flex-container-extra-buff-inner2">
                 <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
-                <span class="extra-buff-name">硬直(加算)</span>
+                <span class="extra-buff-name">バフ/デバフ</span>
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">バフ/デバフ</span>
-                <span class="extra-buff-label"><input id="extra-PAD-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">魔防(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat4-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">移動速度(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat5-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">移動速度(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat5-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">攻速(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat6-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">攻速(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat6-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">硬直(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat7-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">硬直(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat7-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">射程(乗)</span>
+                <span class="extra-buff-label"><input id="extra-stat8-1" type="number" min="-9999" max="9999" value="0" style="width:65%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;%</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">射程(加)</span>
+                <span class="extra-buff-label"><input id="extra-stat8-2" type="number" min="-9999" max="9999" value="0" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>

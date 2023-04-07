@@ -12,22 +12,32 @@
         <script src="../../oldscripts/dpsCalcTEST.js"></script>
         <script src="../../scripts/equipConvert.js"></script>
         <script src="../../scripts/statsCalc/cond-timing-range.js"></script>
+        <script src="../../scripts/statsCalc/attackPatterns.js"></script>
         <script src="../../scripts/insert-scripts/insert_MasterDict.js"></script>
         <script>
+            var console = {};
+            console.log = function(){};
+            const params = (new URL(document.location)).searchParams;
             var masterValues = {};
-            masterValues["charaID"] = 10061;
-            masterValues["unitcard"] = card10061;
-            masterValues["charaAwaked"] = false;
+            masterValues["charaID"] = Number(params.get("id"));
+            masterValues["unitcard"] = window["card"+params.get("id")];
+            masterValues["charaAwaked"] = (params.get("awaked")==="true");
             masterValues["baseClass"] = masterValues.unitcard["classId"];
             masterValues["allBuff"] = {} //temp global storage for each stat calc
+            var notawakedURL = document.location.href.split("?")[0] + "?id=" + params.get("id");
+            var awakedURL = document.location.href.split("?")[0] + "?id=" + params.get("id") + "&awaked=true";
         </script>
         <script>document.write('<script src="../../scripts/statsCalc/'+masterValues["baseClass"].toString()+'.js"><\/script>');</script>
     </head>
     <body>
         <div id="chara-selection">
             <table id="buttonback" style="margin:2px;vertical-align: middle;background-color: beige;width: 100%;">
-                <td style="width:40px;"><img onclick="location.href='../../dps/index.html'" style="cursor: pointer; width:36px;height:36px;" src="../../img/ui-icons/Common_BtnTitleBackOff.png"></td>
-                <td><span style="border-radius:4px;background-color: bisque;">キャラ選択に戻る</span></td>
+                <td style="width:40px;"><img onclick="location.href='../filter/index.html'" style="cursor: pointer; width:36px;height:36px;" src="../../img/ui-icons/Common_BtnTitleBackOff.png"></td>
+                <td style="width:1%;white-space: nowrap;"><span style="border-radius:4px;background-color: bisque;">キャラ選択に戻る</span></td>
+                <td style="width:1%;white-space: nowrap;"></td>
+                <td style="width:1%;white-space: nowrap;"><span style="border-radius:4px;background-color: bisque;">完凸/未完凸</span></td>
+                <td style="width:40px;"><abbr title="ページを切り換える"><img onclick="changeAwaked(masterValues.charaAwaked)" style="cursor: pointer; width:36px;height:36px;" src="../../img/ui-icons/Story_BtnArrowRightOff.png"></td>
+                <td></td>
             </table>
         </div>
         <div style="display: flex;">
@@ -41,7 +51,7 @@
                     <div id="alliedunit" class="dps-input-tablink-content dps-tabcontent" style="display: block;">
                         <div>
                             <span>レベル：</span><input id="input-level" type="number" min="1" max="120" value="1" onchange="allDPS();">
-                            <span> CC：</span><input id="input-cc" type="number" min="0" max="3" value="3" onchange="equipImageChange();allDPS();">
+                            <span>&nbsp;CC：</span><input id="input-cc" type="number" min="0" max="3" value="0" onchange="equipImageChange();allDPS();">
                         </div>
                         <hr>
                         <div style="display: flex;">
@@ -102,25 +112,47 @@
                         </select><span id="subskill2condcheck"></span>
                     </div>
                     <div id="conditions" class="dps-input-tablink-content dps-tabcontent" style="display: none;">
-                        <script src="../../scripts/insert-scripts/insertShared.js"></script>
-                        <hr>
                         <script src="../../scripts/insert-scripts/insertCharaSpecific.js"></script>
                         <hr>
+                        <script src="../../scripts/insert-scripts/insertShared.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertParty.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertDivine.js"></script><br>
-                        <script src="../../scripts/insert-scripts/insertSupporter.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertOtherPassive.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertOtherSkill.js"></script><br>
+                        <script src="../../scripts/insert-scripts/insertSupporter.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertExtraBuffs.js"></script>
                     </div>
                     <div id="enemyunit" class="dps-input-tablink-content dps-tabcontent" style="display: none;">
                         <div>
                             <span>物理防御：</span><input id="input-enemy-stat3" type="number" min="0" max="99999" value="0" onchange="allDPS();">
-                            <span> 魔法防御：</span><input id="input-enemy-stat4" type="number" min="0" max="99999" value="0" onchange="allDPS();"><br>
-                            <span> 敵のダメージ軽減率：</span><input id="input-enemy-dmgRed" type="number" min="0" max="100" value="0" onchange="allDPS();" style="width:15%"><span> %</span><br>
+                            <span>&nbsp;魔法防御：</span><input id="input-enemy-stat4" type="number" min="0" max="99999" value="0" onchange="allDPS();"><br>
+                            <span>&nbsp;敵のダメージ軽減率：</span><input id="input-enemy-dmgRed" type="number" min="0" max="100" value="0" onchange="allDPS();" style="width:15%"><span> %</span><br>
                             <hr>
-                            <span> ブロックしている敵：</span><input id="input-number-stat10ed" type="number" min="0" max="99" value="0" onchange="updateBlockCount();allDPS();" style="width:15%"><br>
-                            <span> 範囲内にいる敵：</span><input id="input-number-inRange" type="number" min="0" max="99" value="0" onchange="allDPS();" style="width:15%">
+                            <span>&nbsp;ブロックしている敵：</span><input id="input-number-blocked" type="number" min="0" max="99" value="0" onchange="isBlock(this.value);allDPS();" style="width:15%"><br>
+                            <span>&nbsp;範囲内にいる敵：</span><input id="input-number-inRange" type="number" min="0" max="99" value="0" onchange="attackTargetCount(this.value);allDPS();" style="width:15%"><br>
+                            <span>&nbsp;AOE等に巻き込んだ敵(追加)：</span><input id="input-number-extraAffect" type="number" min="0" max="99" value="0" onchange="allDPS();" style="width:15%">
+                            <span>&nbsp;ダメージ倍率：</span><input id="input-number-extraAffectDamage" type="number" value="100" style="width:10%" disabled>
+                            <hr>
+                            <button type="button" class="collapsible-button">エネミー詳細（クリックで開く）</button>
+                            <div class="collapsible-content" style="display:none;">
+                                <span>性別</span>
+                                <select id="gender-enemy-select" style="font-family:mtdfont; width: 20%;" onchange="enemyConditionChange('1005',this.value);allDPS();">
+                                    <option value="0">男性</option>
+                                    <option value="1">女性</option>
+                                    <option value="2">両性</option>
+                                    <option value="3" selected>不明</option>
+                                </select><br><br>
+                                <span style="text-align: center; border: 1px solid black;">&nbsp;状態異常&nbsp;</span><br>
+                                <span style="text-align: center;">スタン</span><input type="checkbox" id="enemystun" class="larger-check" style="vertical-align: bottom;" onchange="enemyStun(this.checked);allDPS();">
+                                <span style="text-align: center;">石化</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyPetrify(this.checked);allDPS();">
+                                <span style="text-align: center;">毒</span><input type="checkbox" id="enemypoison" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();">
+                                <span style="text-align: center;">背面攻撃(アメリ)</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();"><br>
+                                <span style="text-align: center; border: 1px solid black;">&nbsp;移動タイプ&nbsp;</span><br>
+                                <span style="text-align: center;">地上</span><input type="checkbox" id="enemyground" class="larger-check" style="vertical-align: bottom;" onchange="enemyGround(this.checked);allDPS();">
+                                <span style="text-align: center;">飛行</span><input type="checkbox" id="enemyflying" class="larger-check" style="vertical-align: bottom;" onchange="enemyFlying(this.checked);allDPS();"><br>
+                                <span style="text-align: center; border: 1px solid black;">&nbsp;種族&nbsp;</span><br>
+                                <span style="text-align: center;">人間</span><input type="checkbox" id="enemyhuman" class="larger-check" style="vertical-align: bottom;" onchange="enemyHuman(this.checked);allDPS();">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +168,7 @@
                             <table>
                                 <tr>
                                     <td class="displaytext" style="width:25%;" rowspan="2">
-                                        f
+                                        img
                                     </td>
                                     <td style="width: 75%;height: 50%;" colspan="99">Amazingly few discotheques provide jukeboxes.</td>
                                 </tr>
@@ -151,36 +183,36 @@
                                         <abbr title="ガーディアン(剣盾)" style="cursor: help;"><img src="../../img/ui-icons/Icon_Job_12011.png"></abbr>
                                         <abbr title="近接" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_1.png"></abbr>
                                     </td>
-                                    <td class="displaytext">stat1</td>
+                                    <td class="displaytext">stat</td>
                                     <td>8888</td>
-                                    <td class="displaytext">攻撃力</td>
+                                    <td class="displaytext">stat</td>
                                     <td>8888</td>
-                                    <td class="displaytext">攻撃速度</td>
-                                    <td>8888</td>
-                                </tr>
-                                <tr>
-                                    <td class="displaytext">物理防御</td>
-                                    <td>8888</td>
-                                    <td class="displaytext">魔法防御</td>
-                                    <td>8888</td>
-                                    <td class="displaytext">攻撃硬直</td>
+                                    <td class="displaytext">stat</td>
                                     <td>8888</td>
                                 </tr>
                                 <tr>
-                                    <td class="displaytext">攻撃タイプ</td>
+                                    <td class="displaytext">stat</td>
+                                    <td>8888</td>
+                                    <td class="displaytext">stat</td>
+                                    <td>8888</td>
+                                    <td class="displaytext">stat</td>
+                                    <td>8888</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">stat</td>
                                     <td>物理</td>
-                                    <td class="displaytext">攻撃対象数</td>
+                                    <td class="displaytext">stat</td>
                                     <td>8</td>
-                                    <td class="displaytext">攻撃回数</td>
+                                    <td class="displaytext">stat</td>
                                     <td>8</td>
                                 </tr>
                             </table>
                         </div>
                         <div id="info-nerd" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
-                            info nerd
+                            info
                         </div>
                         <div id="info-misc" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
-                            info misc
+                            info
                         </div>
                     </div>
                 </div>   
@@ -191,10 +223,10 @@
                     <div id="dps-dps-stats">
                         <div class="dps-tabs dps-dps-stats-tabs">
                             <button class="dps-dps-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'dps-all','dps-dps-stats-tablink')"><img src="../../img/ui-icons/BattleResult_ImageVictoryLogoStar.png"> DPS(総合)</button>
-                            <button class="dps-dps-stats-tablink" onclick="openTab(event, 'dps-normal','dps-dps-stats-tablink')"><img src="../../img/ui-icons/Footer_ImageAdventureIcon.png"> 非スキル</button>
+                            <button class="dps-dps-stats-tablink" onclick="openTab(event, 'dps-battle','dps-dps-stats-tablink')"><img src="../../img/ui-icons/Footer_ImageAdventureIcon.png"> 非スキル</button>
                             <button class="dps-dps-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'dps-skill','dps-dps-stats-tablink')"><img src="../../img/ui-icons/Btl_SkillNotice_Skill.png"> スキル</button>
                         </div>
-                        <div id="dps-all" class="dps-dps-stats-tablink-content dps-tabcontent">
+                        <div id="dps-all" class="dps-dps-stats-tablink-content dps-tabcontent" style="display:none;">
                             <table>
                                 <tr>
                                     <td colspan="99" style="background-color:#bffcff;border:2px solid #efdfb0;">
@@ -232,11 +264,155 @@
                                 </tr>
                             </table>
                         </div>
-                        <div id="dps-normal" class="dps-dps-stats-tablink-content dps-tabcontent" style="display: none;">
-                            dps normal
+                        <div id="dps-battle" class="dps-dps-stats-tablink-content dps-tabcontent" style="display: block;">
+                            <table>
+                                <tr>
+                                    <td colspan="3" class="displaytext" style="font-size: 1.5em;">非スキルDPS</td>
+                                    <td colspan="3" id="dps-battle-finalDPS" style="font-size: 1.5em;">8888.88</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext"></td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">平均ダメージ</td>
+                                    <td id="dps-dps-battle-averageDmg">8888.88</td>
+                                    <td class="displaytext">平均回数</td>
+                                    <td id="dps-dps-battle-averageHit">8</td>
+                                    <td class="displaytext">平均フレーム</td>
+                                    <td id="dps-dps-battle-averageFrame">8</td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td class="displaytext">ダメージ%</td>
+                                    <td id="dps-output-battle-value-stat76">8888</td>
+                                    <td class="displaytext">攻撃対象数</td>
+                                    <td id="dps-output-battle-value-stat11">8</td>
+                                    <td class="displaytext">攻撃回数</td>
+                                    <td id="dps-output-battle-value-stat9">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">攻撃タイプ</td>
+                                    <td id="dps-output-battle-value-stat22">8</td>
+                                    <td class="displaytext">攻撃対象</td>
+                                    <td id="dps-output-battle-value-stat21">8</td>
+                                </tr>
+                            </table>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">貫通/クリティカル↓</button>
+                            <div style="display: block;">
+                                <table id="dps-critPen-battle">
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">確率(%)</td>
+                                        <td class="displaytext">倍率(%)</td>
+                                        <td class="displaytext">ダメージ</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" colspan="2">テキスト</td>
+                                        <td>88.888</td>
+                                        <td>888</td>
+                                        <td>88888</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
+                            <div style="display: block;">
+                                <table id="dps-attacks-battle">
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">確率(%)</td>
+                                        <td class="displaytext">攻撃対象数</td>
+                                        <td class="displaytext">攻撃回数</td>
+                                        <td class="displaytext">フレーム数</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" colspan="2">テキスト</td>
+                                        <td>88.88</td>
+                                        <td>8</td>
+                                        <td>88</td>
+                                        <td>888</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                         <div id="dps-skill" class="dps-dps-stats-tablink-content dps-tabcontent" style="display: none;">
-                            dps skill
+                            <table>
+                                <tr>
+                                    <td colspan="3" class="displaytext" style="font-size: 1.5em;">スキルDPS</td>
+                                    <td colspan="3" id="dps-skill-finalDPS" style="font-size: 1.5em;">8888.88</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext"></td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">平均ダメージ</td>
+                                    <td id="dps-dps-skill-averageDmg">8888.88</td>
+                                    <td class="displaytext">平均回数</td>
+                                    <td id="dps-dps-skill-averageHit">8</td>
+                                    <td class="displaytext">平均フレーム</td>
+                                    <td id="dps-dps-skill-averageFrame">8</td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td class="displaytext">ダメージ%</td>
+                                    <td id="dps-output-skill-value-stat76">8888</td>
+                                    <td class="displaytext">攻撃対象数</td>
+                                    <td id="dps-output-skill-value-stat11">8</td>
+                                    <td class="displaytext">攻撃回数</td>
+                                    <td id="dps-output-skill-value-stat9">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">攻撃タイプ</td>
+                                    <td id="dps-output-skill-value-stat22">8</td>
+                                    <td class="displaytext">攻撃対象</td>
+                                    <td id="dps-output-skill-value-stat21">8</td>
+                                </tr>
+                            </table>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">貫通/クリティカル↓</button>
+                            <div style="display: block;">
+                                <table id="dps-critPen-skill">
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">確率(%)</td>
+                                        <td class="displaytext">倍率(%)</td>
+                                        <td class="displaytext">ダメージ</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" colspan="2">テキスト</td>
+                                        <td>88.888</td>
+                                        <td>888</td>
+                                        <td>88888</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
+                            <div style="display: block;">
+                                <table id="dps-attacks-skill">
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">確率(%)</td>
+                                        <td class="displaytext">攻撃対象数</td>
+                                        <td class="displaytext">攻撃回数</td>
+                                        <td class="displaytext">フレーム数</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" colspan="2">テキスト</td>
+                                        <td>88.88</td>
+                                        <td>8</td>
+                                        <td>8</td>
+                                        <td>888</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -266,13 +442,15 @@
                             </table>
                             <table>
                                 <tr>
-                                    <td rowspan="4" id="type-icons" style="width: 10%; background-color:#99ffbe;border:2px solid #efdfb0;padding-top: 2%;">
+                                    <td rowspan="99" id="type-icons" style="width: 10%; background-color:#99ffbe;border:2px solid #efdfb0;padding-top: 2%;">
                                         <!--add in auto change for this part if possible not priority-->
-                                        <abbr title="水属性" style="cursor: help;"><img src="../../img/ui-icons/Icon_Type_3.png"></abbr>
-                                        <abbr title="ガーディアン(剣盾)" style="cursor: help;"><img src="../../img/ui-icons/Icon_Job_12011.png"></abbr>
-                                        <abbr title="近接" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_1.png"></abbr>
+                                        <script>
+                                            document.write(
+                                            '<img src="../../img/ui-icons/Icon_Type_'+masterValues.unitcard["element"]+'.png">'+'<img src="../../img/ui-icons/Icon_Job_'+masterValues.baseClass+'.png">'+'<img src="../../img/ui-icons/Summon_Type_'+updateSummonType()+'.png">'
+                                            )
+                                        </script>
                                     </td>
-                                    <td class="displaytext">stat1</td>
+                                    <td class="displaytext">HP</td>
                                     <td id="dps-output-menu-value-stat1">8888</td>
                                     <td class="displaytext">攻撃力</td>
                                     <td id="dps-output-menu-value-stat2">8888</td>
@@ -292,8 +470,8 @@
                                     <td id="dps-output-menu-value-stat8">8888</td>
                                     <td class="displaytext">ブロック数</td>
                                     <td id="dps-output-menu-value-stat10">8</td>
-                                    <td class="displaytext">攻撃回数</td>
-                                    <td>8</td>
+                                    <td class="displaytext">移動速度</td>
+                                    <td id="dps-output-menu-value-stat5">8888</td>
                                 </tr>
                             </table>
                         </div>
@@ -301,7 +479,11 @@
                             <table>
                                 <tr>
                                     <td class="displaytext" style="width:25%;" rowspan="2">
-                                        <img class="chara-icon" src="../../img/chara-icons/icon_10106_0.png">
+                                        <script>
+                                            document.write(
+                                            '<img class="chara-icon" src="../../img/chara-icons/icon_'+masterValues["charaID"]+'_0.png">'
+                                            );
+                                        </script> 
                                     </td>
                                     <td id="dps-output-battle-trait-text" style="width: 75%;height: 50%;" colspan="99">Amazingly few discotheques provide jukeboxes.</td>
                                 </tr>
@@ -311,12 +493,14 @@
                             </table>
                             <table>
                                 <tr>
-                                    <td rowspan="4" id="type-icons" style="width: 10%; background-color:#99ffbe;border:2px solid #efdfb0;padding-top: 2%;">
-                                        <abbr title="水属性" style="cursor: help;"><img src="../../img/ui-icons/Icon_Type_3.png"></abbr>
-                                        <abbr title="ガーディアン(剣盾)" style="cursor: help;"><img src="../../img/ui-icons/Icon_Job_12011.png"></abbr>
-                                        <abbr title="近接" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_1.png"></abbr>
+                                    <td rowspan="99" id="type-icons" style="width: 10%; background-color:#99ffbe;border:2px solid #efdfb0;padding-top: 2%;">
+                                        <script>
+                                            document.write(
+                                            '<img src="../../img/ui-icons/Icon_Type_'+masterValues.unitcard["element"]+'.png">'+'<img src="../../img/ui-icons/Icon_Job_'+masterValues.baseClass+'.png">'+'<img src="../../img/ui-icons/Summon_Type_'+updateSummonType()+'.png">'
+                                            )
+                                        </script>
                                     </td>
-                                    <td class="displaytext">stat1</td>
+                                    <td class="displaytext">HP</td>
                                     <td id="dps-output-battle-value-stat1">8888</td>
                                     <td class="displaytext">攻撃力</td>
                                     <td id="dps-output-battle-value-stat2">8888</td>
@@ -336,8 +520,8 @@
                                     <td id="dps-output-battle-value-stat8">8888</td>
                                     <td class="displaytext">ブロック数</td>
                                     <td id="dps-output-battle-value-stat10">8</td>
-                                    <td class="displaytext">攻撃回数</td>
-                                    <td>8</td>
+                                    <td class="displaytext">移動速度</td>
+                                    <td id="dps-output-battle-value-stat5">8888</td>
                                 </tr>
                             </table>
                         </div>
@@ -345,7 +529,11 @@
                             <table>
                                 <tr>
                                     <td class="displaytext" style="width:25%;" rowspan="2">
-                                        <img class="chara-icon" src="../../img/chara-icons/icon_10106_0.png">
+                                        <script>
+                                            document.write(
+                                            '<img class="chara-icon" src="../../img/chara-icons/icon_'+masterValues["charaID"]+'_0.png">'
+                                            );
+                                        </script>
                                     </td>
                                     <td id="dps-output-skill-trait-text" style="width: 75%;height: 50%;" colspan="99">Amazingly few discotheques provide jukeboxes.</td>
                                 </tr>
@@ -355,12 +543,14 @@
                             </table>
                             <table>
                                 <tr>
-                                    <td rowspan="4" id="type-icons" style="width: 10%; background-color:#99ffbe;border:2px solid #efdfb0;padding-top: 2%;">
-                                        <abbr title="水属性" style="cursor: help;"><img src="../../img/ui-icons/Icon_Type_3.png"></abbr>
-                                        <abbr title="ガーディアン(剣盾)" style="cursor: help;"><img src="../../img/ui-icons/Icon_Job_12011.png"></abbr>
-                                        <abbr title="近接" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_1.png"></abbr>
+                                    <td rowspan="99" id="type-icons" style="width: 10%; background-color:#99ffbe;border:2px solid #efdfb0;padding-top: 2%;">
+                                        <script>
+                                            document.write(
+                                            '<img src="../../img/ui-icons/Icon_Type_'+masterValues.unitcard["element"]+'.png">'+'<img src="../../img/ui-icons/Icon_Job_'+masterValues.baseClass+'.png">'+'<img src="../../img/ui-icons/Summon_Type_'+updateSummonType()+'.png">'
+                                            )
+                                        </script>
                                     </td>
-                                    <td class="displaytext">stat1</td>
+                                    <td class="displaytext">HP</td>
                                     <td id="dps-output-skill-value-stat1">8888</td>
                                     <td class="displaytext">攻撃力</td>
                                     <td id="dps-output-skill-value-stat2">8888</td>
@@ -380,19 +570,14 @@
                                     <td id="dps-output-skill-value-stat8">8888</td>
                                     <td class="displaytext">ブロック数</td>
                                     <td id="dps-output-skill-value-stat10">8</td>
-                                    <td class="displaytext">攻撃回数</td>
-                                    <td>8</td>
+                                    <td class="displaytext">移動速度</td>
+                                    <td id="dps-output-skill-value-stat5">8888</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
-                
             </div>
-        </div>
-        <div class="github-link" style="width: 100%; overflow:hidden;">
-            c
-            <p style="font-size:x-small;">Issues or bug reports? Project on <a href="https://github.com/natsumi3hara/monmusutd-dps">Github</a>.</p>
         </div>
     </body>
     <script>
@@ -425,6 +610,13 @@
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+        }
+        function changeAwaked(awakened){
+            if (awakened){
+                location.href = notawakedURL;
+            } else {
+                location.href = awakedURL;
+            }
         }
     </script>
 </html>

@@ -220,11 +220,11 @@ let partychecks = document.getElementsByClassName("party-check")
 for (let i=0;i<partychecks.length;i++){
     if (partychecks[i].id == "party"+masterValues.charaID.toString()){
         partychecks[i].disabled = true;
-        partychecks[i].checked = true;
+        //partychecks[i].checked = true;
     } else {}
     if (partychecks[i].id == "awake"+masterValues.charaID.toString() && masterValues.charaAwaked){
         partychecks[i].disabled = true;
-        partychecks[i].checked = true;
+        //partychecks[i].checked = true;
     } else if (partychecks[i].id == "awake"+masterValues.charaID.toString()){
         partychecks[i].disabled = true;
     } else {}

@@ -1,4 +1,4 @@
-const card10001 ={
+var card10001 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -72,7 +72,7 @@ const card10001 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10010 ={
+var card10010 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -146,7 +146,7 @@ const card10010 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10100 ={
+var card10100 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -220,7 +220,7 @@ const card10100 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10101 ={
+var card10101 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -294,7 +294,7 @@ const card10101 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10103 ={
+var card10103 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -368,7 +368,7 @@ const card10103 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10104 ={
+var card10104 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -442,7 +442,7 @@ const card10104 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10106 ={
+var card10106 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -516,7 +516,7 @@ const card10106 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10107 ={
+var card10107 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -590,7 +590,7 @@ const card10107 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10011 ={
+var card10011 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -664,7 +664,7 @@ const card10011 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10111 ={
+var card10111 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -738,7 +738,7 @@ const card10111 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10112 ={
+var card10112 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -812,7 +812,7 @@ const card10112 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10113 ={
+var card10113 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -886,7 +886,7 @@ const card10113 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10115 ={
+var card10115 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -960,7 +960,7 @@ const card10115 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10116 ={
+var card10116 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1034,7 +1034,7 @@ const card10116 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10119 ={
+var card10119 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1108,7 +1108,7 @@ const card10119 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10012 ={
+var card10012 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1182,7 +1182,7 @@ const card10012 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10120 ={
+var card10120 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1256,7 +1256,7 @@ const card10120 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10121 ={
+var card10121 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1330,7 +1330,7 @@ const card10121 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10123 ={
+var card10123 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1404,7 +1404,7 @@ const card10123 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10126 ={
+var card10126 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1478,7 +1478,7 @@ const card10126 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10127 ={
+var card10127 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1552,7 +1552,7 @@ const card10127 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10013 ={
+var card10013 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1626,7 +1626,7 @@ const card10013 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10132 ={
+var card10132 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1700,7 +1700,7 @@ const card10132 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10134 ={
+var card10134 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1774,7 +1774,7 @@ const card10134 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10136 ={
+var card10136 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1848,7 +1848,7 @@ const card10136 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10137 ={
+var card10137 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1922,7 +1922,7 @@ const card10137 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10138 ={
+var card10138 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -1996,7 +1996,7 @@ const card10138 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10139 ={
+var card10139 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2070,7 +2070,7 @@ const card10139 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10014 ={
+var card10014 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2131,7 +2131,7 @@ const card10014 ={
   "awakingAbilityId3": 90038,
   "awakingAbilityId4": 90041,
   "awakingAbilityId5": 90041,
-  "moveAction": 1,
+  "moveAction": 4,
   "nextId": 0,
   "familyId": 0,
   "specialSkill": 0,
@@ -2144,7 +2144,7 @@ const card10014 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10140 ={
+var card10140 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2218,7 +2218,7 @@ const card10140 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10141 ={
+var card10141 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2292,7 +2292,7 @@ const card10141 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10143 ={
+var card10143 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2366,7 +2366,7 @@ const card10143 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10145 ={
+var card10145 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2440,7 +2440,7 @@ const card10145 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10146 ={
+var card10146 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2514,7 +2514,7 @@ const card10146 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10148 ={
+var card10148 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2588,7 +2588,7 @@ const card10148 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10149 ={
+var card10149 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2662,7 +2662,7 @@ const card10149 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10015 ={
+var card10015 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2736,7 +2736,7 @@ const card10015 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10150 ={
+var card10150 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2810,7 +2810,7 @@ const card10150 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10151 ={
+var card10151 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2884,7 +2884,7 @@ const card10151 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10152 ={
+var card10152 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -2958,7 +2958,7 @@ const card10152 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10158 ={
+var card10158 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3032,7 +3032,7 @@ const card10158 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10016 ={
+var card10016 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3106,7 +3106,229 @@ const card10016 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10017 ={
+var card10161 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "161",
+  "id": 161,
+  "nickname": "マミーキング娘",
+  "charaName": "メジエ",
+  "kana": "めじえ",
+  "text": "【マミーキング娘】メジエ",
+  "element": 6,
+  "life": 122,
+  "power": 123,
+  "defense": 114,
+  "magicDefense": 121,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 161,
+  "subTribe": 0,
+  "receiveType": 1,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "",
+  "resource": 10161,
+  "picture": 131,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 14011,
+  "skillId1": 161,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 10057,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90037,
+  "awakingAbilityId4": 90041,
+  "awakingAbilityId5": 90041,
+  "moveAction": 1,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10164 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "164",
+  "id": 164,
+  "nickname": "女教師メデューサ娘",
+  "charaName": "ローレン",
+  "kana": "ろぉれん",
+  "text": "【学園メデューサ娘】ローレン",
+  "element": 7,
+  "life": 123,
+  "power": 125,
+  "defense": 117,
+  "magicDefense": 115,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 164,
+  "subTribe": 0,
+  "receiveType": 1,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "",
+  "resource": 10164,
+  "picture": 129,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 16011,
+  "skillId1": 164,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 10121,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90037,
+  "awakingAbilityId4": 90038,
+  "awakingAbilityId5": 90041,
+  "moveAction": 1,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10165 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "165",
+  "id": 165,
+  "nickname": "転校生ジャイアント娘",
+  "charaName": "メロン",
+  "kana": "めろん",
+  "text": "【学園ジャイアント娘】メロン",
+  "element": 4,
+  "life": 127,
+  "power": 128,
+  "defense": 109,
+  "magicDefense": 116,
+  "receiveRange": 45,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 165,
+  "subTribe": 0,
+  "receiveType": 1,
+  "drawSize": 50,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "ef_10003",
+  "resource": 10165,
+  "picture": 130,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 11041,
+  "skillId1": 165,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 0,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90037,
+  "awakingAbilityId4": 90037,
+  "awakingAbilityId5": 90038,
+  "moveAction": 2,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10017 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3180,7 +3402,7 @@ const card10017 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10019 ={
+var card10019 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3254,7 +3476,7 @@ const card10019 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10020 ={
+var card10020 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3328,7 +3550,7 @@ const card10020 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10021 ={
+var card10021 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3402,7 +3624,7 @@ const card10021 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10022 ={
+var card10022 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3476,7 +3698,7 @@ const card10022 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10023 ={
+var card10023 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3550,7 +3772,7 @@ const card10023 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10024 ={
+var card10024 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3600,7 +3822,7 @@ const card10024 ={
   "rarityId": 21330,
   "classId": 13021,
   "skillId1": 24,
-  "skillId2": 0,
+  "skillId2": 10024,
   "skillId3": 0,
   "cost": 4,
   "missileId": 10035,
@@ -3624,7 +3846,7 @@ const card10024 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10025 ={
+var card10025 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3698,7 +3920,7 @@ const card10025 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10026 ={
+var card10026 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3772,7 +3994,7 @@ const card10026 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10027 ={
+var card10027 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3846,7 +4068,7 @@ const card10027 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10028 ={
+var card10028 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3920,7 +4142,7 @@ const card10028 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10029 ={
+var card10029 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -3994,7 +4216,7 @@ const card10029 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10003 ={
+var card10003 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4068,7 +4290,7 @@ const card10003 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10030 ={
+var card10030 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4142,7 +4364,7 @@ const card10030 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10031 ={
+var card10031 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4216,7 +4438,7 @@ const card10031 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10032 ={
+var card10032 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4290,7 +4512,7 @@ const card10032 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10033 ={
+var card10033 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4364,7 +4586,7 @@ const card10033 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10034 ={
+var card10034 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4438,7 +4660,7 @@ const card10034 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10035 ={
+var card10035 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4512,7 +4734,7 @@ const card10035 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10036 ={
+var card10036 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4586,7 +4808,7 @@ const card10036 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10037 ={
+var card10037 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4660,7 +4882,7 @@ const card10037 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10038 ={
+var card10038 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4734,7 +4956,7 @@ const card10038 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10039 ={
+var card10039 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4808,7 +5030,7 @@ const card10039 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10004 ={
+var card10004 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4882,7 +5104,7 @@ const card10004 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10040 ={
+var card10040 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -4956,7 +5178,7 @@ const card10040 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10041 ={
+var card10041 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5030,7 +5252,7 @@ const card10041 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10042 ={
+var card10042 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5104,7 +5326,7 @@ const card10042 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10043 ={
+var card10043 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5178,7 +5400,7 @@ const card10043 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10044 ={
+var card10044 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5252,7 +5474,7 @@ const card10044 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10046 ={
+var card10046 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5302,7 +5524,7 @@ const card10046 ={
   "rarityId": 5460818,
   "classId": 15021,
   "skillId1": 46,
-  "skillId2": 0,
+  "skillId2": 10046,
   "skillId3": 0,
   "cost": 5,
   "missileId": 0,
@@ -5326,7 +5548,7 @@ const card10046 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10047 ={
+var card10047 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5400,7 +5622,7 @@ const card10047 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10049 ={
+var card10049 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5474,7 +5696,7 @@ const card10049 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10005 ={
+var card10005 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5548,7 +5770,7 @@ const card10005 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10050 ={
+var card10050 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5622,7 +5844,7 @@ const card10050 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60001 ={
+var card60001 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5696,7 +5918,7 @@ const card60001 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60002 ={
+var card60002 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5770,7 +5992,7 @@ const card60002 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60003 ={
+var card60003 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5844,7 +6066,7 @@ const card60003 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60004 ={
+var card60004 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5918,7 +6140,7 @@ const card60004 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60005 ={
+var card60005 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -5992,7 +6214,7 @@ const card60005 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60006 ={
+var card60006 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6066,7 +6288,7 @@ const card60006 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60007 ={
+var card60007 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6140,7 +6362,7 @@ const card60007 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60008 ={
+var card60008 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6214,7 +6436,7 @@ const card60008 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60009 ={
+var card60009 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6288,7 +6510,7 @@ const card60009 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60010 ={
+var card60010 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6362,7 +6584,7 @@ const card60010 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60011 ={
+var card60011 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6436,7 +6658,7 @@ const card60011 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60012 ={
+var card60012 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6510,7 +6732,7 @@ const card60012 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60013 ={
+var card60013 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6584,7 +6806,7 @@ const card60013 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60014 ={
+var card60014 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6658,7 +6880,7 @@ const card60014 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60015 ={
+var card60015 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6732,7 +6954,7 @@ const card60015 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60016 ={
+var card60016 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6806,7 +7028,7 @@ const card60016 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60017 ={
+var card60017 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6880,7 +7102,7 @@ const card60017 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60018 ={
+var card60018 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -6954,7 +7176,7 @@ const card60018 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60019 ={
+var card60019 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7028,7 +7250,7 @@ const card60019 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60020 ={
+var card60020 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7102,7 +7324,7 @@ const card60020 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60021 ={
+var card60021 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7176,7 +7398,7 @@ const card60021 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60022 ={
+var card60022 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7250,7 +7472,7 @@ const card60022 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60023 ={
+var card60023 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7324,7 +7546,7 @@ const card60023 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60024 ={
+var card60024 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7398,7 +7620,7 @@ const card60024 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60025 ={
+var card60025 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7472,7 +7694,7 @@ const card60025 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60026 ={
+var card60026 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7546,7 +7768,7 @@ const card60026 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60027 ={
+var card60027 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7620,7 +7842,7 @@ const card60027 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60028 ={
+var card60028 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7694,7 +7916,7 @@ const card60028 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60029 ={
+var card60029 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7768,7 +7990,7 @@ const card60029 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60030 ={
+var card60030 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7842,7 +8064,7 @@ const card60030 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60031 ={
+var card60031 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7916,7 +8138,7 @@ const card60031 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card60032 ={
+var card60032 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -7990,7 +8212,81 @@ const card60032 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10051 ={
+var card60033 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "50033",
+  "id": 50033,
+  "nickname": "こうし",
+  "charaName": "ホルスタイン",
+  "kana": "ほるすたいん",
+  "text": "仔ホルスタイン",
+  "element": 7,
+  "life": 100,
+  "power": 70,
+  "defense": 60,
+  "magicDefense": 60,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 3,
+  "mainTribe": 50007,
+  "subTribe": 0,
+  "receiveType": 1,
+  "drawSize": 20,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "ef_10003",
+  "resource": 50007,
+  "picture": 999999,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "drawOrder": 0,
+  "type": 2,
+  "rarityId": 1853849455,
+  "classId": 50028,
+  "skillId1": 0,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 0,
+  "missileId": 0,
+  "subSkillSlot": 0,
+  "reSortieInterval": 0,
+  "awakingAbilityId1": 0,
+  "awakingAbilityId2": 0,
+  "awakingAbilityId3": 0,
+  "awakingAbilityId4": 0,
+  "awakingAbilityId5": 0,
+  "moveAction": 1,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10051 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8064,7 +8360,7 @@ const card10051 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10052 ={
+var card10052 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8138,7 +8434,7 @@ const card10052 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10053 ={
+var card10053 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8212,7 +8508,7 @@ const card10053 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10054 ={
+var card10054 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8286,7 +8582,7 @@ const card10054 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10055 ={
+var card10055 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8336,7 +8632,7 @@ const card10055 ={
   "rarityId": 18514,
   "classId": 12021,
   "skillId1": 55,
-  "skillId2": 0,
+  "skillId2": 10055,
   "skillId3": 0,
   "cost": 4,
   "missileId": 0,
@@ -8360,7 +8656,7 @@ const card10055 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10056 ={
+var card10056 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8434,7 +8730,7 @@ const card10056 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10057 ={
+var card10057 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8508,7 +8804,7 @@ const card10057 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10058 ={
+var card10058 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8558,7 +8854,7 @@ const card10058 ={
   "rarityId": 82,
   "classId": 13021,
   "skillId1": 58,
-  "skillId2": 0,
+  "skillId2": 10058,
   "skillId3": 0,
   "cost": 3,
   "missileId": 10032,
@@ -8582,7 +8878,7 @@ const card10058 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10059 ={
+var card10059 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8656,7 +8952,7 @@ const card10059 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10006 ={
+var card10006 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8730,7 +9026,7 @@ const card10006 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10060 ={
+var card10060 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8804,7 +9100,7 @@ const card10060 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10061 ={
+var card10061 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8878,7 +9174,7 @@ const card10061 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10062 ={
+var card10062 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -8952,7 +9248,7 @@ const card10062 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10063 ={
+var card10063 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9026,7 +9322,7 @@ const card10063 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10064 ={
+var card10064 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9100,7 +9396,7 @@ const card10064 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10065 ={
+var card10065 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9174,7 +9470,7 @@ const card10065 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10066 ={
+var card10066 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9248,7 +9544,7 @@ const card10066 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10067 ={
+var card10067 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9322,7 +9618,7 @@ const card10067 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10068 ={
+var card10068 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9396,7 +9692,7 @@ const card10068 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10069 ={
+var card10069 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9470,7 +9766,7 @@ const card10069 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10007 ={
+var card10007 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9544,7 +9840,7 @@ const card10007 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10070 ={
+var card10070 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9618,7 +9914,7 @@ const card10070 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10071 ={
+var card10071 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9692,7 +9988,7 @@ const card10071 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10072 ={
+var card10072 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9766,7 +10062,7 @@ const card10072 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10073 ={
+var card10073 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9840,7 +10136,7 @@ const card10073 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10074 ={
+var card10074 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9914,7 +10210,7 @@ const card10074 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10075 ={
+var card10075 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -9988,7 +10284,7 @@ const card10075 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10076 ={
+var card10076 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10062,7 +10358,7 @@ const card10076 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10077 ={
+var card10077 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10136,7 +10432,7 @@ const card10077 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10078 ={
+var card10078 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10186,7 +10482,7 @@ const card10078 ={
   "rarityId": 21330,
   "classId": 11021,
   "skillId1": 78,
-  "skillId2": 0,
+  "skillId2": 10078,
   "skillId3": 0,
   "cost": 4,
   "missileId": 0,
@@ -10210,7 +10506,7 @@ const card10078 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10079 ={
+var card10079 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10284,7 +10580,7 @@ const card10079 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10008 ={
+var card10008 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10358,7 +10654,7 @@ const card10008 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10080 ={
+var card10080 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10432,7 +10728,7 @@ const card10080 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10081 ={
+var card10081 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10506,7 +10802,7 @@ const card10081 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10082 ={
+var card10082 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10580,7 +10876,7 @@ const card10082 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10083 ={
+var card10083 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10654,7 +10950,7 @@ const card10083 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10084 ={
+var card10084 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10728,7 +11024,7 @@ const card10084 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10085 ={
+var card10085 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10802,7 +11098,7 @@ const card10085 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10086 ={
+var card10086 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10876,7 +11172,7 @@ const card10086 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10087 ={
+var card10087 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -10950,7 +11246,7 @@ const card10087 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10088 ={
+var card10088 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11000,7 +11296,7 @@ const card10088 ={
   "rarityId": 5460818,
   "classId": 11031,
   "skillId1": 88,
-  "skillId2": 0,
+  "skillId2": 10088,
   "skillId3": 0,
   "cost": 5,
   "missileId": 0,
@@ -11024,7 +11320,7 @@ const card10088 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10089 ={
+var card10089 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11098,7 +11394,7 @@ const card10089 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10090 ={
+var card10090 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11172,7 +11468,7 @@ const card10090 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10091 ={
+var card10091 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11246,7 +11542,7 @@ const card10091 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10092 ={
+var card10092 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11320,7 +11616,7 @@ const card10092 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10093 ={
+var card10093 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11394,7 +11690,7 @@ const card10093 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10094 ={
+var card10094 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11468,7 +11764,7 @@ const card10094 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10095 ={
+var card10095 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11542,7 +11838,7 @@ const card10095 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10096 ={
+var card10096 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11616,7 +11912,7 @@ const card10096 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10097 ={
+var card10097 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11690,7 +11986,7 @@ const card10097 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10098 ={
+var card10098 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0
@@ -11764,7 +12060,7 @@ const card10098 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
-const card10099 ={
+var card10099 ={
   "m_GameObject": {
     "m_FileID": 0,
     "m_PathID": 0

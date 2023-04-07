@@ -3,12 +3,20 @@
     <head>
         <meta charset="utf-8"/>
         <title>TEST</title>
-        <script src="../../scripts/_dataO/allData.js"></script>
-        <script>
-            var charID = 10106;
-        </script>
     </head>
     <body>
-        
+        <img src="../../img/chara-icons/icon_10085_0_s.png" class="queryString">
     </body>
+    <script>
+        let allQuery = document.getElementsByClassName("queryString");
+        console.log(allQuery);
+        for (let i=0;i<allQuery.length;i++){
+            console.log(allQuery[i]);
+            allQuery[i].addEventListener("click",function(){locationChange(allQuery[i].src)});
+        }
+        function locationChange(src){
+            let id = src.split("icon_")[1].split("_0_s")[0];
+            location.href = 'calculator.html'+"?id="+id;
+        }
+    </script>
 </html>
