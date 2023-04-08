@@ -1815,17 +1815,19 @@ const attack_patterns = {
 			]},
 			{"cond":[["condition","1007","",13013]],
 			"pattern":[
-				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":2,"text":"スキル攻撃"},
+				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":3,"text":"スキル攻撃"},
 				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":2,"text":"スキル攻撃"},
 				{"probability":33.34,"time":2500,"extraTarget":0,"extraMulti":1,"text":"スキル攻撃"},
 			]},
 			{"cond":[["condition","1007","",13012]],
 			"pattern":[
-				{"probability":100,"time":2500,"extraTarget":0,"extraMulti":1,"text":"スキル攻撃"},
+				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":2,"text":"スキル攻撃"},
+				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":2,"text":"スキル攻撃"},
+				{"probability":33.34,"time":2500,"extraTarget":0,"extraMulti":1,"text":"スキル攻撃"},
 			]},
 			{"cond":[],
 			"pattern":[
-				{"probability":100,"time":2500,"extraTarget":0,"extraMulti":0,"text":"スキル攻撃"},
+				{"probability":100,"time":2500,"extraTarget":0,"extraMulti":1,"text":"スキル攻撃"},
 			]},
 		],
 		"critical":[],
