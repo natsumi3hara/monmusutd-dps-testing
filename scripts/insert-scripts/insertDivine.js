@@ -57,7 +57,7 @@ document.write(`
                 <span class="divine-buff-name">なし</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30000" class="larger-check divine-check" checked onChange="divineOneOnly('divine30000');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30000" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" disabled>
@@ -69,7 +69,7 @@ document.write(`
                 <span class="divine-buff-name">ヴィヴィ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30001" class="larger-check divine-check" onChange="divineOneOnly('divine30001');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30001" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -81,7 +81,7 @@ document.write(`
                 <span class="divine-buff-name">ニーズホッグ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30002" class="larger-check divine-check" onChange="divineOneOnly('divine30002');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30002" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -93,7 +93,7 @@ document.write(`
                 <span class="divine-buff-name">パズズ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30003" class="larger-check divine-check" onChange="divineOneOnly('divine30003');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30003" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -105,7 +105,7 @@ document.write(`
                 <span class="divine-buff-name">ファロ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30004" class="larger-check divine-check" onChange="divineOneOnly('divine30004');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30004" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -117,7 +117,7 @@ document.write(`
                 <span class="divine-buff-name">ベヒモス</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30006" class="larger-check divine-check" onChange="divineOneOnly('divine30006');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30006" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -129,7 +129,7 @@ document.write(`
                 <span class="divine-buff-name">ソラス</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30007" class="larger-check divine-check" onChange="divineOneOnly('divine30007');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30007" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -141,7 +141,7 @@ document.write(`
                 <span class="divine-buff-name">ビッキーヌ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30008" class="larger-check divine-check" onChange="divineOneOnly('divine30008');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30008" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -153,7 +153,7 @@ document.write(`
                 <span class="divine-buff-name">メイドヴィヴィ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30009" class="larger-check divine-check" onChange="divineOneOnly('divine30009');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30009" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -165,7 +165,7 @@ document.write(`
                 <span class="divine-buff-name">セーラ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
-                <span class="divine-buff-label">編集</span>
+                <span class="divine-buff-label">編成</span>
                 <input type="checkbox" id="divine30010" class="larger-check divine-check" onChange="divineOneOnly('divine30010');allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30010" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">

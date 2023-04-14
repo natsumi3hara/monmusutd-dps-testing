@@ -50,18 +50,6 @@ document.write(`
 <button type="button" class="collapsible-button">キャラ個別（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-charaSpecific-buff">
-        <div class="flex-container-charaSpecific-buff-inner chara-specific-10025">
-            <div class="flex-container-charaSpecific-buff-inner2">
-                <img src="../../img/chara-icons/icon_10025_0_s.png" class="charaSpecific-buff-img">
-                <span class="charaSpecific-buff-name">攻撃アップ</span>
-            </div>
-            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
-                <span class="charaSpecific-buff-label">編集</span>
-                <input type="checkbox" id="charaSpecific10025" class="larger-check charaSpecific-check" onChange="allDPS();">
-                <span class="charaSpecific-buff-label">レベル</span>
-                <input id="level30000" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" disabled>
-            </div>
-        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10007">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10007_0_s.png" class="charaSpecific-buff-img">
@@ -119,6 +107,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">HP25%以下になった?</span>
                 <input id="charaSpecific10039-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10040">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10040_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">毒沼</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">毒沼の数(10秒)</span>
+                <input id="charaSpecific10040-C" class="" type="number" min="0" max="42" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>

@@ -51,7 +51,7 @@ document.write(`
                 <span class="party-buff-name">シルフィーネ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10005" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10005" class="larger-check party-check" onchange="allDPS();">
@@ -63,7 +63,7 @@ document.write(`
                 <span class="party-buff-name">プネーマ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10008" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10008" class="larger-check party-check" onchange="allDPS();">
@@ -75,7 +75,7 @@ document.write(`
                 <span class="party-buff-name">イグニ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10010" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10010" class="larger-check party-check" onchange="allDPS();">
@@ -87,7 +87,7 @@ document.write(`
                 <span class="party-buff-name">ペトラ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10012" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10012" class="larger-check party-check" onchange="allDPS();">
@@ -99,7 +99,7 @@ document.write(`
                 <span class="party-buff-name">ディフニラ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10039" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10039" class="larger-check party-check" onchange="allDPS();">
@@ -111,7 +111,7 @@ document.write(`
                 <span class="party-buff-name">ラゴス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10044" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10044" class="larger-check party-check" onchange="allDPS();">
@@ -123,7 +123,7 @@ document.write(`
                 <span class="party-buff-name">ミテラス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10069" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10069" class="larger-check party-check" onchange="allDPS();">
@@ -135,7 +135,7 @@ document.write(`
                 <span class="party-buff-name">フリス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10080" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10080" class="larger-check party-check" onchange="allDPS();">
@@ -147,7 +147,7 @@ document.write(`
                 <span class="party-buff-name">ラフーカ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10095" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10095" class="larger-check party-check" onchange="allDPS();">
@@ -159,7 +159,7 @@ document.write(`
                 <span class="party-buff-name">ロヴィリス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10106" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10106" class="larger-check party-check" onchange="allDPS();">
@@ -171,7 +171,7 @@ document.write(`
                 <span class="party-buff-name">リュプチェ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10116" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10116" class="larger-check party-check" onchange="allDPS();">
@@ -183,7 +183,7 @@ document.write(`
                 <span class="party-buff-name">ヤーセファ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10127" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10127" class="larger-check party-check" onchange="allDPS();">
@@ -195,7 +195,7 @@ document.write(`
                 <span class="party-buff-name">鈴音マズル</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10134" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10134" class="larger-check party-check" onchange="allDPS();">
@@ -207,7 +207,7 @@ document.write(`
                 <span class="party-buff-name">イフィジャール</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編集</span>
+                <span class="party-buff-label">編成</span>
                 <input type="checkbox" id="party10136" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10136" class="larger-check party-check" onchange="allDPS();">
@@ -220,11 +220,11 @@ let partychecks = document.getElementsByClassName("party-check")
 for (let i=0;i<partychecks.length;i++){
     if (partychecks[i].id == "party"+masterValues.charaID.toString()){
         partychecks[i].disabled = true;
-        //partychecks[i].checked = true;
+        partychecks[i].checked = true;
     } else {}
     if (partychecks[i].id == "awake"+masterValues.charaID.toString() && masterValues.charaAwaked){
         partychecks[i].disabled = true;
-        //partychecks[i].checked = true;
+        partychecks[i].checked = true;
     } else if (partychecks[i].id == "awake"+masterValues.charaID.toString()){
         partychecks[i].disabled = true;
     } else {}

@@ -92,6 +92,7 @@ function enemyHuman(checked){
 function updateSummonType(){
     let cc = Number(document.getElementById("input-cc").value);
     let job = job_data["table"][job_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
+    if (masterValues.charaID === 10090){return 3;}
     return job["summonType"];
 }
 function selfConditionUpdate(){
@@ -137,6 +138,24 @@ function equipImageChange(){
     bodyabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][3];
     accessoryabbr.title = equipAbbr[(masterValues.baseClass+cc-1).toString()][2];
 }
+function enemyReminder(){
+    let bl = Number(document.getElementById("input-number-blocked").value);
+    let rng = Number(document.getElementById("input-number-inRange").value);
+    let rmd1 = document.getElementById("enemy-remind1");
+    let rmd2 = document.getElementById("enemy-remind2");
+    let rmd3 = document.getElementById("enemy-remind3");
+    if (bl === 0 && rng === 0){
+        console.log("both zero");
+        rmd1.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+        rmd2.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+        rmd3.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+    } else {
+        console.log("at least one non zero");
+        rmd1.innerHTML = "";
+        rmd2.innerHTML = "";
+        rmd3.innerHTML = "";
+    }
+}
 
 function allDPS(){
     console.log("selfCond1",selfConditions["1"]);
@@ -168,6 +187,7 @@ function allDPS(){
         calculateStat(level,cc,"stat2");
     }
     //statcalc over//
+    /* exclude until can reliably determine
     let extraAffectDamage = document.getElementById("input-number-extraAffectDamage");
     if ((masterValues.baseClass + cc) === 11022){
         console.log("lancer cc1");
@@ -176,6 +196,7 @@ function allDPS(){
         console.log("lancer cc2");
         extraAffectDamage.value = "70";
     } else {extraAffectDamage.value = "100";}
+    */
     //attackPattern
     let attackPatternReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
     if (masterValues.charaAwaked){
@@ -263,9 +284,185 @@ function allDPS(){
     let skillHitFrameList = calculateAvgHitFrame("skill");
     let battleFinalDPS = Number(battleAvgDmg) * Number(battleHitFrameList[0]) * 30 / Number(battleHitFrameList[1]);
     let skillFinalDPS = Number(skillAvgDmg) * Number(skillHitFrameList[0]) * 30 / Number(skillHitFrameList[1]);
+    //continuous here//
+    let continuousCheck;
+    let continuousReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
+    if (masterValues.charaAwaked){
+        continuousReference = continuousReference.toString() + "a";
+    } else {continuousReference = continuousReference.toString();}
+    continuousReference += "-"+document.getElementById("skill-level-select").value.toString();
+    console.log(continuousReference);
+    continuousCheck = continuous_patterns[continuousReference];
+    if (continuousCheck === undefined) {continuousReference = continuousReference.split("-")[0];}
+    console.log(continuousReference);
+    continuousCheck = continuous_patterns[continuousReference];
+    if (continuousCheck === undefined) {continuousReference = continuousReference.split("a")[0];}
+    console.log(continuousReference);
+    continuousCheck = continuous_patterns[continuousReference];
+    if (continuousCheck === undefined) {continuousReference = 0;}
+    console.log(continuousReference);
+    //
+    console.log("beforeContinuous",battleFinalDPS);
+    console.log("beforeContinuous",skillFinalDPS);
+    let excludeContinuous = document.getElementById("exclude-continuous-damage").checked;
+    battleFinalDPS += getContinuousDamage("battle",continuousReference,excludeContinuous);
+    skillFinalDPS += getContinuousDamage("skill",continuousReference,excludeContinuous);
+    console.log("afterContinuous",battleFinalDPS);
+    console.log("beforeContinuous",skillFinalDPS);
+    //
     document.getElementById("dps-battle-finalDPS").innerHTML = battleFinalDPS.toFixed(2);
     document.getElementById("dps-skill-finalDPS").innerHTML = skillFinalDPS.toFixed(2);
-    
+    //continuous end
+    overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS);
+    //reminder for enemy input//
+    enemyReminder()
+}
+
+function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS){
+    let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
+    let skillchangenumber = Number(document.getElementById("skill-change-select").value);
+    let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
+    console.log("skillReference: ",masterValues.charaID-skillaltnumber+skillchangenumber);
+    let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
+    let minDuration = skillObject["minDurationTime"];
+    let maxDuration = skillObject["maxDurationTime"];
+    let minCooldown = skillObject["minCoolTime"];
+    let maxCooldown = skillObject["maxCoolTime"];
+    let duration = Math.floor((minDuration + (maxDuration-minDuration)/4*(skilllevelnumber-1))/30);
+    let cooldown = Math.floor((minCooldown + (maxCooldown-minCooldown)/4*(skilllevelnumber-1))/30);
+    let initial = cooldown;
+    console.log(duration);
+    console.log(cooldown);
+    console.log(subskillID_1);
+    console.log(subskillID_2);
+    //duration manipulation//
+    if (duration === 0){duration = Number(document.getElementById("dps-dps-skill-averageFrame").innerHTML)/30}
+    //initial manipulation//
+    if (selfConditions["1003"] === 82) {initial = Math.round(initial * 70 / 100);}
+    else if (selfConditions["1003"] === 18514) {initial = Math.round(initial * 60 / 100);}
+    else if (selfConditions["1003"] === 21330) {initial = Math.round(initial * 50 / 100);}
+    else if (selfConditions["1003"] === 5460818) {initial = Math.round(initial * 30 / 100);}
+    if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
+    if (selfConditions["1007"]===11024||selfConditions["1007"]===11044){initial -= 3;}
+    if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
+    if (initial < 0){initial = 0;}
+    console.log(initial);
+    //cooldown manipulation//
+    //if needed, this will be converted to lists like decrease1per1, decrease1per4 etc, count number of true//
+    let fullHeart = selfConditions["2000"]===100 && (subskillID_1 === 58||subskillID_2 === 58);
+    let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
+    let chara10147 = masterValues.charaID===10147 && selfConditions["2"]===1;
+    /*console.log(fullHeart);
+    console.log(mattari);
+    console.log(chara10147);
+    console.log(Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3));
+    console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
+    console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
+    if (fullHeart && mattari && chara10147){
+        cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
+    } else if (fullHeart && (mattari||chara10147)){
+        cooldown = Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2);
+    } else if (fullHeart){
+        cooldown = Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5);
+    } else if (mattari&&chara10147){
+        cooldown = Math.ceil(cooldown/3);
+    } else if (mattari||chara10147){
+        cooldown = Math.ceil(cooldown/2);
+    } else {}
+    if (document.getElementById("shared20007-1").checked && (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
+        cooldown -= 10*Number(document.getElementById("shared20007-2").value);
+    }
+    if (document.getElementById("shared20008-1").checked){
+        cooldown -= 3*Number(document.getElementById("shared20008-2").value);
+    }
+    if (cooldown < 0) {cooldown = 0;}
+    //final adjustment and display//
+    if (duration === -1){
+        document.getElementById("dps-all-skillDuration").innerHTML = "無限";
+    } else {
+        document.getElementById("dps-all-skillDuration").innerHTML = duration.toFixed(2)+"秒";
+    }
+    document.getElementById("dps-all-skillCooldown").innerHTML = cooldown.toFixed(2)+"秒";
+    document.getElementById("dps-all-skillFirst").innerHTML = initial.toFixed(2)+"秒";
+    document.getElementById("dps-all-battle").innerHTML = battleFinalDPS.toFixed(2);
+    document.getElementById("dps-all-skill").innerHTML = skillFinalDPS.toFixed(2);
+    let finalDPS = 0;
+    if (duration === -1){
+        finalDPS = skillFinalDPS;
+    } else {
+        finalDPS = (battleFinalDPS*cooldown + skillFinalDPS*duration)/(cooldown+duration);
+    }
+    document.getElementById("dps-all-final").innerHTML = finalDPS.toFixed(2);
+}
+
+function getContinuousDamage(battleskill,continuousReference,exclude=false){
+    if (exclude){console.log("continuous damage excluded!");return 0;}
+    console.log("startContinuous",battleskill,continuousReference);
+    let dmgC,frameC;
+    let targetC = 0;
+    //targets//
+    let blockCount = Number(document.getElementById("input-number-blocked").value);
+    let inRangeCount = Number(document.getElementById("input-number-inRange").value);
+    let blockCountMax;
+    if (battleskill === "battle"){
+        blockCountMax = Number(document.getElementById("dps-output-battle-value-stat10").innerHTML);
+    } else {
+        blockCountMax = Number(document.getElementById("dps-output-skill-value-stat10").innerHTML);
+    }
+    if (blockCount > blockCountMax){blockCount = blockCountMax;}
+    //
+    let damageContinuous = continuous_patterns[continuousReference][battleskill];
+    console.log(damageContinuous);
+    if (damageContinuous["cond"].length === 0){
+        dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
+        dmgC = damageCalc(dmgC,damageContinuous["damage"]["hitType"]);
+        document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
+        let targets = 0;
+        if (continuous_patterns[continuousReference]["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
+        else if (continuous_patterns[continuousReference]["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
+        else if (continuous_patterns[continuousReference]["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+        else if (continuous_patterns[continuousReference]["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
+        document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
+        if (continuous_patterns[continuousReference]["time"] === "attack"){frameC = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+        else{frameC = continuous_patterns[continuousReference]["time"];}
+        document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+    } else { //have condition list
+        let condArray = damageContinuous["cond"];
+        for (let i=0;i<condArray.length;i++){
+            if (condArray[i][0] === "condition"){
+                // for now, put an OR option here, might need change if negative effects on ally buff themselves
+                if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
+                    dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
+                    dmgC = damageCalc(dmgC,damageContinuous["damage"]["hitType"]);
+                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
+                    let targets = 0;
+                    if (continuous_patterns[continuousReference]["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
+                    else if (continuous_patterns[continuousReference]["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
+                    else if (continuous_patterns[continuousReference]["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+                    else if (continuous_patterns[continuousReference]["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
+                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
+                    frameC = continuous_patterns[continuousReference]["time"];
+                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+                }
+            } else {//reference
+                if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){
+                    dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
+                    dmgC = damageCalc(dmgC,damageContinuous["damage"]["hitType"]);
+                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
+                    let targets = 0;
+                    if (continuous_patterns[continuousReference]["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
+                    else if (continuous_patterns[continuousReference]["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
+                    else if (continuous_patterns[continuousReference]["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+                    else if (continuous_patterns[continuousReference]["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
+                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
+                    frameC = continuous_patterns[continuousReference]["time"];
+                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+                }
+            }
+        }
+    }
+    //console.log(dmgC,targetC,frameC);
+    return Number(dmgC)*Number(targetC)*30/Number(frameC);
 }
 
 function getAttackTypeList(battleskill,attackPatternReference){
@@ -311,7 +508,7 @@ function getAttackTypeList(battleskill,attackPatternReference){
                 }
             }
         }
-    }   
+    }
 }
 
 function calculateAvgHitFrame(battleskill){
@@ -1473,7 +1670,7 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,re
                     } else {/*range is 4-6*/}
                 }
             } else if (conditionRecord.active && conditionRecord.trigger && (range===1||range===2||range===3)){
-                console.log("pushed to buff array");
+                console.log("pushed to buff array - not damageUP");
                 let param,timing,param0,param1,param2;
                 if (parseType === "skill"){
                     let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
@@ -1500,17 +1697,18 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,re
                     } else {}
                 } else {
                     //not skill (as of now)
-                    if (allTalents[i]["param"].length === 1){
-                        timing = allTalents[i]["timing"].toString();
+                    timing = allTalents[i]["timing"].toString();
+                    if (timing === "4" && range === 3){
+                        param0 = [0];
+                        param = [param0];
+                    } else if (allTalents[i]["param"].length === 1){
                         param0 = allTalents[i]["param"][0]["num"];
                         param = [param0];
                     } else if (allTalents[i]["param"].length === 2){
-                        timing = allTalents[i]["timing"].toString();
                         param0 = allTalents[i]["param"][0]["num"];
                         param1 = allTalents[i]["param"][1]["num"];
                         param = [param0,param1];
                     } else if (allTalents[i]["param"].length > 2){
-                        timing = allTalents[i]["timing"].toString();
                         param0 = allTalents[i]["param"][0]["num"];
                         param1 = allTalents[i]["param"][1]["num"];
                         param2 = allTalents[i]["param"][2]["num"];
@@ -1616,211 +1814,6 @@ function pdMultValues(type){ //timing = 4//
     return totalPartyBuff/100;
 }
 
-function oldAllDPS(){
-    let RateBuff1 = [0];
-    let AddBuff1 = [0];
-    let RateBuff2 = [0];
-    let AddBuff2 = [0];
-    var subskillID_1 = getAttachID("subskill1");
-    var subskillID_2 = getAttachID("subskill2");
-    if (subskillID_1 == -1 || subskillID_2 == -1){
-        //console.log("Either subskill is 'None'")
-        if (subskillID_1 == -1 && subskillID_2 != -1) {
-            //subskill 2 is active
-            let attachObject = attach_ability_data.table[subskillID_2].talentList;
-            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
-        } else if (subskillID_1 != -1 && subskillID_2 == -1) {
-            //subskill 1 is active
-            let attachObject = attach_ability_data.table[subskillID_1].talentList;
-            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
-        } else {
-            //no subskill is active
-        }
-    } else if (attach_ability_data.table[subskillID_1].name.split(" ")[0] == attach_ability_data.table[subskillID_2].name.split(" ")[0]){
-        //console.log("Same kind of subskill")
-        if (subskillID_1 >= subskillID_2){
-            let attachObject = attach_ability_data.table[subskillID_1].talentList;
-            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
-        } else {
-            let attachObject = attach_ability_data.table[subskillID_2].talentList;
-            RateBuff1.push(extractAttachTalent(attachObject,type,23)[0])
-            AddBuff1.push(extractAttachTalent(attachObject,type,23)[1])
-            RateBuff2.push(extractAttachTalent(attachObject,type,1)[0])
-            AddBuff2.push(extractAttachTalent(attachObject,type,1)[1])
-        }
-    } else {
-        //console.log("Different kind of subskill")
-        let attachObject = attach_ability_data.table[subskillID_1].talentList;
-        let tempSubskill1 = extractAttachTalent(attachObject,type,23)
-        let tempSubskill2 = extractAttachTalent(attachObject,type,1)
-        attachObject = attach_ability_data.table[subskillID_2].talentList;
-        RateBuff1.push(extractAttachTalent(attachObject,type,23)[0]+tempSubskill1[0])
-        AddBuff1.push(extractAttachTalent(attachObject,type,23)[1]+tempSubskill1[1])
-        RateBuff2.push(extractAttachTalent(attachObject,type,1)[0]+tempSubskill2[0])
-        AddBuff2.push(extractAttachTalent(attachObject,type,1)[1]+tempSubskill2[1])
-    }
-    //↓ATTACH AND SELF-BUFF STAT↓//
-    RateBuff1.push(selfBuff[type][0])
-    AddBuff1.push(selfBuff[type][1])
-    let RateBuff1Mult = RateBuff1.reduce((acc,curr)=>(acc)*(1+curr/100),1);
-    let AddBuff1Mult = AddBuff1.reduce((acc,curr)=>acc+curr);
-    console.log(type+"Rate1:",RateBuff1Mult,type+"Add1:",AddBuff1Mult);
-    rawStat = Math.floor(rawStat * RateBuff1Mult + AddBuff1Mult);
-    //↑ATTACH AND SELF-BUFF STAT↑//
-
-
-
-    /*
-    //EQUIPMENT STAT//
-    rawStat += equipValues("1",type,cc) + equipValues("2",type,cc) + equipValues("3",type,cc) + equipValues("4",type,cc);
-    //PARTY+DIVINE STAT//
-    //console.log(rawStat);
-    rawStat = Math.floor(rawStat * pdMultValues(type));
-    rawStat = Math.floor(rawStat + divineAdd(type));
-    var upperStat = Math.floor(rawStat * 10);
-    var lowerStat = Math.floor(rawStat * 0.5);
-    //For display//
-    document.getElementById("dps-output-menu-value-"+type).innerHTML = rawStat;
-    //END OF BASE STATS//
-    //START OF BATTLE STATS//
-    //ATTRIBUTE TILE//
-    if (document.getElementById("shared20001").checked){
-        if (type === "stat2"||type === "stat3"||type === "stat4"){
-            RateBuff2.push(15*attrEffect);
-        } else if (type === "stat7"){
-            RateBuff2.push(10*attrEffect);
-        } else {}
-    }
-    //TACTICS GUARD//
-    if (type === "stat3"){
-        RateBuff2.push(Number(document.getElementById("shared20003").value)*4);
-    }
-    //ATKUP WHILE MOVE (1090)//
-    if (type === "stat2"){
-        if (Number(document.getElementById("subskill1").value) === 1090 || Number(document.getElementById("subskill2").value === 1090)){
-            if (document.getElementById("shared20004").checked){
-                RateBuff2.push(100);
-            } else {}
-        } else {}
-    } else {}
-    //Other allies' skills (Mearus)//
-    RateBuff2.push(allAlliesSkillRate(type));
-    //Extra Buffs (no Block input)//
-    try {
-        RateBuff2.push(Number(document.getElementById("extra-"+type+"-1").value));
-        AddBuff2.push(Number(document.getElementById("extra-"+type+"-2").value));
-    } catch (err) {}
-    //Supporter Buffs (no HP, aSpd, PAD, Block input)//
-    try {
-        AddBuff2.push(Number(document.getElementById("supporter-buff-value-"+type).value));
-    } catch (err) {}
-    //Chara-specific Buffs//
-    console.log("Hi");
-    console.log(charaSpecificSkillRates(type));
-    console.log(charaSpecificSkillAdds(type));
-    RateBuff2.push(charaSpecificSkillRates(type));
-    AddBuff2.push(charaSpecificSkillAdds(type));
-    //---------------------------------//
-    //Now RateBuff2 is WITHOUT EX skill//
-    //---------------------------------//
-    let RateBuff2Mult = RateBuff2.reduce((acc,curr)=>(acc)+(curr/100),1);
-    let AddBuff2Mult = AddBuff2.reduce((acc,curr)=>acc+curr);
-    console.log(type+"Rate2:",RateBuff2Mult,type+"Add2:",AddBuff2Mult);
-    let battleStat = Math.floor(rawStat * RateBuff2Mult + AddBuff2Mult);
-    if (battleStat < lowerStat){
-        battleStat = lowerStat;
-    } else if (battleStat > upperStat){
-        battleStat = upperStat;
-    } else {}
-    document.getElementById("dps-output-battle-value-"+type).innerHTML = battleStat;
-    //EX Skill//
-    let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
-    let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
-    getOwnSkillRates(type)
-
-    
-
-
-
-    */
-}
-function getOwnSkillRates(type){
-    let totalOwnSkillRate = 0;
-    console.log(skillaltnumber);
-}
-
-
-function charaSpecificSkillRates(type){
-    let totalSpecificRate = 0;
-    let CSnumber = document.getElementsByClassName("chara-specific-"+masterValues.charaID.toString()).length;
-    for (let i=1;i<(CSnumber+1);i++){
-        let charaSpecificIndex = document.getElementById("charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()).value;
-        if (masterValues.charaAwaked){
-            try {
-                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()+"a"][type];
-                if (typeof CSList[0] === "number"){
-                    if (charaSpecificIndex > CSList.length){
-                        totalSpecificRate += CSList[CSList.length-1];
-                    } else {
-                        totalSpecificRate += CSList[charaSpecificIndex];
-                    }
-                } else {} //else is not Rate
-            } catch (err) {}
-        } else {
-            try {
-                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()][type];
-                if (typeof CSList[0] === "number"){
-                    if (charaSpecificIndex > CSList.length){
-                        totalSpecificRate += CSList[CSList.length-1];
-                    } else {
-                        totalSpecificRate += CSList[charaSpecificIndex];
-                    }
-                } else {} //else is not Rate
-            } catch (err) {}
-        }
-    }
-    return totalSpecificRate;
-}
-function charaSpecificSkillAdds(type){
-    let totalSpecificAdd = 0;
-    let CSnumber = document.getElementsByClassName("chara-specific-"+masterValues.charaID.toString()).length;
-    for (let i=1;i<(CSnumber+1);i++){
-        let charaSpecificIndex = document.getElementById("charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()).value;
-        if (masterValues.charaAwaked){
-            try {
-                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()+"a"][type];
-                if (typeof CSList[0] === "string"){
-                    if (charaSpecificIndex > CSList.length){
-                        totalSpecificAdd += Number(CSList[CSList.length-1].split("a")[1]);
-                    } else {
-                        totalSpecificAdd += Number(CSList[charaSpecificIndex].split("a")[1]);
-                    }
-                } else {} //else is not Add
-            } catch (err) {}
-        } else {
-            try {
-                let CSList = charaSpecificRef["charaSpecific"+masterValues.charaID.toString()+"-"+i.toString()][type];
-                if (typeof CSList[0] === "string"){
-                    if (charaSpecificIndex > CSList.length){
-                        totalSpecificAdd += Number(CSList[CSList.length-1].split("a")[1]);
-                    } else {
-                        totalSpecificAdd += Number(CSList[charaSpecificIndex].split("a")[1]);
-                    }
-                } else {} //else is not Add
-            } catch (err) {}
-        }
-    }
-    return totalSpecificAdd;
-}
 function allAlliesSkillRate(type){
     //timing must be 1
     let totalAllAlliesSkill = 0
@@ -1889,93 +1882,6 @@ function equipValues(equipnumber,type,cc){
     return value;
 }
 
-function extractAttachTalent(list,type,time){
-    let attachTalentRate = 0;
-    let attachTalentActual = 0;
-    let attachTalentFixed = -1;
-    if (type == "stat1"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,1,time)
-            attachTalentRate -= talentParseParamOnly(list,2,time)
-            attachTalentActual += talentParseParamOnly(list,3,time)
-            attachTalentActual -= talentParseParamOnly(list,4,time)
-            attachTalentFixed = talentParseParamOnly(list,5,time)
-            }
-    } else if (type == "stat2"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,6,time)
-            attachTalentRate -= talentParseParamOnly(list,7,time)
-            attachTalentActual += talentParseParamOnly(list,8,time)
-            attachTalentActual -= talentParseParamOnly(list,9,time)
-            attachTalentFixed = talentParseParamOnly(list,10,time)
-            }
-    } else if (type == "stat3"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,11,time)
-            attachTalentRate -= talentParseParamOnly(list,12,time)
-            attachTalentActual += talentParseParamOnly(list,13,time)
-            attachTalentActual -= talentParseParamOnly(list,14,time)
-            attachTalentFixed = talentParseParamOnly(list,15,time)
-            }
-    } else if (type == "stat4"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,16,time)
-            attachTalentRate -= talentParseParamOnly(list,17,time)
-            attachTalentActual += talentParseParamOnly(list,18,time)
-            attachTalentActual -= talentParseParamOnly(list,19,time)
-            attachTalentFixed = talentParseParamOnly(list,20,time)
-            }
-    } else if (type == "stat5"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,26,time)
-            attachTalentRate -= talentParseParamOnly(list,27,time)
-            attachTalentActual += talentParseParamOnly(list,28,time)
-            attachTalentActual -= talentParseParamOnly(list,29,time)
-            attachTalentFixed = talentParseParamOnly(list,30,time)
-            }
-    } else if (type == "stat6"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,31,time)
-            attachTalentRate -= talentParseParamOnly(list,32,time)
-            attachTalentActual += talentParseParamOnly(list,33,time)
-            attachTalentActual -= talentParseParamOnly(list,34,time)
-            attachTalentFixed = talentParseParamOnly(list,35,time)
-            }
-    } else if (type == "stat7"){
-        for (i = 0;i<list.length;i++){
-            attachTalentRate += talentParseParamOnly(list,36,time)
-            attachTalentRate -= talentParseParamOnly(list,37,time)
-            attachTalentActual += talentParseParamOnly(list,38,time)
-            attachTalentActual -= talentParseParamOnly(list,39,time)
-            attachTalentFixed = talentParseParamOnly(list,40,time)
-            }
-    }
-    //console.log([attachTalentRate, attachTalentActual,attachTalentFixed])
-    return [attachTalentRate, attachTalentActual,attachTalentFixed];
-}
-function talentParseParamOnly(list,bufftype,time) {
-    let remainHP = Number(document.getElementById("shared20002").value);
-    if (list[i].talentId == bufftype && list[i].timing == time){
-        if (list[i].triggerData.length == 0){
-            if (list[i].activeData.length == 0){
-                if (list[i].param[2] === undefined){//test for 底力//
-                    return Number(list[i].param[0].num[0]);
-                } else {
-                    return (100-remainHP)/100 * Number(list[i].param[0].num[0]);
-                }
-            } else if (list[i].activeData[0].type == 1006) {
-                if ((masterValues.baseClass+1000).toString().slice(1,2) == list[i].activeData[0].num[0]){
-                    return Number(list[i].param[0].num[0]);
-                } else if (bufftype%5 == 0) {return -1;} else {return 0;}
-            } else if (masterValues.baseClass >= list[i].activeData[0].num[0] && masterValues.baseClass <= list[i].activeData[1].num[0]){
-                return Number(list[i].param[0].num[0])
-            } else if (bufftype%5 == 0) {return -1;} else {return 0;}
-        } else {
-            //as of now only 疾風怒濤 has a base stat with triggerData, the rest are either bomb activation or damage up with trigger
-            return 0;}
-    } else if (bufftype%5 == 0) {return -1;} else {return 0;}
-}
-
 function talentIdentifier(talentText){
     if (talentText.slice(0,2) == "最大"){
         return "stat1";
@@ -2008,15 +1914,6 @@ function getAttachID(subskillSelectID){
     return subskillIndex;
 }
 
-/*function updateBlockCount(){
-    console.log("updateblockcount");
-    let currentBC = document.getElementById("input-number-blocked").value;
-    let BCList = document.getElementsByClassName("actualBlockCount");
-    console.log(BCList);
-    for (let i=0;i<BCList.length;i++){
-        BCList[i].value = currentBC;
-    }
-}*/
 function talenttext(){
     document.getElementById("talent3").innerHTML = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === masterValues.unitcard["awakingAbilityId3"]})]["name"];
     document.getElementById("talent4").innerHTML = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === masterValues.unitcard["awakingAbilityId4"]})]["name"];
@@ -2042,6 +1939,12 @@ function skilltextreplace(){
     let skillchangenumber = Number(document.getElementById("skill-change-select").value);
     let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
     //manipulation//
+    try {
+        if (skillObject === undefined) {throw "存在しないスキルです";}
+        document.getElementById("skill-error").innerHTML = "";
+    } catch (err) {
+        document.getElementById("skill-error").innerHTML = err + "<br>";
+    }
     let baseText = skillObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>").replace("mdefense","mdef"); //replace \r,\n, and mdef to split later
     console.log(baseText);
     let beforeArray = baseText.match(/(?<=\[)[^\][]*(?=])/g);
@@ -2078,6 +1981,10 @@ function skilltextreplace(){
                     let replaceParam = minParam;
                     baseText = baseText.replace(beforeArray[i], replaceParam.toString());
                 } else if (baseText.split(beforeArray[i])[0].slice(-5) == "所持数が\[" && baseText.split(beforeArray[i])[1].slice(0,3) == "\]増加"){
+                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+                    let replaceParam = minParam;
+                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+                } else if (baseText.split(beforeArray[i])[0].slice(-6) == "移動速度+\["){
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let replaceParam = minParam;
                     baseText = baseText.replace(beforeArray[i], replaceParam.toString());
@@ -2303,7 +2210,9 @@ function attachOptions1() {
         {value: 1091, text: '先手必勝！'},
         {value: 1092, text: 'ポイズンボム'},
         {value: 1093, text: 'HP強化+リジェネレーション'},
-        {value: 1094, text: '物理攻撃+魔法攻撃回避'},];
+        {value: 1094, text: '物理攻撃+魔法攻撃回避'},
+        {value: 1095, text: '41ストーン'},
+    ];
 
 attachOptions.forEach(option =>
   optionList.add(
@@ -2409,7 +2318,9 @@ function attachOptions2() {
         {value: 1091, text: '先手必勝！'},
         {value: 1092, text: 'ポイズンボム'},
         {value: 1093, text: 'HP強化+リジェネレーション'},
-        {value: 1094, text: '物理攻撃+魔法攻撃回避'},];
+        {value: 1094, text: '物理攻撃+魔法攻撃回避'},
+        {value: 1095, text: '41ストーン'},
+    ];
     
 attachOptions.forEach(option =>
   optionList.add(

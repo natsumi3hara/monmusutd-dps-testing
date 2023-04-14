@@ -1,6 +1,6 @@
-let conditions = ["filterDiv", "all"]
-const rarityList = ["common", "rare", "epic", "legend"]
-let rarityFilter = []
+let conditions = ["filterDiv", "all"];
+const rarityList = ["common", "rare", "epic", "legend","free"];
+let rarityFilter = [];
 function filterSelection(condition) {
   if (rarityList.includes(condition)){
     if (rarityFilter.includes(condition)){
@@ -94,7 +94,7 @@ function allInactive(){
   }
   this.className += " active";
   conditions = ["filterDiv", "all"];
-  rarityFilter = []
+  rarityFilter = [];
 }
 function selectedActive(){
   let x = document.getElementById("showAll").className
@@ -167,7 +167,8 @@ for (let i=0;i<images.length;i++){
 }
 function locationChange(src){
 	let id = src.split("icon_")[1].split("_0_s")[0];
-	location.href = '../dps/calculator.html'+"?id="+id;
+	//location.href = '../dps/calculator.html'+"?id="+id;
+  window.open('../dps/calculator.html'+"?id="+id);
 }
 
 

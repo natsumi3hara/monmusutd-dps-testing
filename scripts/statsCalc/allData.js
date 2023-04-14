@@ -17526,20 +17526,20 @@ const ability_data ={
     {
       "id": 114,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "アゲ↑アゲ↑シーホース",
       "kana": "",
-      "text": "ダミー",
+      "text": "突進して移動し、移動時スキル解除されない\r\n移動速度が2.5倍[awaked,+0.5倍]\r\n配置、移動完了後10秒間移動速度+70",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 21,
           "param": [
             {
               "num": [
-                200
+                150
               ]
             }
           ],
@@ -17553,6 +17553,93 @@ const ability_data ={
           "timing": 1,
           "range": 1,
           "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 60,
+          "param": [
+            {
+              "num": [
+                11
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 4,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                70410
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                70429
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 23,
+          "param": [
+            {
+              "num": [
+                70
+              ]
+            },
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -22867,20 +22954,86 @@ const ability_data ={
     {
       "id": 147,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "砂中の捕食者",
       "kana": "",
-      "text": "ダミー",
+      "text": "攻撃力+15％[awaked,+7％]\r\n移動中は敵の遠距離攻撃の対象にならず、\r\n攻撃を行わない、移動中スキル再使用までの\r\n時間が毎秒追加で1秒短縮",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                200
+                15
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                22
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 504,
+          "param": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -22893,7 +23046,201 @@ const ability_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [],
+          "triggerData": [
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1081,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2001,
+              "num": [
+                30
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                6
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10046
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 25,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40002,
+              "num": [
+                20
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 15,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                6
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 25,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40002,
+              "num": [
+                20
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 15,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -24616,7 +24963,7 @@ const ability_data ={
       "rarity": 0,
       "name": "死者の王",
       "kana": "",
-      "text": "配置時敵全員の物理、魔法防御力が[attack,[MAG,0,0]]減少（減少量は基本攻撃力に依存）死亡時範囲内の敵に攻撃力300%[awaked,+100%]のダメージを与え攻撃力を[attack,[MAG,2,0]]減少",
+      "text": "配置時とスキル発動時、敵全員の物理、魔法防御力が[attack,[MAG,0,0]]減少（減少量は基本攻撃力に依存）死亡時範囲内の敵に攻撃力500%[awaked,+150%]のダメージを与える",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -24727,11 +25074,11 @@ const ability_data ={
           "activeData": []
         },
         {
-          "talentId": 9,
+          "talentId": 14,
           "param": [
             {
               "num": [
-                40,
+                20,
                 1
               ]
             },
@@ -24773,8 +25120,60 @@ const ability_data ={
               ]
             }
           ],
-          "timing": 8,
-          "range": 5,
+          "timing": 12,
+          "range": 6,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 19,
+          "param": [
+            {
+              "num": [
+                20,
+                1
+              ]
+            },
+            {
+              "num": [
+                -1
+              ]
+            },
+            {
+              "num": [
+                2
+              ]
+            },
+            {
+              "num": [
+                10020
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 12,
+          "range": 6,
           "triggerData": [],
           "activeData": []
         },
@@ -24783,7 +25182,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                300
+                500
               ]
             },
             {
@@ -24836,7 +25235,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                400
+                650
               ]
             },
             {
@@ -43087,6 +43486,366 @@ const ability_data ={
             }
           ],
           "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921060,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加1",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1000
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921061,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加2",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1001
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921062,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加3",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1002
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921063,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加4",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1003
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921064,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加5",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1004
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921065,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加6",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1005
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921066,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加7",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1006
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921067,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加8",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1007
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921068,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加9",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1008
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 921069,
+      "rarity": 0,
+      "name": "エントリー呼び出しグループの追加10",
+      "kana": "",
+      "text": "死亡時エントリー呼び出しグループの追加",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1056,
+          "param": [
+            {
+              "num": [
+                1009
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -70728,7 +71487,7 @@ const ability_data ={
       "rarity": 0,
       "name": "セイレーン娘ティア",
       "kana": "",
-      "text": "HP半減時２秒毎に射程内の敵に自身の攻撃力100%ヒール",
+      "text": "HP半減時3秒毎に射程内の敵に自身の攻撃力100%ヒール",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -70739,16 +71498,26 @@ const ability_data ={
           "param": [
             {
               "num": [
-                100
+                10
               ]
             },
             {
               "num": [
                 4
               ]
+            },
+            {
+              "num": [
+                0
+              ]
             }
           ],
           "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
             {
               "num": [
                 0
@@ -70764,22 +71533,15 @@ const ability_data ={
           "range": 5,
           "triggerData": [
             {
-              "type": 2000,
-              "num": [
-                50
-              ],
-              "option": [
-                "<="
-              ],
-              "target": 1,
-              "targetNum": []
-            },
-            {
               "type": 2001,
               "num": [
-                60
+                90,
+                90,
+                90
               ],
               "option": [
+                "%",
+                "%",
                 "%"
               ],
               "target": 1,
@@ -71042,9 +71804,363 @@ const ability_data ={
               ]
             }
           ],
-          "timing": 2,
+          "timing": 1,
           "range": 1,
+          "triggerData": [
+            {
+              "type": 2003,
+              "num": [
+                1
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500248,
+      "rarity": 0,
+      "name": "ヒッポカムポス娘",
+      "kana": "",
+      "text": "移動時にダイレクトアタック",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2001,
+              "num": [
+                30
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 5,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500249,
+      "rarity": 0,
+      "name": "マミーキング娘",
+      "kana": "",
+      "text": "味方全員の物理、魔法防御力が30%減少\r\n死亡時範囲内の味方に攻撃力500%のダメージを与える",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 12,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
           "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 17,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                500
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                10010
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 2,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500250,
+      "rarity": 0,
+      "name": "リッチ娘",
+      "kana": "",
+      "text": "リコとすれ違ったエネミーの攻撃力上昇",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 5,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 18,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            },
+            {
+              "num": [
+                -1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10046
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -92930,6 +94046,65 @@ const ability_data ={
       ],
       "recipeId": 0,
       "skipend": 0
+    },
+    {
+      "id": 800052,
+      "rarity": 0,
+      "name": "量産型デカイオー",
+      "kana": "",
+      "text": "ミサイル攻撃",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                101
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                900
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
     }
   ]
 }
@@ -98360,20 +99535,20 @@ const attach_ability_data ={
     {
       "id": 1096,
       "rarity": 1397969457,
-      "name": "追加スキル31",
-      "kana": "ついか43",
-      "text": "物理防御+45％",
+      "name": "究極騎将の討伐証",
+      "kana": "きゅうきょくきしょうのとうばつしょう",
+      "text": "攻撃力15％、斧装備クラスにセット時追加で物理防御力+120",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 11,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                27
+                15
               ]
             }
           ],
@@ -98388,6 +99563,50 @@ const attach_ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 13,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1007,
+              "num": [
+                11031
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 1007,
+              "num": [
+                11039
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -98838,6 +100057,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 80,
       "recoverCostMaxMagni": 500
     },
@@ -98860,6 +100080,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 100,
       "recoverCostMaxMagni": 500
     },
@@ -98882,6 +100103,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 75,
       "recoverCostMaxMagni": 500
     },
@@ -98904,6 +100126,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 75,
       "recoverCostMaxMagni": 500
     },
@@ -98926,6 +100149,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 50,
       "recoverCostMaxMagni": 500
     },
@@ -98948,6 +100172,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 50,
       "recoverCostMaxMagni": 500
     },
@@ -98970,6 +100195,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 80,
       "recoverCostMaxMagni": 500
     },
@@ -98992,6 +100218,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 100,
       "recoverCostMaxMagni": 500
     },
@@ -99014,6 +100241,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 75,
       "recoverCostMaxMagni": 500
     },
@@ -99036,6 +100264,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 80,
       "recoverCostMaxMagni": 500
     },
@@ -99058,6 +100287,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 80,
       "recoverCostMaxMagni": 500
     },
@@ -99080,6 +100310,7 @@ const bom_data ={
       "summonType": 0,
       "offsetX": 0.0,
       "offsetY": 0.0,
+      "isAppearAnim": 0,
       "recoverCost": 80,
       "recoverCostMaxMagni": 500
     }
@@ -102661,7 +103892,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10006,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -102690,7 +103923,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10019,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -102719,7 +103954,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 30,
       "landEffect": 10019,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -102748,7 +103985,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10030,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -102777,7 +104016,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10016,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 120,
@@ -102806,7 +104047,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10010,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -102835,7 +104078,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10024,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 30,
@@ -102864,7 +104109,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10030,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -102893,7 +104140,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10011,
+      "landEffectSize": 0,
       "blastEffect": 10015,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -102922,7 +104171,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10007,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -102951,7 +104202,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10024,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 30,
@@ -102980,7 +104233,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 90,
       "landEffect": 10009,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103009,7 +104264,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 50,
@@ -103038,7 +104295,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10025,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -103067,7 +104326,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103096,7 +104357,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10025,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 100,
@@ -103125,7 +104388,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10025,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 300,
@@ -103154,7 +104419,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -103183,7 +104450,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 100,
@@ -103212,7 +104481,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 250,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -103241,7 +104512,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10034,
+      "landEffectSize": 0,
       "blastEffect": 10035,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 10,
@@ -103270,7 +104543,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10006,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -103299,7 +104574,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10005,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103328,7 +104605,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10008,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103357,7 +104636,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10010,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103386,7 +104667,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10025,
+      "landEffectSize": 0,
       "blastEffect": 10031,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -103415,7 +104698,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10008,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -103444,7 +104729,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10010,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -103473,7 +104760,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10006,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103502,7 +104791,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10022,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103531,7 +104822,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10035,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103560,7 +104853,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10008,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103589,7 +104884,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10087,
+      "landEffectSize": 0,
       "blastEffect": 100272,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 150,
@@ -103618,7 +104915,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10019,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103647,7 +104946,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10008,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -103676,7 +104977,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10010,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -103705,7 +105008,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10035,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 100,
@@ -103734,7 +105039,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 300,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 50,
@@ -103763,7 +105070,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10015,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 200,
@@ -103792,7 +105101,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100302,
+      "landEffectSize": 0,
       "blastEffect": 10026,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -103821,7 +105132,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 50,
@@ -103850,7 +105163,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10054,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 3,
       "drawSize": 20,
@@ -103879,7 +105194,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 0,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -103908,7 +105225,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -103937,7 +105256,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -103966,7 +105287,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10016,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 100,
@@ -103995,7 +105318,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10053,
+      "landEffectSize": 0,
       "blastEffect": 10026,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -104024,7 +105349,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 30,
       "landEffect": 10019,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -104053,7 +105380,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10009,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -104082,7 +105411,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10025,
+      "landEffectSize": 0,
       "blastEffect": 10031,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -104111,7 +105442,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 50,
@@ -104140,7 +105473,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100273,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -104169,7 +105504,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10022,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 100,
@@ -104198,7 +105535,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100221,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 100,
@@ -104227,7 +105566,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10011,
+      "landEffectSize": 0,
       "blastEffect": 10015,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -104256,7 +105597,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -104285,7 +105628,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 100291,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -104314,7 +105659,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 40,
@@ -104343,7 +105690,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 60,
@@ -104372,7 +105721,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10015,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -104401,7 +105752,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10032,
+      "landEffectSize": 0,
       "blastEffect": 100322,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -104430,7 +105783,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100323,
+      "landEffectSize": 0,
       "blastEffect": 100322,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 80,
@@ -104459,7 +105814,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10057,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 50,
@@ -104488,7 +105845,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10030,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -104517,7 +105876,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10066,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 0,
@@ -104546,7 +105907,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 10014,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 50,
@@ -104575,7 +105938,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10005,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 50,
@@ -104604,7 +105969,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -104633,7 +106000,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -104662,7 +106031,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 120,
@@ -104691,7 +106062,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10022,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 100,
@@ -104720,7 +106093,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10025,
+      "landEffectSize": 0,
       "blastEffect": 10031,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -104749,7 +106124,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -104778,7 +106155,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 60,
       "landEffect": 10035,
+      "landEffectSize": 0,
       "blastEffect": 100352,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 100,
@@ -104807,7 +106186,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -104836,7 +106217,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 30,
       "landEffect": 10024,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -104865,7 +106248,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10015,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -104894,7 +106279,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10008,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -104923,7 +106310,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10069,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -104952,7 +106341,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10030,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 3,
       "drawSize": 70,
@@ -104981,7 +106372,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10006,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -105010,7 +106403,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 30,
@@ -105039,7 +106434,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10053,
+      "landEffectSize": 0,
       "blastEffect": 10026,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 3,
       "drawSize": 70,
@@ -105068,7 +106465,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10028,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -105097,7 +106496,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10016,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 0,
@@ -105126,7 +106527,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10011,
+      "landEffectSize": 0,
       "blastEffect": 10015,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -105155,7 +106558,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10006,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -105184,7 +106589,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10010,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 85,
@@ -105213,7 +106620,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100182,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 0,
@@ -105242,7 +106651,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10073,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 0,
       "drawSize": 100,
@@ -105271,7 +106682,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 400,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -105300,7 +106713,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10015,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 100,
@@ -105329,7 +106744,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10075,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 3,
       "drawSize": 100,
@@ -105358,7 +106775,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 200,
       "landEffect": 10019,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 50,
@@ -105387,7 +106806,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10026,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 0,
@@ -105416,7 +106837,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10010,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 0,
       "drawSize": 85,
@@ -105445,7 +106868,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100073,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -105474,7 +106899,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10018,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 0,
@@ -105503,7 +106930,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10024,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 50,
@@ -105532,7 +106961,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10004,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 30,
@@ -105561,7 +106992,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 30,
@@ -105590,7 +107023,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10056,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 0,
@@ -105619,7 +107054,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100182,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 0,
@@ -105648,7 +107085,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10006,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 0,
       "drawSize": 65,
@@ -105677,7 +107116,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10076,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 50,
@@ -105706,7 +107147,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 100113,
+      "landEffectSize": 0,
       "blastEffect": 10015,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -105735,7 +107178,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10013,
+      "landEffectSize": 0,
       "blastEffect": 10015,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 1,
       "drawSize": 50,
@@ -105764,7 +107209,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10053,
+      "landEffectSize": 0,
       "blastEffect": 10026,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 50,
@@ -105793,7 +107240,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10002,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 60,
@@ -105822,7 +107271,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10018,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 0,
       "drawSize": 0,
@@ -105851,7 +107302,9 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 10003,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
       "drawSize": 40,
@@ -105880,13 +107333,46 @@ const missile_data ={
       "blastRotate": 0,
       "highestPoint": 0,
       "landEffect": 0,
+      "landEffectSize": 0,
       "blastEffect": 0,
+      "blastEffectSize": 0,
       "landHitType": 2,
       "blastHitType": 2,
       "drawSize": 0,
       "drawIndex": 20050,
       "damageField": [
         15,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 113,
+      "missileId": 10123,
+      "trajectory": 0,
+      "speed": 0,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 0,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 2,
+      "drawSize": 0,
+      "drawIndex": 20050,
+      "damageField": [
+        16,
         0,
         0
       ],
@@ -119278,7 +120764,7 @@ const skill_data ={
     {
       "id": 10088,
       "name": "ギアブーストI",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n移動中に受けるダメージを40%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119290,14 +120776,14 @@ const skill_data ={
           "param": [
             {
               "num": [
-                50
+                100
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                100
+                150
               ]
             }
           ],
@@ -119311,7 +120797,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                60
+                70
               ]
             }
           ],
@@ -119324,20 +120810,31 @@ const skill_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
+          "triggerData": [],
+          "activeData": [
             {
-              "type": 2,
+              "type": 7,
               "num": [
                 1
               ],
               "option": [
-                ""
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
               ],
               "target": 1,
               "targetNum": []
             }
-          ],
-          "activeData": []
+          ]
         },
         {
           "talentId": 23,
@@ -119450,7 +120947,7 @@ const skill_data ={
     {
       "id": 210088,
       "name": "ギアブーストII",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n移動中に受けるダメージを40%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119483,7 +120980,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                60
+                70
               ]
             }
           ],
@@ -119496,20 +120993,31 @@ const skill_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
+          "triggerData": [],
+          "activeData": [
             {
-              "type": 2,
+              "type": 7,
               "num": [
                 1
               ],
               "option": [
-                ""
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
               ],
               "target": 1,
               "targetNum": []
             }
-          ],
-          "activeData": []
+          ]
         },
         {
           "talentId": 23,
@@ -119620,9 +121128,9 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210188,
+      "id": 211088,
       "name": "ギアブーストIII",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n移動中に受けるダメージを40%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119655,7 +121163,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                60
+                70
               ]
             }
           ],
@@ -119668,20 +121176,31 @@ const skill_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
+          "triggerData": [],
+          "activeData": [
             {
-              "type": 2,
+              "type": 7,
               "num": [
                 1
               ],
               "option": [
-                ""
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
               ],
               "target": 1,
               "targetNum": []
             }
-          ],
-          "activeData": []
+          ]
         },
         {
           "talentId": 23,
@@ -119792,9 +121311,9 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210288,
+      "id": 212088,
       "name": "ギアブーストIV",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n移動中に受けるダメージを40%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119827,7 +121346,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                60
+                70
               ]
             }
           ],
@@ -119840,20 +121359,31 @@ const skill_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
+          "triggerData": [],
+          "activeData": [
             {
-              "type": 2,
+              "type": 7,
               "num": [
                 1
               ],
               "option": [
-                ""
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
               ],
               "target": 1,
               "targetNum": []
             }
-          ],
-          "activeData": []
+          ]
         },
         {
           "talentId": 23,
@@ -119964,9 +121494,9 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210388,
-      "name": "MAXブースト",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n移動中に受けるダメージを40%減少",
+      "id": 213088,
+      "name": "MAXギア！",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119999,7 +121529,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                60
+                70
               ]
             }
           ],
@@ -120012,20 +121542,31 @@ const skill_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
+          "triggerData": [],
+          "activeData": [
             {
-              "type": 2,
+              "type": 7,
               "num": [
                 1
               ],
               "option": [
-                ""
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
               ],
               "target": 1,
               "targetNum": []
             }
-          ],
-          "activeData": []
+          ]
         },
         {
           "talentId": 23,
@@ -123854,27 +125395,134 @@ const skill_data ={
     },
     {
       "id": 114,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "ジェットスライダー",
+      "text": "[duration]秒、攻撃力と物理防御力[MAG,0,0]倍、\r\n移動速度+[0,2,0]、移動中は[0,3,0]%の確率で\r\n物理攻撃と魔法攻撃を回避",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minDurationTime": 600,
+      "maxDurationTime": 600,
       "talentList": [
         {
           "talentId": 6,
           "param": [
             {
               "num": [
-                100
+                80
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                120
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                80
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 23,
+          "param": [
+            {
+              "num": [
+                150
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                250
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1079,
+          "param": [
+            {
+              "num": [
+                70
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1103,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -123885,7 +125533,7 @@ const skill_data ={
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 33
     },
     {
       "id": 115,
@@ -127053,27 +128701,48 @@ const skill_data ={
     },
     {
       "id": 147,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "捕食",
+      "text": "[duration]秒攻撃力[MAG,0,0]倍、攻撃対象数+[0,1,0]\r\n敵撃破時に最大HPと攻撃力が6%増加\r\n(最大20回/死亡撤退時リセット)",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minCoolTime": 720,
+      "maxCoolTime": 600,
+      "minDurationTime": 300,
+      "maxDurationTime": 300,
       "talentList": [
         {
           "talentId": 6,
           "param": [
             {
               "num": [
-                100
+                240
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                280
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 47,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -127084,7 +128753,7 @@ const skill_data ={
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 47
     },
     {
       "id": 148,
@@ -131800,7 +133469,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 2,
@@ -131820,7 +133490,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.6,
-      "offsetY": 0.06
+      "offsetY": 0.06,
+      "isAppearAnim": 0
     },
     {
       "id": 3,
@@ -131840,7 +133511,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 4,
@@ -131860,7 +133532,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": -0.45,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 5,
@@ -131880,7 +133553,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 6,
@@ -131900,7 +133574,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.6,
-      "offsetY": -0.07
+      "offsetY": -0.07,
+      "isAppearAnim": 0
     },
     {
       "id": 7,
@@ -131920,7 +133595,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 8,
@@ -131940,7 +133616,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.6,
-      "offsetY": 0.06
+      "offsetY": 0.06,
+      "isAppearAnim": 0
     },
     {
       "id": 9,
@@ -131960,7 +133637,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 10,
@@ -131980,7 +133658,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 11,
@@ -132000,7 +133679,8 @@ const token_data ={
       "isAttack": 0,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 12,
@@ -132020,7 +133700,8 @@ const token_data ={
       "isAttack": 0,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 13,
@@ -132040,7 +133721,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 14,
@@ -132060,7 +133742,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 15,
@@ -132080,7 +133763,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 16,
@@ -132100,7 +133784,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 1,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 17,
@@ -132120,7 +133805,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 1,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 18,
@@ -132140,7 +133826,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": 0.7,
-      "offsetY": 0.08
+      "offsetY": 0.08,
+      "isAppearAnim": 0
     },
     {
       "id": 19,
@@ -132160,7 +133847,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 20,
@@ -132180,7 +133868,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 21,
@@ -132200,7 +133889,8 @@ const token_data ={
       "isAttack": 0,
       "summonType": 3,
       "offsetX": -0.45,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 22,
@@ -132220,7 +133910,8 @@ const token_data ={
       "isAttack": 0,
       "summonType": 3,
       "offsetX": -0.45,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 23,
@@ -132240,7 +133931,8 @@ const token_data ={
       "isAttack": 0,
       "summonType": 2,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 24,
@@ -132260,7 +133952,8 @@ const token_data ={
       "isAttack": 0,
       "summonType": 0,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 25,
@@ -132280,7 +133973,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 0,
       "offsetX": -0.6,
-      "offsetY": 0.06
+      "offsetY": 0.06,
+      "isAppearAnim": 0
     },
     {
       "id": 26,
@@ -132300,7 +133994,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 2,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     },
     {
       "id": 27,
@@ -132320,7 +134015,8 @@ const token_data ={
       "isAttack": 1,
       "summonType": 3,
       "offsetX": 0.0,
-      "offsetY": 0.0
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     }
   ]
 }

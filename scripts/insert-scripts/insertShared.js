@@ -125,6 +125,30 @@ document.write(`
                 <span class="shared-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="発動時に味方遠距離のスキル準備時間を-10秒\n\nカヅネEXスキル\n効果時間25秒\n再使用:[44,43,42,41,40]秒" style="cursor: help;"><img src="../../img/chara-icons/icon_10068_0_s.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">カヅネ</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label">短縮に使用</span>
+                <input type="checkbox" id="shared20007-1" class="larger-check shared-check" onChange="allDPS();">
+                <span class="shared-buff-label">回数</span>
+                <input id="shared20007-2" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="ゴブリンが死亡すると全味方のスキル再使用時間が3秒短縮" style="cursor: help;"><img src="../../img/chara-icons/icon_10032_0_s.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">アニシラ</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label">短縮に使用</span>
+                <input type="checkbox" id="shared20008-1" class="larger-check shared-check" onChange="allDPS();">
+                <span class="shared-buff-label">回数</span>
+                <input id="shared20008-2" type="number" min="1" max="20" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
 </div>
 <script>
