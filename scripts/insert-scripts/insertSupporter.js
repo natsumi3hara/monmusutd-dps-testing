@@ -47,7 +47,7 @@ document.write(`
     flex:1;
 }
 </style>
-<button type="button" class="collapsible-button">サポーター（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">サポーター（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-supporter-buff">
         <div class="flex-container-supporter-buff-inner">

@@ -47,7 +47,7 @@ document.write(`
 }
 
 </style>
-<button type="button" class="collapsible-button">キャラ個別（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">キャラ個別（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-charaSpecific-buff">
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10007">

@@ -40,7 +40,7 @@ document.write(`
     flex:1;
 }
 </style>
-<button type="button" class="collapsible-button">味方パッシブ（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">味方パッシブ（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-otherPassive-buff">
         <div class="flex-container-otherPassive-buff-inner">

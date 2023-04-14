@@ -49,7 +49,7 @@ document.write(`
 
 
 </style>
-<button type="button" class="collapsible-button">共通（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">共通（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-shared-buff">
         <div class="flex-container-shared-buff-inner">

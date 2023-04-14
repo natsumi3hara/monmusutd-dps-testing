@@ -42,7 +42,7 @@ document.write(`
     flex:1;
 }
 </style>
-<button type="button" class="collapsible-button">編成バフ（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">編成バフ（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-party-buff">
         <div class="flex-container-party-buff-inner">

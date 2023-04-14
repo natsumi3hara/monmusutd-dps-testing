@@ -48,7 +48,7 @@ document.write(`
 
 
 </style>
-<button type="button" class="collapsible-button">獣神（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">獣神（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <div id="flex-container-divine-buff">
         <div class="flex-container-divine-buff-inner">

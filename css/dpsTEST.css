@@ -261,7 +261,16 @@ hr{
     background-color: #efdfb0;
 }
 
-
+.inputInsertButton{
+    width: 100%;
+    text-align: left;
+    font-family: mtdfont;
+    background-color: rgb(255, 125, 125);
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    margin:1px;
+}
 
 
 

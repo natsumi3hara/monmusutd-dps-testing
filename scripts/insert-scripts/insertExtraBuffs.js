@@ -49,7 +49,7 @@ document.write(`
 
 
 </style>
-<button type="button" class="collapsible-button">その他バフ/デバフ（クリックで開く）</button>
+<button type="button" class="collapsible-button inputInsertButton">その他バフ/デバフ（クリックで開く）</button>
 <div class="collapsible-content" style="display:none;">
     <p style="margin:0px 1px;background-color:#ff788c;font-size:smaller; font-family:mtdfontlight;">(戦闘中に発動するバフ/デバフ)<br>ここの数字を<b>加して</b>入力してください<br>(例1) +50%の乗バフと-20%の乗デバフが重なれば+30%になる<br>(例2) +20の加バフと-60の加デバフが重なれば-40になる</p>
     <div id="flex-container-extra-buff">
