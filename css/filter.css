@@ -60,7 +60,6 @@
   cursor: pointer;
   font-size: 12px;
 }
-
 .btn:hover {
   background-color: #ddd;
 }
@@ -69,18 +68,40 @@
   background-color: #666;
   color: white;
 }
-.legendB{background-color:#efdfb0;}
+.legendB{background-color:#fff6da;}
 .legendB:hover{background-color:#edd58f;}
 .legendB.active{background-color:#ffbf00;}
-.epicB{background-color:#ebaaeb;}
+.epicB{background-color:#ffddff;}
 .epicB:hover{background-color: #ef80ef;}
 .epicB.active{background-color: #ff00ff;}
-.rareB{background-color:#87ceeb;}
+.rareB{background-color:#cff1ff;}
 .rareB:hover{background-color: #42c9ff;}
 .rareB.active{background-color: #00abee;}
-.commonB{background-color:#c0c0c0;}
+.commonB{background-color:#e1e1e1;}
 .commonB:hover{background-color: #aeaeae;}
 .commonB.active{background-color: #808080;}
+.fireAB{background-color:#f1f1f1;}
+.fireAB:hover{background-color: #FF9775;}
+.fireAB.active{background-color: #ff5820;}
+.waterAB{background-color:#f1f1f1;}
+.waterAB:hover{background-color: #84E0FF;}
+.waterAB.active{background-color: #00bfff;}
+.windAB{background-color:#f1f1f1;}
+.windAB:hover{background-color: #78EA50;}
+.windAB.active{background-color: #1ccf00;}
+.lightAB{background-color:#f1f1f1;}
+.lightAB:hover{background-color: #ffe15a;}
+.lightAB.active{background-color: #ffe600;color: black;}
+.darkAB{background-color:#f1f1f1;}
+.darkAB:hover{background-color: #B564FF;}
+.darkAB.active{background-color: #992cff;}
+.earthAB{background-color:#f1f1f1;}
+.earthAB:hover{background-color: #dd782a;}
+.earthAB.active{background-color: #c45500;}
+
+#showAll{background-color:#FCBDC6;color: black;}
+#showAll:hover{background-color:#ffa8b5;color: black;}
+
 
 .collapsible-button {
   font-family: mtdfont;

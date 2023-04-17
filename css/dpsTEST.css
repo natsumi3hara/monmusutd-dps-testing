@@ -229,18 +229,20 @@ hr{
 /*dps-info*/
 #dps-info-stats table{
     background-color: #efdfb0;
-    border: 1px solid black;
+    border: none;
     width:100%;
     font-size: 0.9em;
 }
 #dps-info-stats td{
     background-color: white;
     font-family: mtdfont;
-    width: 15%;
-    text-align: center;
+    width: 25%;
+    text-align: left;
 }
 #dps-info-stats .displaytext{
     background-color: #efdfb0;
+    border: 1px solid white;
+    text-align: center;
 }
 .dps-info-stats-tabs button{
     cursor: pointer;

@@ -2,10 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>キャラ選択</title>
-        <script src="../scripts/ability_data.js"></script>
-        <script src="../scripts/skill_data.js"></script>
-        <script src="../scripts/filterUnit.js"></script>
+        <title>キャラ選択 - モンスター娘TD(DPS計算機)</title>
+        <meta name="description" content="DMMゲーム：モンスター娘TDのDPS計算機。"/>
     </head>
     <body>
         <div id="selectionWindow">
@@ -14,7 +12,7 @@
                 <label for="andORswitch">OR 検索</label>
             </div>
             <div id="buttonContainer">
-                <button id="showAll" class="btn" onclick="filterSelection('all')" style="background-color:#FCBDC6;color:black"> 全表示 (リセット)</button>
+                <button id="showAll" class="btn" onclick="filterSelection('all')"> 全表示 (リセット)</button>
                 <button class="btn legendB" onclick="filterSelection('legend')"> レジェンド(Legend)</button>
                 <button class="btn epicB" onclick="filterSelection('epic')"> エピック(Epic)</button>
                 <button class="btn rareB" onclick="filterSelection('rare')"> レア(Rare)</button>
@@ -43,12 +41,12 @@
                 <hr class="hline">
                 <button style="background-color: #ffd78c;" class="collapsible-button">属性</button>
                 <div class="collapsible-content" style="display: block;">
-                    <button class="btn" onclick="filterSelection('fireA')"> 火属性</button>
-                    <button class="btn" onclick="filterSelection('waterA')"> 水属性</button>
-                    <button class="btn" onclick="filterSelection('windA')"> 風属性</button>
-                    <button class="btn" onclick="filterSelection('earthA')"> 地属性</button>
-                    <button class="btn" onclick="filterSelection('lightA')"> 光属性</button>
-                    <button class="btn" onclick="filterSelection('darkA')"> 闇属性</button>
+                    <button class="btn fireAB" onclick="filterSelection('fireA')"> 火属性</button>
+                    <button class="btn waterAB" onclick="filterSelection('waterA')"> 水属性</button>
+                    <button class="btn windAB" onclick="filterSelection('windA')"> 風属性</button>
+                    <button class="btn earthAB" onclick="filterSelection('earthA')"> 地属性</button>
+                    <button class="btn lightAB" onclick="filterSelection('lightA')"> 光属性</button>
+                    <button class="btn darkAB" onclick="filterSelection('darkA')"> 闇属性</button>
                 </div>
                 <hr class="hline">
                 <button style="background-color: #ffff7d;" class="collapsible-button">Tags↓ (今は使えない)</button>

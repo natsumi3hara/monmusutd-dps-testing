@@ -773,6 +773,7 @@ function updateAttackTypes(typelist,skillAttack){
 
 function calculateStat(level,cc,type){
     console.log("-----");
+    charaInfoReplace()//update info panel
     selfConditionChange("15",0); //change to skill inactive
     enemyConditionChange("15",0); //change to skill inactive, enemy no skill
     console.log("selfcond15",selfConditions["15"]);
@@ -1011,6 +1012,12 @@ function calculateStat(level,cc,type){
     } else {
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
+    }
+    //headia's enemy defeat buff
+    if (type === "stat1" && masterValues.charaID === 10147){
+        multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
+    } else if (type === "stat2" && masterValues.charaID === 10147){
+        multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
     }
     //tamamo's stat 3 dependent buff (passive)
     if (type === "stat3" && !document.getElementById("otherPassive10148-1").checked){
@@ -1265,6 +1272,11 @@ function calculateStat(level,cc,type){
     } else {
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
+    }
+    if (type === "stat1" && masterValues.charaID === 10147){
+        multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
+    } else if (type === "stat2" && masterValues.charaID === 10147){
+        multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
     }
     //tamamo's stat 3 dependent buff (passive)
     if (type === "stat3" && !document.getElementById("otherPassive10148-1").checked){
@@ -1976,6 +1988,7 @@ function skilltextreplace(){
                 }
                 baseText = baseText.replace(beforeArray[i], replaceParam.toString());
             } else if (B4Asplit[0] === "0"){
+                //temporary measures to make some strings immutable
                 if (baseText.split(beforeArray[i])[0].slice(-5) == "コストが\[" && baseText.split(beforeArray[i])[1].slice(0,3) == "\]回復"){
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let replaceParam = minParam;
@@ -1988,6 +2001,10 @@ function skilltextreplace(){
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let replaceParam = minParam;
                     baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+                } else if (baseText.split(beforeArray[i])[0].slice(-7) == "攻撃対象数+\["){
+                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+                    let replaceParam = minParam;
+                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
                 } else if (baseText.split(beforeArray[i])[1].slice(0,2) == "\]体"){
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let replaceParam = minParam;
@@ -1996,6 +2013,7 @@ function skilltextreplace(){
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let maxParam = skillObject["talentList"][B4Asplit[1]]["maxParam"][B4Asplit[2]]["num"][0];
                     let replaceParam = Math.floor((minParam + (maxParam-minParam)/4*(skilllevelnumber-1)));
+                    //add the conditional for maxparam here next time
                     baseText = baseText.replace(beforeArray[i], replaceParam.toString());
                 }
             }
@@ -2088,6 +2106,30 @@ function traittextreplace(){
     document.getElementById("dps-output-battle-trait-text").innerHTML = baseText;
     document.getElementById("dps-output-skill-trait-text").innerHTML = baseText;
 }
+function charaInfoReplace(){
+    let cc = Number(document.getElementById("input-cc").value);
+    let job = job_data["table"][job_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
+    let classObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
+    document.getElementById("dps-info-charaName").innerHTML = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
+    document.getElementById("dps-info-jobTitle").innerHTML = job["name"];
+    document.getElementById("dps-info-initialCost").innerHTML = Number(job["cost"]) + Number(masterValues.unitcard["cost"]);
+    document.getElementById("dps-info-jobInfo").innerHTML = classObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>");
+    let extraInfo;
+    let extraInfoReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
+    if (masterValues.charaAwaked){
+        extraInfoReference = extraInfoReference.toString() + "a";
+    } else {extraInfoReference = extraInfoReference.toString();}
+    console.log(extraInfoReference);
+    extraInfo = extra_info[extraInfoReference];
+    if (extraInfo === undefined) {extraInfoReference = extraInfoReference.split("a")[0];}
+    console.log(extraInfoReference);
+    extraInfo = extra_info[extraInfoReference];
+    if (extraInfo === undefined) {extraInfoReference = 0;}
+    console.log(extraInfoReference);
+    extraInfo = extra_info[extraInfoReference];
+    document.getElementById("dps-info-extraInfo").innerHTML = extraInfo;
+}
+
 function conditionalOption(conditional, option, value){
     if (option === ""){
         return (conditional === value);
@@ -2334,6 +2376,7 @@ window.addEventListener("load", traittextreplace);
 window.addEventListener("load", skilltextreplace);
 window.addEventListener("load",equipImageChange);
 window.addEventListener("load",selfConditionUpdate);
+window.addEventListener("load",charaInfoReplace);
 window.addEventListener("load",allDPS);
 //repetitive//
 window.addEventListener("load", attachOptions1);

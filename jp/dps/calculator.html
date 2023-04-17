@@ -22,6 +22,7 @@
         <script src="../../scripts/statsCalc/cond-timing-range.js"></script>
         <script src="../../scripts/statsCalc/attackPatterns.js"></script>
         <script src="../../scripts/statsCalc/continuousPatterns.js"></script>
+        <script src="../../scripts/statsCalc/extraInfoList.js"></script>
         <script src="../../scripts/insert-scripts/insert_MasterDict.js"></script>
         <script>
             var console = {};
@@ -180,13 +181,22 @@
                         <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent">
                             <table>
                                 <tr>
-                                    <td class="displaytext" style="width:25%;" rowspan="2">
-                                        img
-                                    </td>
-                                    <td style="width: 75%;height: 50%;" colspan="99">Amazingly few discotheques provide jukeboxes.</td>
+                                    <td class="displaytext">キャラ名</td>
+                                    <td id="dps-info-charaName" colspan="3">Amazingly few discotheques provide jukeboxes.</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 75%;height: 50%;" colspan="99">Sphinx of black quartz, judge my vow!</td>
+                                    <td class="displaytext">クラス</td>
+                                    <td id="dps-info-jobTitle">バルス</td>
+                                    <td class="displaytext">初期コスト</td>
+                                    <td id="dps-info-initialCost">88</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">クラス特性</td>
+                                    <td id="dps-info-jobInfo" colspan="3">Amazingly few discotheques provide jukeboxes.</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">その他の情報</td>
+                                    <td id="dps-info-extraInfo" colspan="3">Amazingly few discotheques provide jukeboxes.</td>
                                 </tr>
                             </table>
                         </div>
