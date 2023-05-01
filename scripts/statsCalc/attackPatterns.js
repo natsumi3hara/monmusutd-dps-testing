@@ -3936,12 +3936,42 @@ const attack_patterns = {
 	},
 	"177": {
 		"attack":[
+			{"cond":[["condition","1007","",13014]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text":"攻撃(弓)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text":"攻撃"},
+			]},
+			{"cond":[["condition","1007","",13013]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text":"攻撃(弓)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text":"攻撃"},
+			]},
+			{"cond":[["condition","1007","",13012]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":1,"text":"攻撃(弓)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text":"攻撃"},
+			]},
 			{"cond":[],
 			"pattern":[
 				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text":"攻撃"},
 			]},
 		],
 		"skill_attack":[
+			{"cond":[["condition","1007","",13014]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text":"スキル攻撃(弓)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text":"スキル攻撃"},
+			]},
+			{"cond":[["condition","1007","",13013]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text":"スキル攻撃(弓)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text":"スキル攻撃"},
+			]},
+			{"cond":[["condition","1007","",13012]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":1,"text":"スキル攻撃(弓)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text":"スキル攻撃"},
+			]},
 			{"cond":[],
 			"pattern":[
 				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text":"スキル攻撃"},

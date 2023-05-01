@@ -65,6 +65,12 @@ var partybuffref = {
     "awake10116": {
         "cond":[3],"stat2":[3]
     },
+    "party10125": {
+        "cond":[3],"stat1":[10],"stat2":[10]
+    },
+    "awake10125": {
+        "cond":[3],"stat1":[3],"stat2":[3]
+    },
     "party10127": {
         "cond":[4],"stat1":[10],"stat2":[10]
     },

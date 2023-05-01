@@ -179,6 +179,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <img src="../../img/chara-icons/icon_10125_0_s.png" class="party-buff-img">
+                <span class="party-buff-name">マリドゥーラ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10125" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10125" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <img src="../../img/chara-icons/icon_10127_0_s.png" class="party-buff-img">
                 <span class="party-buff-name">ヤーセファ</span>
             </div>

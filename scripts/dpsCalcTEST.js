@@ -923,8 +923,10 @@ function calculateStat(level,cc,type){
     cycleAllTalents(classObject,type,"class",false,true);
     //unique weapon (temp positioning)//
     try{
-        cycleAllTalents(uniqueObject,type,"class");
-        cycleAllTalents(uniqueObject,type,"class",false,true);
+        if (document.getElementById("unique-equip-check").checked){
+            cycleAllTalents(uniqueObject,type,"class");
+            cycleAllTalents(uniqueObject,type,"class",false,true);
+        }
     } catch (err){
         console.log("no unique to cycle")
     }
@@ -1017,8 +1019,10 @@ function calculateStat(level,cc,type){
     cycleAllTalents(classObject,type,"class",false,true);
     //unique weapon (temp positioning)//
     try{
-        cycleAllTalents(uniqueObject,type,"class");
-        cycleAllTalents(uniqueObject,type,"class",false,true);
+        if (document.getElementById("unique-equip-check").checked){
+            cycleAllTalents(uniqueObject,type,"class");
+            cycleAllTalents(uniqueObject,type,"class",false,true);
+        }
     } catch (err){
         console.log("no unique to cycle")
     }
@@ -1291,8 +1295,10 @@ function calculateStat(level,cc,type){
     cycleAllTalents(skillObject,type,"skill",false,true);
     //unique weapon (temp positioning)//
     try{
-        cycleAllTalents(uniqueObject,type,"class");
-        cycleAllTalents(uniqueObject,type,"class",false,true);
+        if (document.getElementById("unique-equip-check").checked){
+            cycleAllTalents(uniqueObject,type,"class");
+            cycleAllTalents(uniqueObject,type,"class",false,true);
+        }
     } catch (err){
         console.log("no unique to cycle")
     }
