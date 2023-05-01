@@ -13,10 +13,10 @@ function testLevelCC(){
         document.getElementById("input-cc").value = 0;
     } else if (!(Number.isInteger(level))){
         window.alert("レベル：整数を入力してください");
-        document.getElementById("input-level").value = 1
+        document.getElementById("input-level").value = 1;
     } else if (!(Number.isInteger(cc))){
         window.alert("クラスチェンジ：整数を入力してください");
-        document.getElementById("input-cc").value = 0
+        document.getElementById("input-cc").value = 0;
     }
 }
 function printHI(){
@@ -156,6 +156,12 @@ function enemyReminder(){
         rmd3.innerHTML = "";
     }
 }
+
+function optimiseSubskill(number,battleSkillFinal){
+    //number is number of subskills to optimise
+    //battleSkillFinal is which value to optimise
+}
+
 
 function allDPS(){
     console.log("selfCond1",selfConditions["1"]);
@@ -313,9 +319,11 @@ function allDPS(){
     document.getElementById("dps-battle-finalDPS").innerHTML = battleFinalDPS.toFixed(2);
     document.getElementById("dps-skill-finalDPS").innerHTML = skillFinalDPS.toFixed(2);
     //continuous end
-    overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS);
+    let finalDPS = overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS);
     //reminder for enemy input//
     enemyReminder()
+    console.log([battleFinalDPS,skillFinalDPS,finalDPS]);
+    return [battleFinalDPS,skillFinalDPS,finalDPS];
 }
 
 function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS){
@@ -393,6 +401,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
         finalDPS = (battleFinalDPS*cooldown + skillFinalDPS*duration)/(cooldown+duration);
     }
     document.getElementById("dps-all-final").innerHTML = finalDPS.toFixed(2);
+    return finalDPS;
 }
 
 function getContinuousDamage(battleskill,continuousReference,exclude=false){
@@ -473,17 +482,21 @@ function getAttackTypeList(battleskill,attackPatternReference){
                 return battleAttackTypeSelect[i]["pattern"];
             } else { //have condition(s)
                 let condArray = battleAttackTypeSelect[i]["cond"]
+                let condMet = true;
                 for (let j=0;j<condArray.length;j++){
                     if (condArray[j][0] === "condition"){
                         // for now, put an OR option here, might need change if negative effects on ally buff themselves
                         if (conditionalOption(selfConditions[condArray[j][1]],condArray[j][2],condArray[j][3])||conditionalOption(enemyConditions[condArray[j][1]],condArray[j][2],condArray[j][3])){
-                            return battleAttackTypeSelect[i]["pattern"];
-                        }
-                    } else {//reference
+                            //do nothing
+                        } else {condMet = false;}
+                    } else if (condArray[j][0] === "reference"){//reference
                         if (conditionalOption(selfReference[condArray[j][1]],condArray[j][2],condArray[j][3])){
-                            return battleAttackTypeSelect[i]["pattern"];
-                        }
+                            //do nothing
+                        } else {condMet = false;}
                     }
+                }
+                if (condMet){
+                    return battleAttackTypeSelect[i]["pattern"];
                 }
             }
         }
@@ -500,7 +513,7 @@ function getAttackTypeList(battleskill,attackPatternReference){
                         if (conditionalOption(selfConditions[condArray[j][1]],condArray[j][2],condArray[j][3])||conditionalOption(enemyConditions[condArray[j][1]],condArray[j][2],condArray[j][3])){
                             return skillAttackTypeSelect[i]["pattern"];
                         }
-                    } else {//reference
+                    } else if (condArray[j][0] === "reference"){//reference
                         if (conditionalOption(selfReference[condArray[j][1]],condArray[j][2],condArray[j][3])){
                             return skillAttackTypeSelect[i]["pattern"];
                         }
@@ -781,6 +794,9 @@ function calculateStat(level,cc,type){
     let job = job_data["table"][job_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
     let classObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
     let traitObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.charaID-10000)})];
+    let uniqueObject = unique_weapon_ability_data["table"][unique_weapon_ability_data["table"].findIndex(object => {return object.id === (1000*(masterValues.charaID-10000)+1)})];
+    let uniqueStats = unique_weapon_data["table"][unique_weapon_data["table"].findIndex(object => {return object.uw_id === (1000*(masterValues.charaID-10000)+1)})];
+    console.log("uniqueStats",uniqueStats);
     let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
     let skillchangenumber = Number(document.getElementById("skill-change-select").value);
     console.log("skillReference: ",masterValues.charaID-skillaltnumber+skillchangenumber);
@@ -902,15 +918,32 @@ function calculateStat(level,cc,type){
         cycleAllTalents(attachObject,type,"attach",true);
         cycleAllTalents(attachObject,type,"attach",false,true);
     }
-    //trait and class//
+    //class//
     cycleAllTalents(classObject,type,"class");
     cycleAllTalents(classObject,type,"class",false,true);
+    //unique weapon (temp positioning)//
+    try{
+        cycleAllTalents(uniqueObject,type,"class");
+        cycleAllTalents(uniqueObject,type,"class",false,true);
+    } catch (err){
+        console.log("no unique to cycle")
+    }
+    //
     console.log("allbuff-at-cl-tr:",masterValues.allBuff); //here
     //↑ REPEAT ↑//
     //((元能力値+潜在覚醒能力値)*乗算効果 + 加算効果)*編成バフ
     let multEffect1 = tempCompile(masterValues.allBuff,[23,4],"rate",type,true);
     let addEffect1 = tempCompile(masterValues.allBuff,[23,4],"actual",type);
     let equipEffect = Number(equipValues("1",type,cc) + equipValues("2",type,cc) + equipValues("3",type,cc) + equipValues("4",type,cc));
+    try {
+        if (document.getElementById("unique-equip-check").checked){
+            //console.log("unique equipped!");
+            if (uniqueStats[statConvertUnique(type)] === undefined){/*console.log("unique stat undefined!");*/}
+            else{equipEffect += uniqueStats[statConvertUnique(type)];}
+        }
+    } catch (err) {
+        console.log("no unique stats to add");
+    }
     let pdMult = pdMultValues(type);
     let dAdd = divineAdd(type);
     console.log("multEffect1: "+multEffect1);
@@ -979,9 +1012,17 @@ function calculateStat(level,cc,type){
         cycleAllTalents(attachObject,type,"attach",true);
         cycleAllTalents(attachObject,type,"attach",false,true);
     }
-    //trait and class//
+    //class//
     cycleAllTalents(classObject,type,"class");
     cycleAllTalents(classObject,type,"class",false,true);
+    //unique weapon (temp positioning)//
+    try{
+        cycleAllTalents(uniqueObject,type,"class");
+        cycleAllTalents(uniqueObject,type,"class",false,true);
+    } catch (err){
+        console.log("no unique to cycle")
+    }
+    //
     if (document.getElementById("shared20001").checked){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
@@ -1012,6 +1053,12 @@ function calculateStat(level,cc,type){
     } else {
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
+    }
+    //poisonRin's enemy defeat buff
+    if (type === "stat2" && masterValues.charaID === 10178 && masterValues.charaAwaked){
+        multEffect2.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
+    } else if (type === "stat2" && masterValues.charaID === 10178){
+        multEffect2.buff += 9 * Number(document.getElementById("charaSpecific10178-1").value);
     }
     //headia's enemy defeat buff
     if (type === "stat1" && masterValues.charaID === 10147){
@@ -1237,11 +1284,19 @@ function calculateStat(level,cc,type){
         cycleAllTalents(attachObject,type,"attach",true);
         cycleAllTalents(attachObject,type,"attach",false,true);
     }
-    //trait and class//
+    //class//
     cycleAllTalents(classObject,type,"class");
     cycleAllTalents(classObject,type,"class",false,true);
     cycleAllTalents(skillObject,type,"skill");
     cycleAllTalents(skillObject,type,"skill",false,true);
+    //unique weapon (temp positioning)//
+    try{
+        cycleAllTalents(uniqueObject,type,"class");
+        cycleAllTalents(uniqueObject,type,"class",false,true);
+    } catch (err){
+        console.log("no unique to cycle")
+    }
+    //
     if (document.getElementById("shared20001").checked){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
@@ -1273,6 +1328,13 @@ function calculateStat(level,cc,type){
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
+    //poisonRin's enemy defeat buff
+    if (type === "stat2" && masterValues.charaID === 10178 && masterValues.charaAwaked){
+        multEffect3.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
+    } else if (type === "stat2" && masterValues.charaID === 10178){
+        multEffect3.buff += 9 * Number(document.getElementById("charaSpecific10178-1").value);
+    }
+    //headia's enemy defeat buff
     if (type === "stat1" && masterValues.charaID === 10147){
         multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
     } else if (type === "stat2" && masterValues.charaID === 10147){
@@ -1432,8 +1494,8 @@ function calculateStat(level,cc,type){
             console.log("no missile");
         }
     }
-    //lapis override
-    if (masterValues.charaID === 10139){
+    //lapis and thunderSuzu override
+    if ([10139,10177].includes(masterValues.charaID)){
         document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
     }
     try {
@@ -1902,6 +1964,8 @@ function talentIdentifier(talentText){
             return "stat2";
         } else if (talentText.slice(0,3) == "攻撃速") {
             return "stat6";
+        } else if (talentText.slice(0,3) == "攻撃対") {
+            return "stat11";
         }
     } else if (talentText.slice(0,2) == "物理"){
         return "stat3";
@@ -2113,7 +2177,63 @@ function charaInfoReplace(){
     document.getElementById("dps-info-charaName").innerHTML = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
     document.getElementById("dps-info-jobTitle").innerHTML = job["name"];
     document.getElementById("dps-info-initialCost").innerHTML = Number(job["cost"]) + Number(masterValues.unitcard["cost"]);
-    document.getElementById("dps-info-jobInfo").innerHTML = classObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>");
+    let baseText = classObject["text"].replace(/\r/g,"").replace(/\n/g,"<br>");
+    let beforeArray = baseText.match(/(?<=\[)[^\][]*(?=])/g);
+    console.log(beforeArray);
+    if (!beforeArray){
+        document.getElementById("dps-info-jobInfo").innerHTML = baseText;
+    } else {
+        for (let i=0; i<beforeArray.length;i++){
+            let B4Asplit = beforeArray[i].split(",")
+            if (B4Asplit[0] === "awaked"){
+            } else if (B4Asplit[0] === "MAG") {
+                let replaceParam = classObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0]/100;
+                console.log(replaceParam);
+                if (classObject["talentList"][B4Asplit[1]]["param"].length === 1){
+                    replaceParam += 1;
+                } else {
+                    let plusOneTest = false;
+                    //changed j=0 to j=1, not sure if affects
+                    for (let j=1;j<classObject["talentList"][B4Asplit[1]]["param"].length;j++){
+                        if (classObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 1 || classObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === 2 || classObject["talentList"][B4Asplit[1]]["param"][j]["num"][0] === -1){
+                            plusOneTest = true;
+                        } else {}
+                    }
+                    if (plusOneTest){} else {replaceParam+=1;}
+                }
+                baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+            } else if (B4Asplit[0] === "0"){
+                let replaceParam = classObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+                baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+            }
+        }
+        console.log(baseText);
+        let patternP = baseText.match(/\[(attack|hp|defense|mdef),\[(\d|\.)*\]\]/g);
+        if (patternP !== null){
+            for (let i=0; i<patternP.length;i++){
+                let replaceText = "("+patternP[i]+")";
+                replaceText = replaceText.replace("hp,","HP×");
+                replaceText = replaceText.replace("attack,","攻撃力×");
+                replaceText = replaceText.replace("defense,","物理防御×");
+                replaceText = replaceText.replace("mdef,","魔法防御×");
+                replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+                baseText = baseText.replace(patternP[i],replaceText);
+            }
+        }
+        //console.log(baseText);
+        let pattern = baseText.match(/\[awaked,.[^\[]*\]/g); //any character that is not "["
+        console.log(pattern);
+        if (pattern !== null){
+            for (let i=0; i<pattern.length;i++){
+                let replaceText = "("+pattern[i]+")";
+                replaceText = replaceText.replace("awaked,","フル覚醒で");
+                console.log(replaceText);
+                baseText = baseText.replace(pattern[i],replaceText);
+            }
+        }
+        baseText = baseText.replace(/\[/g,"").replace(/\]/g,"").replace("notawaked,","");
+        document.getElementById("dps-info-jobInfo").innerHTML = baseText;
+    }
     let extraInfo;
     let extraInfoReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
     if (masterValues.charaAwaked){
@@ -2128,6 +2248,16 @@ function charaInfoReplace(){
     console.log(extraInfoReference);
     extraInfo = extra_info[extraInfoReference];
     document.getElementById("dps-info-extraInfo").innerHTML = extraInfo;
+}
+
+function uniqueWeaponReplace(charaID){
+    let unique = [11,23,27,46];
+    let uwID = charaID-10000;
+    let targetDiv = document.getElementById("unique-weapon-div");
+    if (unique.includes(uwID)){
+        let uwSRC = "'../../img/equipment-icons/uw_"+uwID+"001.png'";
+        targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+    }
 }
 
 function conditionalOption(conditional, option, value){
@@ -2146,6 +2276,10 @@ function conditionalOption(conditional, option, value){
     } else if (option === "%") {
         return false;
     } else {return true;}
+}
+function statConvertUnique(statX){
+    let statnamelist = ["","life","power","defense","magic_resist","move_speed","attack_speed","attack_interval","range"];
+    return statnamelist[Number(statX.split("stat")[1])];
 }
 /*
 const text = "[Some text] ][with[ [some important info]";
@@ -2254,6 +2388,9 @@ function attachOptions1() {
         {value: 1093, text: 'HP強化+リジェネレーション'},
         {value: 1094, text: '物理攻撃+魔法攻撃回避'},
         {value: 1095, text: '41ストーン'},
+        {value: 1096, text: '究極騎将の討伐証'},
+        {value: 1097, text: '穴鏡触手の討伐証'},
+        {value: 1098, text: '1stAnniversaryの祝福'},
     ];
 
 attachOptions.forEach(option =>
@@ -2362,6 +2499,9 @@ function attachOptions2() {
         {value: 1093, text: 'HP強化+リジェネレーション'},
         {value: 1094, text: '物理攻撃+魔法攻撃回避'},
         {value: 1095, text: '41ストーン'},
+        {value: 1096, text: '究極騎将の討伐証'},
+        {value: 1097, text: '穴鏡触手の討伐証'},
+        {value: 1098, text: '1stAnniversaryの祝福'},
     ];
     
 attachOptions.forEach(option =>

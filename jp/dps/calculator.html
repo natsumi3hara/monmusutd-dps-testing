@@ -25,8 +25,8 @@
         <script src="../../scripts/statsCalc/extraInfoList.js"></script>
         <script src="../../scripts/insert-scripts/insert_MasterDict.js"></script>
         <script>
-            var console = {};
-            console.log = function(){};
+            //var console = {};
+            //console.log = function(){};
             const params = (new URL(document.location)).searchParams;
             var masterValues = {};
             masterValues["charaID"] = Number(params.get("id"));
@@ -92,28 +92,35 @@
                             </table>
                         </div>
                         <hr>
-                        <span id="skill-error" style="color: red;"></span>
-                        <span>EXスキル</span>
-                        <select name="skill-alt-select" id="skill-alt-select" style="font-family:mtdfont; width: 20%;" onchange="skilltextreplace();allDPS();">
-                            <option value="10000">I</option>
-                            <option value="0">II</option>
-                        </select><br>
-                        <span>スキルレベル</span>
-                        <select name="skill-level-select" id="skill-level-select" style="font-family:mtdfont; width: 20%;" onchange="skilltextreplace();allDPS();">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select><br>
-                        <span>スキル変化</span>
-                        <select name="skill-change-select" id="skill-change-select" style="font-family:mtdfont; width: 20%;" onchange="skilltextreplace();allDPS();">
-                            <option value="0">変化0</option>
-                            <option value="200000">変化1</option>
-                            <option value="201000">変化2</option>
-                            <option value="202000">変化3</option>
-                            <option value="203000">変化4</option>
-                        </select>
+                        <div style="display: flex;">
+                            <div style="width: 50%;">
+                                <span id="skill-error" style="color: red;"></span>
+                                <span>EXスキル</span>
+                                <select name="skill-alt-select" id="skill-alt-select" style="font-family:mtdfont; width: 40%;" onchange="skilltextreplace();allDPS();">
+                                    <option value="10000">I</option>
+                                    <option value="0">II</option>
+                                </select><br>
+                                <span>スキルレベル</span>
+                                <select name="skill-level-select" id="skill-level-select" style="font-family:mtdfont; width: 40%;" onchange="skilltextreplace();allDPS();">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select><br>
+                                <span>スキル変化</span>
+                                <select name="skill-change-select" id="skill-change-select" style="font-family:mtdfont; width: 40%;" onchange="skilltextreplace();allDPS();">
+                                    <option value="0">変化0</option>
+                                    <option value="200000">変化1</option>
+                                    <option value="201000">変化2</option>
+                                    <option value="202000">変化3</option>
+                                    <option value="203000">変化4</option>
+                                </select>
+                            </div>
+                            <div id="unique-weapon-div" style="width: 50%;">
+                                <script>uniqueWeaponReplace(masterValues.charaID)</script>
+                            </div>
+                        </div>
                         <hr>
                         <span>サブスキル1</span>
                         <select id="subskill1" style="font-size: smaller;width:50%;font-family: mtdfont;" onchange="allDPS();">
@@ -174,9 +181,9 @@
                 <div id="dps-info">
                     <div id="dps-info-stats">
                         <div class="dps-tabs dps-info-stats-tabs">
-                            <button class="dps-info-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'info-main','dps-info-stats-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> その</button>
-                            <button class="dps-info-stats-tablink" onclick="openTab(event, 'info-nerd','dps-info-stats-tablink')"><img src="../../img/ui-icons/Footer_ImageAdventureIcon.png"> 他の</button>
-                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-misc','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> 情報</button>
+                            <button class="dps-info-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'info-main','dps-info-stats-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> 情報</button>
+                            <button class="dps-info-stats-tablink" onclick="openTab(event, 'info-nerd','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> 最適サブスキル</button>
+                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-misc','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> 未定</button>
                         </div>
                         <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent">
                             <table>
@@ -203,35 +210,140 @@
                         <div id="info-nerd" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
                             <table>
                                 <tr>
-                                    <td rowspan="4" id="type-icons" style="width: 10%;">
-                                        <abbr title="水属性" style="cursor: help;"><img src="../../img/ui-icons/Icon_Type_3.png"></abbr>
-                                        <abbr title="ガーディアン(剣盾)" style="cursor: help;"><img src="../../img/ui-icons/Icon_Job_12011.png"></abbr>
-                                        <abbr title="近接" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_1.png"></abbr>
+                                    <td class="displaytext" style="width: 25%;">除外したサブスキル</td>
+                                    <td style="width: 75%;">
+                                        <input id="excluded-subskills" value="1,2,3,13,14,15,16,17,18,19,20,21,28,29,30,31,32,33,46,47,48" disabled>
                                     </td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8888</td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8888</td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8888</td>
-                                </tr>
-                                <tr>
-                                    <td class="displaytext">stat</td>
-                                    <td>8888</td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8888</td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8888</td>
-                                </tr>
-                                <tr>
-                                    <td class="displaytext">stat</td>
-                                    <td>物理</td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8</td>
-                                    <td class="displaytext">stat</td>
-                                    <td>8</td>
                                 </tr>
                             </table>
+                            <table>
+                                <tr>
+                                    <td class="displaytext" style="border: none;">
+                                        <button class="subskill-optimise-button">最適サブスキル&nbsp;1つ</button>
+                                    </td>
+                                    <td class="displaytext" style="border: none;">
+                                        <button class="subskill-optimise-button">最適サブスキル&nbsp;2つ</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td class="displaytext" rowspan="2" style="width:10%;">1位</td>
+                                    <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                    <td id="optimise-1-1" style="width:45%;">name1-1</td>
+                                    <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                    <td id="optimise-dps-1" rowspan="2" style="width:25%;">dps1</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                    <td id="optimise-1-2" style="width:45%;">name1-2</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" rowspan="2" style="width:10%;">2位</td>
+                                    <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                    <td id="optimise-2-1" style="width:45%;">name2-1</td>
+                                    <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                    <td id="optimise-dps-2" rowspan="2" style="width:25%;">dps2</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                    <td id="optimise-2-2" style="width:45%;">name2-2</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" rowspan="2" style="width:10%;">3位</td>
+                                    <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                    <td id="optimise-3-1" style="width:45%;">name3-1</td>
+                                    <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                    <td id="optimise-dps-3" rowspan="2" style="width:25%;">dps3</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                    <td id="optimise-3-2" style="width:45%;">name3-2</td>
+                                </tr>
+                            </table>
+                            <button type="button" class="collapsible-button subskillOptimiseExpand" style="margin-bottom:4px;">4位～10位(クリックで開く)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">4位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-4-1" style="width:45%;">name4-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-4" rowspan="2" style="width:25%;">dps4</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-4-2" style="width:45%;">name4-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">5位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-5-1" style="width:45%;">name5-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-5" rowspan="2" style="width:25%;">dps5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-5-2" style="width:45%;">name5-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">6位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-6-1" style="width:45%;">name6-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-6" rowspan="2" style="width:25%;">dps6</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-6-2" style="width:45%;">name6-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">7位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-7-1" style="width:45%;">name7-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-7" rowspan="2" style="width:25%;">dps7</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-7-2" style="width:45%;">name7-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">8位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-8-1" style="width:45%;">name8-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-8" rowspan="2" style="width:25%;">dps8</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-8-2" style="width:45%;">name8-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">9位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-9-1" style="width:45%;">name9-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-9" rowspan="2" style="width:25%;">dps9</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-9-2" style="width:45%;">name9-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">10位</td>
+                                        <td class="displaytext" style="width:20%;">サブスキル1</td>
+                                        <td id="optimise-10-1" style="width:45%;">name10-1</td>
+                                        <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
+                                        <td id="optimise-dps-10" rowspan="2" style="width:25%;">dps10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" style="width:20%;">サブスキル2</td>
+                                        <td id="optimise-10-2" style="width:45%;">name10-2</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                         <div id="info-misc" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
                             info
@@ -345,6 +457,27 @@
                             <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
                             <div style="display: block;">
                                 <table id="dps-attacks-battle">
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">確率(%)</td>
+                                        <td class="displaytext">攻撃対象数</td>
+                                        <td class="displaytext">攻撃回数</td>
+                                        <td class="displaytext">フレーム数</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext" colspan="2">テキスト</td>
+                                        <td>88.88</td>
+                                        <td>8</td>
+                                        <td>88</td>
+                                        <td>888</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
+                            <div style="display: block;">
+                                <table id="dps-dependentAttacks-battle">
                                     <tr>
                                         <td class="displaytext"></td>
                                         <td class="displaytext"></td>
@@ -516,7 +649,7 @@
                                             document.write(
                                             '<img class="chara-icon" src="../../img/chara-icons/icon_'+masterValues["charaID"]+'_0.png">'
                                             );
-                                        </script> 
+                                        </script>
                                     </td>
                                     <td id="dps-output-battle-trait-text" style="width: 75%;height: 50%;" colspan="99">Amazingly few discotheques provide jukeboxes.</td>
                                 </tr>

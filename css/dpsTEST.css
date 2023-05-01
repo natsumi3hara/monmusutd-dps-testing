@@ -263,6 +263,11 @@ hr{
     background-color: #efdfb0;
 }
 
+
+
+
+
+
 .inputInsertButton{
     width: 100%;
     text-align: left;
@@ -274,12 +279,35 @@ hr{
     margin:1px;
 }
 
+#excluded-subskills{
+    border:none;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: mtdfont;
+    padding: 2px;
+}
 
+.subskillOptimiseExpand{
+    width: 100%;
+    text-align: left;
+    font-family: mtdfont;
+    background-color: #e4ab00;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    margin:1px;
+}
 
-
-
-
-
+.subskill-optimise-button{
+    width:100%;
+    height:25px;
+    font-family: mtdfont;
+    background-color: #eacb6e;
+    cursor: pointer;
+    border: 1px solid #e4ab00;
+    border-radius: 5px;
+}
 
 #type-icons img{
     width: 40px;
