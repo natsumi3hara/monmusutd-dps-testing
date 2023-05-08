@@ -146,9 +146,15 @@ function enemyReminder(){
     let rmd3 = document.getElementById("enemy-remind3");
     if (bl === 0 && rng === 0){
         console.log("both zero");
-        rmd1.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
-        rmd2.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
-        rmd3.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+        if (masterValues.language === "ja"){
+            rmd1.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+            rmd2.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+            rmd3.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
+        } else if (masterValues.language === "en"){
+            rmd1.innerHTML = "Number of enemies is 0 (Enemy > Blocked/In range)";
+            rmd2.innerHTML = "Number of enemies is 0 (Enemy > Blocked/In range)";
+            rmd3.innerHTML = "Number of enemies is 0 (Enemy > Blocked/In range)";
+        }
     } else {
         console.log("at least one non zero");
         rmd1.innerHTML = "";
@@ -378,20 +384,35 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
         cooldown = Math.ceil(cooldown/2);
     } else {}
     if (document.getElementById("shared20007-1").checked && (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
+        cooldown -= 7*Number(document.getElementById("shared20007-2").value);
+    } else if ((selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
         cooldown -= 10*Number(document.getElementById("shared20007-2").value);
     }
-    if (document.getElementById("shared20008-1").checked){
+    if (true/*document.getElementById("shared20008-1").checked*/){
         cooldown -= 3*Number(document.getElementById("shared20008-2").value);
     }
     if (cooldown < 0) {cooldown = 0;}
     //final adjustment and display//
     if (duration === -1){
-        document.getElementById("dps-all-skillDuration").innerHTML = "無限";
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-all-skillDuration").innerHTML = "無限";
+        } else if (masterValues.language === "en"){
+            document.getElementById("dps-all-skillDuration").innerHTML = "Infinite";
+        }
     } else {
-        document.getElementById("dps-all-skillDuration").innerHTML = duration.toFixed(2)+"秒";
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-all-skillDuration").innerHTML = duration.toFixed(2)+"秒";
+        } else if (masterValues.language === "en"){
+            document.getElementById("dps-all-skillDuration").innerHTML = duration.toFixed(2)+"s";
+        }
     }
-    document.getElementById("dps-all-skillCooldown").innerHTML = cooldown.toFixed(2)+"秒";
-    document.getElementById("dps-all-skillFirst").innerHTML = initial.toFixed(2)+"秒";
+    if (masterValues.language === "ja"){
+        document.getElementById("dps-all-skillCooldown").innerHTML = cooldown.toFixed(2)+"秒";
+        document.getElementById("dps-all-skillFirst").innerHTML = initial.toFixed(2)+"秒";
+    } else if (masterValues.language === "en"){
+        document.getElementById("dps-all-skillCooldown").innerHTML = cooldown.toFixed(2)+"s";
+        document.getElementById("dps-all-skillFirst").innerHTML = initial.toFixed(2)+"s";
+    }
     document.getElementById("dps-all-battle").innerHTML = battleFinalDPS.toFixed(2);
     document.getElementById("dps-all-skill").innerHTML = skillFinalDPS.toFixed(2);
     let finalDPS = 0;
@@ -620,7 +641,7 @@ function updateCritPen(critList,penList,skillCritPen){
         attack*=Number(document.getElementById("dps-output-skill-value-stat76").innerHTML)/100;
         hitType=document.getElementById("dps-output-skill-value-stat22").innerHTML;
         idType = "skill";
-        if (document.getElementById("dps-output-skill-value-stat21").innerHTML === "攻撃しない"){
+        if (document.getElementById("dps-output-skill-value-stat21").innerHTML === "攻撃しない"||document.getElementById("dps-output-skill-value-stat21").innerHTML === "None"){
             attack = 0;
         }
     } else {
@@ -629,7 +650,7 @@ function updateCritPen(critList,penList,skillCritPen){
         attack*=Number(document.getElementById("dps-output-battle-value-stat76").innerHTML)/100;
         hitType=document.getElementById("dps-output-battle-value-stat22").innerHTML;
         idType = "battle";
-        if (document.getElementById("dps-output-battle-value-stat21").innerHTML === "攻撃しない"){
+        if (document.getElementById("dps-output-battle-value-stat21").innerHTML === "攻撃しない"||document.getElementById("dps-output-skill-value-stat21").innerHTML === "None"){
             attack = 0;
         }
     }
@@ -657,8 +678,16 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType){
     else {penProb = [noPenProb,100-noPenProb];}
     //arrays created//
     let iTitle,jOrder;
-    if (penProb.length === 1) {iTitle = ["普通攻撃","クリティカル(1)","クリティカル(2)"]}
-    else {iTitle = ["普通攻撃","貫通攻撃","クリティカル(1)","貫通+クリティカル(1)","クリティカル(2)","貫通+クリティカル(2)"]}
+    if (penProb.length === 1) {
+        if (masterValues.language === "ja"){iTitle = ["普通攻撃","クリティカル(1)","クリティカル(2)"]}
+        else if (masterValues.language === "en"){iTitle = ["Normal","Critical(1)","Critical(2)"]}
+    } else {
+        if (masterValues.language === "ja"){
+            iTitle = ["普通攻撃","貫通攻撃","クリティカル(1)","貫通+クリティカル(1)","クリティカル(2)","貫通+クリティカル(2)"]
+        } else if (masterValues.language === "en"){
+            iTitle = ["Normal","Penetration","Critical(1)","Pen+Crit(1)","Critical(2)","Pen+Crit(2)"]
+        }
+    }
     jOrder = ["title","probability","multiplier","damage"]
     for (let i=0;i<(critProb.length*penProb.length);i++){
         let row = table.insertRow(i+1);
@@ -732,13 +761,13 @@ function damageCalc(attack,hitType){
     let damage = 0;
     let guaranteeDamage = Math.floor(attack/10);
     let dmgRed = Number(document.getElementById("input-enemy-dmgRed").value);
-    if (hitType === "物理"){
+    if (hitType === "物理" || hitType === "Physical"){
         //console.log("enemy-pDef:",document.getElementById("input-enemy-stat3").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat3").value);
-    } else if (hitType === "魔法"){
+    } else if (hitType === "魔法" || hitType === "Magical"){
         //console.log("enemy-mDef:",document.getElementById("input-enemy-stat4").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat4").value);
-    } else if (hitType === "貫通" || hitType === "回復"){
+    } else if (hitType === "貫通" || hitType === "回復" || hitType === "Penetrate" || hitType === "Heal"){
         //console.log("pen");
         damage = Number(attack);
     }
@@ -756,7 +785,7 @@ function updateAttackTypes(typelist,skillAttack){
     for (let i=0;i<typelist.length;i++){
         let row = targetTable.insertRow(i+1);
         let cell1 = row.insertCell(0);
-        cell1.innerHTML = typelist[i]["text"];
+        cell1.innerHTML = typelist[i]["text-"+masterValues.language];
         cell1.className = "displaytext";
         cell1.colSpan = "2";
         let cell2 = row.insertCell(1);
@@ -1053,6 +1082,11 @@ function calculateStat(level,cc,type){
             multEffect2.buff *= 130;
             multEffect2.count += 1;
         }
+        //lulu's unique weapon//
+        if (document.getElementById("otherPassive10046").checked){
+            multEffect2.buff *= 110;
+            multEffect2.count += 1;
+        }
         addEffect2 = {"buff":0,"count":1};
     } else {
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
@@ -1190,6 +1224,10 @@ function calculateStat(level,cc,type){
     if (type === "stat3"){
         multEffect2.buff += Number(document.getElementById("shared20003").value)*4;
     } else {}
+    //shizanketsuga
+    if (type === "stat2"){
+        multEffect2.buff += Number(document.getElementById("shared20009").value)*1;
+    } else {}
     console.log("multEffect2: "+multEffect2);
     console.log(multEffect2);
     console.log("addEffect2: "+addEffect2);
@@ -1211,31 +1249,61 @@ function calculateStat(level,cc,type){
     }
     //lapis override//
     if (masterValues.charaID === 10139){
-        document.getElementById("dps-output-battle-value-stat22").innerHTML = "貫通";
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "貫通";
+        } else if (masterValues.language === "en"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "Penetrate";
+        }
     }
     try {
-        if (outputBattle < 0){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "ALL";
-        } else if (type === "stat86" && outputBattle !== 0){
-            document.getElementById("dps-output-battle-value-stat11").innerHTML = outputBattle;
-        } else if (type === "stat21" && outputBattle === 0){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "攻撃しない";
-        } else if (type === "stat21" && outputBattle === 3){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "遠距離";
-        } else if (type === "stat21" && outputBattle === 4){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "近距離";
-        } else if (type === "stat22" && outputBattle === 0){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "無し";
-        } else if (type === "stat22" && outputBattle === 1){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "物理";
-        } else if (type === "stat22" && outputBattle === 2){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "魔法";
-        } else if (type === "stat22" && outputBattle === 3){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "貫通";
-        } else if (type === "stat22" && outputBattle === 4){
-            document.getElementById("dps-output-battle-value-"+type).innerHTML = "回復";
-        } else {
-        document.getElementById("dps-output-battle-value-"+type).innerHTML = outputBattle;
+        if (masterValues.language === "ja"){
+            if (outputBattle < 0){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "ALL";
+            } else if (type === "stat86" && outputBattle !== 0){
+                document.getElementById("dps-output-battle-value-stat11").innerHTML = outputBattle;
+            } else if (type === "stat21" && outputBattle === 0){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "攻撃しない";
+            } else if (type === "stat21" && outputBattle === 3){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "遠距離";
+            } else if (type === "stat21" && outputBattle === 4){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "近距離";
+            } else if (type === "stat22" && outputBattle === 0){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "無し";
+            } else if (type === "stat22" && outputBattle === 1){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "物理";
+            } else if (type === "stat22" && outputBattle === 2){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "魔法";
+            } else if (type === "stat22" && outputBattle === 3){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "貫通";
+            } else if (type === "stat22" && outputBattle === 4){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "回復";
+            } else {
+            document.getElementById("dps-output-battle-value-"+type).innerHTML = outputBattle;
+            }
+        } else if (masterValues.language === "en"){
+            if (outputBattle < 0){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "ALL";
+            } else if (type === "stat86" && outputBattle !== 0){
+                document.getElementById("dps-output-battle-value-stat11").innerHTML = outputBattle;
+            } else if (type === "stat21" && outputBattle === 0){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "No attack";
+            } else if (type === "stat21" && outputBattle === 3){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "Ranged";
+            } else if (type === "stat21" && outputBattle === 4){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "Melee";
+            } else if (type === "stat22" && outputBattle === 0){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "None";
+            } else if (type === "stat22" && outputBattle === 1){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "Physical";
+            } else if (type === "stat22" && outputBattle === 2){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "Magical";
+            } else if (type === "stat22" && outputBattle === 3){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "Penetrate";
+            } else if (type === "stat22" && outputBattle === 4){
+                document.getElementById("dps-output-battle-value-"+type).innerHTML = "Heal";
+            } else {
+            document.getElementById("dps-output-battle-value-"+type).innerHTML = outputBattle;
+            }
         }
     } catch (error) {
         console.log("Error-outputBattle: "+ type);
@@ -1327,6 +1395,11 @@ function calculateStat(level,cc,type){
         //lapis' skill damage up//
         if (document.getElementById("otherSkill10139").checked){
             multEffect3.buff *= 130;
+            multEffect3.count += 1;
+        }
+        //lulu's unique weapon//
+        if (document.getElementById("otherPassive10046").checked){
+            multEffect3.buff *= 110;
             multEffect3.count += 1;
         }
         addEffect3 = {"buff":0,"count":1};
@@ -1465,6 +1538,10 @@ function calculateStat(level,cc,type){
     //tactics
     if (type === "stat3"){
         multEffect3.buff += Number(document.getElementById("shared20003").value)*4;
+    } else {}
+    //shizanketsuga
+    if (type === "stat2"){
+        multEffect3.buff += Number(document.getElementById("shared20009").value)*1;
     } else {}
     console.log("multEffect3: "+multEffect3);
     console.log(multEffect3);
@@ -1985,7 +2062,7 @@ function talentIdentifier(talentText){
 }
 
 function getAttachID(subskillSelectID){
-    let requireCheck = [1040,1041,1042,1043,1044,1045,1090];
+    let requireCheck = [1040,1041,1042,1043,1044,1045,1090,1101];
     let subskillSelect = Number(document.getElementById(subskillSelectID).value);
     let subskillIndex = attach_ability_data.table.findIndex(object => {return object.id === subskillSelect})
     if (requireCheck.includes(subskillSelect)){
@@ -2022,7 +2099,10 @@ function skilltextreplace(){
     let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
     //manipulation//
     try {
-        if (skillObject === undefined) {throw "存在しないスキルです";}
+        if (skillObject === undefined) {
+            if (masterValues.language === "ja"){throw "存在しないスキルです";}
+            else if (masterValues.language === "en"){throw "Skill does not exist";}
+        }
         document.getElementById("skill-error").innerHTML = "";
     } catch (err) {
         document.getElementById("skill-error").innerHTML = err + "<br>";
@@ -2058,28 +2138,17 @@ function skilltextreplace(){
                 }
                 baseText = baseText.replace(beforeArray[i], replaceParam.toString());
             } else if (B4Asplit[0] === "0"){
-                //temporary measures to make some strings immutable
+                if (skillObject["talentList"][B4Asplit[1]]["maxParam"][B4Asplit[2]]["num"][0] === 0){
+                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
+                    let replaceParam = minParam;
+                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
+                }
+                /*temporary measures to make some strings immutable (now pending deletion)
                 if (baseText.split(beforeArray[i])[0].slice(-5) == "コストが\[" && baseText.split(beforeArray[i])[1].slice(0,3) == "\]回復"){
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let replaceParam = minParam;
                     baseText = baseText.replace(beforeArray[i], replaceParam.toString());
-                } else if (baseText.split(beforeArray[i])[0].slice(-5) == "所持数が\[" && baseText.split(beforeArray[i])[1].slice(0,3) == "\]増加"){
-                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
-                    let replaceParam = minParam;
-                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
-                } else if (baseText.split(beforeArray[i])[0].slice(-6) == "移動速度+\["){
-                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
-                    let replaceParam = minParam;
-                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
-                } else if (baseText.split(beforeArray[i])[0].slice(-7) == "攻撃対象数+\["){
-                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
-                    let replaceParam = minParam;
-                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
-                } else if (baseText.split(beforeArray[i])[1].slice(0,2) == "\]体"){
-                    let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
-                    let replaceParam = minParam;
-                    baseText = baseText.replace(beforeArray[i], replaceParam.toString());
-                } else {
+                */ else {
                     let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                     let maxParam = skillObject["talentList"][B4Asplit[1]]["maxParam"][B4Asplit[2]]["num"][0];
                     let replaceParam = Math.floor((minParam + (maxParam-minParam)/4*(skilllevelnumber-1)));
@@ -2092,10 +2161,19 @@ function skilltextreplace(){
         if (pattern !== null){
             for (let i=0; i<pattern.length;i++){
                 let replaceText = "("+pattern[i]+")";
-                replaceText = replaceText.replace("hp,","HP×");
-                replaceText = replaceText.replace("attack,","攻撃力×");
-                replaceText = replaceText.replace("mdef,","魔法防御×");
-                replaceText = replaceText.replace("defense,","物理防御×");
+                if (masterValues.language === "ja"){
+                    replaceText = replaceText.replace("hp,","HP×");
+                    replaceText = replaceText.replace("attack,","攻撃力×");
+                    replaceText = replaceText.replace("defense,","物理防御×");
+                    replaceText = replaceText.replace("mdef,","魔法防御×");
+                    replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+                } else if (masterValues.language === "en"){
+                    replaceText = replaceText.replace("hp,","HP×");
+                    replaceText = replaceText.replace("attack,","Atk×");
+                    replaceText = replaceText.replace("defense,","pDef×");
+                    replaceText = replaceText.replace("mdef,","mDef×");
+                    replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+                }
                 baseText = baseText.replace(pattern[i],replaceText);
             }
         }
@@ -2152,11 +2230,19 @@ function traittextreplace(){
     if (patternP !== null){
         for (let i=0; i<patternP.length;i++){
             let replaceText = "("+patternP[i]+")";
-            replaceText = replaceText.replace("hp,","HP×");
-            replaceText = replaceText.replace("attack,","攻撃力×");
-            replaceText = replaceText.replace("defense,","物理防御×");
-            replaceText = replaceText.replace("mdef,","魔法防御×");
-            replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+            if (masterValues.language === "ja"){
+                replaceText = replaceText.replace("hp,","HP×");
+                replaceText = replaceText.replace("attack,","攻撃力×");
+                replaceText = replaceText.replace("defense,","物理防御×");
+                replaceText = replaceText.replace("mdef,","魔法防御×");
+                replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+            } else if (masterValues.language === "en"){
+                replaceText = replaceText.replace("hp,","HP×");
+                replaceText = replaceText.replace("attack,","Atk×");
+                replaceText = replaceText.replace("defense,","pDef×");
+                replaceText = replaceText.replace("mdef,","mDef×");
+                replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+            }
             baseText = baseText.replace(patternP[i],replaceText);
         }
     }
@@ -2166,8 +2252,11 @@ function traittextreplace(){
     if (pattern !== null){
         for (let i=0; i<pattern.length;i++){
             let replaceText = "("+pattern[i]+")";
-            replaceText = replaceText.replace("awaked,","フル覚醒で");
-            console.log(replaceText);
+            if (masterValues.language === "ja"){
+                replaceText = replaceText.replace("awaked,","フル覚醒で");
+            } else if (masterValues.language === "en"){
+                replaceText = replaceText.replace("awaked,","full potential,&nbsp");
+            }
             baseText = baseText.replace(pattern[i],replaceText);
         }
     }
@@ -2218,11 +2307,19 @@ function charaInfoReplace(){
         if (patternP !== null){
             for (let i=0; i<patternP.length;i++){
                 let replaceText = "("+patternP[i]+")";
-                replaceText = replaceText.replace("hp,","HP×");
-                replaceText = replaceText.replace("attack,","攻撃力×");
-                replaceText = replaceText.replace("defense,","物理防御×");
-                replaceText = replaceText.replace("mdef,","魔法防御×");
-                replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+                if (masterValues.language === "ja"){
+                    replaceText = replaceText.replace("hp,","HP×");
+                    replaceText = replaceText.replace("attack,","攻撃力×");
+                    replaceText = replaceText.replace("defense,","物理防御×");
+                    replaceText = replaceText.replace("mdef,","魔法防御×");
+                    replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+                } else if (masterValues.language === "en"){
+                    replaceText = replaceText.replace("hp,","HP×");
+                    replaceText = replaceText.replace("attack,","Atk×");
+                    replaceText = replaceText.replace("defense,","pDef×");
+                    replaceText = replaceText.replace("mdef,","mDef×");
+                    replaceText = replaceText.replace(/\[/g,"").replace(/\]/g,"");
+                }
                 baseText = baseText.replace(patternP[i],replaceText);
             }
         }
@@ -2232,8 +2329,11 @@ function charaInfoReplace(){
         if (pattern !== null){
             for (let i=0; i<pattern.length;i++){
                 let replaceText = "("+pattern[i]+")";
-                replaceText = replaceText.replace("awaked,","フル覚醒で");
-                console.log(replaceText);
+                if (masterValues.language === "ja"){
+                    replaceText = replaceText.replace("awaked,","フル覚醒で");
+                } else if (masterValues.language === "en"){
+                    replaceText = replaceText.replace("awaked,","full potential,&nbsp");
+                }
                 baseText = baseText.replace(pattern[i],replaceText);
             }
         }
@@ -2262,7 +2362,11 @@ function uniqueWeaponReplace(charaID){
     let targetDiv = document.getElementById("unique-weapon-div");
     if (unique.includes(uwID)){
         let uwSRC = "'../../img/equipment-icons/uw_"+uwID+"001.png'";
-        targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        }
     }
 }
 
@@ -2298,7 +2402,7 @@ console.log( Array.from(text.matchAll(/\[([^\][]*)]/g), x => x[1]) );
 function attachOptions1() {
     let optionList = document.getElementById('subskill1').options;
     let attachOptions = [
-        {value: 0, text: 'なし'},
+        {value: 0, text: '-----'},
         {value: 1001, text: 'HP強化 I'},
         {value: 1002, text: 'HP強化 II'},
         {value: 1003, text: 'HP強化 III'},
@@ -2397,6 +2501,10 @@ function attachOptions1() {
         {value: 1096, text: '究極騎将の討伐証'},
         {value: 1097, text: '穴鏡触手の討伐証'},
         {value: 1098, text: '1stAnniversaryの祝福'},
+        {value: 1099, text: 'プロトバリア'},
+        {value: 1100, text: 'アタッチヒール'},
+        {value: 1101, text: '屍山血河'},
+        //{value: 1102, text: '攻撃強化+クリティカル'},
     ];
 
 attachOptions.forEach(option =>
@@ -2409,7 +2517,7 @@ attachOptions.forEach(option =>
 function attachOptions2() {
     let optionList = document.getElementById('subskill2').options;
     let attachOptions = [
-        {value: 0, text: 'なし'},
+        {value: 0, text: '-----'},
         {value: 1001, text: 'HP強化 I'},
         {value: 1002, text: 'HP強化 II'},
         {value: 1003, text: 'HP強化 III'},
@@ -2508,6 +2616,10 @@ function attachOptions2() {
         {value: 1096, text: '究極騎将の討伐証'},
         {value: 1097, text: '穴鏡触手の討伐証'},
         {value: 1098, text: '1stAnniversaryの祝福'},
+        {value: 1099, text: 'プロトバリア'},
+        {value: 1100, text: 'アタッチヒール'},
+        {value: 1101, text: '屍山血河'},
+        //{value: 1102, text: '攻撃強化+クリティカル'},
     ];
     
 attachOptions.forEach(option =>

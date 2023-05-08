@@ -27,7 +27,7 @@ var equip = {
     "3":[
         {"stat1":0,"stat2":43,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
         {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
-		{"stat1":0,"stat2":23,"stat3":0,"stat4":5,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+		{"stat1":0,"stat2":23,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
         {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
 	]
 }

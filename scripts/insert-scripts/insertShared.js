@@ -78,7 +78,7 @@ document.write(`
         </div>
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
-                <abbr title="配置中、全味方の物理防御力+4%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
+                <abbr title="配置中、全味方の物理防御力+4%\n(枚数は自身除外)" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
                 <span class="shared-buff-name">タクティクス</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
@@ -131,10 +131,10 @@ document.write(`
                 <span class="shared-buff-name">カヅネ</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label">短縮に使用</span>
+                <span class="shared-buff-label">EXスキルⅡ</span>
                 <input type="checkbox" id="shared20007-1" class="larger-check shared-check" onChange="allDPS();">
                 <span class="shared-buff-label">回数</span>
-                <input id="shared20007-2" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input id="shared20007-2" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
         <div class="flex-container-shared-buff-inner">
@@ -143,10 +143,22 @@ document.write(`
                 <span class="shared-buff-name">アニシラ</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label">短縮に使用</span>
-                <input type="checkbox" id="shared20008-1" class="larger-check shared-check" onChange="allDPS();">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">回数</span>
-                <input id="shared20008-2" type="number" min="1" max="20" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input id="shared20008-2" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="敵を攻撃で倒すごとに攻撃力が1%上昇\n(最大50回/死亡撤退時リセット)" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">屍山血河</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label">敵数</span>
+                <input id="shared20009" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="shared-buff-label"></span>
             </div>
         </div>
     </div>

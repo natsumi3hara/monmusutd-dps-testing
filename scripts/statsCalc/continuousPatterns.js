@@ -49,6 +49,30 @@ const continuous_patterns = {
 		"target":"range",
 		"time":30,
 	},
+	"10049": {
+		"battle":{
+			"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":3},
+		},
+		"skill":{
+			"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":3},
+		},
+		"target":"range",
+		"time":30,
+	},
+	"10049a": {
+		"battle":{
+			"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":4},
+		},
+		"skill":{
+			"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":4},
+		},
+		"target":"range",
+		"time":30,
+	},
 	"63": {
 		"battle":{
 			"cond":[],

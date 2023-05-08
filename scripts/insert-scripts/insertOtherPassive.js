@@ -45,6 +45,18 @@ document.write(`
     <div id="flex-container-otherPassive-buff">
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10046_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ルルゥ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>
+                <span class="otherPassive-buff-label">専用武器</span>
+                <input type="checkbox" id="otherPassive10046" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10060_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">バウ</span>
             </div>
