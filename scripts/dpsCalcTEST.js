@@ -1582,31 +1582,57 @@ function calculateStat(level,cc,type){
         document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
     }
     try {
-        if (outputSkill < 0){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "ALL";
-        } else if (type === "stat86" && outputSkill !== 0){
-            document.getElementById("dps-output-skill-value-stat11").innerHTML = outputSkill;
-        } else if (type === "stat21" && outputSkill === 0){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "攻撃しない";
-        } else if (type === "stat21" && outputSkill === 3){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "遠距離";
-        } else if (type === "stat21" && outputSkill === 4){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "近距離";
-        } else if (type === "stat22" && outputSkill === 0){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "無し";
-        } else if (type === "stat22" && outputSkill === 1){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "物理";
-        } else if (type === "stat22" && outputSkill === 2){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "魔法";
-        } else if (type === "stat22" && outputSkill === 3){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "貫通";
-        } else if (type === "stat22" && outputSkill === 4){
-            document.getElementById("dps-output-skill-value-"+type).innerHTML = "回復";
-        } else {
-        document.getElementById("dps-output-skill-value-"+type).innerHTML = outputSkill;
+        if (masterValues.language === "ja"){
+            if (outputSkill < 0){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "ALL";
+            } else if (type === "stat86" && outputSkill !== 0){
+                document.getElementById("dps-output-skill-value-stat11").innerHTML = outputSkill;
+            } else if (type === "stat21" && outputSkill === 0){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "攻撃しない";
+            } else if (type === "stat21" && outputSkill === 3){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "遠距離";
+            } else if (type === "stat21" && outputSkill === 4){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "近距離";
+            } else if (type === "stat22" && outputSkill === 0){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "無し";
+            } else if (type === "stat22" && outputSkill === 1){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "物理";
+            } else if (type === "stat22" && outputSkill === 2){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "魔法";
+            } else if (type === "stat22" && outputSkill === 3){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "貫通";
+            } else if (type === "stat22" && outputSkill === 4){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "回復";
+            } else {
+            document.getElementById("dps-output-skill-value-"+type).innerHTML = outputSkill;
+            }
+        } else if (masterValues.language === "en"){
+            if (outputSkill < 0){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "ALL";
+            } else if (type === "stat86" && outputSkill !== 0){
+                document.getElementById("dps-output-skill-value-stat11").innerHTML = outputSkill;
+            } else if (type === "stat21" && outputSkill === 0){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "No attack";
+            } else if (type === "stat21" && outputSkill === 3){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "Ranged";
+            } else if (type === "stat21" && outputSkill === 4){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "Melee";
+            } else if (type === "stat22" && outputSkill === 0){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "None";
+            } else if (type === "stat22" && outputSkill === 1){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "Physical";
+            } else if (type === "stat22" && outputSkill === 2){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "Magical";
+            } else if (type === "stat22" && outputSkill === 3){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "Penetrate";
+            } else if (type === "stat22" && outputSkill === 4){
+                document.getElementById("dps-output-skill-value-"+type).innerHTML = "Heal";
+            } else {
+            document.getElementById("dps-output-skill-value-"+type).innerHTML = outputSkill;
+            }
         }
     } catch (error) {
-        console.log("Error-outputSkill: "+ type);
+        console.log("Error-outputBattle: "+ type);
     }
     //outputSkill over//
     // ↓ Crit,Pen etc ↓ //

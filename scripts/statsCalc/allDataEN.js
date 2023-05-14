@@ -114497,7 +114497,7 @@ const skill_data ={
     {
       "id": 1,
       "name": "騎士の矜持",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、物理防御力[MAG,1,0]倍上昇",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nand increase pDef by [MAG,1,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -114588,7 +114588,7 @@ const skill_data ={
     {
       "id": 3,
       "name": "疾風",
-      "text": "スキル発動時、１度だけ攻撃力[MAG,1,0]倍、\r\n射程[MAG,0,0]倍、範囲内の敵[0,2,0]体を同時攻撃\r\n攻撃した敵を強めに後退させる",
+      "text": "On skill, increase Atk by [MAG,1,0]×,\r\nincrease Range by [MAG,0,0]×, and attack [0,2,0] enemies at once\r\nAttacked enemies are strongly knocked back",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -114706,7 +114706,7 @@ const skill_data ={
     {
       "id": 4,
       "name": "ゴブリンの絆",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、攻撃後の隙が半減\r\nトークンの所持数が[0,2,0]増加する",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, decrease PAD by half\r\nIncrease token stock by [0,2,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -114783,7 +114783,7 @@ const skill_data ={
     {
       "id": 5,
       "name": "幻惑の風",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、\r\n攻撃した敵を後退させる\r\n範囲内の味方が[0,1,0]％の確率で物理と魔法攻撃を回避\r\n",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and knockback enemies on attack\r\nAllies in range have a [0,1,0]% chance to evade physical and magical attacks",
       "maxLevel": 1,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -114929,7 +114929,7 @@ const skill_data ={
     {
       "id": 6,
       "name": "すらいむ☆ア・ラモード",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇\r\n完全にスライム化して物理攻撃の被ダメージ減少を半減まで強化\r\nさらに敵の攻撃を引き付ける",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\ndamage reduction for physical damage in increased to 50%\r\nand Taunt enemies",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -115049,7 +115049,7 @@ const skill_data ={
     {
       "id": 7,
       "name": "マーメイドソング",
-      "text": "スキル発動時に1度だけ射程[MAG,0,0]倍上昇\r\n範囲内の全味方の毒、石化状態を回復し、\r\nＨＰを[attack,[MAG,1,0]]回復する",
+      "text": "On skill, increase range by [MAG,0,0]×, \r\ncure Poison and Petrification on allies in range,\r\nand heal them for [attack,[MAG,1,0]]",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -115234,7 +115234,7 @@ const skill_data ={
     {
       "id": 8,
       "name": "水精の猛り",
-      "text": "[duration]秒、攻撃力[MAG,2,0]倍、射程[MAG,0,0]倍\r\n範囲内の敵３体までを攻撃する",
+      "text": "For [duration]s, increase Atk by [MAG,2,0]×, increase Range by [MAG,0,0]×\r\nAttacks 3 enemies at once",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -115346,7 +115346,7 @@ const skill_data ={
     {
       "id": 10,
       "name": "ファイアーバースト",
-      "text": "即座にコストが[0,0,0]回復する\r\nその後[duration]秒、攻撃力[MAG,1,0]倍に上昇、\r\n敵3体に遠距離魔法攻撃を行う",
+      "text": "Increases DP by [0,0,0]\r\nFor [duration]s, increase Atk by [MAG,1,0]×, and\r\nAttack 3 enemies at once with long range magical attacks",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -115517,7 +115517,7 @@ const skill_data ={
     {
       "id": 11,
       "name": "袋叩きだぜ！",
-      "text": "スキル使用時、HPが[hp,[MAG,1,0]]回復\r\n同マスにオークトークンを召喚し共闘し、\r\nトークンは登場時周囲の敵に攻撃力2倍の物理ダメージを与える",
+      "text": "On skill, recover HP by [hp,[MAG,1,0]]\r\nSummon an attachable Orc token on self\r\nToken deals 2× Atk as physical damage to nearby enemies on summon",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -115593,7 +115593,7 @@ const skill_data ={
     {
       "id": 12,
       "name": "スーパーノームカタパルト",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n攻撃後の待ち時間を短縮する\r\n攻撃した相手をスタンさせる(蓄積値：低)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nDecrease PAD and increase the stun gauge of enemies on attack (Accum: Small)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -115713,7 +115713,7 @@ const skill_data ={
     {
       "id": 13,
       "name": "増殖マタンゴ",
-      "text": "攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n一度だけ範囲内の全敵を攻撃する\r\n本体使用時のみトークンの所持数が１増加",
+      "text": "On skill, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nand attack all enemies in range once\r\nWhen used by the unit, increase token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 420,
       "maxCoolTime": 300,
@@ -115904,7 +115904,7 @@ const skill_data ={
     {
       "id": 14,
       "name": "スパイダーテリトリー",
-      "text": "[duration]秒、射程[MAG,1,0]倍上昇\r\n攻撃しなくなるが範囲内の全ての敵の\r\n攻撃と移動速度が大幅に減少する",
+      "text": "For [duration]s, increase Range by [MAG,1,0]×\r\nDoes not attack but greatly increases the effect of the Spider Net debuff",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -115981,7 +115981,7 @@ const skill_data ={
     {
       "id": 15,
       "name": "わんダフル・ラッシュ",
-      "text": "スキル発動時、１度だけ攻撃力[MAG,3,0]倍で\r\n敵[0,2,0]体に５連射で攻撃を行う",
+      "text": "On skill, increase Atk by [MAG,3,0]×\r\nand attack [0,2,0] enemies five times each",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -116141,7 +116141,7 @@ const skill_data ={
     {
       "id": 16,
       "name": "全力フルスイング",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、ブロックした全敵を攻撃する\r\nさらに、低確率で敵を吹き飛ばす",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack all blocked enemies at once\r\nSmall chance to Blow Off enemies",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -116230,7 +116230,7 @@ const skill_data ={
     {
       "id": 17,
       "name": "クイックショット",
-      "text": "For[duration], increase Atk by [MAG,0,0]×、\r\nand attack 2 enemies in range at once.",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nand attack 2 enemies in range at once.",
       "maxLevel": 5,
       "minCoolTime": 570,
       "maxCoolTime": 450,
@@ -116321,7 +116321,7 @@ const skill_data ={
     {
       "id": 19,
       "name": "暗黒魔導の儀",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇\r\n発動時に自身を含む範囲内の味方のHPを最大値の[0,1,0]％減少させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nDecrease the HP of self and allies in range by [0,1,0]% when activated",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -116407,7 +116407,7 @@ const skill_data ={
     {
       "id": 10019,
       "name": "深淵魔導の儀",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、攻撃対象数+[0,2,0]\r\n発動時に自身を含む範囲内の味方のHPを最大値の[0,1,0]％減少させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase targets by [0,2,0]\r\nDecrease the HP of self and allies in range by [0,1,0]% when activated",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -116514,7 +116514,7 @@ const skill_data ={
     {
       "id": 20,
       "name": "フェアリーシュート",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、\r\n攻撃が魔法属性に変化",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttacks become magical attacks",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -116601,7 +116601,7 @@ const skill_data ={
     {
       "id": 21,
       "name": "サキュバスハート",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、範囲内の全敵を攻撃する\r\nさらに男性の敵の攻撃力を20％ダウン",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack all enemies in range at once\r\nDecrease the Atk of Male enemies by 20%",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -116720,7 +116720,7 @@ const skill_data ={
     {
       "id": 22,
       "name": "ウインドアロー",
-      "text": "[duration]秒、攻撃力[MAG,5,0]倍、射程[MAG,0,0]倍上昇、攻撃速度が大幅に上昇するが\r\nスキル終了後に5秒スタンしてしまう",
+      "text": "For [duration]s, increase Atk by [MAG,5,0]×, increase Range by [MAG,0,0]×, increase aSpd drastically\r\nHowever, stun self for 5s after skill ends",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -116882,7 +116882,7 @@ const skill_data ={
     {
       "id": 10022,
       "name": "トルネードアロー",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇、\r\n攻撃速度が上昇する\r\n攻撃した敵を僅かに後退させる",
+      "text": "For [duration]s, increase Range by [MAG,0,0], increase aSpd\r\nAttacks knockback enemies slightly",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -117023,7 +117023,7 @@ const skill_data ={
     {
       "id": 23,
       "name": "パラライズブレス",
-      "text": "[duration]秒、攻撃力[MAG,2,0]倍、\r\n前方に範囲攻撃を行い敵をスタン状態にする",
+      "text": "For [duration]s, increase Atk by [MAG,2,0]×\r\nAttacks in a small AOE in front",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -117122,7 +117122,7 @@ const skill_data ={
     {
       "id": 24,
       "name": "エージェント招集",
-      "text": "[duration]秒、自身と自トークンの攻撃力[MAG,0,0]倍、\r\nトークンの所持数が[0,1,0]増加",
+      "text": "For [duration]s, increase self and Token Atk by [MAG,0,0]×\r\nIncrease token stock by [0,1,0]",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -117199,7 +117199,7 @@ const skill_data ={
     {
       "id": 10024,
       "name": "インビジブルゴースト",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、\r\n敵の遠距離攻撃の対象にならない\r\nトークンの所持数が[0,1,0]増加",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and become Untargetable\r\nIncrease token stock by [0,1,0]",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -117307,7 +117307,7 @@ const skill_data ={
     {
       "id": 25,
       "name": "インキュバスハート",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、範囲内の全敵を攻撃する\r\nさらに女性の敵の攻撃力を20％ダウン",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack all enemies in range at once\r\nDecrease the Atk of Female enemies by 20%",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -117426,7 +117426,7 @@ const skill_data ={
     {
       "id": 10025,
       "name": "ぼくたちプリキュバ♪",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍、\r\n2連射で攻撃を行う\r\nさらに女性と男性の敵の攻撃力20％ダウン",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0],\r\nand performs double attacks\r\nDecrease the Atk of Male and Female enemies by 20%",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -117639,7 +117639,7 @@ const skill_data ={
     {
       "id": 26,
       "name": "デュラハンフォーム",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、\r\n攻撃した敵の物理防御を永続で[attack,[MAG,1,0]]減少\r\nスキル終了後にHPが全回復する",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nattacks decrease enemy pDef by [attack,[MAG,1,0]]\r\nAfter skill, recover HP to full",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -117780,7 +117780,7 @@ const skill_data ={
     {
       "id": 27,
       "name": "わう！わう！わん！",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n常に[0,2,0]体同時攻撃、攻撃後の待ち時間を大幅に短縮",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttack [0,2,0] targets at once, and decrease PAD drastically",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -117878,7 +117878,7 @@ const skill_data ={
     {
       "id": 28,
       "name": "女王の邪眼",
-      "text": "発動時に範囲内の敵を石化\r\nその後[duration]秒、攻撃力[MAG,1,0]倍上昇、射程[MAG,3,0]倍\r\n石化中の敵にはダメージ1.5倍",
+      "text": "On skill, Petrify enemies in range\r\nAfter that, for [duration]s, increase Atk by [MAG,1,0]×, increase Range by [MAG,3,0]×\r\nDamage dealt to Petrified enemies is increased by 1.5×",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -118008,7 +118008,7 @@ const skill_data ={
     {
       "id": 29,
       "name": "とっておきの薬",
-      "text": "HPが全回復する\r\nHPが99％以上の場合は最大HPが増加\r\n増加量は最大HPの20％、増加は５回まで",
+      "text": "Recover HP to full\r\nIf HP is already higher than 99%, increase maxHP by 20% (up to 5 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -118182,7 +118182,7 @@ const skill_data ={
     {
       "id": 30,
       "name": "ペンギンパワーフルMAX",
-      "text": "効果時間無限　より獣のような姿に変身し\r\n最大HPが[MAG,0,0]倍、攻撃力と物理防御[MAG,1,0]倍、射程[MAG,3,0]倍上昇",
+      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk and pDef by [MAG,1,0]×, increase Range by [MAG,3,0]×",
       "maxLevel": 5,
       "minCoolTime": 3720,
       "maxCoolTime": 3600,
@@ -118311,7 +118311,7 @@ const skill_data ={
     {
       "id": 10030,
       "name": "パワーフルMAX200%",
-      "text": "効果時間無限　より獣のような姿に変身し\r\n最大HPが[MAG,0,0]倍、攻撃力と物理防御[MAG,1,0]倍、射程[MAG,3,0]倍上昇\r\n移動時にスキルが解除されない",
+      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk and pDef by [MAG,1,0]×, increase Range by [MAG,3,0]×\r\n移動時にスキルが解除されない",
       "maxLevel": 5,
       "minCoolTime": 5520,
       "maxCoolTime": 5400,
@@ -118461,7 +118461,7 @@ const skill_data ={
     {
       "id": 31,
       "name": "ぬるぬる乱れ撃ち",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇、\r\n攻撃後の隙が半減、範囲内の全敵を攻撃し\r\n攻撃した敵の移動速度を5秒間-10％",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×, \r\ndecrease PAD by half and attack all enemies in range at once\r\nAttacks decrease the movSpd of enemies by 10% for 5s",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -118601,7 +118601,7 @@ const skill_data ={
     {
       "id": 32,
       "name": "集まれ下僕たち！",
-      "text": "トークンの所持数+3",
+      "text": "Increase token stock by 3",
       "maxLevel": 1,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -118636,7 +118636,7 @@ const skill_data ={
     {
       "id": 10032,
       "name": "死ぬまで働きなさい",
-      "text": "トークン所持数+2、その後[duration]秒、全ゴブリントークンのHP[MAG,0,0]倍、攻撃力[MAG,1,0]倍\r\nスキル終了時配置中の全ゴブリントークンを死亡させる",
+      "text": "Increase token stock by 2\r\nAfter that, for [duration]s, increase the maxHP of all Goblin tokens by [MAG,0,0]×, Atk by [MAG,1,0]×\r\nWhen skill ends, all Goblin tokens die",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -118737,7 +118737,7 @@ const skill_data ={
     {
       "id": 33,
       "name": "水流の呻き",
-      "text": "[duration]秒、攻撃力が[0,1,0]％低下するが\r\n[0,0,0]連射を行う",
+      "text": "For [duration]s, decrease Atk by [0,1,0]%,\r\nbut performs a multi-attack ([0,0,0] times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -138892,7 +138892,7 @@ const skill_data ={
     {
       "id": 90004,
       "name": "ゴブリンの絆",
-      "text": "近接マスに配置可能なゴブリントークンを使役\r\nスキル中[duration]秒、攻撃力[MAG,0,0]倍、攻撃後の隙が半減\r\nトークンの所持数が[0,2,0]増加する",
+      "text": "近接マスに配置可能なゴブリントークンを使役\r\nスキル中For [duration]s, increase Atk by [MAG,0,0]×, decrease PAD by half\r\nIncrease token stock by [0,2,0]",
       "maxLevel": 5,
       "minCoolTime": 450,
       "maxCoolTime": 450,
@@ -139058,7 +139058,7 @@ const skill_data ={
     {
       "id": 90017,
       "name": "クイックショット",
-      "text": "For[duration], increase Atk by [MAG,0,0]×、\r\nand attack 2 enemies in range at once.\r\nスキル発動中のみ遠距離攻撃の対象になる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nand attack 2 enemies in range at once.\r\nスキル発動中のみ遠距離攻撃の対象になる",
       "maxLevel": 5,
       "minCoolTime": 450,
       "maxCoolTime": 570,
