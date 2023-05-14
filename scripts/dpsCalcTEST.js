@@ -473,6 +473,11 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false){
                     document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
                     frameC = continuous_patterns[continuousReference]["time"];
                     document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+                } else {
+                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = 0;
+                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = 0;
+                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = 0;
+                    return 0;
                 }
             } else {//reference
                 if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){
@@ -487,6 +492,11 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false){
                     document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
                     frameC = continuous_patterns[continuousReference]["time"];
                     document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+                } else {
+                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = 0;
+                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = 0;
+                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = 0;
+                    return 0;
                 }
             }
         }
