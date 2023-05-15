@@ -768,9 +768,14 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType){
 }
 
 function damageCalc(attack,hitType){
+    //may need to add another parameter for continuous (because no guarantee + may not be affected by difora)
     let damage = 0;
     let guaranteeDamage = Math.floor(attack/10);
-    let dmgRed = Number(document.getElementById("input-enemy-dmgRed").value);
+    let dmgRed = 100 - Number(document.getElementById("input-enemy-dmgRed").value);
+    if (masterValues.charaID === 10173 && masterValues.charaAwaked && selfConditions["1"] === 1){dmgRed=dmgRed*128/100;}
+    else if (masterValues.charaID === 10173 && selfConditions["1"] === 1){dmgRed=dmgRed*120/100;}
+    if (document.getElementById("otherSkill10173").checked && document.getElementById("otherSkill10173a").checked){dmgRed=dmgRed*128/100;}
+    else if (document.getElementById("otherSkill10173").checked){dmgRed=dmgRed*120/100;}
     if (hitType === "物理" || hitType === "Physical"){
         //console.log("enemy-pDef:",document.getElementById("input-enemy-stat3").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat3").value);
@@ -782,7 +787,7 @@ function damageCalc(attack,hitType){
         damage = Number(attack);
     }
     if (damage < guaranteeDamage){damage = guaranteeDamage;}
-    damage = Math.floor(damage * (100-dmgRed) / 100);
+    damage = Math.floor(damage * (dmgRed) / 100);
     return damage;
 }
 
@@ -1235,7 +1240,7 @@ function calculateStat(level,cc,type){
         multEffect2.buff += Number(document.getElementById("shared20003").value)*4;
     } else {}
     //shizanketsuga
-    if (type === "stat2"){
+    if (type === "stat2" && (subskillID_1 === 100 || subskillID_2 === 100)){
         multEffect2.buff += Number(document.getElementById("shared20009").value)*1;
     } else {}
     console.log("multEffect2: "+multEffect2);
@@ -1550,7 +1555,7 @@ function calculateStat(level,cc,type){
         multEffect3.buff += Number(document.getElementById("shared20003").value)*4;
     } else {}
     //shizanketsuga
-    if (type === "stat2"){
+    if (type === "stat2" && (subskillID_1 === 100 || subskillID_2 === 100)){
         multEffect3.buff += Number(document.getElementById("shared20009").value)*1;
     } else {}
     console.log("multEffect3: "+multEffect3);
@@ -2010,28 +2015,30 @@ function pdMultValues(type){ //timing = 4//
 function allAlliesSkillRate(type){
     //timing must be 1
     let totalAllAlliesSkill = 0
-    for (i=0;i<otherSkillchecks.length;i++){
-        let otherSkillCB = otherSkillchecks[i];
-        let otherSkillLV = Number(document.getElementById("level"+otherSkillCB.id.split("otherSkill")[1]).value);
-        if (otherSkillCB.checked){
-            if (partybuffref[otherSkillCB.id].cond.length == 0){
-                try {
-                    totalAllAlliesSkill += Number(partybuffref[otherSkillCB.id][type][otherSkillLV-1]);
-                    break
-                } catch (err) {//console.log("No buff")
+    try { //for those with no level+id otherskill//
+        for (i=0;i<otherSkillchecks.length;i++){
+            let otherSkillCB = otherSkillchecks[i];
+            let otherSkillLV = Number(document.getElementById("level"+otherSkillCB.id.split("otherSkill")[1]).value);
+            if (otherSkillCB.checked){
+                if (partybuffref[otherSkillCB.id].cond.length == 0){
+                    try {
+                        totalAllAlliesSkill += Number(partybuffref[otherSkillCB.id][type][otherSkillLV-1]);
+                        break
+                    } catch (err) {//console.log("No buff")
+                    }
+                } else if (partybuffref[otherSkillCB.id].cond.includes(char["attribute"])||partybuffref[otherSkillCB.id].cond.includes(masterValues.baseClass)){
+                    try {
+                        totalAllAlliesSkill += Number(partybuffref[otherSkillCB.id][type][otherSkillLV-1]);
+                        break
+                    } catch (err) {//console.log("No buff")
+                        totalAllAlliesSkill += 0;
+                    }
+                } else {//console.log("cond not met")
                 }
-            } else if (partybuffref[otherSkillCB.id].cond.includes(char["attribute"])||partybuffref[otherSkillCB.id].cond.includes(masterValues.baseClass)){
-                try {
-                    totalAllAlliesSkill += Number(partybuffref[otherSkillCB.id][type][otherSkillLV-1]);
-                    break
-                } catch (err) {//console.log("No buff")
-                    totalAllAlliesSkill += 0;
-                }
-            } else {//console.log("cond not met")
+            } else {//console.log("not checked")
             }
-        } else {//console.log("not checked")
         }
-    }
+    } catch(err){return 0;}
     return totalAllAlliesSkill;
 }
 

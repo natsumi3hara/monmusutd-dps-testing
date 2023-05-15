@@ -7573,7 +7573,7 @@ const ability_data ={
             }
           ],
           "timing": 2,
-          "range": 4,
+          "range": 1,
           "triggerData": [
             {
               "type": 2002,
@@ -7617,7 +7617,7 @@ const ability_data ={
             }
           ],
           "timing": 2,
-          "range": 4,
+          "range": 1,
           "triggerData": [
             {
               "type": 2002,
@@ -22506,6 +22506,17 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
+            },
+			{
+              "type": 2000,
+              "num": [
+                70
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
             }
           ],
           "activeData": []
@@ -22536,6 +22547,17 @@ const ability_data ={
               ],
               "option": [
                 "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+			{
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                ">"
               ],
               "target": 1,
               "targetNum": []
@@ -27110,7 +27132,7 @@ const ability_data ={
           ]
         },
         {
-          "talentId": 1009,
+          "talentId": 1010,
           "param": [
             {
               "num": [
@@ -27125,11 +27147,11 @@ const ability_data ={
               ]
             }
           ],
-          "timing": 1,
+          "timing": 3,
           "range": 1,
           "triggerData": [
             {
-              "type": 1,
+              "type": 40000,
               "num": [
                 1
               ],
@@ -27142,9 +27164,9 @@ const ability_data ={
           ],
           "activeData": [
             {
-              "type": 26,
+              "type": 7,
               "num": [
-                0
+                1
               ],
               "option": [
                 ""
@@ -27211,7 +27233,7 @@ const ability_data ={
           ]
         },
         {
-          "talentId": 1009,
+          "talentId": 1010,
           "param": [
             {
               "num": [
@@ -27226,13 +27248,13 @@ const ability_data ={
               ]
             }
           ],
-          "timing": 1,
+          "timing": 3,
           "range": 1,
           "triggerData": [
             {
-              "type": 1,
+              "type": 40000,
               "num": [
-                1
+                2
               ],
               "option": [
                 ""
@@ -27243,7 +27265,7 @@ const ability_data ={
           ],
           "activeData": [
             {
-              "type": 26,
+              "type": 7,
               "num": [
                 1
               ],
@@ -128237,7 +128259,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                210188
+                211088
               ]
             },
             {
@@ -128268,7 +128290,7 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210188,
+      "id": 211088,
       "name": "ギアブーストIII",
       "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
       "maxLevel": 5,
@@ -128420,7 +128442,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                210288
+                212088
               ]
             },
             {
@@ -128451,7 +128473,7 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210288,
+      "id": 212088,
       "name": "ギアブーストIV",
       "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
       "maxLevel": 5,
@@ -128603,7 +128625,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                210388
+                213088
               ]
             },
             {
@@ -128634,7 +128656,7 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210388,
+      "id": 213088,
       "name": "MAXギア！",
       "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少",
       "maxLevel": 5,
@@ -138126,7 +138148,7 @@ const skill_data ={
           "activeData": []
         },
         {
-          "talentId": 1009,
+          "talentId": 1010,
           "param": [
             {
               "num": [
@@ -138145,7 +138167,7 @@ const skill_data ={
           "range": 1,
           "triggerData": [
             {
-              "type": 1,
+              "type": 40000,
               "num": [
                 1
               ],
@@ -138158,9 +138180,9 @@ const skill_data ={
           ],
           "activeData": [
             {
-              "type": 26,
+              "type": 7,
               "num": [
-                0
+                1
               ],
               "option": [
                 ""
@@ -138204,7 +138226,7 @@ const skill_data ={
           "activeData": []
         },
         {
-          "talentId": 1009,
+          "talentId": 1010,
           "param": [
             {
               "num": [
@@ -138223,9 +138245,9 @@ const skill_data ={
           "range": 1,
           "triggerData": [
             {
-              "type": 1,
+              "type": 40000,
               "num": [
-                1
+                2
               ],
               "option": [
                 ""
@@ -138236,7 +138258,7 @@ const skill_data ={
           ],
           "activeData": [
             {
-              "type": 26,
+              "type": 7,
               "num": [
                 1
               ],

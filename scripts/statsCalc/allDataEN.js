@@ -2647,6 +2647,17 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
+            },
+			{
+              "type": 2000,
+              "num": [
+                70
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
             }
           ],
           "activeData": []
@@ -2677,6 +2688,17 @@ const ability_data ={
               ],
               "option": [
                 "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+			{
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                ">"
               ],
               "target": 1,
               "targetNum": []
@@ -7551,7 +7573,7 @@ const ability_data ={
             }
           ],
           "timing": 2,
-          "range": 4,
+          "range": 1,
           "triggerData": [
             {
               "type": 2002,
@@ -7595,7 +7617,7 @@ const ability_data ={
             }
           ],
           "timing": 2,
-          "range": 4,
+          "range": 1,
           "triggerData": [
             {
               "type": 2002,
@@ -22484,6 +22506,17 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
+            },
+			{
+              "type": 2000,
+              "num": [
+                70
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
             }
           ],
           "activeData": []
@@ -22514,6 +22547,17 @@ const ability_data ={
               ],
               "option": [
                 "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+			{
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                ">"
               ],
               "target": 1,
               "targetNum": []
@@ -22871,20 +22915,51 @@ const ability_data ={
     {
       "id": 144,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "ゴーストラッパー",
       "kana": "",
-      "text": "ダミー",
+      "text": "飛行して移動\r\n物理と魔法攻撃を40%[awaked,+5%]の確率で回避\r\n攻撃した相手を僅かに後退させる",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 517,
           "param": [
             {
               "num": [
                 200
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1079,
+          "param": [
+            {
+              "num": [
+                40
               ]
             }
           ],
@@ -22895,10 +22970,166 @@ const ability_data ={
               ]
             }
           ],
-          "timing": 1,
+          "timing": 3,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1079,
+          "param": [
+            {
+              "num": [
+                45
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 46,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 60,
+          "param": [
+            {
+              "num": [
+                6
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 4,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                70450
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                70469
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -26455,20 +26686,62 @@ const ability_data ={
     {
       "id": 166,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "人工生命",
       "kana": "",
-      "text": "ダミー",
+      "text": "最大HP-20%、出撃コスト-4\r\n敵2体を同時に魔法攻撃するホムンクルストークンを使役、トークンは1体まで出撃人数に含まれず配置後30[awaked,+15]秒で消滅する",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 2,
           "param": [
             {
               "num": [
-                200
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 60,
+          "param": [
+            {
+              "num": [
+                4
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1016,
+          "param": [
+            {
+              "num": [
+                28
               ]
             }
           ],
@@ -26481,7 +26754,52 @@ const ability_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [],
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1016,
+          "param": [
+            {
+              "num": [
+                29
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -26707,20 +27025,41 @@ const ability_data ={
     {
       "id": 173,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "腐食の肉体",
       "kana": "",
-      "text": "ダミー",
+      "text": "最大HP+20%、毒状態にならない\r\nブロック中の敵は物理攻撃による被ダメージが20%[awaked,+8%]上昇し、2秒毎に攻撃力20%の継続ダメージが発生",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 1,
           "param": [
             {
               "num": [
-                200
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 904,
+          "param": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -26735,6 +27074,284 @@ const ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 15,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 21,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 15,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 21,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                128
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                60
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 15,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 21,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -32495,7 +33112,7 @@ const ability_data ={
       "rarity": 0,
       "name": "Gunner",
       "kana": "",
-      "text": "Attacks 1 enemy at long range, dealing magical damage and can target Flying enemies\r\nやや攻撃後の待ち時間が増加するが\r\n攻撃力が大きく上昇",
+      "text": "Attacks 1 enemy at long range, dealing magical damage and can target Flying enemies. Atk is greatly increased but PAD is increased",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -32509,7 +33126,7 @@ const ability_data ={
       "rarity": 0,
       "name": "Gunmaster",
       "kana": "",
-      "text": "Attacks 1 enemy at long range, dealing magical damage and can target Flying enemies\r\n攻撃後の待ち時間が増加するが\r\n攻撃力がさらに大きく上昇",
+      "text": "Attacks 1 enemy at long range, dealing magical damage and can target Flying enemies. Atk is greatly increased but PAD is increased",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -32822,7 +33439,7 @@ const ability_data ={
       "rarity": 0,
       "name": "Philosopher",
       "kana": "",
-      "text": "Attacks 3 enemies within range, dealing magical damage\r\nReduces movement speed of enemies within range by 40%\r\n攻撃敵数が2体以下の場合ダメージ上昇(最大1.3倍)",
+      "text": "Attacks 3 enemies within range, dealing magical damage\r\nReduces movement speed of enemies within range by 40%\r\nWhen attacking less enemies, damage dealt increases (max 1.3×)",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -33918,7 +34535,7 @@ const ability_data ={
       "rarity": 0,
       "name": "Sky Lord",
       "kana": "",
-      "text": "Attacks 1 enemy at short range, dealing physical damage\r\nCan be deployed on both melee and ranged tiles, and moves by Flying\r\nAttacks slow enemies on hit (Effect: Medium)\r\n移動速度が上昇",
+      "text": "Attacks 1 enemy at short range, dealing physical damage\r\nCan be deployed on both melee and ranged tiles, and moves by Flying\r\nAttacks slow enemies on hit (Effect: Medium)",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -39402,6 +40019,20 @@ const ability_data ={
       "skipend": 0
     },
     {
+      "id": 50034,
+      "rarity": 0,
+      "name": "ホムンクルストークン",
+      "kana": "",
+      "text": "設定なし",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
       "id": 90026,
       "rarity": 0,
       "name": "出撃コスト -1",
@@ -40066,6 +40697,42 @@ const ability_data ={
             {
               "num": [
                 1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90045,
+      "rarity": 0,
+      "name": "HPが毎秒3%回復",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 63,
+          "param": [
+            {
+              "num": [
+                4
               ]
             }
           ],
@@ -77012,6 +77679,117 @@ const ability_data ={
       "skipend": 0
     },
     {
+      "id": 500274,
+      "rarity": 0,
+      "name": "ルルゥ",
+      "kana": "",
+      "text": "常時敵全体にリジェネ(100)、15秒毎にすべての敵にバリアを付与（HP20％分）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1025,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            },
+            {
+              "num": [
+                4
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                90
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1092,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                450
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
       "id": 800001,
       "rarity": 0,
       "name": "デカイオー",
@@ -109679,6 +110457,41 @@ const job_data ={
       "attackExtraMotion": -1,
       "equipmentPattern": 1,
       "system_id": 9999
+    },
+    {
+      "id": 50029,
+      "name": "ホムンクルストークン",
+      "ability": 0,
+      "cost": 0,
+      "summonType": 2,
+      "hitType": 2,
+      "minLife": 540,
+      "maxLife": 820,
+      "minPower": 200,
+      "maxPower": 260,
+      "minDefense": 34,
+      "maxDefense": 56,
+      "minMagicDefense": 152,
+      "maxMagicDefense": 194,
+      "attackRange": 210,
+      "targetNum": 2,
+      "blockNum": 1,
+      "attackSpeed": -10,
+      "attackInterval": 26,
+      "attackCount": 1,
+      "targetType": 3,
+      "missile": 10062,
+      "effect": 0,
+      "moveCost": 3,
+      "moveSpeed": 140,
+      "sortConfig": 2,
+      "attackMotion": 0,
+      "attackMotionBlock": 0,
+      "attackSkillMotion": 0,
+      "attackSkillMotionBlock": 0,
+      "attackExtraMotion": -1,
+      "equipmentPattern": 1,
+      "system_id": 9999
     }
   ]
 }
@@ -113289,6 +114102,130 @@ const missile_data ={
       "finalAction": 0,
       "fixedOrientation": 0,
       "targetBone": 0
+    },
+    {
+      "id": 117,
+      "missileId": 10127,
+      "trajectory": 2,
+      "speed": 12,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 200,
+      "landEffect": 10003,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 0,
+      "drawSize": 30,
+      "drawIndex": 20055,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 118,
+      "missileId": 10128,
+      "trajectory": 1,
+      "speed": 12,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 1,
+      "blastRange": 100,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10089,
+      "landEffectSize": 100,
+      "blastEffect": 10089,
+      "blastEffectSize": 30,
+      "landHitType": 1,
+      "blastHitType": 1,
+      "drawSize": 150,
+      "drawIndex": 20053,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 119,
+      "missileId": 10129,
+      "trajectory": 1,
+      "speed": 12,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10006,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 0,
+      "drawSize": 100,
+      "drawIndex": 20001,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 120,
+      "missileId": 10130,
+      "trajectory": 2,
+      "speed": 12,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 1,
+      "blastRange": 50,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 200,
+      "landEffect": 10014,
+      "landEffectSize": 0,
+      "blastEffect": 10015,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 1,
+      "drawSize": 30,
+      "drawIndex": 20055,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
     }
   ]
 }
@@ -115346,7 +116283,7 @@ const skill_data ={
     {
       "id": 10,
       "name": "ファイアーバースト",
-      "text": "Increases DP by [0,0,0]\r\nFor [duration]s, increase Atk by [MAG,1,0]×, and\r\nAttack 3 enemies at once with long range magical attacks",
+      "text": "Increase DP by [0,0,0]\r\nFor [duration]s, increase Atk by [MAG,1,0]×, and\r\nAttack 3 enemies at once with long range magical attacks",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -118793,7 +119730,7 @@ const skill_data ={
     {
       "id": 34,
       "name": "緑樹の癒光",
-      "text": "スキル使用時、範囲内の味方の毒、石化状態を回復し、その後[duration]秒、攻撃力[MAG,2,0]倍、射程[MAG,3,0]倍上昇",
+      "text": "On skill, cure Poison and Petrification for allies in range\r\nFor [duration]s, increase Atk by [MAG,2,0]×, increase Range by [MAG,3,0]×",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -118891,7 +119828,7 @@ const skill_data ={
     {
       "id": 35,
       "name": "ビビるフラッシュ",
-      "text": "スキル発動時、近くの敵を石化させる",
+      "text": "On skill, Petrify nearby enemies",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119000,7 +119937,7 @@ const skill_data ={
     {
       "id": 36,
       "name": "アにゃウンド・スラッシュ",
-      "text": "スキル発動時、１度だけ攻撃力[MAG,3,0]倍で\r\n敵[0,2,0]体に２連射で攻撃を行う",
+      "text": "On skill, increase Atk by [MAG,3,0]× and\r\nattack [0,2,0] enemies in range twice",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -119160,7 +120097,7 @@ const skill_data ={
     {
       "id": 37,
       "name": "クィーンフェロモン",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇\r\nトークンの所持数が[0,1,0]増加する",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nIncrease token stock by [0,1,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119216,7 +120153,7 @@ const skill_data ={
     {
       "id": 38,
       "name": "熱狂たこパーティー！",
-      "text": "即座にコストが[0,0,0]回復し、\r\n自身のマスにトークンを消費なしで召喚\r\n水属性の全味方のＨＰを[attack,[MAG,2,0]]回復",
+      "text": "Increase DP by [0,0,0]\r\nSummon an attachable Tentacle token on self\r\nHeal all Water allies for [attack,[MAG,2,0]]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -119325,7 +120262,7 @@ const skill_data ={
     {
       "id": 10038,
       "name": "赤字覚悟の触手祭りや！",
-      "text": "即座にコストが[0,0,0]回復し、\r\n範囲内の味方のいるマスにトークンを召喚する",
+      "text": "Increase DP by [0,0,0]\r\nSummon an attachable Tentacle token on allies in range",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -119381,7 +120318,7 @@ const skill_data ={
     {
       "id": 39,
       "name": "戦場の友",
-      "text": "[duration]秒、物理防御力が[MAG,0,0]倍上昇、オークトークンの攻撃力+50％\r\nスキル使用時、同マスにオークトークンを召喚し共闘する\r\n",
+      "text": "For [duration]s, increase pDef by [MAG,0,0]× and increase Orc token Atk by 50%\r\nOn skill, summon an attachable Orc token on self",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -119470,7 +120407,7 @@ const skill_data ={
     {
       "id": 10039,
       "name": "好敵手招来",
-      "text": "[duration]秒、物理防御力が[MAG,0,0]倍上昇、オークトークンの攻撃力+[0,2,0]％\r\nスキル使用時、同マスに熱血オークトークンを召喚し共闘する\r\n",
+      "text": "For [duration]s, increase pDef by [MAG,0,0]× and increase Orc token Atk by [0,2,0]%\r\nOn skill, summon an attachable Orc(Strong) token on self",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -119570,7 +120507,7 @@ const skill_data ={
     {
       "id": 40,
       "name": "ニードルレイン",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇、\r\n射程内の敵[0,2,0]体に攻撃し、攻撃した敵の足元に\r\n一定時間毒沼を生成、2秒毎に設置時攻撃力15％の継続ダメージを与える",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×,\r\nattack up to [0,2,0] enemies in range\r\nCreates, on attack, a poison pool that deals 15% Atk as damage every 2 seconds",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -120058,7 +120995,7 @@ const skill_data ={
     {
       "id": 41,
       "name": "ジャイアントスイング",
-      "text": "[duration]秒、攻撃速度が減少するが\r\n攻撃力[MAG,0,0]倍上昇し、確率で敵を吹き飛ばす",
+      "text": "For [duration]s, decrease aSpd, but\r\nincrease Atk by [MAG,0,0]× and chance to Blow Off enemies",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -120147,7 +121084,7 @@ const skill_data ={
     {
       "id": 42,
       "name": "聖角の祈り",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n攻撃後の待ち時間を大きく短縮",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nDecrease PAD greatly",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -120266,7 +121203,7 @@ const skill_data ={
     {
       "id": 43,
       "name": "ギガンティックラブ",
-      "text": "[duration]秒、攻撃速度がやや減少するが\r\n巨大化し最大HPと物理防御[MAG,0,0]倍、\r\n攻撃力[MAG,1,0]倍、敵遠距離攻撃を引き付ける",
+      "text": "For [duration]s, decrease aSpd slightly, but\r\nincrease maxHP and pDef by [MAG,0,0]×,\r\nincrease Atk by [MAG,1,0]× and Taunts enemies",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -120416,7 +121353,7 @@ const skill_data ={
     {
       "id": 44,
       "name": "ゴートヘッドフレイム",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇し、\r\n周囲の全ての敵に魔法攻撃を行う",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nAttacks all enemies in range at once",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -120566,7 +121503,7 @@ const skill_data ={
     {
       "id": 10044,
       "name": "合魔の猛炎",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇し、\r\n周囲の敵4体に魔法攻撃を行う",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nAttacks up to 4 enemies in range at once",
       "maxLevel": 5,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -120751,7 +121688,7 @@ const skill_data ={
     {
       "id": 46,
       "name": "ジュエリーライト",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n範囲内の味方に戦闘前の攻撃力の500％分の耐久力を持つバリアを付与",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nGives all allies in range a Barrier equal to 500% of self base Atk",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -120881,7 +121818,7 @@ const skill_data ={
     {
       "id": 10046,
       "name": "レインボーヒール",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n範囲内の味方に戦闘前の攻撃力の500％分の耐久力を持つバリアを付与",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nGives all allies in range a Barrier equal to 500% of self base Atk",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -121011,7 +121948,7 @@ const skill_data ={
     {
       "id": 47,
       "name": "ライフイーター",
-      "text": "スキル使用時に、範囲内の敵のHP[0,0,0]%の割合ダメージを与え\r\n自身のHPを全回復する",
+      "text": "On skill, deal damage to all enemies in range, equal to [0,0,0]% of their maxHP\r\nRecover self HP to full",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -121142,7 +122079,7 @@ const skill_data ={
     {
       "id": 49,
       "name": "聖炎の猛火",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n種族特性の継続ダメージの効果量が5倍に上昇",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nContinuous damage from trait is increased to 5 times",
       "maxLevel": 1,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -121326,7 +122263,7 @@ const skill_data ={
     {
       "id": 10049,
       "name": "フェニックスフェザー",
-      "text": "[duration]秒、射程[MAG,1,0]倍上昇、回復対象数+1\r\n範囲内の場から離れた味方の再出撃時間60%短縮",
+      "text": "For [duration]s, increase Range by [MAG,1,0]×, increase heal targets by 1\r\nDecrease the redeploy time of allies in range by 60% (does not stack)",
       "maxLevel": 1,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -121510,7 +122447,7 @@ const skill_data ={
     {
       "id": 50,
       "name": "がう！がう！",
-      "text": "[duration]秒、攻撃力と射程[MAG,1,0]倍上昇\r\n攻撃が２連射に変化",
+      "text": "For [duration]s, increase Atk and Range by [MAG,1,0]×\r\nPerforms double attacks",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -121587,7 +122524,7 @@ const skill_data ={
     {
       "id": 51,
       "name": "清嵐舞踊",
-      "text": "[duration]秒、射程[MAG,0,0]倍、攻撃力[MAG,1,0]倍\r\n攻撃が[0,2,0]連射になり、攻撃した敵を後退させる",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×, increase Atk by [MAG,1,0]×\r\nPerform multi-attacks ([0,2,0] times) and attacks knock enemies back",
       "maxLevel": 1,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -121674,7 +122611,7 @@ const skill_data ={
     {
       "id": 52,
       "name": "火霊の悪戯",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\nスキル終了後に10秒間スタンする",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nHowever, stun self for 10s after skill ends",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -121773,7 +122710,7 @@ const skill_data ={
     {
       "id": 53,
       "name": "氷霊の悪戯",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\nスキル終了後に10秒間スタンする",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nHowever, stun self for 10s after skill ends",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -121872,7 +122809,7 @@ const skill_data ={
     {
       "id": 54,
       "name": "安息の音色",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇\r\n2秒毎に範囲内の味方のＨＰを攻撃力の[0,1,0]％ずつ回復する",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nEvery 2 seconds, heal all allies in range equal to [0,1,0]% of self Atk",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -121991,7 +122928,7 @@ const skill_data ={
     {
       "id": 55,
       "name": "カースアンデッド",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、物理防御力[MAG,1,0]倍\r\nさらに攻撃が命中するたびに、敵の攻撃力と防御力を[attack,[MAG,2,0]]減少",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase pDef by [MAG,1,0]×\r\nAttacks reduce enemy Atk and pDef by [attack,[MAG,2,0]]",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -122163,7 +123100,7 @@ const skill_data ={
     {
       "id": 10055,
       "name": "呪ってあげる…",
-      "text": "スキル発動時に死亡し、\r\n全ての敵に攻撃力[0,0,0]%のダメージを与える",
+      "text": "On skill, self-destruct\r\nDeal damage equal to [0,0,0]% of self Atk to all enemies",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -122259,7 +123196,7 @@ const skill_data ={
     {
       "id": 56,
       "name": "朽ちぬ騎士道",
-      "text": "[duration]秒、物理と魔法防御力[MAG,0,0]倍上昇、\r\nブロック数＋[0,2,0]",
+      "text": "For [duration]s, increase pDef and mDef by [MAG,0,0]×,\r\nincrease block count by [0,2,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -122336,7 +123273,7 @@ const skill_data ={
     {
       "id": 57,
       "name": "リザードスケイル",
-      "text": "[duration]秒、物理防御力[MAG,0,0]倍\r\nブロック数+[0,1,0]",
+      "text": "For [duration]s, increase pDef by [MAG,0,0]×,\r\nincrease block count by [0,1,0]",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -122392,7 +123329,7 @@ const skill_data ={
     {
       "id": 58,
       "name": "チャージバレット",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇\r\nただし攻撃後の待ち時間が[MAG,1,0]増加",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, but\r\nincrease PAD by [MAG,1,0]×",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -122448,7 +123385,7 @@ const skill_data ={
     {
       "id": 10058,
       "name": "チャージバースト",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、範囲攻撃化\r\nただし攻撃後の待ち時間が[MAG,1,0]増加",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attacks become AOE, but\r\nincrease PAD by [MAG,1,0]×",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -122525,7 +123462,7 @@ const skill_data ={
     {
       "id": 59,
       "name": "小悪魔ダンス",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇、\r\n範囲内の敵３体に攻撃する",
+      "text": "For [duration]s, increase Range by [MAG,0,0]× and\r\nattack up to 3 enemies in range at once",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -122581,7 +123518,7 @@ const skill_data ={
     {
       "id": 60,
       "name": "仲間をよぶであります！",
-      "text": "即座にコストが[0,0,0]回復する",
+      "text": "Increase DP by [0,0,0]",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -122616,7 +123553,7 @@ const skill_data ={
     {
       "id": 10060,
       "name": "一緒に戦うであります！",
-      "text": "即座にコストが[0,0,0]回復\r\nさらに同マスに遠距離攻撃を行う\r\n友達トークンを召喚し共闘する",
+      "text": "Increase DP by [0,0,0]\r\nSummon an attachable Kobold token on self which performs long-range attacks",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -122672,7 +123609,7 @@ const skill_data ={
     {
       "id": 61,
       "name": "火竜轟焔斬",
-      "text": "スキル発動時、1度だけ攻撃力[MAG,3,0]倍で範囲内の敵[0,2,0]体に遠距離魔法攻撃\r\n着弾地点の周囲に持続ダメージを発生させる\r\n(持続ダメージは発動時の攻撃力の50％)",
+      "text": "On skill, increase Atk by [MAG,3,0]× and attacks [0,2,0] enemy with a long-range magical attack\r\nThe attack leaves a damage field, dealing continuous damage equal to 50% of Atk when skill was activated",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -122832,7 +123769,7 @@ const skill_data ={
     {
       "id": 62,
       "name": "旋風の剣舞",
-      "text": "スキル発動時、１度だけ攻撃力[MAG,1,0]倍で\r\n敵[0,2,0]体を同時攻撃、攻撃した敵を後退させる",
+      "text": "On skill, increase Atk by [MAG,1,0]× and attack [0,2,0] enemies at once\r\nAttacked enemies are knocked back",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -122992,7 +123929,7 @@ const skill_data ={
     {
       "id": 63,
       "name": "青銅の守護者",
-      "text": "[duration]秒、攻撃力[MAG,5,0]倍、物理防御力[MAG,0,0]倍、\r\n射程[MAG,1,0]倍、ブロック数+[0,2,0]",
+      "text": "For [duration]s, increase Atk by [MAG,5,0]×, increase pDef by [MAG,0,0]×,\r\nincrease Range by [MAG,1,0]×, increase block count by [0,2,0]",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -123144,7 +124081,7 @@ const skill_data ={
     {
       "id": 10063,
       "name": "バーニング・ハグ",
-      "text": "[duration]秒、攻撃力[MAG,1,0]倍、物理防御力[MAG,0,0]倍、\r\n種族特性の継続ダメージが4倍",
+      "text": "For [duration]s, increase Atk by [MAG,1,0]×, increase pDef by [MAG,0,0]×,\r\nincrease trait continuous damage to 4 times",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -123200,7 +124137,7 @@ const skill_data ={
     {
       "id": 64,
       "name": "百烈岩・天",
-      "text": "[duration]秒、射程[MAG,0,0]倍、範囲内の敵[0,2,0]体まで\r\n高速で岩投げ攻撃を行う",
+      "text": "For [duration]s, increase Range by [MAG,0,0]\r\nand attack up to [0,2,0] enemies in range with drastically increased aSpd",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -123277,7 +124214,7 @@ const skill_data ={
     {
       "id": 65,
       "name": "毒視の弓矢",
-      "text": "[duration]秒、攻撃力[MAG,1,0]倍\r\n攻撃した相手を中確率で猛毒状態にする",
+      "text": "For [duration]s, increase Atk by [MAG,1,0]×\r\nAttacks have a medium chance to infict enemies with Poison(Stong)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -123355,7 +124292,7 @@ const skill_data ={
     {
       "id": 10065,
       "name": "カースアイズアロー",
-      "text": "[duration]秒、攻撃力[MAG,1,0]倍、射程[MAG,2,0]倍\r\n攻撃した相手を低確率で猛毒、石化状態にする\r\n石化状態の敵への与ダメージ1.7倍",
+      "text": "For [duration]s, increase Atk by [MAG,1,0]×, increase Range by [MAG,2,0]×\r\nAttacks have a low chance to inflict Poison(Strong) and Petrify enemies\r\nDamage dealt to Petrified enemies is increased by 1.7×",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -123530,7 +124467,7 @@ const skill_data ={
     {
       "id": 66,
       "name": "サンダー☆クラウド",
-      "text": "[duration]秒射程[MAG,0,0]倍、攻撃対象数+[0,1,0]\r\n敵をスタン状態にする(蓄積値：中)",
+      "text": "For [duration]s, increase Range by [MAG,0,0], increase number of targets by [0,1,0]\r\nAttacks increase the Stun gauge of enemies (Accum: Medium)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -123650,7 +124587,7 @@ const skill_data ={
     {
       "id": 67,
       "name": "毒蛇の凶毒",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍、魔法範囲攻撃化\r\n種族特性による毒のダメージ上昇が4倍",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×, attacks become magical AOE\r\nTrait Poison damage increase becomes 4 times",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -123727,7 +124664,7 @@ const skill_data ={
     {
       "id": 68,
       "name": "白蜘蛛の絡糸",
-      "text": "[duration]秒、射程[MAG,0,0]倍、発動時に味方遠距離のスキル準備時間を-10秒\r\n種族特性の蜘蛛糸効果が2倍",
+      "text": "For [duration]s, increase Range by [MAG,0,0]× and double the Spider Net effect\r\nOn skill, reduce all Ranged allies' skill cooldowns by 10s",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -123816,7 +124753,7 @@ const skill_data ={
     {
       "id": 10068,
       "name": "隠蜘蛛の帳",
-      "text": "[duration]秒、射程[MAG,0,0]倍、発動時に味方遠距離のスキル準備時間を-7秒\r\n種族特性の蜘蛛糸効果が3倍になり、スキル中も隠密状態が解除されない",
+      "text": "For [duration]s, increase Range by [MAG,0,0]× and triple Spider Net effect\r\nOn skill, reduce all Ranged allies' skill cooldowns by 7s\r\nDoes not lose Untargetable during skill",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -123947,7 +124884,7 @@ const skill_data ={
     {
       "id": 69,
       "name": "生命の血汐",
-      "text": "[duration]秒射程[MAG,0,0]倍、スキル発動時に一度だけ\r\n自身のHP[0,1,0]％減少させ、範囲内の味方の\r\nHPを[hp,[MAG,2,0]]回復(回復量は基本HP依存)",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nOn skill, decrease self HP by [0,1,0]%, but heal all allies in range for [hp,[MAG,2,0]]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -124107,7 +125044,7 @@ const skill_data ={
     {
       "id": 70,
       "name": "血の宴",
-      "text": "スキル使用時に範囲内の敵にHP[0,0,0]％の割合ダメージを与え、自身のHPを全回復\r\nその後[duration]秒、攻撃力[MAG,3,0]倍上昇",
+      "text": "On skill, deal damage to all enemies in range, equal to [0,0,0]% of their maxHP and recover self HP to full\r\nAfter that, for [duration]s, increase Atk by [MAG,3,0]×",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -124267,7 +125204,7 @@ const skill_data ={
     {
       "id": 71,
       "name": "怪根の癒し",
-      "text": "スキル発動時、射程[MAG,0,0]倍、範囲内の味方を１度だけ[attack,[MAG,1,0]]回復する",
+      "text": "On skill, increase Range by [MAG,0,0]× and heal all allies in range for [attack,[MAG,1,0]]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -124429,7 +125366,7 @@ const skill_data ={
     {
       "id": 72,
       "name": "ソウルハント",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、\r\n範囲内の敵に魔法攻撃を行う",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nPerforms magical attacks to enemies",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -124516,7 +125453,7 @@ const skill_data ={
     {
       "id": 73,
       "name": "必槍！水流烈破！",
-      "text": "即座にコストが[0,0,0]回復する\r\nその後[duration]秒、攻撃力[MAG,1,0]倍に上昇、\r\n攻撃が魔法属性に変化する",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, increase Atk by [MAG,1,0]× and performs magical attacks",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -124680,7 +125617,7 @@ const skill_data ={
     {
       "id": 74,
       "name": "準備運動なんだぞ！",
-      "text": "即座にコストが[0,0,0]回復、その後[duration]秒獣化し\r\n最大HP[MAG,1,0]倍、攻撃力と物理防御[MAG,2,0]倍、\r\n攻撃後の待ち時間が大きく短縮、次回スキル変化",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, increase maxHP by [MAG,1,0]×, increase Atk and pDef by [MAG,2,0]× and decrease PAD greatly\r\nSkill changes after use",
       "maxLevel": 5,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -124861,7 +125798,7 @@ const skill_data ={
     {
       "id": 200074,
       "name": "MAXタイガーモード！",
-      "text": "効果時間無限　獣化し最大HP[MAG,0,0]倍、\r\n攻撃力と物理防御[MAG,1,0]倍、\r\n攻撃後の待ち時間が大きく短縮",
+      "text": "Infinite duration\r\nIncrease maxHP by　[MAG,0,0]×, increase Atk and pDef by [MAG,1,0]× and decrease PAD greatly",
       "maxLevel": 5,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -124990,7 +125927,7 @@ const skill_data ={
     {
       "id": 75,
       "name": "灼銀のシンフォニー",
-      "text": "[duration]秒、範囲内の敵に攻撃力[0,0,0]％の継続ダメージ\r\nスキルの発動後10秒間、\r\n天候を熱波(敵に秒間150ダメージ)にする",
+      "text": "For [duration]s, deal continuous damage to enemies in range equal to [0,0,0]% of self Atk\r\nOn skill, change the weather to Heatwave for 10s (150 dmg/s to enemies)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -125108,7 +126045,7 @@ const skill_data ={
     {
       "id": 76,
       "name": "エアロウィング",
-      "text": "[duration]秒、射程[MAG,0,0]倍、攻撃力[MAG,1,0]倍\r\n範囲内の敵[0,2,0]体を同時に攻撃、攻撃した敵を後退させる",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×, increase Atk by [MAG,1,0]× and attack [0,2,0] enemies in range\r\nAttacks knock back enemies",
       "maxLevel": 1,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -125185,7 +126122,7 @@ const skill_data ={
     {
       "id": 77,
       "name": "凍り付きなさい！",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,3,0]倍\r\n攻撃した敵の動きを0.5秒間停止させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,3,0]×\r\nAttacks Freeze enemies for 0.5s",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -125295,7 +126232,7 @@ const skill_data ={
     {
       "id": 78,
       "name": "コールホーン",
-      "text": "即座にコストが[0,0,0]回復する\r\nその後[duration]秒、攻撃力[MAG,1,0]倍に上昇\r\n本体使用時のみトークンの所持数が１増加",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, increase Atk by [MAG,1,0]×\r\nWhen used by the unit, increase token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -125372,7 +126309,7 @@ const skill_data ={
     {
       "id": 10078,
       "name": "串刺し祭りぴょん♪",
-      "text": "即座にコストが[0,0,0]回復する\r\nその後[duration]秒、5連続攻撃\r\n本体使用時のみトークンの所持数が１増加",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, perform quintuple attacks\r\When used by the unit, increase token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -125428,7 +126365,7 @@ const skill_data ={
     {
       "id": 79,
       "name": "フロストスタンプ",
-      "text": "[duration]秒、攻撃速度が減少するが攻撃力[MAG,0,0]倍、魔法攻撃化し攻撃範囲拡大\r\n攻撃した敵の動きを1秒間停止させ、低確率で敵を吹き飛ばす",
+      "text": "For [duration]s, decrease aSpd but\r\nincrease Atk by [MAG,0,0]×, performs magical attacks with increased AOE which Freeze enemies for 1s\r\Small chance to Blow Off enemies",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -125592,7 +126529,7 @@ const skill_data ={
     {
       "id": 80,
       "name": "フリーズバースト",
-      "text": "即座にコストが[0,0,0]回復、その後[duration]秒、攻撃力[MAG,1,0]倍に上昇\r\n敵3体に遠距離魔法攻撃を行い攻撃した敵の攻撃速度を一定時間減少",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, increase Atk by [MAG,1,0]× and attack 3 enemies in range with magical long-range attacks\r\nAttacks decrease the aSpd of enemies",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -125806,7 +126743,7 @@ const skill_data ={
     {
       "id": 81,
       "name": "マルチプルバースト",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍、\r\n範囲内の敵[0,2,0]体を同時に攻撃",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttack [0,2,0] enemies in range at once",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -125883,7 +126820,7 @@ const skill_data ={
     {
       "id": 82,
       "name": "光臨",
-      "text": "スキル発動時、１度だけ攻撃力[MAG,1,0]倍、\r\n射程[MAG,0,0]倍、範囲内の敵[0,2,0]体を同時攻撃\r\n攻撃範囲が拡大",
+      "text": "On skill, increase Atk by [MAG,1,0]×, increase Range by [MAG,0,0]×,\r\nthen attack [0,2,0] enemies in range with increased AOE",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -126063,7 +127000,7 @@ const skill_data ={
     {
       "id": 83,
       "name": "ブラッディダンス",
-      "text": "スキル発動時に1度だけ攻撃力[MAG,0,0]倍で\r\n周囲の敵全てを攻撃、スキルで攻撃した\r\n敵1体毎に30秒間攻撃力が+25％",
+      "text": "On skill, increase Atk by [MAG,0,0]× and attack all enemies nearby\r\nFor each enemy attacked, increase self Atk by +25% for 30s",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -126223,7 +127160,7 @@ const skill_data ={
     {
       "id": 84,
       "name": "ビッグパンチ",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇\r\n敵をスタン状態にする(蓄積値：低)\r\n種族特性のHP回復量が2倍",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nIncrease the stun gauge of enemies (Accum: Small)\r\nTrait regeneration is doubled",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -126301,7 +127238,7 @@ const skill_data ={
     {
       "id": 85,
       "name": "ブラックノヴァ",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇\r\n遠距離の防御無視範囲攻撃を行う\r\nスキル終了後に10秒間スタンする",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nPerform long-range true damage AOE attacks\r\nHowever, stun self for 5s after skill ends",
       "maxLevel": 5,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -126442,7 +127379,7 @@ const skill_data ={
     {
       "id": 10085,
       "name": "ブラックスーパーモード",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、\r\n遠距離の防御無視攻撃を2連射\r\n毎秒自身のHPが最大HPの4％減少",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nPerform long-range true damage double attacks\r\nHowever, drain 4% of self HP per second",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -126665,7 +127602,7 @@ const skill_data ={
     {
       "id": 86,
       "name": "キャワワって言いなさい！",
-      "text": "獣化し最大HP[MAG,0,0]倍、攻撃力[MAG,1,0]倍、\r\n物理防御力[MAG,2,0]倍　効果時間無限",
+      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk by [MAG,1,0]× and increase pDef by [MAG,2,0]×",
       "maxLevel": 5,
       "minCoolTime": 3720,
       "maxCoolTime": 3600,
@@ -126773,7 +127710,7 @@ const skill_data ={
     {
       "id": 87,
       "name": "熱砂の幻炎",
-      "text": "[duration]秒、最大HP3％の継続ダメージを受けるが\r\n攻撃力[MAG,1,0]倍、魔法範囲攻撃化\r\n",
+      "text": "For [duration]s, drain 3% of self HP per second, but\r\nincrease Atk by [MAG,1,0]× and attacks become magical AOE",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -126892,7 +127829,7 @@ const skill_data ={
     {
       "id": 88,
       "name": "マックスボルテージ",
-      "text": "スキル使用時、HPが[hp,[MAG,0,0]]回復\r\nその後[duration]秒、攻撃力[MAG,1,0]倍",
+      "text": "On skill, heal self equal to [hp,[MAG,0,0]]\r\nAfter that, for [duration]s, increase Atk by [MAG,1,0]×",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -126989,7 +127926,7 @@ const skill_data ={
     {
       "id": 10088,
       "name": "ギアブーストI",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -127172,7 +128109,7 @@ const skill_data ={
     {
       "id": 210088,
       "name": "ギアブーストII",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -127322,7 +128259,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                210188
+                211088
               ]
             },
             {
@@ -127353,9 +128290,9 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210188,
+      "id": 211088,
       "name": "ギアブーストIII",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -127505,7 +128442,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                210288
+                212088
               ]
             },
             {
@@ -127536,9 +128473,9 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210288,
+      "id": 212088,
       "name": "ギアブーストIV",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少\r\nスキル終了後、次回スキルのステータス上昇量+0.5倍、移動速度+50（最大5回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -127688,7 +128625,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                210388
+                213088
               ]
             },
             {
@@ -127719,9 +128656,9 @@ const skill_data ={
       "recipeId": 47
     },
     {
-      "id": 210388,
+      "id": 213088,
       "name": "MAXギア！",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、移動速度+[0,2,0]\r\n受ける物理、魔法ダメージを30%減少",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -127873,7 +128810,7 @@ const skill_data ={
     {
       "id": 89,
       "name": "深海の号令",
-      "text": "[duration]秒射程と攻撃力[MAG,0,0]倍、魔法範囲攻撃化\r\nトークンの攻撃速度が上昇し、攻撃力が[MAG,4,0]倍",
+      "text": "For [duration]s, increase Range and Atk by [MAG,0,0]× and attacks become AOE\r\nIncrease self tokens' Atk by [MAG,4,0]× and increase their aSpd",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -128034,7 +128971,7 @@ const skill_data ={
     {
       "id": 90,
       "name": "リーフシード",
-      "text": "[duration]秒射程[MAG,0,0]倍、攻撃力[MAG,1,0]倍\r\n攻撃した相手の移動速度を短時間大幅に減少させる",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×, increase Atk by [MAG,1,0]×\r\nAttacks decrease the movSpd of enemies greatly for a short time",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -128174,7 +129111,7 @@ const skill_data ={
     {
       "id": 91,
       "name": "翼竜爪連斬",
-      "text": "スキル発動時に1度だけ攻撃力[MAG,0,0]倍で\r\n周囲の敵に10連続攻撃、攻撃した敵を猛毒状態にする\r\n攻撃中は敵の攻撃を全て回避",
+      "text": "On skill, increase Atk by [MAG,0,0]× and attack all nearby enemies ten times\r\nAttacks inflict Poison(Strong) on enemies\r\nWhile this attack is in progress, gain 100% evasion against all types of attacks",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -128476,7 +129413,7 @@ const skill_data ={
     {
       "id": 92,
       "name": "つかまらないっち！",
-      "text": "獣化し最大HP[MAG,0,0]倍、攻撃力[MAG,1,0]倍、\r\n物理と魔法攻撃を50％の確率で回避\r\n種族特性の継続ダメージの効果量が3倍に上昇、効果時間無限",
+      "text": "Infinite duration\r\Increase maxHP by [MAG,0,0]×, increase Atk by [MAG,1,0]×\r\n50% chance to evade physical and magical attacks\r\nTrait continuous damage is increase to 3 times",
       "maxLevel": 5,
       "minCoolTime": 3720,
       "maxCoolTime": 3600,
@@ -128629,7 +129566,7 @@ const skill_data ={
     {
       "id": 93,
       "name": "夏炎鉄球",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇し、\r\n周囲の全ての敵に攻撃を行う",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttack all nearby enemies",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -128748,7 +129685,7 @@ const skill_data ={
     {
       "id": 94,
       "name": "浜辺の大立ち回りわん！",
-      "text": "[duration]秒、ブロック数が0になり攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍上昇\r\n攻撃後の待ち時間を大幅に短縮し、常に3連射攻撃",
+      "text": "For [duration]s, block count becomes 0, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nPAD is decreased drastically and always performs triple attacks",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -128825,7 +129762,7 @@ const skill_data ={
     {
       "id": 95,
       "name": "獅子の怒り",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、常に[0,1,0]体同時攻撃、\r\n攻撃敵数が2体以下の場合ダメージ上昇(最大1.5倍)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and always attack [0,1,0] enemies at once\r\nWhen attacking less enemies, damage dealt increases (max 1.5×)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -128902,7 +129839,7 @@ const skill_data ={
     {
       "id": 96,
       "name": "マッスルラリアット",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍\r\n周囲の地上の敵全てを攻撃し、\r\n低確率で敵を吹き飛ばす",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttack all nearby Ground enemies with a small chance to Blow Off enemies",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -129012,7 +129949,7 @@ const skill_data ={
     {
       "id": 97,
       "name": "超活性",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、\r\n攻撃速度が上昇し、ブロック中は常に追加攻撃が4回発生\r\n種族特性のHP回復効果が3倍",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and increase aSpd\r\nAlways perform quintuple attacks when blocking\r\nTrait regeneration is tripled",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -129143,7 +130080,7 @@ const skill_data ={
     {
       "id": 98,
       "name": "なぞなぞタイムである！",
-      "text": "即座にコストが[0,0,0]回復し、範囲内の敵を3秒間停止、\r\n永続的に攻撃力[MAG,1,0]倍、物理防御力[MAG,2,0]倍\r\n（ステータス上昇は5回まで）",
+      "text": "Increase DP by [0,0,0] and Freeze enemies in range for 3s\r\nPermanently increase Atk by [MAG,1,0]× and pDef by [MAG,2,0]×\r\n(Status increases up to 5 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -129271,7 +130208,7 @@ const skill_data ={
     {
       "id": 200098,
       "name": "なぞなぞタイムである！",
-      "text": "即座にコストが[0,0,0]回復し、\r\n範囲内の敵を3秒間停止する",
+      "text": "Increase DP by [0,0,0]\r\nFreeze enemies in range for 3s",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -129306,7 +130243,7 @@ const skill_data ={
     {
       "id": 99,
       "name": "イービルサンダー",
-      "text": "即座にコストが[0,2,0]回復し、その後[duration]秒、\r\n射程と攻撃力[MAG,0,0]倍、遠距離魔法攻撃になり\r\n攻撃した相手をスタン(蓄積値:低)させ、まれに猛毒、石化状態にする",
+      "text": "Increase DP by [0,2,0], and for [duration]s after that,\r\nIncrease Range and Atk by [MAG,0,0]×, perform long-reanged magical attacks\r\nAttacks increase the stun gauge of enemies (Accum: Small) with a chance to Poison and Petrify enemies",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -129575,7 +130512,7 @@ const skill_data ={
     {
       "id": 100,
       "name": "ステゴロ1本勝負",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -129641,7 +130578,7 @@ const skill_data ={
     {
       "id": 101,
       "name": "mode:RocketPunch",
-      "text": "[duration]秒、攻撃速度が減少するが\r\n攻撃力と物理防御力[MAG,0,0]倍、遠距離範囲攻撃を行う",
+      "text": "For [duration]s, decrease aSpd, but\r\nincrease Atk and pDef by [MAG,0,0]×, and perform long-ranged AOE attacks",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -129795,7 +130732,7 @@ const skill_data ={
     {
       "id": 103,
       "name": "スターロード",
-      "text": "[duration]秒、全味方の物理防御力[MAG,1,0]倍、\r\n自身の攻撃力[MAG,0,0]倍、敵の攻撃を引き付け\r\n受ける物理ダメージが0になり、スタン状態にならない",
+      "text": "For [duration]s, increase self and all allies' pDef by [MAG,1,0]×\r\nIncrease self Atk by [MAG,0,0]×, Taunt enemies, nullify all physical damage and become immune to Stun",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -129926,7 +130863,7 @@ const skill_data ={
     {
       "id": 104,
       "name": "バンシースクリーム",
-      "text": "[duration]秒、射程[MAG,0,0]倍\r\n範囲内の敵に2秒毎にスタン値を蓄積\r\n(蓄積値：中)",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nIncrease the stun gauge of enemies in range every 2s (Accum: Medium)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -130039,7 +130976,7 @@ const skill_data ={
     {
       "id": 106,
       "name": "ドラゴニックオーラ",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、物理防御力と\r\n魔法防御力[MAG,1,0]倍、遠距離魔法範囲攻撃化\r\nスキル終了後、次回スキルのステータス上昇量が+0.3倍（最大4回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0], increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE\r\nSkill changes after use, increasing status multipliers by +0.3× (max 4 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -130231,7 +131168,7 @@ const skill_data ={
     {
       "id": 200106,
       "name": "ドラゴニックオーラ",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、物理防御力と\r\n魔法防御力[MAG,1,0]倍、遠距離魔法範囲攻撃化\r\nスキル終了後、次回スキルのステータス上昇量が+0.3倍（最大3回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0], increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE\r\nSkill changes after use, increasing status multipliers by +0.3× (max 3 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -130423,7 +131360,7 @@ const skill_data ={
     {
       "id": 201106,
       "name": "ドラゴニックオーラ",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、物理防御力と\r\n魔法防御力[MAG,1,0]倍、遠距離魔法範囲攻撃化\r\nスキル終了後、次回スキルのステータス上昇量が+0.3倍（最大2回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0], increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE\r\nSkill changes after use, increasing status multipliers by +0.3× (max 2 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -130615,7 +131552,7 @@ const skill_data ={
     {
       "id": 202106,
       "name": "ドラゴニックオーラ",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、物理防御力と\r\n魔法防御力[MAG,1,0]倍、遠距離魔法範囲攻撃化\r\nスキル終了後、次回スキルのステータス上昇量が+0.3倍（最大1回）",
+      "text": "For [duration]s, increase Atk by [MAG,0,0], increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE\r\nSkill changes after use, increasing status multipliers by +0.3× (max 1 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -130807,7 +131744,7 @@ const skill_data ={
     {
       "id": 203106,
       "name": "ドラゴニックオーラ",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、物理防御力と\r\n魔法防御力[MAG,1,0]倍、遠距離魔法範囲攻撃化",
+      "text": "For [duration]s, increase Atk by [MAG,0,0], increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -130968,7 +131905,7 @@ const skill_data ={
     {
       "id": 107,
       "name": "死霊の呼び声",
-      "text": "[duration]秒、範囲攻撃でなくなる代わりに\r\n射程[MAG,0,0]倍、攻撃力[MAG,1,0]倍、5体に同時攻撃\r\n敵を3体倒す毎にトークン所持数が1増加",
+      "text": "For [duration]s, attacks lose AOE, but\r\nincrease Range by [MAG,0,0]×, increase Atk by [MAG,1,0]×, attack up 5 enemies at once\r\nEvery 3 enemies defeated increases token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -131204,7 +132141,7 @@ const skill_data ={
     {
       "id": 111,
       "name": "フェアリーナイツ",
-      "text": "即座にコストが[0,4,0]回復し、その後[duration]秒\r\n自身と妖精騎士トークンの攻撃力が[MAG,0,0]倍、攻撃速度が上昇\r\nトークンの所持数が[0,3,0]増加",
+      "text": "Increase DP by [0,4,0], and for [duration]s after that,\r\nincrease Atk by [MAG,0,0] and increase aSpd for both self and Fairy Knight tokens\r\nIncrease token stock by [0,3,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -131425,7 +132362,7 @@ const skill_data ={
     {
       "id": 112,
       "name": "超ハードコーティング",
-      "text": "[duration]秒、攻撃範囲が拡大し\r\n自身の攻撃力[MAG,0,0]倍、物理防御力[MAG,1,0]倍\r\nスタン状態にならない",
+      "text": "For [duration]s, increase attack AOE,\r\nincrease Atk by [MAG,0,0]×, increase pDef by [MAG,1,0]×\r\nBecome immune to Stun",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -131523,7 +132460,7 @@ const skill_data ={
     {
       "id": 113,
       "name": "インビジフード",
-      "text": "[duration]秒、自身の攻撃力[MAG,0,0]倍、\r\n範囲内の敵[0,3,0]体を同時に攻撃\r\nブロック数0になり敵の遠距離攻撃の対象にならない",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack [0,3,0] enemies at once\r\nBlock count become 0 and become Untargetable",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -131621,7 +132558,7 @@ const skill_data ={
     {
       "id": 114,
       "name": "ジェットスライダー",
-      "text": "[duration]秒、攻撃力と物理防御力[MAG,0,0]倍、\r\n移動速度+[0,2,0]、移動中は[0,3,0]%の確率で\r\n物理攻撃と魔法攻撃を回避",
+      "text": "For [duration]s, increase Atk and pDef by [MAG,0,0]×, increase movSpd by [0,2,0]\r\nWhen moving, gain a [0,3,0]% chance to evade physical and magical attacks",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -131763,7 +132700,7 @@ const skill_data ={
     {
       "id": 115,
       "name": "血塗れパーティタイム！",
-      "text": "[duration]秒攻撃力[MAG,0,0]倍\r\n種族特性のHP回復量が5倍",
+      "text": "For [duration]s, increase Atk [MAG,0,0]×\r\nTrait healing on attack is increased to 5 times",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -131798,7 +132735,7 @@ const skill_data ={
     {
       "id": 116,
       "name": "嵐海の災禍",
-      "text": "スキル発動時に1度だけ範囲内の敵に\r\n落雷を落とし、最大HP[0,3,0]％のダメージ\r\n攻撃した敵のスタン値を蓄積(蓄積値：大)",
+      "text": "On skill, deal damage to enemies in range equal to [0,3,0]% of their maxHP\r\nIncrease the stun gauge of attacked enemies (Accum: Large)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -132040,7 +132977,7 @@ const skill_data ={
     {
       "id": 119,
       "name": "過激な毒蜜",
-      "text": "[duration]秒、射程[MAG,0,0]倍、範囲内の\r\n妖花トークンの攻撃力を[MAG,1,0]倍し即座に爆発させる\r\nトークンの所持数が[0,3,0]増加",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×,\r\nincrease the Atk of Flower tokens in range by [MAG,1,0]× and detonate them\r\nIncrease token stock by [0,3,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -132194,7 +133131,7 @@ const skill_data ={
     {
       "id": 120,
       "name": "サクリファイスゴート",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n攻撃時に範囲内の味方のHPを\r\n種族特性に追加で3％減少させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttacks decrease the HP of all allies in range by a further 3% of their maxHP",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -132250,7 +133187,7 @@ const skill_data ={
     {
       "id": 121,
       "name": "弱者の知恵だよ",
-      "text": "スキル発動時1度だけ射程[MAG,0,0]倍で\r\n範囲内の敵[0,1,0]体を同時に物理攻撃\r\n地上の敵への与ダメージ3倍",
+      "text": "On skill, increase Range by [MAG,0,0]× and attack [0,1,0] enemies in range at once\r\nDamage dealt to Ground enemies is increased by 3×",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -132436,7 +133373,7 @@ const skill_data ={
     {
       "id": 123,
       "name": "静かなるフーガ",
-      "text": "[duration]秒、射程[MAG,0,0]倍\r\n3秒毎に旋風を起こし範囲内の敵を後退させる",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nEvery 3s, knock back all enemies in range",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -132549,7 +133486,7 @@ const skill_data ={
     {
       "id": 125,
       "name": "アクアビート",
-      "text": "[duration]秒、射程[MAG,3,0]倍\r\n範囲内の味方のスタン耐性を[0,0,0]上昇、\r\n範囲内の敵の物理、魔法防御を自身の攻撃力の[0,1,0]%減少",
+      "text": "For [duration]s, increase self Range by [MAG,3,0]× and increase the stun resist of all allies in range by [0,0,0]\r\nDecrease the pDef and mDef of enemies in range by [0,1,0]% of self Atk",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -132687,7 +133624,7 @@ const skill_data ={
     {
       "id": 126,
       "name": "グロウアップボディ",
-      "text": "[duration]秒、最大HPが[MAG,2,0]倍、\r\n攻撃力と物理防御力[MAG,0,0]倍、ブロック数+[0,3,0]\r\nスキル終了後、次回スキルのステータス上昇量が+0.4倍（最大3回）",
+      "text": "For [duration]s, increase maxHP by [MAG,2,0]×,\r\nincrease Atk and pDef by [MAG,0,0]×, increase block count by [0,3,0]\r\nSkill changes after use, increasing status multipliers by +0.4× (max 3 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -132816,7 +133753,7 @@ const skill_data ={
     {
       "id": 200126,
       "name": "グロウアップボディ",
-      "text": "[duration]秒、最大HPが[MAG,2,0]倍、\r\n攻撃力と物理防御力[MAG,0,0]倍、ブロック数+[0,3,0]\r\nスキル終了後、次回スキルのステータス上昇量が+0.4倍（最大2回）",
+      "text": "For [duration]s, increase maxHP by [MAG,2,0]×,\r\nincrease Atk and pDef by [MAG,0,0]×, increase block count by [0,3,0]\r\nSkill changes after use, increasing status multipliers by +0.4× (max 2 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -132945,7 +133882,7 @@ const skill_data ={
     {
       "id": 201126,
       "name": "グロウアップボディ",
-      "text": "[duration]秒、最大HPが[MAG,2,0]倍、\r\n攻撃力と物理防御力[MAG,0,0]倍、ブロック数+[0,3,0]\r\nスキル終了後、次回スキルのステータス上昇量が+0.4倍（最大1回）",
+      "text": "For [duration]s, increase maxHP by [MAG,2,0]×,\r\nincrease Atk and pDef by [MAG,0,0]×, increase block count by [0,3,0]\r\nSkill changes after use, increasing status multipliers by +0.4× (max 2 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -133074,7 +134011,7 @@ const skill_data ={
     {
       "id": 202126,
       "name": "グロウアップボディ",
-      "text": "[duration]秒、最大HPが[MAG,2,0]倍、\r\n攻撃力と物理防御力[MAG,0,0]倍、ブロック数+[0,3,0]",
+      "text": "For [duration]s, increase maxHP by [MAG,2,0]×,\r\nincrease Atk and pDef by [MAG,0,0]×, increase block count by [0,3,0]",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -133172,7 +134109,7 @@ const skill_data ={
     {
       "id": 127,
       "name": "大地を巡る風",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n風エレメンタルトークンの攻撃速度が上昇し、\r\n自身とトークンが攻撃した敵を少し後退させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nIncrease Wind Elemental tokens' aSpd, and attacks by self or them knock back enemies slightly",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -133608,7 +134545,7 @@ const skill_data ={
     {
       "id": 132,
       "name": "工作準備",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\nトークンの所持数が[0,2,0]増加",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nIncrease token stock by [0,2,0]",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -133720,7 +134657,7 @@ const skill_data ={
     {
       "id": 134,
       "name": "煩悩退散！聖夜の鐘っす！",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇\r\n範囲内の味方が受ける魔法ダメージを15％減少",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nDecrease magic damage received by all allies in range by 15%",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -133790,7 +134727,7 @@ const skill_data ={
     {
       "id": 136,
       "name": "煉獄の暴魔",
-      "text": "[duration]秒、最大HP[MAG,0,0]倍、攻撃力[MAG,1,0]倍\r\n周囲の敵に毎秒攻撃力[0,2,0]%の継続ダメージを与える\r\n移動してもスキルが解除されない",
+      "text": "For [duration]s, increase maxHP by [MAG,0,0]×, increase Atk by [MAG,1,0]×\r\nDeal continuous damage equal to [0,2,0]% of Atk to nearby enemies every second\r\nSkill is not cancelled by movement",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -133930,7 +134867,7 @@ const skill_data ={
     {
       "id": 137,
       "name": "聖夜のプレゼントよぉ♪",
-      "text": "[duration]秒、一定時間毎にコストが回復し、\r\n攻撃力[MAG,1,0]倍、射程[MAG,2,0]倍、\r\n攻撃が遠距離魔法範囲攻撃になる\r\n",
+      "text": "For [duration]s, recover DP gradually\r\nIncrease Atk by [MAG,1,0]×, increase Range by [MAG,2,0]×\r\nAttacks become long-ranged magical AOE",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -134061,7 +134998,7 @@ const skill_data ={
     {
       "id": 138,
       "name": "究極撃滅破壊形態起動！",
-      "text": "[duration]秒、攻撃力と物理防御力[MAG,1,0]倍、ブロック数+[0,2,0]\r\n遠距離攻撃が3連射になり射程[MAG,4,0]倍、近接攻撃が範囲攻撃化",
+      "text": "For [duration]s, increase Atk and pDef by [MAG,1,0]×, increase block count by [0,2,0]\r\nMissiles are now triple shots at [MAG,4,0]× range, while melee attacks become AOE",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -134192,7 +135129,7 @@ const skill_data ={
     {
       "id": 139,
       "name": "デモニックフィールド",
-      "text": "[duration]秒、攻撃力と射程[MAG,0,0]倍\r\n自身を含む範囲内の味方の与えるダメージが1.3倍",
+      "text": "For [duration]s, increase Atk and Range by [MAG,0,0]×\r\nIncrease damage dealt to enemies by 1.3× for self and allies in range",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -134302,7 +135239,7 @@ const skill_data ={
     {
       "id": 140,
       "name": "分身の術っ！",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n攻撃を3連射",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttacks become triple attacks",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -134389,7 +135326,7 @@ const skill_data ={
     {
       "id": 141,
       "name": "ぬるぬるしよ～♪",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍、攻撃が範囲攻撃になる\r\n種族特性の移動速度減少量が2倍",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range [MAG,1,0]× and attacks become AOE\r\nEnemy movSpd decrease from trait is doubled",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -134501,7 +135438,7 @@ const skill_data ={
     {
       "id": 143,
       "name": "破魔の呪弓",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍、攻撃対象数+[0,2,0]、敵の攻撃を引き付ける\r\n攻撃した敵の物理防御と魔法防御を-[0,3,0]\r\nスキル終了後にHPが全回復する",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range [MAG,1,0]×, increase targets by [0,2,0]\r\nAttacks decrease the pDef and mDef of enemies by [0,3,0]\r\nTaunts enemies, and recover HP to full when skill ends",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -134704,27 +135641,133 @@ const skill_data ={
     },
     {
       "id": 144,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "幽体招待ショータイム♪",
+      "text": "For [duration]s, increase Range by [MAG,0,0]× and increase aSpd\r\nAttacks become small AOE, and on attack, knock back enemies in range very slightly",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minCoolTime": 1470,
+      "maxCoolTime": 1350,
+      "minDurationTime": 450,
+      "maxDurationTime": 450,
       "talentList": [
         {
-          "talentId": 6,
+          "talentId": 36,
           "param": [
             {
               "num": [
-                100
+                20
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                40
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 26,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 35,
+          "param": [
+            {
+              "num": [
+                10
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 517,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 5,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10130
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -134735,12 +135778,12 @@ const skill_data ={
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 36
     },
     {
       "id": 145,
       "name": "轟雷一閃",
-      "text": "スキル発動時、１度だけ攻撃力[MAG,3,0]倍で\r\n範囲内の敵[0,2,0]体の周囲に防御無視の範囲攻撃\r\n敵をスタン状態にする(蓄積値：特大)",
+      "text": "On skill, increase Atk by [MAG,3,0]×\r\nAttack [0,2,0] enemy in range with a true damage AOE attack\r\nThis attack increases the stun gauge of enemies (Accum: Very Large)",
       "maxLevel": 5,
       "minCoolTime": 570,
       "maxCoolTime": 450,
@@ -134943,7 +135986,7 @@ const skill_data ={
     {
       "id": 146,
       "name": "たっぷり遊んであげる♪",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、\r\n攻撃時に自身のHPが最大値の[0,1,0]％回復\r\n攻撃後の待機時間が大きく減少し、種族特性の連続攻撃が100%発動",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttacks heal self for [0,1,0]% of maxHP\r\nDecrease PAD greatly, and trait quintuple attack has 100% activation rate",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -135030,7 +136073,7 @@ const skill_data ={
     {
       "id": 147,
       "name": "捕食",
-      "text": "[duration]秒攻撃力[MAG,0,0]倍、攻撃対象数+[0,1,0]\r\n敵撃破時に最大HPと攻撃力が6%増加\r\n(最大20回/死亡撤退時リセット)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase targets by [0,1,0]\r\nEach enemy defeated increases self maxHP and Atk by +6%\r\n(max 20 times, resets on death/retreat)",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -135086,7 +136129,7 @@ const skill_data ={
     {
       "id": 148,
       "name": "見た目で侮るでないぞ",
-      "text": "[duration]秒、射程[MAG,0,0]倍\r\n範囲内の敵に一定時間毎に[0,1,0]の\r\n物理ダメージを与え、スタンさせる(蓄積値：低)",
+      "text": "For [duration]s, increase Range by [MAG,0,0]× and at every certain interval,\r\ndeal [0,1,0] physical damage and increase the stun gauge (Accum: Small) of enemies in range",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -135217,7 +136260,7 @@ const skill_data ={
     {
       "id": 149,
       "name": "天魔頭蓋斬・焔！",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、物理防御力[MAG,1,0]倍\r\n前方に小範囲の攻撃を行う",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase pDef [MAG,1,0]×\r\nAttacks become a small AOE",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -135294,7 +136337,7 @@ const skill_data ={
     {
       "id": 150,
       "name": "余の力を見せてやろう",
-      "text": "発動時に全ての敵に攻撃力分のダメージを与え、スタンさせる(蓄積値：大)\r\nその後[duration]秒、攻撃力[MAG,0,0]倍上昇、射程[MAG,1,0]倍\r\n攻撃を3連射",
+      "text": "On skill, attack all enemies for 100% of self Atk, increasing their stun gauge (Accum: Large)\r\nAfter that, for [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttacks become triple attacks",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -135508,7 +136551,7 @@ const skill_data ={
     {
       "id": 151,
       "name": "火遊びしちゃう♪",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n攻撃が小範囲攻撃になる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttacks become a small AOE",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -135585,7 +136628,7 @@ const skill_data ={
     {
       "id": 152,
       "name": "ドロドロにしてあげる",
-      "text": "[duration]秒、攻撃力[MAG,1,0]倍、射程[MAG,2,0]倍\r\n範囲内の敵の物理、魔法防御を自身の攻撃力の20%減少\r\n本体使用時のみトークンの所持数が１増加",
+      "text": "For [duration]s, increase Atk by [MAG,1,0]×, increase Range by [MAG,2,0]×\r\nDecrease the pDef and mDef of enemies in range by 20% of self Atk\r\nWhen used by the unit, increase token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -135929,7 +136972,7 @@ const skill_data ={
     {
       "id": 158,
       "name": "不死竜の恩寵",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n地上の敵への与ダメージ2倍\r\n範囲内の味方のHPを1秒毎に最大HPの[0,3,0]％回復",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nDamage dealt to Ground enemies is increased by 2×\r\nAllies in range regenerate [0,3,0]% of their maxHP per second",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -136120,7 +137163,7 @@ const skill_data ={
     {
       "id": 161,
       "name": "冥府への誘い",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、敵[0,1,0]体を同時に攻撃\r\n範囲内の敵の移動速度と攻撃速度を減少させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack [0,1,0] enemies in range at once\r\nDecrease the movSpd and aSpd of enemies in range",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -136340,7 +137383,7 @@ const skill_data ={
     {
       "id": 164,
       "name": "そこに立ってなさい",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n常に周囲の敵5体を同時に攻撃し、石化確率2倍",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nAttacks 5 enemies in range at once with double Petrify chance",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -136396,7 +137439,7 @@ const skill_data ={
     {
       "id": 165,
       "name": "勝利を掴む明日への拳",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、\r\n遠距離攻撃になり、攻撃した敵を\r\n後退させ確率で吹き飛ばす",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attacks become long-ranged\r\nAttacks knock back enemies and have a medium chance to Blow Off",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -136680,8 +137723,8 @@ const skill_data ={
     },
     {
       "id": 166,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "フラスコの小人達",
+      "text": "For [duration]s, increase self and self tokens' Atk by [MAG,0,0]×\r\nIncrease token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -136693,14 +137736,68 @@ const skill_data ={
           "param": [
             {
               "num": [
-                100
+                120
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                160
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                160
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                50034
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1084,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -136711,7 +137808,7 @@ const skill_data ={
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 32
     },
     {
       "id": 167,
@@ -136925,27 +138022,27 @@ const skill_data ={
     },
     {
       "id": 173,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "アシッドコラプション",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attacks become long-ranged AOE\r\nTrait damageUp effect increases and continuous damage applies to enemies in range",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minDurationTime": 600,
+      "maxDurationTime": 600,
       "talentList": [
         {
           "talentId": 6,
           "param": [
             {
               "num": [
-                100
+                240
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                280
               ]
             }
           ],
@@ -136953,10 +138050,282 @@ const skill_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 38,
+          "param": [
+            {
+              "num": [
+                180
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10128
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 69,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 5,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 5,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                125
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 5,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                60
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 46
     },
     {
       "id": 174,
@@ -137066,7 +138435,7 @@ const skill_data ={
     {
       "id": 177,
       "name": "お姉ちゃんサンダー！",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍、\r\n攻撃対象数+[0,3,0]\r\n敵の防御力を無視する",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×,\r\nincrease targets by [0,3,0], and attacks deal true damage",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -137185,7 +138554,7 @@ const skill_data ={
     {
       "id": 178,
       "name": "ポイズンジェネレイト",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n範囲内の敵に2秒毎に攻撃力[0,2,0]%のダメージを与え、\r\n10秒毎に自身に毒状態を付与する",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nEvery 2s, deal damage equal to [0,2,0]% of self Atk to enemies in range\r\nEvery 10s, inflict Poison on self",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -139493,7 +140862,7 @@ const skill_data ={
     {
       "id": 90060,
       "name": "仲間をよぶであります！",
-      "text": "即座にコストが[0,0,0]回復する",
+      "text": "Increase DP by [0,0,0]",
       "maxLevel": 5,
       "minCoolTime": 900,
       "maxCoolTime": 900,
@@ -140574,6 +141943,48 @@ const token_data ={
       "damageType": 0,
       "isAttack": 1,
       "summonType": 3,
+      "offsetX": 0.0,
+      "offsetY": 0.0,
+      "isAppearAnim": 0
+    },
+    {
+      "id": 28,
+      "name": "ホムンクルス",
+      "category": 1,
+      "cost": 8,
+      "summonIndex": 50034,
+      "enchantBone": 0,
+      "time": 900,
+      "stock": 2,
+      "simultaneous": 0,
+      "exclude": 1,
+      "standby": 0,
+      "interval": 150,
+      "directionLock": 0,
+      "damageType": 0,
+      "isAttack": 1,
+      "summonType": 2,
+      "offsetX": 0.0,
+      "offsetY": 0.0,
+      "isAppearAnim": 0
+    },
+    {
+      "id": 29,
+      "name": "ホムンクルス",
+      "category": 1,
+      "cost": 8,
+      "summonIndex": 50034,
+      "enchantBone": 0,
+      "time": 1350,
+      "stock": 2,
+      "simultaneous": 0,
+      "exclude": 1,
+      "standby": 0,
+      "interval": 150,
+      "directionLock": 0,
+      "damageType": 0,
+      "isAttack": 1,
+      "summonType": 2,
       "offsetX": 0.0,
       "offsetY": 0.0,
       "isAppearAnim": 0
