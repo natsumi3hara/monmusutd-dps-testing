@@ -272,7 +272,7 @@ hr{
     width: 100%;
     text-align: left;
     font-family: mtdfont;
-    background-color: rgb(255, 125, 125);
+    background-color: #ff7d7d;
     border: none;
     border-radius: 5px;
     cursor:pointer;
@@ -287,7 +287,6 @@ hr{
     font-family: mtdfont;
     padding: 2px;
 }
-
 .subskillOptimiseExpand{
     width: 100%;
     text-align: left;
@@ -298,7 +297,6 @@ hr{
     cursor:pointer;
     margin:1px;
 }
-
 .subskill-optimise-button{
     width:100%;
     height:25px;
@@ -308,6 +306,19 @@ hr{
     border: 1px solid #e4ab00;
     border-radius: 5px;
 }
+#subskill-optimise-bar {
+    width: 30%;
+    height: 25px;
+    background-color: #3fffb9;
+    border-radius: 10px;
+  }
+.popup-loading{
+    width: 100%;
+    background-color: #939393;
+    border-radius: 10px;
+}
+
+
 
 #type-icons img{
     width: 40px;
@@ -320,4 +331,33 @@ hr{
 .larger-check{
     width: 20px;
     height: 20px;
+}
+#loading-fade{
+    opacity: 0.5;
+    background-color: #000000; 
+    width: 100%;
+    height: 100%; 
+    z-index: 10;
+    top: 0; 
+    left: 0; 
+    position: fixed;
+    display:none;
+    padding: auto;
+    color: #ffffff;
+    text-align: center;
+}
+
+#excludeSubskillSelect td{
+    width: 20%;
+    font-size: min(14px,1vw);
+    cursor: pointer;
+    background-color:#b3ffcf;
+}
+#excludeSubskillSelect td.displaytext{
+    width: 20%;
+    font-size: min(16px,1vw);
+    cursor: default;
+}
+#excludeSubskillSelect td.excluded{
+    background-color: #c0c0c0;
 }

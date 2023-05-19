@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js) 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1914Y0N5HJ"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-1914Y0N5HJ');
-        </script>
+        </script>-->
         <meta charset="utf-8"/>
         <title>DPS Calculator</title>
         <script src="../../scripts/console&devTools.js"></script>
@@ -22,6 +22,7 @@
         <script src="../../scripts/statsCalc/cond-timing-range.js"></script>
         <script src="../../scripts/statsCalc/attackPatterns.js"></script>
         <script src="../../scripts/statsCalc/continuousPatterns.js"></script>
+        <script src="../../scripts/statsCalc/selfStunPatterns.js"></script>
         <script src="../../scripts/statsCalc/extraInfoList.js"></script>
         <script src="../../scripts/insert-scripts/insert_MasterDict.js"></script>
         <script>
@@ -41,6 +42,19 @@
         <script>document.write('<script src="../../scripts/statsCalc/'+masterValues["baseClass"].toString()+'.js"><\/script>');</script>
     </head>
     <body>
+        <div id="loading-fade">
+            <table id="loadText" style="width:100%;height:100%;">
+                <tr></tr>
+                <tr>
+                    <td style="width:100%;vertical-align:middle;">
+                        <span id="calculating" style="font-size: 36px;">計算中</span><br>
+                        <span id="turnOffFaster" style="font-size: 20px;">読み込みを加速するために一時的に画面を消します。</span><br><br>
+                        <span id="shirami" style="color:red;">※虱潰しで除外されたサブスキル以外の全組み合わせを試します。</span><br>
+                        <span id="notFreeze" style="color:red;">※フリーズしたに見えるが、ちゃんと計算が行っておりますので、安心してください。</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div id="chara-selection">
             <table id="buttonback" style="margin:2px;vertical-align: middle;background-color: beige;width: 100%;">
                 <td style="width:40px;"><img onclick="location.href='../filter/index.html'" style="cursor: pointer; width:36px;height:36px;" src="../../img/ui-icons/Common_BtnTitleBackOff.png"></td>
@@ -51,7 +65,7 @@
                 <td></td>
             </table>
         </div>
-        <div style="display: flex;">
+        <div id="main-display" style="display: flex;">
             <div id="dps-input-info" style="display:flex; flex-direction: column; flex:1;">
                 <div id="dps-input">
                     <div class="dps-tabs dps-input-tabs">
@@ -209,139 +223,179 @@
                             </table>
                         </div>
                         <div id="info-nerd" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
+                            <span>Optimise mode：</span>
+                            <select id="optimise-type-select" style="font-family:mtdfont; width:20%;">
+                                <option value="0">Off-skill</option>
+                                <option value="1">Skill</option>
+                                <option value="2" selected>Overall</option>
+                            </select>
                             <table>
-                                <tr>
-                                    <td class="displaytext" style="width: 25%;">Excluded</td>
+                                <tr style="display: none;">
+                                    <td class="displaytext" style="width: 25%;">Excluded subskills</td>
                                     <td style="width: 75%;">
-                                        <input id="excluded-subskills" value="1,2,3,13,14,15,16,17,18,19,20,21,28,29,30,31,32,33,46,47,48" disabled>
+                                        <input id="excluded-subskills" value="0,1052,1102,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1028,1029,1030,1031,1032,1033,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1092,1093,1094,1095,1097,1099,1100" style="font-size:8px;" disabled>
                                     </td>
                                 </tr>
-                            </table>
-                            <table>
                                 <tr>
-                                    <td class="displaytext" style="border: none;">
-                                        <button class="subskill-optimise-button">Optimise 1 subskill</button>
-                                    </td>
-                                    <td class="displaytext" style="border: none;">
-                                        <button class="subskill-optimise-button">Optimise 2 subskills</button>
+                                    <td colspan="2" class="displaytext" style="border:none;">
+                                        <button type="button" class="collapsible-button subskillOptimiseExpand" style="margin-bottom:1px;">Choose excluded subskills (Click to expand)</button>
+                                        <div class="collapsible-content" style="display:none;">
+                                            <table id="excludeSubskillSelect">
+                                                <script src="../../scripts/insert-scripts-en/insertExcludeSubskillTable.js"></script>
+                                            </table>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
                             <hr>
                             <table>
                                 <tr>
+                                    <td colspan="2" class="displaytext" style="text-align:left;border:none;font-size:small;color:red;">
+                                        ※For 1 subskill, you can freely select the <u>second</u> subskill.<br>
+                                        ※This process cycles through every combination of subskills not excluded.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="border: none;">
+                                        <button class="subskill-optimise-button" onclick="subskillLoadOrder(1);">Optimise 1 subskill</button>
+                                    </td>
+                                    <td class="displaytext" style="border: none;">
+                                        <button class="subskill-optimise-button" onclick="subskillLoadOrder(2);">Optimise 2 subskills</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="border:none;font-size:x-small;">Time taken:About 3s(Default) to 5s(All)</td>
+                                    <td class="displaytext" style="border:none;font-size:x-small;">Time taken:About 40s(Default) to 4min(All)</td>
+                                </tr>
+                            </table>
+                            <!--
+                            <div class="popup-loading">
+                                <div id="subskill-optimise-bar"></div>
+                            </div>
+                            <div>
+                                <button onclick="moveSubskillBar(50)">Progress 50</button>
+                                <button onclick="moveSubskillBar(60)">Progress 60</button>
+                                <button onclick="moveSubskillBar(75)">Progress 75</button>
+                                <button onclick="moveSubskillBar(90)">Progress 90</button>
+                                <button onclick="moveSubskillBar(100)">Progress 100</button>
+                            </div>-->
+                            <hr>
+                            <table>
+                                <tr>
                                     <td class="displaytext" rowspan="2" style="width:10%;">1st</td>
                                     <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                    <td id="optimise-1-1" style="width:45%;">name1-1</td>
+                                    <td id="optimise-1-1" style="width:45%;"></td>
                                     <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                     <td id="optimise-dps-1" rowspan="2" style="width:25%;">dps1</td>
                                 </tr>
                                 <tr>
                                     <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                    <td id="optimise-1-2" style="width:45%;">name1-2</td>
+                                    <td id="optimise-1-2" style="width:45%;"></td>
                                 </tr>
+                                <tr></tr>
                                 <tr>
                                     <td class="displaytext" rowspan="2" style="width:10%;">2nd</td>
                                     <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                    <td id="optimise-2-1" style="width:45%;">name2-1</td>
+                                    <td id="optimise-2-1" style="width:45%;"></td>
                                     <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                     <td id="optimise-dps-2" rowspan="2" style="width:25%;">dps2</td>
                                 </tr>
                                 <tr>
                                     <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                    <td id="optimise-2-2" style="width:45%;">name2-2</td>
+                                    <td id="optimise-2-2" style="width:45%;"></td>
                                 </tr>
+                                <tr></tr>
                                 <tr>
                                     <td class="displaytext" rowspan="2" style="width:10%;">3rd</td>
                                     <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                    <td id="optimise-3-1" style="width:45%;">name3-1</td>
+                                    <td id="optimise-3-1" style="width:45%;"></td>
                                     <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                     <td id="optimise-dps-3" rowspan="2" style="width:25%;">dps3</td>
                                 </tr>
                                 <tr>
                                     <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                    <td id="optimise-3-2" style="width:45%;">name3-2</td>
+                                    <td id="optimise-3-2" style="width:45%;"></td>
                                 </tr>
                             </table>
-                            <button type="button" class="collapsible-button subskillOptimiseExpand" style="margin-bottom:4px;">4th-10th(click to expand)</button>
+                            <button type="button" class="collapsible-button subskillOptimiseExpand" style="margin-bottom:4px;">4th - 10th (click to expand)</button>
                             <div style="display: none;">
                                 <table>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">4th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-4-1" style="width:45%;">name4-1</td>
+                                        <td id="optimise-4-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-4" rowspan="2" style="width:25%;">dps4</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-4-2" style="width:45%;">name4-2</td>
+                                        <td id="optimise-4-2" style="width:45%;"></td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">5th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-5-1" style="width:45%;">name5-1</td>
+                                        <td id="optimise-5-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-5" rowspan="2" style="width:25%;">dps5</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-5-2" style="width:45%;">name5-2</td>
+                                        <td id="optimise-5-2" style="width:45%;"></td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">6th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-6-1" style="width:45%;">name6-1</td>
+                                        <td id="optimise-6-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-6" rowspan="2" style="width:25%;">dps6</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-6-2" style="width:45%;">name6-2</td>
+                                        <td id="optimise-6-2" style="width:45%;"></td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">7th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-7-1" style="width:45%;">name7-1</td>
+                                        <td id="optimise-7-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-7" rowspan="2" style="width:25%;">dps7</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-7-2" style="width:45%;">name7-2</td>
+                                        <td id="optimise-7-2" style="width:45%;"></td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">8th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-8-1" style="width:45%;">name8-1</td>
+                                        <td id="optimise-8-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-8" rowspan="2" style="width:25%;">dps8</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-8-2" style="width:45%;">name8-2</td>
+                                        <td id="optimise-8-2" style="width:45%;"></td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">9th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-9-1" style="width:45%;">name9-1</td>
+                                        <td id="optimise-9-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-9" rowspan="2" style="width:25%;">dps9</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-9-2" style="width:45%;">name9-2</td>
+                                        <td id="optimise-9-2" style="width:45%;"></td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" rowspan="2" style="width:10%;">10th</td>
                                         <td class="displaytext" style="width:20%;">Subskill 1</td>
-                                        <td id="optimise-10-1" style="width:45%;">name10-1</td>
+                                        <td id="optimise-10-1" style="width:45%;"></td>
                                         <td class="displaytext" rowspan="2" style="width:10%;">DPS</td>
                                         <td id="optimise-dps-10" rowspan="2" style="width:25%;">dps10</td>
                                     </tr>
                                     <tr>
                                         <td class="displaytext" style="width:20%;">Subskill 2</td>
-                                        <td id="optimise-10-2" style="width:45%;">name10-2</td>
+                                        <td id="optimise-10-2" style="width:45%;"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -389,6 +443,16 @@
                                     <td id="dps-all-skillCooldown">88</td>
                                     <td class="displaytext">Initial</td>
                                     <td id="dps-all-skillFirst">88</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext"></td>
+                                    <td class="displaytext"></td>
+                                    <td class="displaytext"><abbr title="Duration of not being able to move after skill" style="cursor:help;">Immobile</abbr></td>
+                                    <td id="dps-all-skillSelfStun">88</td>
+                                    <td class="displaytext"><abbr title="Using movement to invalidate the immobile duration" style="cursor:help;">Invalidate</abbr></td>
+                                    <td class="displaytext">
+                                        <span style="text-align: center;"></span><input type="checkbox" id="selfStun-invalid" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();">
+                                    </td>
                                 </tr>
                             </table>
                         </div>
