@@ -209,9 +209,20 @@ function optimiseSubskill(number,battleSkillFinal){
         document.getElementById("subskill2condcheck").innerHTML = "";
     }
     collection.sort(function(a,b){return b[2] - a[2];});
-    for (let k=0;k<10;k++){
+    for (let k=0;k<10;k++){ //clearing rank
+        document.getElementById("optimise-"+(k+1)+"-1").innerHTML = "";
+        document.getElementById("optimise-"+(k+1)+"-2").innerHTML = "";
+        document.getElementById("optimise-dps-"+(k+1)).innerHTML = "";
+    }
+    for (let k=0;k<10;k++){ //filling rank
         let optSubID1 = collection[k][0];
         let optSubID2 = collection[k][1];
+        if (optSubID1 === undefined || optSubID2 === undefined){
+            document.getElementById("optimise-"+(k+1)+"-1").innerHTML = "";
+            document.getElementById("optimise-"+(k+1)+"-2").innerHTML = "";
+            document.getElementById("optimise-dps-"+(k+1)).innerHTML = "";
+            continue;
+        }
         if (optSubID2 === 0){optSubID2=Number(document.getElementById("subskill2").value);}
         let optSubskillText1 = attachOptions[attachOptions.findIndex(object => {return object.value === (optSubID1)})]["text"];
         let optSubskillText2 = attachOptions[attachOptions.findIndex(object => {return object.value === (optSubID2)})]["text"];
