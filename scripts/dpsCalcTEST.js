@@ -205,6 +205,8 @@ function optimiseSubskill(number,battleSkillFinal){
         }
         document.getElementById("subskill1").value = "0";
         document.getElementById("subskill2").value = "0";
+        document.getElementById("subskill1condcheck").innerHTML = "";
+        document.getElementById("subskill2condcheck").innerHTML = "";
     }
     collection.sort(function(a,b){return b[2] - a[2];});
     for (let k=0;k<10;k++){
