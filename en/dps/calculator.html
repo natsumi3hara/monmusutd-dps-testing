@@ -24,7 +24,7 @@
         <script src="../../scripts/statsCalc/continuousPatterns.js"></script>
         <script src="../../scripts/statsCalc/selfStunPatterns.js"></script>
         <script src="../../scripts/statsCalc/extraInfoList.js"></script>
-        <script src="../../scripts/insert-scripts/insert_MasterDict.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
         <script>
             var console = {};
             console.log = function(){};
@@ -198,7 +198,7 @@
                         <div class="dps-tabs dps-info-stats-tabs">
                             <button class="dps-info-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'info-main','dps-info-stats-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> Info</button>
                             <button class="dps-info-stats-tablink" onclick="openTab(event, 'info-nerd','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> Optimise subskills</button>
-                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-misc','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> UC</button>
+                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-chart','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> DPS Graph</button>
                         </div>
                         <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent">
                             <table>
@@ -400,8 +400,23 @@
                                 </table>
                             </div>
                         </div>
-                        <div id="info-misc" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
-                            info
+                        <div id="info-chart" class="dps-info-stats-tablink-content dps-tabcontent" style="display: none;">
+                            <canvas id="dpsChart"></canvas><br>
+                            <table>
+                                <tr>
+                                    <td class="displaytext" style="border:none;text-align:left;">
+                                        <button onclick="createChart();" style="width:75%;cursor:pointer;background-color:#e4ab00;border:none;float:left;font-family:mtdfont;border-radius:5px;">Create Graph</button>
+                                    </td>
+                                    <td class="displaytext" style="border:none;text-align:right;">
+                                        Choose X-axis:
+                                        <select id="enemy-def-select" style="font-family:mtdfont; width:50%;">
+                                            <option value="0">pDef</option>
+                                            <option value="1">mDef</option>
+                                            <option value="2" selected>pDef+mDef</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>   

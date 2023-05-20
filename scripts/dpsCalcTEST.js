@@ -163,6 +163,90 @@ function enemyReminder(){
     }
 }
 
+function createChart(){
+    let chartCanvas = document.getElementById("dpsChart");
+    let chartStatus = Chart.getChart("dpsChart");
+    if (chartStatus != undefined) {chartStatus.destroy();}
+    let enemyPDefElem = document.getElementById("input-enemy-stat3");
+    let enemyMDefElem = document.getElementById("input-enemy-stat4");
+    enemyPDefElem.value=0;enemyMDefElem.value=0;
+    let enemyDefSelect = document.getElementById("enemy-def-select").value;
+    const xValues = [0,100,200,300,400,500,600,700,800,900,1000,1250,1500,1750,2000,2500,3000,4000,5000];
+    let offskillArray = [];
+    let skillArray = [];
+    let overallArray = [];
+    let labels = ["DPSグラフ","非スキル","スキル","総合"];
+    if (masterValues.language === "en"){labels = ["DPS Graph","Off-skill","Skill","Overall"];}
+    //Start processing
+    if(enemyDefSelect === "0"){
+        for (item in xValues){
+            enemyPDefElem.value = xValues[item];
+            let dpsOut = allDPS();
+            offskillArray.push(dpsOut[0]);
+            skillArray.push(dpsOut[1]);
+            overallArray.push(dpsOut[2]);
+        }
+    } else if(enemyDefSelect === "1"){
+        for (item in xValues){
+            enemyMDefElem.value = xValues[item];
+            let dpsOut = allDPS();
+            offskillArray.push(dpsOut[0]);
+            skillArray.push(dpsOut[1]);
+            overallArray.push(dpsOut[2]);
+        }
+    } else if(enemyDefSelect === "2"){
+        for (item in xValues){
+            enemyPDefElem.value = xValues[item];
+            enemyMDefElem.value = xValues[item];
+            let dpsOut = allDPS();
+            offskillArray.push(dpsOut[0]);
+            skillArray.push(dpsOut[1]);
+            overallArray.push(dpsOut[2]);
+        }
+    } else {}
+    enemyPDefElem.value = 0;
+    enemyMDefElem.value = 0;
+    allDPS();
+    const data = {
+        labels: xValues,
+        datasets: [{ 
+          data: offskillArray,
+          borderColor: "#77ddff",
+          fill: false,
+          label: labels[1],
+        }, { 
+          data: skillArray,
+          borderColor: "#ff7373",
+          fill: false,
+          label: labels[2],
+        }, { 
+          data: overallArray,
+          borderColor: "#bb66ff",
+          fill: false,
+          label: labels[3],
+        }]
+    }
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: labels[0]
+            }
+          }
+        },
+      };
+    new Chart(chartCanvas, config);
+}
+
+
+
 function toggleExclude(excludeID){
     let tdElem = document.getElementById("exsub-"+excludeID.toString());
     let excludeList = document.getElementById("excluded-subskills");
