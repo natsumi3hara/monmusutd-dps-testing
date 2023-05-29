@@ -521,6 +521,14 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (initial < 0){initial = 0;}
     //console.log(initial);
     //cooldown manipulation//
+    for (let i = 3; i < 6; i++){
+        if (document.getElementById("talent"+i.toString()+"check").checked) {
+            if (document.getElementById("talent"+i.toString()).innerHTML.includes("スキル再使用時間")) {
+                cooldown -= Number(document.getElementById("talent"+i.toString()).innerHTML.split("-")[1].split("秒")[0]); 
+            }
+        }
+    }
+    //cooldown manipulation (subskill)//
     //if needed, this will be converted to lists like decrease1per1, decrease1per4 etc, count number of true//
     let fullHeart = selfConditions["2000"]===100 && (subskillID_1 === 58||subskillID_2 === 58);
     let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
