@@ -4,31 +4,35 @@ document.write(`
     <td colspan="2" class="displaytext" style="background-color:#c0c0c0">灰 = 除外している</td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">基本サブスキル</td>
+    <td colspan="5" class="displaytext category">基本サブスキル</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1001" class="exsub excluded" onclick="toggleExclude(1001)">HP強化 I</td>
     <td id="exsub-1002" class="exsub excluded" onclick="toggleExclude(1002)">HP強化 II</td>
     <td id="exsub-1003" class="exsub excluded" onclick="toggleExclude(1003)">HP強化 III</td>
+    <td id="exsub-1105" class="exsub excluded" onclick="toggleExclude(1105)">HP強化 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1004" class="exsub" onclick="toggleExclude(1004)">攻撃力強化 I</td>
     <td id="exsub-1005" class="exsub" onclick="toggleExclude(1005)">攻撃力強化 II</td>
     <td id="exsub-1006" class="exsub" onclick="toggleExclude(1006)">攻撃力強化 III</td>
+    <td id="exsub-1106" class="exsub" onclick="toggleExclude(1106)">攻撃力強化 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1007" class="exsub excluded" onclick="toggleExclude(1007)">物理防御強化 I</td>
     <td id="exsub-1008" class="exsub excluded" onclick="toggleExclude(1008)">物理防御強化 II</td>
     <td id="exsub-1009" class="exsub excluded" onclick="toggleExclude(1009)">物理防御強化 III</td>
+    <td id="exsub-1107" class="exsub excluded" onclick="toggleExclude(1107)">物理防御強化 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1010" class="exsub excluded" onclick="toggleExclude(1010)">魔法防御強化 I</td>
     <td id="exsub-1011" class="exsub excluded" onclick="toggleExclude(1011)">魔法防御強化 II</td>
     <td id="exsub-1012" class="exsub excluded" onclick="toggleExclude(1012)">魔法防御強化 III</td>
+    <td id="exsub-1108" class="exsub excluded" onclick="toggleExclude(1108)">魔法防御強化 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -103,7 +107,7 @@ document.write(`
     <td id="exsub-1048" class="exsub excluded" onclick="toggleExclude(1048)">撤退コスト回復 III</td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">プレミアム (E)</td>
+    <td colspan="5" class="displaytext category">プレミアム (E)</td>
 </tr>
 <tr>
     <td id="exsub-1057" class="exsub" onclick="toggleExclude(1057)">攻撃+物理防御強化</td>
@@ -127,7 +131,7 @@ document.write(`
     <td class="exsub excluded"></td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">プレミアム (L)</td>
+    <td colspan="5" class="displaytext category">プレミアム (L)</td>
 </tr>
 <tr>
     <td id="exsub-1049" class="exsub excluded" onclick="toggleExclude(1049)">アイアンボディ</td>
@@ -151,17 +155,17 @@ document.write(`
     <td class="exsub excluded"></td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">メインストーリー</td>
+    <td colspan="5" class="displaytext category">メインストーリー</td>
 </tr>
 <tr>
     <td id="exsub-1054" class="exsub excluded" onclick="toggleExclude(1054)">騎士の心得</td>
     <td id="exsub-1073" class="exsub" onclick="toggleExclude(1073)">魔導の心得</td>
     <td id="exsub-1076" class="exsub" onclick="toggleExclude(1076)">高貴なる狩人</td>
     <td id="exsub-1082" class="exsub" onclick="toggleExclude(1082)">皇女の誇り</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1104" class="exsub" onclick="toggleExclude(1104)">暗躍する影</td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">ボスチャレンジ</td>
+    <td colspan="5" class="displaytext category">ボスチャレンジ</td>
 </tr>
 <tr>
     <td id="exsub-1056" class="exsub" onclick="toggleExclude(1056)">巨鎧騎士の討伐証</td>
@@ -178,7 +182,7 @@ document.write(`
     <td class="exsub excluded"></td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">変異ボスチャレンジ</td>
+    <td colspan="5" class="displaytext category">変異ボスチャレンジ</td>
 </tr>
 <tr>
     <td id="exsub-1058" class="exsub excluded" onclick="toggleExclude(1058)">黄金岩晶の討伐証</td>
@@ -195,7 +199,7 @@ document.write(`
     <td class="exsub excluded"></td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">有料</td>
+    <td colspan="5" class="displaytext category">有料</td>
 </tr>
 <tr>
     <td id="exsub-1053" class="exsub excluded" onclick="toggleExclude(1053)">フェニックスの加護</td>
@@ -212,7 +216,24 @@ document.write(`
     <td class="exsub excluded"></td>
 </tr>
 <tr>
-    <td colspan="5" class="displaytext">その他</td>
+    <td colspan="5" class="displaytext category">生成</td>
+</tr>
+<tr>
+    <td id="exsub-1109" class="exsub" onclick="toggleExclude(1109)">ポイズンエンチャント</td>
+    <td id="exsub-1110" class="exsub excluded" onclick="toggleExclude(1110)">ガードプロテクト</td>
+    <td id="exsub-1111" class="exsub excluded" onclick="toggleExclude(1111)">パワフルリジェネ</td>
+    <td id="exsub-1112" class="exsub excluded" onclick="toggleExclude(1112)">状態異常レジスト</td>
+    <td id="exsub-1113" class="exsub" onclick="toggleExclude(1113)">アサルトチャージ</td>
+</tr>
+<tr>
+    <td id="exsub-1114" class="exsub" onclick="toggleExclude(1114)">パワフルマックス</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
+    <td colspan="5" class="displaytext category">その他</td>
 </tr>
 <tr>
     <td id="exsub-1055" class="exsub excluded" onclick="toggleExclude(1055)">霧を晴らす列車</td>

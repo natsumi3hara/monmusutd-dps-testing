@@ -24,10 +24,12 @@
         <script src="../../scripts/statsCalc/continuousPatterns.js"></script>
         <script src="../../scripts/statsCalc/selfStunPatterns.js"></script>
         <script src="../../scripts/statsCalc/extraInfoList.js"></script>
+        <script src="../../scripts/statsCalc/10000.js"></script>
+        <script src="../../scripts/charaGroups.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
         <script>
-            var console = {};
-            console.log = function(){};
+            //var console = {};
+            //console.log = function(){};
             const params = (new URL(document.location)).searchParams;
             var masterValues = {};
             masterValues["language"] = "ja";
@@ -39,7 +41,9 @@
             var notawakedURL = document.location.href.split("?")[0] + "?id=" + params.get("id");
             var awakedURL = document.location.href.split("?")[0] + "?id=" + params.get("id") + "&awaked=true";
         </script>
+        <!-- obsolete, but kept in case rollback
         <script>document.write('<script src="../../scripts/statsCalc/'+masterValues["baseClass"].toString()+'.js"><\/script>');</script>
+        -->
     </head>
     <body>
         <div id="loading-fade">
@@ -167,7 +171,10 @@
                             <span>&nbsp;AOE等に巻き込んだ敵(追加)：</span><input id="input-number-extraAffect" type="number" min="0" max="99" value="0" onchange="allDPS();" style="width:15%">
                             <span>&nbsp;ダメージ倍率：</span><input id="input-number-extraAffectDamage" type="number" value="100" style="width:10%" disabled><br>
                             -->
-                            <span>&nbsp;継続ダメージ除外</span><input type="checkbox" id="exclude-continuous-damage" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();">
+                            <span>&nbsp;継続ダメージ除外</span><input type="checkbox" id="exclude-continuous-damage" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"><br>
+                            <!--exclude until needed
+                            <span>&nbsp;ダメージフィールド(追加敵数)：</span><input id="input-number-inDamageField" type="number" min="0" max="99" value="0" onchange="allDPS();" style="width:15%"><br>
+                            -->
                             <hr>
                             <button type="button" class="collapsible-button inputInsertButton" style="margin-bottom:4px;">エネミー詳細（クリックで開く）</button>
                             <div class="collapsible-content" style="display:none;">
@@ -197,8 +204,9 @@
                     <div id="dps-info-stats">
                         <div class="dps-tabs dps-info-stats-tabs">
                             <button class="dps-info-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'info-main','dps-info-stats-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> 情報</button>
-                            <button class="dps-info-stats-tablink" onclick="openTab(event, 'info-nerd','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> 最適サブスキル</button>
-                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-chart','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> DPSグラフ</button>
+                            <button class="dps-info-stats-tablink" onclick="openTab(event, 'info-nerd','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> 最適サブ</button>
+                            <button class="dps-info-stats-tablink" onclick="openTab(event, 'info-chart','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> DPSグラフ</button>
+                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-compare','dps-info-stats-tablink')"><img src="../../img/ui-icons/Btl_OmenIcon_0.png"> DPS比べ</button>
                         </div>
                         <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent">
                             <table>
@@ -233,12 +241,12 @@
                                 <tr style="display: none;">
                                     <td class="displaytext" style="width: 25%;">除外したサブスキル</td>
                                     <td style="width: 75%;">
-                                        <input id="excluded-subskills" value="0,1052,1102,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1028,1029,1030,1031,1032,1033,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1092,1093,1094,1095,1097,1099,1100" style="font-size:8px;" disabled>
+                                        <input id="excluded-subskills" value="0,1052,1102,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1028,1029,1030,1031,1032,1033,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112" style="font-size:8px;" disabled>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="displaytext" style="border:none;">
-                                        <button type="button" class="collapsible-button subskillOptimiseExpand" style="margin-bottom:1px;">除外するサブスキルを選択(クリックで開く)</button>
+                                        <button type="button" class="collapsible-button infoTabExpand" style="margin-bottom:1px;">除外するサブスキルを選択(クリックで開く)</button>
                                         <div class="collapsible-content" style="display:none;">
                                             <table id="excludeSubskillSelect">
                                                 <script src="../../scripts/insert-scripts/insertExcludeSubskillTable.js"></script>
@@ -317,7 +325,7 @@
                                     <td id="optimise-3-2" style="width:45%;"></td>
                                 </tr>
                             </table>
-                            <button type="button" class="collapsible-button subskillOptimiseExpand" style="margin-bottom:4px;">4位～10位(クリックで開く)</button>
+                            <button type="button" class="collapsible-button infoTabExpand" style="margin-bottom:4px;">4位～10位(クリックで開く)</button>
                             <div style="display: none;">
                                 <table>
                                     <tr>
@@ -418,6 +426,173 @@
                                 </tr>
                             </table>
                         </div>
+                        <div id="info-compare" class="dps-info-stats-tablink-content dps-tabcontent" style="display:none;">
+                            <table style="display: none;">
+                                <tr>
+                                    <td class="displaytext" style="width: 25%;">選択した条件(レアリティ)</td>
+                                    <td style="width: 75%;">
+                                        <input id="included-rarity" value="0" style="font-size:8px;" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width: 25%;">選択した条件(属性)</td>
+                                    <td style="width: 75%;">
+                                        <input id="included-attribute" value="0" style="font-size:8px;" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width: 25%;">選択した条件(クラス)</td>
+                                    <td style="width: 75%;">
+                                        <input id="included-class" value="0" style="font-size:8px;" disabled>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="compCharaSelect">
+                                <tr>
+                                    <td class="displaytext" colspan="2" style="border: 2px solid white;">
+                                        <span style="text-align: center;">AND選択</span><input type="checkbox" id="compChara-AND" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();">
+                                    </td>
+                                    <td class="displaytext" colspan="4" style="border: 2px solid white;">
+                                        <span>DPSモード：</span>
+                                        <select id="compChara-type-select" style="font-family:mtdfont; width:40%;">
+                                            <option value="0">非スキルDPS</option>
+                                            <option value="1">スキルDPS</option>
+                                            <option value="2" selected>総合DPS</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext category">レアリティ</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-legendCharas" class="compChara" onclick="toggleChara('legendCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_SSR.png"></td>
+                                    <td id="compare-epicCharas" class="compChara" onclick="toggleChara('epicCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_SR.png"></td>
+                                    <td id="compare-rareCharas" class="compChara" onclick="toggleChara('rareCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_HR.png"></td>
+                                    <td id="compare-commonCharas" class="compChara" onclick="toggleChara('commonCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_R.png"></td>
+                                    <td id="compare-freeCharas" class="compChara" onclick="toggleChara('freeCharas','rarity');" colspan="2"><img src="../../img/ui-icons/Yen_Icon.png" style="max-width:20px;">低レア/配布</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext category">属性</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-fireCharas" class="compChara" onclick="toggleChara('fireCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_2.png">火属性</td>
+                                    <td id="compare-waterCharas" class="compChara" onclick="toggleChara('waterCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_3.png">水属性</td>
+                                    <td id="compare-windCharas" class="compChara" onclick="toggleChara('windCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_4.png">風属性</td>
+                                    <td id="compare-earthCharas" class="compChara" onclick="toggleChara('earthCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_7.png">地属性</td>
+                                    <td id="compare-lightCharas" class="compChara" onclick="toggleChara('lightCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_5.png">光属性</td>
+                                    <td id="compare-darkCharas" class="compChara" onclick="toggleChara('darkCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_6.png">闇属性</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext category">クラス</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-scimitarCharas" class="compChara" onclick="toggleChara('scimitarCharas','class');"><img src="../../img/equipment-icons/1201.png">曲刀</td>
+                                    <td id="compare-spearCharas" class="compChara" onclick="toggleChara('spearCharas','class');"><img src="../../img/equipment-icons/1101.png">槍</td>
+                                    <td id="compare-axeCharas" class="compChara" onclick="toggleChara('axeCharas','class');"><img src="../../img/equipment-icons/1001.png">斧</td>
+                                    <td id="compare-fistCharas" class="compChara" onclick="toggleChara('fistCharas','class');"><img src="../../img/equipment-icons/1601.png">拳</td>
+                                    <td id="compare-swordCharas" class="compChara" onclick="toggleChara('swordCharas','class');"><img src="../../img/equipment-icons/1301.png">剣盾</td>
+                                    <td id="compare-hammerCharas" class="compChara" onclick="toggleChara('hammerCharas','class');"><img src="../../img/equipment-icons/1401.png">鈍器</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-bowCharas" class="compChara" onclick="toggleChara('bowCharas','class');"><img src="../../img/equipment-icons/2001.png">弓</td>
+                                    <td id="compare-gunCharas" class="compChara" onclick="toggleChara('gunCharas','class');"><img src="../../img/equipment-icons/2101.png">銃</td>
+                                    <td id="compare-staffCharas" class="compChara" onclick="toggleChara('staffCharas','class');"><img src="../../img/equipment-icons/3001.png">杖</td>
+                                    <td id="compare-bookCharas" class="compChara" onclick="toggleChara('bookCharas','class');"><img src="../../img/equipment-icons/3101.png">本</td>
+                                    <td id="compare-scepterCharas" class="compChara" onclick="toggleChara('scepterCharas','class');"><img src="../../img/equipment-icons/3201.png">錫杖</td>
+                                    <td id="compare-orbCharas" class="compChara" onclick="toggleChara('orbCharas','class');"><img src="../../img/equipment-icons/3301.png">オーブ</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-daggerCharas" class="compChara" onclick="toggleChara('daggerCharas','class');"><img src="../../img/equipment-icons/1501.png">短剣</td>
+                                    <td id="compare-fanCharas" class="compChara" onclick="toggleChara('fanCharas','class');"><img src="../../img/equipment-icons/3501.png">扇</td>
+                                    <td id="compare-twigCharas" class="compChara" onclick="toggleChara('twigCharas','class');"><img src="../../img/equipment-icons/3401.png">霊枝</td>
+                                    <td id="compare-instrumentCharas" class="compChara" onclick="toggleChara('instrumentCharas','class');"><img src="../../img/equipment-icons/3601.png">楽器</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td class="displaytext" style="border:none;text-align:left;height:30px;">
+                                        <button onclick="compareChara();" style="width:50%;height:100%;cursor:pointer;background-color:#e4ab00;border:none;float:left;font-family:mtdfont;border-radius:5px;">実行</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="compCharaResult">
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">1位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-1-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-1-name"></td>
+                                    <td class="displaytext" style="width:10%">DPS</td>
+                                    <td id="compChara-1-dps" style="width:15%"></td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">2位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-2-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-2-name"></td>
+                                    <td class="displaytext" style="width:10%">DPS</td>
+                                    <td id="compChara-2-dps" style="width:15%"></td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">3位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-3-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-3-name"></td>
+                                    <td class="displaytext" style="width:10%">DPS</td>
+                                    <td id="compChara-3-dps" style="width:15%"></td>
+                                </tr>
+                            </table>
+                            <button type="button" class="collapsible-button infoTabExpand" style="margin-bottom:4px;">4位～10位(クリックで開く)</button>
+                            <div style="display: none;">
+                                <table id="compCharaResult2">
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">4位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-4-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-4-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-4-dps" style="width:15%"></td>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">5位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-5-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-5-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-5-dps" style="width:15%"></td>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">6位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-6-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-6-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-6-dps" style="width:15%"></td>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">7位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-7-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-7-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-7-dps" style="width:15%"></td>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">8位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-8-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-8-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-8-dps" style="width:15%"></td>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">9位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-9-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-9-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-9-dps" style="width:15%"></td>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <td class="displaytext" style="width:50px">10位</td>
+                                        <td class="displaytext" style="width:50px"><img id="compChara-10-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                        <td id="compChara-10-name"></td>
+                                        <td class="displaytext" style="width:10%">DPS</td>
+                                        <td id="compChara-10-dps" style="width:15%"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>   
             </div>
@@ -489,15 +664,58 @@
                                     <td class="displaytext">平均フレーム</td>
                                     <td id="dps-dps-battle-averageFrame">8</td>
                                 </tr>
-                                <tr>
-                                    <td class="displaytext">継続ダメージ</td>
-                                    <td id="dps-dps-battle-dmgC">8888.88</td>
-                                    <td class="displaytext">対象数</td>
-                                    <td id="dps-dps-battle-targetC">88</td>
-                                    <td class="displaytext">フレーム</td>
-                                    <td id="dps-dps-battle-frameC">888</td>
-                                </tr>
                             </table>
+                            <button id="battleC" class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;display:none;">継続ダメージ(表示)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">ダメージ</td>
+                                        <td class="displaytext">対象数</td>
+                                        <td class="displaytext">フレーム</td>
+                                        <td class="displaytext">タイプ</td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext">継続ダメージ</td>
+                                        <td id="dps-dps-battle-dmgC">8888.88</td>
+                                        <td id="dps-dps-battle-targetC">88</td>
+                                        <td id="dps-dps-battle-frameC">888</td>
+                                        <td id="dps-dps-battle-hitTypeC"></td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            <!--exclude until needed
+                            <button id="battleF" class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">ダメージフィールド(表示)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext">床ダメージ</td>
+                                        <td id="dps-dps-battle-dmgF">8888.88</td>
+                                        <td class="displaytext">対象数</td>
+                                        <td id="dps-dps-battle-targetF">88</td>
+                                        <td class="displaytext">フレーム</td>
+                                        <td id="dps-dps-battle-frameF">888</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            -->
+                            <button id="battleAA" class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;display:none;">追加攻撃(表示)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext">追加ダメージ</td>
+                                        <td id="dps-dps-battle-dmgAA">8888.88</td>
+                                        <td class="displaytext">対象数</td>
+                                        <td id="dps-dps-battle-targetAA">88</td>
+                                        <td class="displaytext">フレーム</td>
+                                        <td id="dps-dps-battle-frameAA">888</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <hr>
                             <table>
                                 <tr>
@@ -515,7 +733,7 @@
                                     <td id="dps-output-battle-value-stat21">8</td>
                                 </tr>
                             </table>
-                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">貫通/クリティカル↓</button>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">貫通/クリティカル(表示)</button>
                             <div style="display: block;">
                                 <table id="dps-critPen-battle">
                                     <tr>
@@ -534,7 +752,7 @@
                                 </table>
                             </div>
                             <div></div>
-                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">攻撃詳細(表示)</button>
                             <div style="display: block;">
                                 <table id="dps-attacks-battle">
                                     <tr>
@@ -555,7 +773,7 @@
                                 </table>
                             </div>
                             <div></div>
-                            <!-- <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
+                            <!-- <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
                             <div style="display: block;">
                                 <table id="dps-dependentAttacks-battle">
                                     <tr>
@@ -594,15 +812,59 @@
                                     <td class="displaytext">平均フレーム</td>
                                     <td id="dps-dps-skill-averageFrame">8</td>
                                 </tr>
-                                <tr>
-                                    <td class="displaytext">継続ダメージ</td>
-                                    <td id="dps-dps-skill-dmgC">8888.88</td>
-                                    <td class="displaytext">対象数</td>
-                                    <td id="dps-dps-skill-targetC">88</td>
-                                    <td class="displaytext">フレーム</td>
-                                    <td id="dps-dps-skill-frameC">888</td>
-                                </tr>
                             </table>
+                            <button id="skillC" class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;display:none;">継続ダメージ(表示)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">ダメージ</td>
+                                        <td class="displaytext">対象数</td>
+                                        <td class="displaytext">フレーム</td>
+                                        <td class="displaytext">タイプ</td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext">継続ダメージ</td>
+                                        <td id="dps-dps-skill-dmgC">8888.88</td>
+                                        <td id="dps-dps-skill-targetC">88</td>
+                                        <td id="dps-dps-skill-frameC">888</td>
+                                        <td id="dps-dps-skill-hitTypeC"></td>
+                                        <td class="displaytext"></td>
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            <!--exclude until needed
+                            <button id="skillF" class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">ダメージフィールド(表示)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext">床ダメージ</td>
+                                        <td id="dps-dps-skill-dmgF">8888.88</td>
+                                        <td class="displaytext">対象数</td>
+                                        <td id="dps-dps-skill-targetF">88</td>
+                                        <td class="displaytext">フレーム</td>
+                                        <td id="dps-dps-skill-frameF">888</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div></div>
+                            -->
+                            <button id="skillAA" class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;display:none;">追加攻撃(表示)</button>
+                            <div style="display: none;">
+                                <table>
+                                    <tr>
+                                        <td class="displaytext">追加ダメージ</td>
+                                        <td id="dps-dps-skill-dmgAA">8888.88</td>
+                                        <td class="displaytext">対象数</td>
+                                        <td id="dps-dps-skill-targetAA">88</td>
+                                        <td class="displaytext">フレーム</td>
+                                        <td id="dps-dps-skill-frameAA">888</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <hr>
                             <table>
                                 <tr>
@@ -620,7 +882,7 @@
                                     <td id="dps-output-skill-value-stat21">8</td>
                                 </tr>
                             </table>
-                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">貫通/クリティカル↓</button>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">貫通/クリティカル↓</button>
                             <div style="display: block;">
                                 <table id="dps-critPen-skill">
                                     <tr>
@@ -639,7 +901,7 @@
                                 </table>
                             </div>
                             <div></div>
-                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#bffcff;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
+                            <button class="collapsible-button" style="font-family:mtdfont;font-size:smaller;background-color:#cabfff;border-radius:3px;border:none;padding:0px;cursor:pointer;">攻撃詳細↓</button>
                             <div style="display: block;">
                                 <table id="dps-attacks-skill">
                                     <tr>

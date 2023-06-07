@@ -163,6 +163,93 @@ function enemyReminder(){
     }
 }
 
+function toggleChara(includeID,includeType){
+    let tdElem = document.getElementById("compare-"+includeID);
+    let includeList = document.getElementById("included-"+includeType);
+    if (tdElem.classList.contains("included")){
+        tdElem.className = tdElem.className.replace(" included","");
+    } else {tdElem.className += " included";}
+    if (includeList.value.includes(includeID.toString())){
+        includeList.value = includeList.value.replace(","+includeID.toString(),"");
+    } else {includeList.value += ","+includeID.toString();}
+}
+
+function arrayUnion(arrayOfarrays){return Array.from(new Set([arrayOfarrays].flat(2)));}
+function arrayIntersect(arrayOfarrays){return arrayOfarrays.reduce((a, b) => a.filter(c => b.includes(c)));}
+
+function compareChara(){
+    //creating the allIncluded array//
+    let allIncluded;
+    let includeList = [];
+    let includeRarity = [];
+    let includeAttribute = [];
+    let includeClass = [];
+    let includeRarityText = document.getElementById("included-rarity").value.split(",");
+    let includeAttributeText = document.getElementById("included-attribute").value.split(",");
+    let includeClassText = document.getElementById("included-class").value.split(",");
+    includeRarityText.splice(0,1);includeAttributeText.splice(0,1);includeClassText.splice(0,1);
+    for (let text in includeRarityText) {includeRarity.push(window[includeRarityText[text]]);includeList.push(window[includeRarityText[text]]);}
+    for (let text in includeAttributeText) {includeAttribute.push(window[includeAttributeText[text]]);includeList.push(window[includeAttributeText[text]]);}
+    for (let text in includeClassText) {includeClass.push(window[includeClassText[text]]);includeList.push(window[includeClassText[text]]);}
+    //to think about -- search "intersection of multiple arrays"//
+    if (document.getElementById("compChara-AND").checked){
+        includeList.sort(function(a,b){return a.length - b.length;});
+        console.log("includelist",includeList);
+        allIncluded = arrayIntersect(includeList);
+    } else {
+        includeList.sort(function(a,b){return a.length - b.length;});
+        includeRarity.sort(function(a,b){return a.length - b.length;});
+        includeAttribute.sort(function(a,b){return a.length - b.length;});
+        includeClass.sort(function(a,b){return a.length - b.length;});
+        if (includeRarity.length===0){includeRarity=includeList;}
+        if (includeAttribute.length===0){includeAttribute=includeList;}
+        if (includeClass.length===0){includeClass=includeList;}
+        console.log("includelist",includeList);
+        console.log("includeRarity",includeRarity);
+        console.log("includeAttribute",includeAttribute);
+        console.log("includeClass",includeClass);
+        allIncluded = arrayIntersect([arrayUnion(includeRarity),arrayUnion(includeAttribute),arrayUnion(includeClass)]);
+    }
+    console.log("allIncluded",allIncluded);
+    //using the allIncluded array to cycle//
+    let dpsRanking = [];
+    let sortMethod = Number(document.getElementById("compChara-type-select").value);
+    for (let characterID of allIncluded){
+        masterValues["charaID"] = characterID;
+        masterValues["unitcard"] = window["card"+masterValues.charaID];
+        masterValues["baseClass"] = masterValues.unitcard["classId"];
+        let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
+        dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+    }
+    dpsRanking.sort(function(a,b){return b[2] - a[2];});
+    console.log(dpsRanking);
+    for (let k=0;k<10;k++){ //clearing rank
+        document.getElementById("compChara-"+(k+1)+"-name").innerHTML = "";
+        document.getElementById("compChara-"+(k+1)+"-img").src = "../../img/chara-icons/icon_10000_0_s.png";
+        document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = "";
+    }
+    for (let k=0;k<10;k++){ //filling rank
+        let compName = dpsRanking[k][1];
+        let compImg = "../../img/chara-icons/icon_"+dpsRanking[k][0].toString()+"_0_s.png";
+        let compDps = dpsRanking[k][2];
+        if (compDps === undefined){
+            document.getElementById("compChara-"+(k+1)+"-name").innerHTML = "";
+            document.getElementById("compChara-"+(k+1)+"-img").src = "../../img/chara-icons/icon_10000_0_s.png";
+            document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = "";
+            continue;
+        }
+        document.getElementById("compChara-"+(k+1)+"-name").innerHTML = compName;
+        document.getElementById("compChara-"+(k+1)+"-img").src = compImg;
+        document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = compDps;
+    }
+    //revert to normal//
+    masterValues["charaID"] = Number(params.get("id"));
+    masterValues["unitcard"] = window["card"+params.get("id")];
+    masterValues["charaAwaked"] = (params.get("awaked")==="true");
+    masterValues["baseClass"] = masterValues.unitcard["classId"];
+    allDPS();
+}
+
 function createChart(){
     let chartCanvas = document.getElementById("dpsChart");
     let chartStatus = Chart.getChart("dpsChart");
@@ -267,7 +354,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1102;
+    let lastSubskillID = 1114;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     console.log("no of subskills is",noOfSubskills);
@@ -593,6 +680,18 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     document.getElementById("dps-all-final").innerHTML = finalDPS.toFixed(2);
     return finalDPS;
 }
+/* as of now no need yet
+function getFieldDamage(battleskill,fieldReference,exclude=false){
+    if (exclude){console.log("continuous damage excluded!");return 0;}
+    let dmgF,frameF;
+    let targetF = Number(document.getElementById("input-number-inDamageField").value)+1;
+}
+*/
+function getAdditionalAttackDamage(battleskill,AAReference,exclude=false){
+    if (exclude){console.log("continuous damage excluded!");return 0;}
+    let dmgAA,frameAA;
+    let targetAA = "target";
+}
 
 function getContinuousDamage(battleskill,continuousReference,exclude=false){
     if (exclude){console.log("continuous damage excluded!");return 0;}
@@ -611,6 +710,7 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false){
     if (blockCount > blockCountMax){blockCount = blockCountMax;}
     //
     let damageContinuous = continuous_patterns[continuousReference][battleskill];
+    document.getElementById("dps-dps-"+battleskill+"-hitTypeC").innerHTML = damageContinuous["damage"]["hitType"];
     //console.log(damageContinuous);
     if (damageContinuous["cond"].length === 0){
         dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
@@ -1030,16 +1130,16 @@ function calculateStat(level,cc,type){
         var b = level % 30;
     }
     try {
-        var x = formula[type][0] - formula[type][1];
+        var x = window["formula"+masterValues.baseClass][type][0] - window["formula"+masterValues.baseClass][type][1];
         for (let i = 1; i < 1+a+1; i++){
             if (i == a+1){
-                x += formula[type][i] * b;
+                x += window["formula"+masterValues.baseClass][type][i] * b;
             } else {
-                x += formula[type][i] * 30;
+                x += window["formula"+masterValues.baseClass][type][i] * 30;
             }
         }
         for (let i = 5; i < 5+cc; i++){
-            x += formula[type][i];
+            x += window["formula"+masterValues.baseClass][type][i];
         }
     } catch(err){}
     //RAW STAT//
@@ -1270,6 +1370,11 @@ function calculateStat(level,cc,type){
         //lulu's unique weapon//
         if (document.getElementById("otherPassive10046").checked){
             multEffect2.buff *= 110;
+            multEffect2.count += 1;
+        }
+        //anyaku
+        if (selfConditions["1006"]===7 && (subskillID_1 === 103 || subskillID_2 === 103) && document.getElementById('enemybackattack').checked){
+            multEffect2.buff *= 120;
             multEffect2.count += 1;
         }
         addEffect2 = {"buff":0,"count":1};
@@ -1585,6 +1690,11 @@ function calculateStat(level,cc,type){
         //lulu's unique weapon//
         if (document.getElementById("otherPassive10046").checked){
             multEffect3.buff *= 110;
+            multEffect3.count += 1;
+        }
+        //anyaku
+        if (selfConditions["1006"]===7 && (subskillID_1 === 103 || subskillID_2 === 103) && document.getElementById('enemybackattack').checked){
+            multEffect3.buff *= 120;
             multEffect3.count += 1;
         }
         addEffect3 = {"buff":0,"count":1};
@@ -2246,7 +2356,7 @@ function divineAdd(type){
 function equipValues(equipnumber,type,cc){
     let value;
     if (document.getElementById("equip"+equipnumber).checked){
-        value = equip[cc][Number(equipnumber)-1][type];
+        value = window["equip"+masterValues.baseClass][cc][Number(equipnumber)-1][type];
         if (value === undefined){value = 0;}else{}
     } else {value = 0;}
     return value;
@@ -2538,7 +2648,7 @@ function charaInfoReplace(){
         }
         ///console.log(baseText);
         let pattern = baseText.match(/\[awaked,.[^\[]*\]/g); //any character that is not "["
-        console.log(pattern);
+        ///console.log(pattern);
         if (pattern !== null){
             for (let i=0; i<pattern.length;i++){
                 let replaceText = "("+pattern[i]+")";
@@ -2570,7 +2680,7 @@ function charaInfoReplace(){
 }
 
 function uniqueWeaponReplace(charaID){
-    let unique = [11,23,27,46];
+    let unique = [1,4,7,11,23,27,28,37,46];
     let uwID = charaID-10000;
     let targetDiv = document.getElementById("unique-weapon-div");
     if (unique.includes(uwID)){
@@ -2580,6 +2690,18 @@ function uniqueWeaponReplace(charaID){
         } else if (masterValues.language === "en"){
             targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
         }
+    }
+}
+function dpsDetailShow(){
+    let dpsC = [10040,10049,10063,10092,10136,10145,10178,/*for now aa is here*/10067,10177];
+    //let dpsF = [];
+    let dpsAA = [10067,10177];
+    if (dpsC.includes(masterValues.charaID)){
+        document.getElementById("battleC").style.display = "block";
+        document.getElementById("skillC").style.display = "block";
+    } else if (dpsAA.includes(masterValues.charaID)){
+        document.getElementById("battleAA").style.display = "block";
+        document.getElementById("skillAA").style.display = "block";
     }
 }
 
@@ -2750,6 +2872,21 @@ const attachOptions = [
     {value: 1101, text: '屍山血河'},
     //{value: 1102, text: '攻撃強化+クリティカル'},
     {value: 1103, text: '恩愛触手の討伐証'},
+    {value: 1104, text: '暗躍する影'},
+    {value: 1105, text: 'HP強化 IV'},
+    {value: 1106, text: '攻撃力強化 IV'},
+    {value: 1107, text: '物理防御強化 IV'},
+    {value: 1108, text: '魔法防御強化 IV'},
+    {value: 1109, text: 'ポイズンエンチャント'},
+    {value: 1110, text: 'ガードプロテクト'},
+    {value: 1111, text: 'パワフルリジェネ'},
+    {value: 1112, text: '状態異常レジスト'},
+    {value: 1113, text: 'アサルトチャージ'},
+    {value: 1114, text: 'パワフルマックス'},
+    //{value: 1115, text: 'ダミー'},
+    //{value: 1116, text: 'ダミー'},
+    //{value: 1117, text: 'ダミー'},
+    //{value: 1118, text: 'ダミー'},
 ];
 
 //loaders//
@@ -2759,6 +2896,7 @@ window.addEventListener("load", skilltextreplace);
 window.addEventListener("load",equipImageChange);
 window.addEventListener("load",selfConditionUpdate);
 window.addEventListener("load",charaInfoReplace);
+window.addEventListener("load",dpsDetailShow);
 window.addEventListener("load",allDPS);
 //repetitive//
 window.addEventListener("load", attachOptions1);

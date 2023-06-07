@@ -250,7 +250,7 @@ hr{
     border: none;
     float: left;
     font-family: mtdfont;
-    font-size: min(20px,2vw);
+    font-size: min(18px,1.7vw);
 }
 .dps-info-stats-tabs button img{
     height: 25px;
@@ -287,7 +287,7 @@ hr{
     font-family: mtdfont;
     padding: 2px;
 }
-.subskillOptimiseExpand{
+.infoTabExpand{
     width: 100%;
     text-align: left;
     font-family: mtdfont;
@@ -360,4 +360,54 @@ hr{
 }
 #excludeSubskillSelect td.excluded{
     background-color: #c0c0c0;
+}
+#excludeSubskillSelect td.category{
+    border: 3px solid #e4ab00;
+}
+
+#compCharaSelect td{
+    width: 16.67%;
+    font-size: min(14px,1vw);
+    cursor: pointer;
+    background-color:#c0c0c0;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 7px;
+}
+#compCharaSelect td img{
+    max-width: 25px;
+    display: inline-block;
+}
+#compCharaSelect td.displaytext{
+    width: 20%;
+    font-size: min(15px,1vw);
+    cursor: default;
+}
+#compCharaSelect td.included{
+    background-color: #b3ffcf;
+}
+#compCharaSelect td.category{
+    border: 3px solid #e4ab00;
+}
+#compCharaResult td{
+    height:50px;
+    width: auto;
+    padding: 0px;
+    border: none;
+}
+#compCharaResult td img{
+    height:50px;
+    width: 50px;
+    display: block;
+}
+#compCharaResult2 td{
+    height:50px;
+    width: auto;
+    padding: 0px;
+    border: none;
+}
+#compCharaResult2 td img{
+    height:50px;
+    width: 50px;
+    display: block;
 }

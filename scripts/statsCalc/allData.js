@@ -26917,20 +26917,20 @@ const ability_data ={
     {
       "id": 170,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "ライフオブソウル",
       "kana": "",
-      "text": "ダミー",
+      "text": "味方がいるマスのみ配置可能な霊魂トークンを使役、トークンは味方に付与後消滅し、付与した味方のHPを800[awaked,+200]回復する",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 1016,
           "param": [
             {
               "num": [
-                200
+                30
               ]
             }
           ],
@@ -26943,7 +26943,52 @@ const ability_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [],
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1016,
+          "param": [
+            {
+              "num": [
+                31
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -40143,6 +40188,208 @@ const ability_data ={
       "skipend": 0
     },
     {
+      "id": 50035,
+      "rarity": 0,
+      "name": "ワイトトークン",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1026,
+          "param": [
+            {
+              "num": [
+                800
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 29,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 50036,
+      "rarity": 0,
+      "name": "ワイトトークン",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1026,
+          "param": [
+            {
+              "num": [
+                1000
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 29,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
       "id": 90026,
       "rarity": 0,
       "name": "出撃コスト -1",
@@ -40890,6 +41137,52 @@ const ability_data ={
             }
           ],
           "timing": 13,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90047,
+      "rarity": 0,
+      "name": "配置時バリア1500",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1092,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                1500
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 5,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -78400,6 +78693,39 @@ const ability_data ={
             }
           ],
           "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
         }
       ],
       "recipeId": 0,
@@ -78410,7 +78736,7 @@ const ability_data ={
       "rarity": 0,
       "name": "レッサーデーモン娘アンティモー",
       "kana": "",
-      "text": "射程200内の味方に90F毎スタン値5を付与",
+      "text": "射程200内の味方に90F毎スタン値10を付与",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -78444,106 +78770,7 @@ const ability_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
-            {
-              "type": 2000,
-              "num": [
-                50
-              ],
-              "option": [
-                "<"
-              ],
-              "target": 1,
-              "targetNum": []
-            }
-          ],
-          "activeData": []
-        },
-        {
-          "talentId": 512,
-          "param": [
-            {
-              "num": [
-                5
-              ]
-            },
-            {
-              "num": [
-                300
-              ]
-            }
-          ],
-          "maxParam": [
-            {
-              "num": [
-                0
-              ]
-            },
-            {
-              "num": [
-                0
-              ]
-            }
-          ],
-          "timing": 1,
-          "range": 16,
-          "triggerData": [
-            {
-              "type": 2001,
-              "num": [
-                90
-              ],
-              "option": [
-                "%"
-              ],
-              "target": 1,
-              "targetNum": []
-            },
-            {
-              "type": 2000,
-              "num": [
-                50
-              ],
-              "option": [
-                ">"
-              ],
-              "target": 1,
-              "targetNum": []
-            }
-          ],
-          "activeData": []
-        },
-        {
-          "talentId": 6,
-          "param": [
-            {
-              "num": [
-                100
-              ]
-            }
-          ],
-          "maxParam": [
-            {
-              "num": [
-                0
-              ]
-            }
-          ],
-          "timing": 1,
-          "range": 1,
-          "triggerData": [
-            {
-              "type": 2000,
-              "num": [
-                50
-              ],
-              "option": [
-                "<"
-              ],
-              "target": 1,
-              "targetNum": []
-            }
-          ],
+          "triggerData": [],
           "activeData": []
         },
         {
@@ -78592,6 +78819,51 @@ const ability_data ={
                 50
               ],
               "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 12,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
                 "<"
               ],
               "target": 1,
@@ -78599,6 +78871,72 @@ const ability_data ={
             }
           ],
           "activeData": []
+        },
+        {
+          "talentId": 512,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 16,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                90
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 12,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -78758,25 +79096,15 @@ const ability_data ={
           ]
         },
         {
-          "talentId": 1008,
+          "talentId": 63,
           "param": [
             {
               "num": [
-                1
-              ]
-            },
-            {
-              "num": [
-                0
+                2
               ]
             }
           ],
           "maxParam": [
-            {
-              "num": [
-                0
-              ]
-            },
             {
               "num": [
                 0
@@ -78799,39 +79127,6 @@ const ability_data ={
               "targetNum": []
             }
           ]
-        },
-        {
-          "talentId": 63,
-          "param": [
-            {
-              "num": [
-                2
-              ]
-            }
-          ],
-          "maxParam": [
-            {
-              "num": [
-                0
-              ]
-            }
-          ],
-          "timing": 1,
-          "range": 1,
-          "triggerData": [
-            {
-              "type": 40000,
-              "num": [
-                1
-              ],
-              "option": [
-                ""
-              ],
-              "target": 1,
-              "targetNum": []
-            }
-          ],
-          "activeData": []
         },
         {
           "talentId": 6,
@@ -78880,12 +79175,13 @@ const ability_data ={
             }
           ],
           "timing": 1,
-          "range": 1,
-          "triggerData": [
+          "range": 5,
+          "triggerData": [],
+          "activeData": [
             {
-              "type": 40000,
+              "type": 18,
               "num": [
-                1
+                0
               ],
               "option": [
                 ""
@@ -78893,8 +79189,7 @@ const ability_data ={
               "target": 1,
               "targetNum": []
             }
-          ],
-          "activeData": []
+          ]
         },
         {
           "talentId": 36,
@@ -78955,6 +79250,3048 @@ const ability_data ={
               ],
               "option": [
                 "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500282,
+      "rarity": 0,
+      "name": "ディナー・シー娘ダナディリー",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇％＆攻撃速度+〇％",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 26,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 32,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500283,
+      "rarity": 0,
+      "name": "サンダーバード娘ワエマワ",
+      "kana": "",
+      "text": "HP半減時、与ダメージ+〇%＆射程+〇%＆攻撃対象数+3",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                150
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 49,
+          "param": [
+            {
+              "num": [
+                4
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500284,
+      "rarity": 0,
+      "name": "フェアリー娘ネリー",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇％、魔法攻撃化（ミサイル変化）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10022
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 70,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500285,
+      "rarity": 0,
+      "name": "ガーゴイル娘ユイル",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇％、魔法攻撃化（ミサイル変化）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 7,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 43,
+          "param": [
+            {
+              "num": [
+                4
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500286,
+      "rarity": 0,
+      "name": "ケンタウロス娘エテジア",
+      "kana": "",
+      "text": "20%の確率で",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1086,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            },
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500287,
+      "rarity": 0,
+      "name": "ジャイアント娘メロン",
+      "kana": "",
+      "text": "HP半減時攻撃速度-〇%、攻撃力+〇%",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 27,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500288,
+      "rarity": 0,
+      "name": "フロストジャイアント娘ナルケパフネ",
+      "kana": "",
+      "text": "HP半減時攻撃速度-〇%、攻撃力+〇%",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 27,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1088,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 70,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10056
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500289,
+      "rarity": 0,
+      "name": "ファイアジャイアント娘",
+      "kana": "",
+      "text": "HP半減時３連射・遠距離攻撃化（ミサイル変化）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 40,
+          "param": [
+            {
+              "num": [
+                180
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1018,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10009
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1102,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 69,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500290,
+      "rarity": 0,
+      "name": "イフリート娘イフィジャール（封印）",
+      "kana": "",
+      "text": "HP〇％モードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                95
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 25,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500291,
+      "rarity": 0,
+      "name": "イフリート娘イフィジャール",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇%＆範囲ダメージ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 16,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                30
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 12,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1107,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500292,
+      "rarity": 0,
+      "name": "ジン娘ヤーセファ",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇％＆攻撃速度+〇％",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500293,
+      "rarity": 0,
+      "name": "マリード娘マリドゥーラ",
+      "kana": "",
+      "text": "１秒毎に全敵のHPを攻撃力の〇％回復",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            },
+            {
+              "num": [
+                4
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                30,
+                30,
+                30
+              ],
+              "option": [
+                "%",
+                "%",
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 12,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 17,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500294,
+      "rarity": 0,
+      "name": "ウンディーネ娘プネーマ",
+      "kana": "",
+      "text": "１秒毎に全敵のHPを攻撃力の〇％回復",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                4
+              ]
+            },
+            {
+              "num": [
+                4
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                30,
+                30,
+                30
+              ],
+              "option": [
+                "%",
+                "%",
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 49,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500295,
+      "rarity": 0,
+      "name": "シルフ娘シルフィーネ",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇%、攻撃対象の攻撃速度-10%、攻撃間隔+10%",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 27,
+          "param": [
+            {
+              "num": [
+                10
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 31,
+          "param": [
+            {
+              "num": [
+                10
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500296,
+      "rarity": 0,
+      "name": "ミノタウロス（通常）",
+      "kana": "",
+      "text": "3秒間ブロックされていないと突進にモードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2001,
+              "num": [
+                150
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1108,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1109,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2001,
+              "num": [
+                149
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 516,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                10
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 5,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500297,
+      "rarity": 0,
+      "name": "ミノタウロス（突進）",
+      "kana": "",
+      "text": "突進攻撃終了時モードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2003,
+              "num": [
+                0
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 516,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                10
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 5,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500298,
+      "rarity": 0,
+      "name": "クラーケン共通",
+      "kana": "",
+      "text": "リジェネ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 63,
+          "param": [
+            {
+              "num": [
+                5
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500299,
+      "rarity": 0,
+      "name": "クラーケン４",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600248
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                80
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500300,
+      "rarity": 0,
+      "name": "クラーケン３",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600247
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                80
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600249
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                60
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500301,
+      "rarity": 0,
+      "name": "クラーケン２",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600248
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                60
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600250
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                40
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500302,
+      "rarity": 0,
+      "name": "クラーケン１",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600249
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                40
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600251
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                20
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500303,
+      "rarity": 0,
+      "name": "クラーケン０",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600250
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                20
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500304,
+      "rarity": 0,
+      "name": "ケルベロス原種_遠隔",
+      "kana": "",
+      "text": "HP減少で走りにモードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600238
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500305,
+      "rarity": 0,
+      "name": "ケルベロス原種_近接",
+      "kana": "",
+      "text": "HP減少で走りにモードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600239
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500306,
+      "rarity": 0,
+      "name": "ターロス原種_遠隔",
+      "kana": "",
+      "text": "HP減少で赤鎧にモードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600243
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1088,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500307,
+      "rarity": 0,
+      "name": "ターロス原種_近接",
+      "kana": "",
+      "text": "HP減少で赤鎧にモードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                600244
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1088,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 40002,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500308,
+      "rarity": 0,
+      "name": "ゴリラ召喚",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                5
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                500
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                7
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                1200
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                1900
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500309,
+      "rarity": 0,
+      "name": "ゴリラ召喚",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                4
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                330
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                6
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                570
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                5
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                1370
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1069,
+          "param": [
+            {
+              "num": [
+                5
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                1870
+              ],
+              "option": [
+                ""
               ],
               "target": 1,
               "targetNum": []
@@ -103369,7 +106706,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                1
+                10
               ]
             }
           ],
@@ -103450,7 +106787,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                1
+                10
               ]
             }
           ],
@@ -109954,9 +113291,9 @@ const attach_ability_data ={
     {
       "id": 1105,
       "rarity": 1397969457,
-      "name": "ダミーデータ３",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "HP強化 IV",
+      "kana": "HPきょうか4",
+      "text": "HP+35％",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -109967,7 +113304,7 @@ const attach_ability_data ={
           "param": [
             {
               "num": [
-                1
+                35
               ]
             }
           ],
@@ -109992,20 +113329,20 @@ const attach_ability_data ={
     {
       "id": 1106,
       "rarity": 1397969457,
-      "name": "ダミーデータ４",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "攻撃力強化 IV",
+      "kana": "こうげきりょくきょうか4",
+      "text": "攻撃力+27％",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                1
+                27
               ]
             }
           ],
@@ -110030,20 +113367,20 @@ const attach_ability_data ={
     {
       "id": 1107,
       "rarity": 1397969457,
-      "name": "ダミーデータ５",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "物理防御強化 IV",
+      "kana": "ぶつりぼうぎょきょうか4",
+      "text": "物理防御+27％",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 11,
           "param": [
             {
               "num": [
-                1
+                27
               ]
             }
           ],
@@ -110068,20 +113405,20 @@ const attach_ability_data ={
     {
       "id": 1108,
       "rarity": 1397969457,
-      "name": "ダミーデータ６",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "魔法防御強化 IV",
+      "kana": "まほうたいせいきょうか4",
+      "text": "魔法防御+27％",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 16,
           "param": [
             {
               "num": [
-                1
+                27
               ]
             }
           ],
@@ -110106,20 +113443,73 @@ const attach_ability_data ={
     {
       "id": 1109,
       "rarity": 1397969457,
-      "name": "ダミーデータ７",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "ポイズンエンチャント",
+      "kana": "ぽいずんえんちゃんと",
+      "text": "攻撃時、低確率で毒を付与\r\n毒状態の敵へ与ダメージ1.2倍",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 515,
           "param": [
             {
               "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                120
+              ]
+            },
+            {
+              "num": [
+                9999999
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 12,
+              "num": [
                 1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                120
               ]
             }
           ],
@@ -110130,10 +113520,22 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
-          "range": 1,
+          "timing": 1,
+          "range": 4,
           "triggerData": [],
-          "activeData": []
+          "activeData": [
+            {
+              "type": 25,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -110144,16 +113546,61 @@ const attach_ability_data ={
     {
       "id": 1110,
       "rarity": 1397969457,
-      "name": "ダミーデータ８",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "ガードプロテクト",
+      "kana": "があどぷろてくと",
+      "text": "配置中、全味方が受ける物理ダメージ15%減少",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                85
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1008,
           "param": [
             {
               "num": [
@@ -110168,8 +113615,8 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
-          "range": 1,
+          "timing": 1,
+          "range": 3,
           "triggerData": [],
           "activeData": []
         }
@@ -110182,20 +113629,20 @@ const attach_ability_data ={
     {
       "id": 1111,
       "rarity": 1397969457,
-      "name": "ダミーデータ９",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "パワフルリジェネ",
+      "kana": "ぱわふるりじぇね",
+      "text": "HPが1秒ごとに60回復する\r\nスキル発動後10秒間回復量3倍",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 64,
           "param": [
             {
               "num": [
-                1
+                60
               ]
             }
           ],
@@ -110206,7 +113653,71 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 64,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 12,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -110220,20 +113731,20 @@ const attach_ability_data ={
     {
       "id": 1112,
       "rarity": 1397969457,
-      "name": "ダミーデータ１０",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "オールレジスト",
+      "kana": "おぉるれじすと",
+      "text": "毒、石化、スタン耐性+50",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 404,
           "param": [
             {
               "num": [
-                1
+                50
               ]
             }
           ],
@@ -110244,7 +113755,49 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 402,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 400,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -110258,20 +113811,20 @@ const attach_ability_data ={
     {
       "id": 1113,
       "rarity": 1397969457,
-      "name": "ダミーデータ１１",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "アサルトチャージ",
+      "kana": "あさるとちゃあじ",
+      "text": "移動中、攻撃力+120％\r\n移動速度+100",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                1
+                120
               ]
             }
           ],
@@ -110282,7 +113835,40 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 23,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -110296,20 +113882,20 @@ const attach_ability_data ={
     {
       "id": 1114,
       "rarity": 1397969457,
-      "name": "ダミーデータ１２",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "MAXマッスル",
+      "kana": "まっくすまっする",
+      "text": "HPが100%以上の時与ダメージ1.3倍",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 1009,
           "param": [
             {
               "num": [
-                1
+                130
               ]
             }
           ],
@@ -110320,9 +113906,21 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
+          "timing": 1,
           "range": 1,
-          "triggerData": [],
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                100
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -118624,6 +122222,99 @@ const missile_data ={
       "finalAction": 0,
       "fixedOrientation": 1,
       "targetBone": 1
+    },
+    {
+      "id": 125,
+      "missileId": 10135,
+      "trajectory": 1,
+      "speed": 20,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 1,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10019,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 0,
+      "drawSize": 50,
+      "drawIndex": 20027,
+      "damageField": [
+        21,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 126,
+      "missileId": 10136,
+      "trajectory": 2,
+      "speed": 12,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 1,
+      "blastShape": 1,
+      "blastRange": 60,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 400,
+      "landEffect": 10016,
+      "landEffectSize": 150,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 2,
+      "drawSize": 50,
+      "drawIndex": 20043,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 1
+    },
+    {
+      "id": 127,
+      "missileId": 10137,
+      "trajectory": 2,
+      "speed": 0,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 1,
+      "blastShape": 1,
+      "blastRange": 60,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10016,
+      "landEffectSize": 150,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 2,
+      "drawSize": 0,
+      "drawIndex": 0,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 1
     }
   ]
 }
@@ -120644,6 +124335,181 @@ const skill_data ={
       "recipeId": 33
     },
     {
+      "id": 10008,
+      "name": "アクアリフレッシュ",
+      "text": "[duration]秒、射程[MAG,0,0]倍\r\n種族特性の回復量が3倍になり、\r\n水属性の味方は毒石化状態を無効化",
+      "maxLevel": 5,
+      "minCoolTime": 1020,
+      "maxCoolTime": 900,
+      "minDurationTime": 750,
+      "maxDurationTime": 750,
+      "talentList": [
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                80
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 64,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 2,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 904,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 902,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1002,
+              "num": [
+                3
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "isInvalidAutoSkill": 0,
+      "recipeId": 33
+    },
+    {
       "id": 9,
       "name": "ダミー",
       "text": "ダミー",
@@ -121914,6 +125780,114 @@ const skill_data ={
             {
               "num": [
                 10022
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "isInvalidAutoSkill": 0,
+      "recipeId": 25
+    },
+    {
+      "id": 10020,
+      "name": "妖精のイタズラ",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍上昇、\r\n攻撃が魔法属性に変化し\r\n敵の遠距離攻撃の対象にならない",
+      "maxLevel": 5,
+      "minCoolTime": 1020,
+      "maxCoolTime": 900,
+      "minDurationTime": 450,
+      "maxDurationTime": 450,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 70,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10022
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 504,
+          "param": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -125391,6 +129365,401 @@ const skill_data ={
       "recipeId": 46
     },
     {
+      "id": 10040,
+      "name": "トキシックニードル",
+      "text": "[duration]秒、射程[MAG,0,0]倍上昇\r\n射程内の敵[0,1,0]体に攻撃し、攻撃した敵の足元に\r\n一定時間毒沼を生成、2秒毎に設置時攻撃力80％の継続ダメージを与える",
+      "maxLevel": 5,
+      "minCoolTime": 1470,
+      "maxCoolTime": 1350,
+      "minDurationTime": 300,
+      "maxDurationTime": 300,
+      "talentList": [
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                140
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 49,
+          "param": [
+            {
+              "num": [
+                5
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10135
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 9,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                -2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 14,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                -2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10020
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 9,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                -2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 14,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                -2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10020
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 9,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                -2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 14,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                -2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10020
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "isInvalidAutoSkill": 0,
+      "recipeId": 46
+    },
+    {
       "id": 41,
       "name": "ジャイアントスイング",
       "text": "[duration]秒、攻撃速度が減少するが\r\n攻撃力[MAG,0,0]倍上昇し、確率で敵を吹き飛ばす",
@@ -126920,6 +131289,83 @@ const skill_data ={
       "recipeId": 32
     },
     {
+      "id": 10050,
+      "name": "ががう！ががう！",
+      "text": "[duration]秒、攻撃力[MAG,1,0]倍上昇\r\n攻撃が２連射に変化し攻撃対象数+1",
+      "maxLevel": 5,
+      "minCoolTime": 1020,
+      "maxCoolTime": 900,
+      "minDurationTime": 450,
+      "maxDurationTime": 450,
+      "talentList": [
+        {
+          "talentId": 43,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 47,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "isInvalidAutoSkill": 0,
+      "recipeId": 32
+    },
+    {
       "id": 51,
       "name": "清嵐舞踊",
       "text": "[duration]秒、射程[MAG,0,0]倍、攻撃力[MAG,1,0]倍\r\n攻撃が[0,2,0]連射になり、攻撃した敵を後退させる",
@@ -127653,6 +132099,93 @@ const skill_data ={
             }
           ],
           "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "isInvalidAutoSkill": 0,
+      "recipeId": 16
+    },
+    {
+      "id": 10056,
+      "name": "ドレインスラッシュ",
+      "text": "[duration]秒、物理と魔法防御力[MAG,0,0]倍上昇、\r\n敵を攻撃する度にHPが最大HPの[0,2,0]%回復",
+      "maxLevel": 5,
+      "minCoolTime": 1020,
+      "maxCoolTime": 900,
+      "minDurationTime": 900,
+      "maxDurationTime": 900,
+      "talentList": [
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                80
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 16,
+          "param": [
+            {
+              "num": [
+                80
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1064,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                5
+              ]
+            },
             {
               "num": [
                 0
@@ -130910,6 +135443,215 @@ const skill_data ={
               "type": 40001,
               "num": [
                 2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "isInvalidAutoSkill": 0,
+      "recipeId": 43
+    },
+    {
+      "id": 10079,
+      "name": "フローズンシュート",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍\r\n魔法遠距離攻撃化し、\r\n攻撃した敵の動きを1秒間停止させる",
+      "maxLevel": 5,
+      "minCoolTime": 1170,
+      "maxCoolTime": 1050,
+      "minDurationTime": 750,
+      "maxDurationTime": 750,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                180
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                220
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10136
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10137
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 70,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 502,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 40,
+          "param": [
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 69,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
               ],
               "option": [
                 ""
@@ -142315,27 +147057,27 @@ const skill_data ={
     },
     {
       "id": 170,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "エナジーコンバート",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n10秒毎に範囲内の敵味方のHPを\r\n最大値の1%減少し、トークン所持数+1",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minCoolTime": 1620,
+      "maxCoolTime": 1500,
+      "minDurationTime": 1200,
+      "maxDurationTime": 1200,
       "talentList": [
         {
           "talentId": 6,
           "param": [
             {
               "num": [
-                100
+                110
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                130
               ]
             }
           ],
@@ -142343,10 +147085,127 @@ const skill_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1084,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1024,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 14,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 46
     },
     {
       "id": 171,
@@ -146473,6 +151332,48 @@ const token_data ={
       "offsetX": 0.0,
       "offsetY": 0.0,
       "isAppearAnim": 0
+    },
+    {
+      "id": 30,
+      "name": "エナジーソウル",
+      "category": 2,
+      "cost": 7,
+      "summonIndex": 50035,
+      "enchantBone": 5,
+      "time": 0,
+      "stock": 6,
+      "simultaneous": 0,
+      "exclude": 99,
+      "standby": 0,
+      "interval": 30,
+      "directionLock": 0,
+      "damageType": 0,
+      "isAttack": 0,
+      "summonType": 3,
+      "offsetX": -0.45,
+      "offsetY": 0.0,
+      "isAppearAnim": 0
+    },
+    {
+      "id": 31,
+      "name": "エナジーソウル",
+      "category": 2,
+      "cost": 7,
+      "summonIndex": 50036,
+      "enchantBone": 5,
+      "time": 0,
+      "stock": 6,
+      "simultaneous": 0,
+      "exclude": 99,
+      "standby": 0,
+      "interval": 30,
+      "directionLock": 0,
+      "damageType": 0,
+      "isAttack": 0,
+      "summonType": 3,
+      "offsetX": -0.45,
+      "offsetY": 0.0,
+      "isAppearAnim": 0
     }
   ]
 }
@@ -146698,6 +151599,338 @@ const unique_weapon_ability_data ={
       ],
       "recipeId": 0,
       "skipend": 0
+    },
+    {
+      "id": 28001,
+      "rarity": 0,
+      "name": "メデューサ娘1",
+      "kana": "",
+      "text": "攻撃時に低確率で敵が石化し、石化中の敵に与えるダメージ1.5倍",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                150
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 24,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 513,
+          "param": [
+            {
+              "num": [
+                10
+              ]
+            },
+            {
+              "num": [
+                180
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 37001,
+      "rarity": 0,
+      "name": "クイーンビー娘",
+      "kana": "",
+      "text": "15秒毎にトークン所持数+1",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1084,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                450
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 7001,
+      "rarity": 0,
+      "name": "マーメイド娘",
+      "kana": "",
+      "text": "スキル発動時に全ての敵のスタン値を蓄積(蓄積値：中)",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 512,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            },
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 12,
+          "range": 6,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 1001,
+      "rarity": 0,
+      "name": "ケンタウロス娘",
+      "kana": "",
+      "text": "短射程の遠距離攻撃になる",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 40,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10051
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 69,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 4001,
+      "rarity": 0,
+      "name": "ゴブリン娘",
+      "kana": "",
+      "text": "配置中、ゴブリントークンの与えるダメージ1.2倍",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                50001
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
     }
   ]
 }
@@ -146805,6 +152038,127 @@ const unique_weapon_data ={
       "recipe": [
         {
           "recipe": "item.material.Uwcb1",
+          "count": 12
+        }
+      ]
+    },
+    {
+      "uw_id": 28001,
+      "ability_id": 28001,
+      "card_id": 28,
+      "name": "魔杖イービルアイ",
+      "level": 1,
+      "cost_gold": 40000,
+      "life": 0,
+      "power": 45,
+      "defense": 0,
+      "magic_resist": 25,
+      "range": 5,
+      "attack_speed": 0,
+      "attack_interval": 0,
+      "recipe": [
+        {
+          "recipe": "item.material.Uwcc1",
+          "count": 35
+        },
+        {
+          "recipe": "item.material.Uwsrd1",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "uw_id": 37001,
+      "ability_id": 37001,
+      "card_id": 37,
+      "name": "女王蜂の巣",
+      "level": 1,
+      "cost_gold": 20000,
+      "life": 0,
+      "power": 0,
+      "defense": 25,
+      "magic_resist": 30,
+      "range": 10,
+      "attack_speed": 0,
+      "attack_interval": 0,
+      "recipe": [
+        {
+          "recipe": "item.material.Uwcb1",
+          "count": 20
+        },
+        {
+          "recipe": "item.material.Uwsra1",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "uw_id": 1001,
+      "ability_id": 1001,
+      "card_id": 1,
+      "name": "早馬の剣",
+      "level": 1,
+      "cost_gold": 12000,
+      "life": 200,
+      "power": 0,
+      "defense": 30,
+      "magic_resist": 30,
+      "range": 0,
+      "attack_speed": 0,
+      "attack_interval": 0,
+      "recipe": [
+        {
+          "recipe": "item.material.Uwcb1",
+          "count": 15
+        },
+        {
+          "recipe": "item.material.Uwsre1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "uw_id": 7001,
+      "ability_id": 7001,
+      "card_id": 7,
+      "name": "ホラガイメガホン",
+      "level": 1,
+      "cost_gold": 12000,
+      "life": 0,
+      "power": 40,
+      "defense": 0,
+      "magic_resist": 40,
+      "range": 0,
+      "attack_speed": 0,
+      "attack_interval": 0,
+      "recipe": [
+        {
+          "recipe": "item.material.Uwcb1",
+          "count": 15
+        },
+        {
+          "recipe": "item.material.Uwsrc1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "uw_id": 4001,
+      "ability_id": 4001,
+      "card_id": 4,
+      "name": "ゴブリン族の弓",
+      "level": 1,
+      "cost_gold": 5000,
+      "life": 50,
+      "power": 0,
+      "defense": 0,
+      "magic_resist": 0,
+      "range": 0,
+      "attack_speed": 15,
+      "attack_interval": 0,
+      "recipe": [
+        {
+          "recipe": "item.material.Uwca1",
           "count": 12
         }
       ]
