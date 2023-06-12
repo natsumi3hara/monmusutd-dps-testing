@@ -901,6 +901,7 @@ function subskillGetCrit(subskillID){
     if (subskillID === 24){return{"probability":15,"damage":150};}
     else if (subskillID === 25){return{"probability":20,"damage":150};}
     else if (subskillID === 26){return{"probability":25,"damage":150};}
+    else if (subskillID === 101){return{"probability":10,"damage":150};}
     else {return undefined;}
 }
 
@@ -2117,37 +2118,59 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,re
             }
             ///console.log(conditionRecord);
             let range = allTalents[i]["range"];
+            //edit
             if (type === "stat76"){
                 if (conditionRecord.active && conditionRecord.trigger && referenceEnemy){
-                    if (range===4||range===5||range===6) {
-                        ///console.log("pushed to buff array - damageup");
+                    if (parseType === "skill" &&(range===4||range===5||range===6)){
+                        let param,timing;
+                        let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
+                        let minParam = allTalents[i]["param"][0]["num"][0];
+                        let maxParam = allTalents[i]["maxParam"][0]["num"][0];
+                        if (maxParam === 0){maxParam = minParam} else {}
+                        timing = allTalents[i]["timing"].toString();
+                        param = [[Math.floor(minParam + (maxParam-minParam)/4*(skilllevelnumber-1))]];
+                        try {///console.log("damageup - no addwithprevious");
+                            masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
+                        } catch (err) {///console.log("create new entry - damageup")
+                            masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing] = [param];
+                        }
+                    } else if (range===4||range===5||range===6) {///console.log("pushed to buff array - damageup");
                         let param,timing;
                         timing = allTalents[i]["timing"].toString();
                         param = [allTalents[i]["param"][0]["num"]];
-                        try {
-                            ///console.log("damageup - no addwithprevious");
-                                masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
-                        } catch (err) {
-                            ///console.log("create new entry - damageup")
+                        try {///console.log("damageup - no addwithprevious");
+                            masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
+                        } catch (err) {///console.log("create new entry - damageup")
                             masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing] = [param];
                         }
                     } else {/*range is 1-3*/}
                 } else if (conditionRecord.active && conditionRecord.trigger){
-                    if (range===1||range===2||range===3) {
-                        ///console.log("pushed to buff array - damageup");
+                    if (parseType === "skill" &&(range===1||range===2||range===3)){
+                        let param,timing;
+                        let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
+                        let minParam = allTalents[i]["param"][0]["num"][0];
+                        let maxParam = allTalents[i]["maxParam"][0]["num"][0];
+                        if (maxParam === 0){maxParam = minParam} else {}
+                        timing = allTalents[i]["timing"].toString();
+                        param = [[Math.floor(minParam + (maxParam-minParam)/4*(skilllevelnumber-1))]];
+                        try {///console.log("damageup - no addwithprevious");
+                            masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
+                        } catch (err) {///console.log("create new entry - damageup")
+                            masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing] = [param];
+                        }
+                    } else if (range===1||range===2||range===3) {///console.log("pushed to buff array - damageup");
                         let param,timing;
                         timing = allTalents[i]["timing"].toString();
                         param = [allTalents[i]["param"][0]["num"]];
-                        try {
-                            ///console.log("damageup - no addwithprevious");
-                                masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
-                        } catch (err) {
-                            ///console.log("create new entry - damageup")
+                        try {///console.log("damageup - no addwithprevious");
+                            masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing].push(param);
+                        } catch (err) {///console.log("create new entry - damageup")
                             masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing] = [param];
                         }
                     } else {/*range is 4-6*/}
                 }
-            } else if (conditionRecord.active && conditionRecord.trigger && (range===1||range===2||range===3)){
+            }//edit 
+            else if (conditionRecord.active && conditionRecord.trigger && (range===1||range===2||range===3)){
                 ///console.log("pushed to buff array - not damageUP");
                 let param,timing,param0,param1,param2;
                 if (parseType === "skill"){
@@ -2530,7 +2553,7 @@ function traittextreplace(){
             let replaceParam = traitObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0]/100;
             ///console.log(replaceParam);
             if (traitObject["talentList"][B4Asplit[1]]["param"].length === 1){
-                replaceParam += 1;
+                //replaceParam += 1; for ather's trait, not sure if affects others.
             } else {
                 let plusOneTest = false;
                 //changed j=0 to j=1, not sure if affects
@@ -2870,7 +2893,7 @@ const attachOptions = [
     {value: 1099, text: 'プロトバリア'},
     {value: 1100, text: 'アタッチヒール'},
     {value: 1101, text: '屍山血河'},
-    //{value: 1102, text: '攻撃強化+クリティカル'},
+    {value: 1102, text: '攻撃強化+クリティカル'},
     {value: 1103, text: '恩愛触手の討伐証'},
     {value: 1104, text: '暗躍する影'},
     {value: 1105, text: 'HP強化 IV'},
@@ -2880,9 +2903,9 @@ const attachOptions = [
     {value: 1109, text: 'ポイズンエンチャント'},
     {value: 1110, text: 'ガードプロテクト'},
     {value: 1111, text: 'パワフルリジェネ'},
-    {value: 1112, text: '状態異常レジスト'},
+    {value: 1112, text: 'オールレジスト'},
     {value: 1113, text: 'アサルトチャージ'},
-    {value: 1114, text: 'パワフルマックス'},
+    {value: 1114, text: 'MAXマッスル'},
     //{value: 1115, text: 'ダミー'},
     //{value: 1116, text: 'ダミー'},
     //{value: 1117, text: 'ダミー'},

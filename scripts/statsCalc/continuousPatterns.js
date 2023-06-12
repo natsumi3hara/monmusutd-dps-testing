@@ -316,11 +316,11 @@ const continuous_patterns = {
 	"177": {
 		"battle":{
 			"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":40},
 		},
 		"skill":{
 			"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":40},
 		},
 		"target":"target",
 		"time":"attack",
@@ -328,11 +328,11 @@ const continuous_patterns = {
 	"177a": {
 		"battle":{
 			"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":55},
 		},
 		"skill":{
 			"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":55},
 		},
 		"target":"target",
 		"time":"attack",

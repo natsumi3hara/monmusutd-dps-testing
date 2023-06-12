@@ -1459,7 +1459,7 @@ const ability_data ={
       "rarity": 0,
       "name": "迷宮の斧闘士",
       "kana": "",
-      "text": "In Dungeon maps, increase HP by [MAG,1,0]×、increase Atk by [MAG,0,0]×[awaked,+0.1×]",
+      "text": "In Dungeon maps, increase HP by [MAG,1,0]× and increase Atk by [MAG,0,0]×[awaked,+0.1×]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -2304,7 +2304,7 @@ const ability_data ={
       "rarity": 0,
       "name": "レディキラー",
       "kana": "",
-      "text": "Damage dealt to Female enemies is increased by 1.5×[awaked,+0.1×]\r\nWhen attacking Male enemies, recover self HP by 2%",
+      "text": "Damage dealt to Female enemies is increased by 1.5×[awaked,+0.1×]\r\nWhen attacking Female enemies, recover self HP by 2%",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -3300,7 +3300,7 @@ const ability_data ={
       "rarity": 0,
       "name": "擬態待ち伏せ",
       "kana": "",
-      "text": "In dungeon maps, deploy cost decreased by 4",
+      "text": "In Dungeon maps, deploy cost decreased by 4",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -4494,7 +4494,7 @@ const ability_data ={
       "rarity": 0,
       "name": "クラーケンテンタクルス",
       "kana": "",
-      "text": "Can deploy attachable Tentacle tokens that shoulder of the half damage received\r\n[awaked,Tentacle token Atk +10%]",
+      "text": "Can deploy attachable Tentacle tokens that shoulder half of the damage received\r\n[awaked,Tentacle token Atk +10%]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -8615,7 +8615,7 @@ const ability_data ={
       "rarity": 0,
       "name": "ラッキーサンダー",
       "kana": "",
-      "text": "Moves by flying\r\n50% chance to deal 2×[awaked,+0.3×] damage, increased to 100% chance during skill\r\Attacks increase the stun gauge of the enemy(Accum: Small)",
+      "text": "Moves by flying\r\n50% chance to deal 2×[awaked,+0.3×] damage, increased to 100% chance during skill\r\nAttacks increase the stun gauge of the enemy(Accum: Small)",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -9240,7 +9240,7 @@ const ability_data ={
       "rarity": 0,
       "name": "幻惑の糸",
       "kana": "",
-      "text": "Moves by warping, but moveCost increases by 5\r\nInflict the Spider Net debuff on enemies in range, decreasing their aSpd and movSpd by 20%[awaked,+5%], Untargetable when not using skill",
+      "text": "Moves by warping, but moveCost increases by 5\r\nInflict the Spider Net debuff on enemies in range, decreasing their aSpd and movSpd by 20%[awaked,+5%]\r\nUntargetable when not using skill",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -10184,7 +10184,7 @@ const ability_data ={
       "rarity": 0,
       "name": "鷲翼の風",
       "kana": "",
-      "text": "Decrease the pDef of enemies in range by [attack,[MAG,1,0]]\r\n[awaked,最大HP+6%]",
+      "text": "範囲内の敵の物理防御力を[attack,[MAG,1,0]]減少\r\n（減少量は基本攻撃力に依存）　\r\n[awaked,最大HP＋6％]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -12095,7 +12095,7 @@ const ability_data ={
       "rarity": 0,
       "name": "最強黒竜パワー！",
       "kana": "",
-      "text": "Increase Atk by 15%[awaked,+7%], and can deploy Black Hole tokens that deal continuous damage to nearby enemies\r\nTokens do not add to deploy count, disappear after 30s and Taunt enemies",
+      "text": "Increase Atk by 15%[awaked,+7%], and can deploy Black Hole tokens that deal continuous damage to nearby enemies\r\nTokens do not add to deploy count, disappear after 30s, Taunt enemies and are indestructible",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -12394,7 +12394,7 @@ const ability_data ={
       "rarity": 0,
       "name": "バーニングハート",
       "kana": "",
-      "text": "Decrease maxHP by 15％, but increase Atk by 25％[awaked,+7%]",
+      "text": "Decrease maxHP by 15%, but increase Atk by 25%[awaked,+7%]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -13434,7 +13434,7 @@ const ability_data ={
       "rarity": 0,
       "name": "サンシャイン・リヴァイヴ",
       "kana": "",
-      "text": "Moves by flying, block count does not become 0\r\nRevive once with 100% HP, after that, increase Atk by [attack,[MAG,0,0]] and pDef by [defense,[MAG,0,0]]\r\nDuring skill, increases damage dealt by 1.4×[awaked,+0.1×]",
+      "text": "Moves by flying, block count does not become 0\r\nRevive once with 100% HP, after that, increase Atk by [attack,[MAG,0,0]] and pDef by [defense,[MAG,0,0]], and increases damage dealt by 1.4×[awaked,+0.1×] during skill",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -18688,7 +18688,7 @@ const ability_data ={
       "rarity": 0,
       "name": "黒山羊の契約",
       "kana": "",
-      "text": "Moves by Flying\r\nDecrease the HP of allies in range by 2% of their maxHP, but damage dealt is always increased by 1.6×[awaked,+0.1×]",
+      "text": "Moves by Flying\r\nOn attack, decrease the HP of allies in range by 2% of their maxHP, but damage dealt is always increased by 1.6×[awaked,+0.1×]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -18984,7 +18984,7 @@ const ability_data ={
       "rarity": 0,
       "name": "コボルトプライド(白毛)",
       "kana": "",
-      "text": "HP, Atk, pDef are decreased but deploy cost -4\r\nAttacks instantly hit target, and increase their stun gauge(Accum: Small)\r\While deployed, increase all Kobold allies' Atk by +20%",
+      "text": "HP, Atk, pDef are decreased but deploy cost -4\r\nAttacks instantly hit target, and increase their stun gauge(Accum: Small)\r\nWhile deployed, increase all Kobold allies' Atk by +20%",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -19471,7 +19471,7 @@ const ability_data ={
       "rarity": 0,
       "name": "大海に響く詩",
       "kana": "",
-      "text": "Heal all allies for [attack,[MAG,4,0]] per second, this effect is doubled While deployed on Water attribute tiles\r\nWhile deployed, increase HP and Atk of Water allies by +10%[awaked,+3%]",
+      "text": "Heal all allies for [attack,[MAG,4,0]] per second, this effect is doubled while deployed on Water attribute tiles\r\nWhile deployed, increase HP and Atk of Water allies by +10%[awaked,+3%]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -19959,7 +19959,7 @@ const ability_data ={
       "rarity": 0,
       "name": "柔らかな風の寵愛",
       "kana": "",
-      "text": "Can deploy Wind Elemental tokens, up to 1 does not add to deploy count\r\nEach Wind Elemental token place increases Atk of all Wind units by +25%\r\nWhen in party, increase HP and Atk of Wind allies by +10%[awaked,+3%]、",
+      "text": "Can deploy Wind Elemental tokens, up to 1 does not add to deploy count\r\nEach Wind Elemental token place increases Atk of all Wind units by +25%\r\nWhen in party, increase HP and Atk of Wind allies by +10%[awaked,+3%]",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -21129,7 +21129,7 @@ const ability_data ={
       "rarity": 0,
       "name": "慈愛のママサンタ",
       "kana": "",
-      "text": "While deployed, drain 40 HP from self per second, but increase the Atk of allies in range by 20%[awaked,+5%] of self Atk and heal them for [attack,[MAG,3,0]] (base Atk)",
+      "text": "While deployed, drain 40 HP from self per second, but increase the Atk of allies in range by 20%[awaked,+5%] of self Atk, and heal them for [attack,[MAG,3,0]] (base Atk) per second",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -22917,7 +22917,7 @@ const ability_data ={
       "rarity": 0,
       "name": "ゴーストラッパー",
       "kana": "",
-      "text": "飛行して移動\r\n物理と魔法攻撃を40%[awaked,+5%]の確率で回避\r\n攻撃した相手を僅かに後退させる",
+      "text": "Moves by Flying\r\n40%[awaked,+5%] chance to evade physical and magical attacks\r\nAttacks knock back enemies very slightly",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -23140,7 +23140,7 @@ const ability_data ={
       "rarity": 0,
       "name": "ビリビリニューイヤー",
       "kana": "",
-      "text": "Moves by Flying, block count does not become 0\r\nWhen moving, deal 30%[awaked,+5%] of self Atk as magical damage and increase their stun gauge (Accum: Small), to nearby enemies at a certain interval",
+      "text": "Moves by Flying, block count does not become 0\r\nWhen moving, deal 30%[awaked,+5%] of self Atk as magical damage to nearby enemies at a certain interval and increase their stun gauge (Accum: Small)",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -26688,7 +26688,7 @@ const ability_data ={
       "rarity": 0,
       "name": "人工生命",
       "kana": "",
-      "text": "最大HP-20%、出撃コスト-4\r\n敵2体を同時に魔法攻撃するホムンクルストークンを使役、トークンは1体まで出撃人数に含まれず配置後30[awaked,+15]秒で消滅する",
+      "text": "Decrease maxHP by 20%, but decrease deploy cost by 4\r\nCan deploy Homunculus tokens that disappear after 30s[awaked,+15]s, of which up to 1 does not add to deploy count\r\nHomunculus tokens attack up to 2 enemies at once",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -26919,7 +26919,7 @@ const ability_data ={
       "rarity": 0,
       "name": "ライフオブソウル",
       "kana": "",
-      "text": "味方がいるマスのみ配置可能な霊魂トークンを使役、トークンは味方に付与後消滅し、付与した味方のHPを800[awaked,+200]回復する",
+      "text": "Can deploy attachable Soul tokens\r\nOnce attached, disappears immediately and heals the attached ally for 800[awaked,+200]HP",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -27072,7 +27072,7 @@ const ability_data ={
       "rarity": 0,
       "name": "腐食の肉体",
       "kana": "",
-      "text": "最大HP+20%、毒状態にならない\r\nブロック中の敵は物理攻撃による被ダメージが20%[awaked,+8%]上昇し、2秒毎に攻撃力20%の継続ダメージが発生",
+      "text": "Increase maxHP by +20%, immune to Poison\r\nAll enemies blocked by Difora receive 20%(awaked,+8%) more damage from all sources,\r\nand take continuous damage equal to 20% of Difora's Atk every 2 seconds",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -27479,7 +27479,7 @@ const ability_data ={
       "rarity": 0,
       "name": "佳麗なる竜妃",
       "kana": "",
-      "text": "攻撃4回毎に特殊な弾丸を発射し、着弾地点に周囲の敵に発射時攻撃力30％[awaked,+12%]の持続ダメージを与える竜炎を生成する",
+      "text": "Every 4th attack is a special attack which, on impact, creates a damage field, dealing 30%[awaked,+12%] of Atk to enemies",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -28233,20 +28233,20 @@ const ability_data ={
     {
       "id": 182,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "カッツォ娘！よーそろー！",
       "kana": "",
-      "text": "ダミー",
+      "text": "Increase deploy cost by 15, but increase maxHP by 100%[awaked,+30%], increase pDef by 50%\r\nAlways perform double attacks, and can be placed on melee tiles",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 59,
           "param": [
             {
               "num": [
-                200
+                15
               ]
             }
           ],
@@ -28257,7 +28257,103 @@ const ability_data ={
               ]
             }
           ],
-          "timing": 1,
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 74,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -28269,20 +28365,213 @@ const ability_data ={
     {
       "id": 183,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "みんなに追い風を！",
       "kana": "",
-      "text": "ダミー",
+      "text": "Block count 0 and movSpd doubled\r\nMoves by charging, skill is not cancelled by movement and damage is increased by 1.5x[awaked,+0.2x]\r\nDecrease the movSpd of attacked enemies by 30% for 4s",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 46,
           "param": [
             {
               "num": [
-                200
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                150
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                170
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 22,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            },
+            {
+              "num": [
+                120
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10020
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 40,
+          "param": [
+            {
+              "num": [
+                30
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 21,
+          "param": [
+            {
+              "num": [
+                100
               ]
             }
           ],
@@ -28297,6 +28586,50 @@ const ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 60,
+          "param": [
+            {
+              "num": [
+                7
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 4,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                70470
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                70489
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -28305,20 +28638,282 @@ const ability_data ={
     {
       "id": 184,
       "rarity": 0,
-      "name": "ダミー",
+      "name": "私が道を切り拓く！",
       "kana": "",
-      "text": "ダミー",
+      "text": "40%[awaked,+12%] chance for attacks to ignore enemy defense\r\nCan place Target tokens anywhere on the map which attack all enemies in range ten times, then disappear immediately",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
       "restrictionForFamily": 0,
       "talentList": [
         {
-          "talentId": 1086,
+          "talentId": 1030,
           "param": [
             {
               "num": [
-                200
+                3
+              ]
+            },
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1030,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                52
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1030,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1030,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                52
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                50037
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 3,
+          "triggerData": [
+            {
+              "type": 26,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                50037
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1016,
+          "param": [
+            {
+              "num": [
+                32
               ]
             }
           ],
@@ -40390,6 +40985,128 @@ const ability_data ={
       "skipend": 0
     },
     {
+      "id": 50037,
+      "rarity": 0,
+      "name": "ユージェンターゲット",
+      "kana": "",
+      "text": "",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1018,
+          "param": [
+            {
+              "num": [
+                10
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1088,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 5,
+          "range": 3,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                184
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
       "id": 90026,
       "rarity": 0,
       "name": "出撃コスト -1",
@@ -41140,6 +41857,316 @@ const ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90047,
+      "rarity": 0,
+      "name": "配置時バリア1500",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1092,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                1500
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 5,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90048,
+      "rarity": 0,
+      "name": "遠距離マスに配置可能",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 74,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90049,
+      "rarity": 0,
+      "name": "物理ダメージ20%軽減",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                80
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90050,
+      "rarity": 0,
+      "name": "魔法ダメージ20%軽減",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                80
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90051,
+      "rarity": 0,
+      "name": "スキル初回待ち時間-6秒",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1081,
+          "param": [
+            {
+              "num": [
+                180
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 5,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90052,
+      "rarity": 0,
+      "name": "物理攻撃回避40%",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1079,
+          "param": [
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90053,
+      "rarity": 0,
+      "name": "魔法攻撃回避40%",
+      "kana": "",
+      "text": "潜在覚醒",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1079,
+          "param": [
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -44586,6 +45613,54 @@ const ability_data ={
       "skipend": 0
     },
     {
+      "id": 920012,
+      "rarity": 0,
+      "name": "HP60％以下時モードチェンジ",
+      "kana": "",
+      "text": "HP75%以下でモードチェンジ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1006,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                60
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
       "id": 921000,
       "rarity": 0,
       "name": "HP半減時攻撃モーション変更(1)",
@@ -46771,6 +47846,174 @@ const ability_data ={
             {
               "num": [
                 100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 930010,
+      "rarity": 0,
+      "name": "黄色オーラ",
+      "kana": "",
+      "text": "黄色オーラ(ボス用）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1111,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                270
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 930011,
+      "rarity": 0,
+      "name": "特殊アビリティ青オーラ",
+      "kana": "",
+      "text": "青色オーラ(ボス用）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1111,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                270
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 930020,
+      "rarity": 0,
+      "name": "紫色オーラ",
+      "kana": "",
+      "text": "紫色オーラ(中ボス用）",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1111,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                200
               ]
             }
           ],
@@ -79569,6 +80812,39 @@ const ability_data ={
       "restrictionForFamily": 0,
       "talentList": [
         {
+          "talentId": 7,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
           "talentId": 43,
           "param": [
             {
@@ -79654,19 +80930,7 @@ const ability_data ={
           ],
           "timing": 1,
           "range": 1,
-          "triggerData": [
-            {
-              "type": 2000,
-              "num": [
-                50
-              ],
-              "option": [
-                "<"
-              ],
-              "target": 1,
-              "targetNum": []
-            }
-          ],
+          "triggerData": [],
           "activeData": []
         },
         {
@@ -80233,7 +81497,7 @@ const ability_data ={
             {
               "type": 2000,
               "num": [
-                80
+                95
               ],
               "option": [
                 "<"
@@ -80264,22 +81528,7 @@ const ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
-        }
-      ],
-      "recipeId": 0,
-      "skipend": 0
-    },
-    {
-      "id": 500291,
-      "rarity": 0,
-      "name": "イフリート娘イフィジャール",
-      "kana": "",
-      "text": "HP半減時、攻撃力+〇%＆範囲ダメージ",
-      "restrictionForClass": 0,
-      "restrictionForTribe": 0,
-      "restrictionForElement": 0,
-      "restrictionForFamily": 0,
-      "talentList": [
+        },
         {
           "talentId": 1010,
           "param": [
@@ -80323,13 +81572,49 @@ const ability_data ={
               "targetNum": []
             }
           ]
-        },
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500291,
+      "rarity": 0,
+      "name": "イフリート娘イフィジャール",
+      "kana": "",
+      "text": "HP半減時、攻撃力+〇%＆範囲ダメージ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
         {
-          "talentId": 1025,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                150
+                200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1101,
+          "param": [
+            {
+              "num": [
+                30
               ]
             },
             {
@@ -80399,7 +81684,7 @@ const ability_data ={
             },
             {
               "num": [
-                500
+                120
               ]
             }
           ],
@@ -80794,7 +82079,7 @@ const ability_data ={
             }
           ],
           "timing": 1,
-          "range": 2,
+          "range": 1,
           "triggerData": [
             {
               "type": 2000,
@@ -80827,7 +82112,7 @@ const ability_data ={
             }
           ],
           "timing": 1,
-          "range": 2,
+          "range": 1,
           "triggerData": [
             {
               "type": 2000,
@@ -80863,7 +82148,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                20
+                50
               ]
             }
           ],
@@ -81146,17 +82431,6 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
-            },
-            {
-              "type": 2013,
-              "num": [
-                3
-              ],
-              "option": [
-                "<"
-              ],
-              "target": 1,
-              "targetNum": []
             }
           ]
         }
@@ -81261,17 +82535,6 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
-            },
-            {
-              "type": 2013,
-              "num": [
-                3
-              ],
-              "option": [
-                "<"
-              ],
-              "target": 1,
-              "targetNum": []
             }
           ]
         }
@@ -81295,7 +82558,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                3
+                5
               ]
             }
           ],
@@ -81790,17 +83053,6 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
-            },
-            {
-              "type": 40001,
-              "num": [
-                1
-              ],
-              "option": [
-                ""
-              ],
-              "target": 1,
-              "targetNum": []
             }
           ],
           "activeData": []
@@ -81889,17 +83141,6 @@ const ability_data ={
               ],
               "option": [
                 "<="
-              ],
-              "target": 1,
-              "targetNum": []
-            },
-            {
-              "type": 40001,
-              "num": [
-                1
-              ],
-              "option": [
-                ""
               ],
               "target": 1,
               "targetNum": []
@@ -82253,6 +83494,328 @@ const ability_data ={
               "targetNum": []
             }
           ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500310,
+      "rarity": 0,
+      "name": "オーク",
+      "kana": "",
+      "text": "攻撃力２倍、物防、攻撃速度、間隔1.5倍",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10046
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 26,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 32,
+          "param": [
+            {
+              "num": [
+                50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500311,
+      "rarity": 0,
+      "name": "リッチコピー（大）",
+      "kana": "",
+      "text": "死亡時巨大リッチにダメージ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1115,
+          "param": [
+            {
+              "num": [
+                22
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                10013
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 6,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                600270
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500312,
+      "rarity": 0,
+      "name": "リッチコピー（大）",
+      "kana": "",
+      "text": "死亡時巨大リッチにダメージ",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1115,
+          "param": [
+            {
+              "num": [
+                12
+              ]
+            },
+            {
+              "num": [
+                3
+              ]
+            },
+            {
+              "num": [
+                10013
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 8,
+          "range": 6,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                600273
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500313,
+      "rarity": 0,
+      "name": "リッチ用",
+      "kana": "",
+      "text": "被遠距離ダメージ減少",
+      "restrictionForClass": 0,
+      "restrictionForTribe": 0,
+      "restrictionForElement": 0,
+      "restrictionForFamily": 0,
+      "talentList": [
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 3,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 73,
+          "param": [
+            {
+              "num": [
+                99
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
           "activeData": []
         }
       ],
@@ -113477,22 +115040,11 @@ const attach_ability_data ={
             }
           ],
           "timing": 1,
-          "range": 1,
+          "range": 4,
           "triggerData": [],
           "activeData": [
             {
               "type": 25,
-              "num": [
-                1
-              ],
-              "option": [
-                ""
-              ],
-              "target": 1,
-              "targetNum": []
-            },
-            {
-              "type": 12,
               "num": [
                 1
               ],
@@ -113515,7 +115067,7 @@ const attach_ability_data ={
       "rarity": 1397969457,
       "name": "ガードプロテクト",
       "kana": "があどぷろてくと",
-      "text": "配置中、全味方が受ける物理ダメージ12%減少",
+      "text": "配置中、全味方が受ける物理ダメージ15%減少",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -113526,7 +115078,7 @@ const attach_ability_data ={
           "param": [
             {
               "num": [
-                88
+                85
               ]
             }
           ],
@@ -113698,9 +115250,9 @@ const attach_ability_data ={
     {
       "id": 1112,
       "rarity": 1397969457,
-      "name": "状態異常レジスト",
-      "kana": "じょうたいいじょうれじすと",
-      "text": "毒、石化、スタン耐性+40",
+      "name": "オールレジスト",
+      "kana": "おぉるれじすと",
+      "text": "毒、石化、スタン耐性+50",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
       "restrictionForElement": 0,
@@ -113711,7 +115263,7 @@ const attach_ability_data ={
           "param": [
             {
               "num": [
-                40
+                50
               ]
             }
           ],
@@ -113732,7 +115284,7 @@ const attach_ability_data ={
           "param": [
             {
               "num": [
-                40
+                50
               ]
             }
           ],
@@ -113753,7 +115305,7 @@ const attach_ability_data ={
           "param": [
             {
               "num": [
-                40
+                50
               ]
             }
           ],
@@ -113849,8 +115401,8 @@ const attach_ability_data ={
     {
       "id": 1114,
       "rarity": 1397969457,
-      "name": "パワフルマックス",
-      "kana": "ぱわふるまっくす",
+      "name": "MAXマッスル",
+      "kana": "まっくすまっする",
       "text": "HPが100%以上の時与ダメージ1.3倍",
       "restrictionForClass": 0,
       "restrictionForTribe": 0,
@@ -113879,10 +115431,10 @@ const attach_ability_data ={
             {
               "type": 2000,
               "num": [
-                99
+                100
               ],
               "option": [
-                ">"
+                ">="
               ],
               "target": 1,
               "targetNum": []
@@ -118331,6 +119883,41 @@ const job_data ={
       "attackExtraMotion": -1,
       "equipmentPattern": 1,
       "system_id": 9999
+    },
+    {
+      "id": 50030,
+      "name": "ユージェンターゲット",
+      "ability": 0,
+      "cost": 0,
+      "summonType": 3,
+      "hitType": 1,
+      "minLife": 0,
+      "maxLife": 0,
+      "minPower": 300,
+      "maxPower": 600,
+      "minDefense": 0,
+      "maxDefense": 0,
+      "minMagicDefense": 0,
+      "maxMagicDefense": 0,
+      "attackRange": 220,
+      "targetNum": -1,
+      "blockNum": 0,
+      "attackSpeed": 0,
+      "attackInterval": 3,
+      "attackCount": 1,
+      "targetType": 3,
+      "missile": 10139,
+      "effect": 0,
+      "moveCost": 0,
+      "moveSpeed": 0,
+      "sortConfig": 2,
+      "attackMotion": 0,
+      "attackMotionBlock": 0,
+      "attackSkillMotion": 0,
+      "attackSkillMotionBlock": 0,
+      "attackExtraMotion": -1,
+      "equipmentPattern": 1,
+      "system_id": 9999
     }
   ]
 }
@@ -122282,6 +123869,161 @@ const missile_data ={
       "finalAction": 0,
       "fixedOrientation": 0,
       "targetBone": 1
+    },
+    {
+      "id": 128,
+      "missileId": 10138,
+      "trajectory": 2,
+      "speed": 18,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 200,
+      "landEffect": 10019,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 0,
+      "drawSize": 60,
+      "drawIndex": 20058,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 129,
+      "missileId": 10139,
+      "trajectory": 2,
+      "speed": 30,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 200,
+      "landEffect": 10019,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 0,
+      "drawSize": 60,
+      "drawIndex": 20058,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 130,
+      "missileId": 10140,
+      "trajectory": 1,
+      "speed": 100,
+      "shotWaitTime": 0,
+      "activeTime": 90,
+      "damageDuration": 15,
+      "lostInvalid": 1,
+      "blastShape": 5,
+      "blastRange": 1800,
+      "blastBreadth": 30,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10001,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 3,
+      "blastHitType": 3,
+      "drawSize": 100,
+      "drawIndex": 20021,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 131,
+      "missileId": 10141,
+      "trajectory": 1,
+      "speed": 20,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10093,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 0,
+      "drawSize": 50,
+      "drawIndex": 20059,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
+    },
+    {
+      "id": 132,
+      "missileId": 10142,
+      "trajectory": 0,
+      "speed": 0,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10010,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 2,
+      "drawSize": 0,
+      "drawIndex": 0,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0
     }
   ]
 }
@@ -123490,7 +125232,7 @@ const skill_data ={
     {
       "id": 1,
       "name": "騎士の矜持",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nand increase pDef by [MAG,1,0]",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nand increase pDef by [MAG,1,0]×",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -123922,7 +125664,7 @@ const skill_data ={
     {
       "id": 6,
       "name": "すらいむ☆ア・ラモード",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\ndamage reduction for physical damage in increased to 50%\r\nand Taunt enemies",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\ndamage reduction for physical damage is increased to 50%\r\nand Taunt enemies",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -124304,7 +126046,7 @@ const skill_data ={
     {
       "id": 10008,
       "name": "アクアリフレッシュ",
-      "text": "[duration]秒、射程[MAG,0,0]倍\r\n種族特性の回復量が3倍になり、\r\n水属性の味方は毒石化状態を無効化",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nHealing from trait is tripled, and\r\nWater allies become immune to Poison and Petrification",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -124378,7 +126120,7 @@ const skill_data ={
           "param": [
             {
               "num": [
-                1
+                0
               ]
             }
           ],
@@ -124390,13 +126132,12 @@ const skill_data ={
             }
           ],
           "timing": 1,
-          "range": 2,
-          "triggerData": [],
-          "activeData": [
+          "range": 1,
+          "triggerData": [
             {
-              "type": 1002,
+              "type": 40000,
               "num": [
-                3
+                1
               ],
               "option": [
                 ""
@@ -124404,10 +126145,44 @@ const skill_data ={
               "target": 1,
               "targetNum": []
             }
-          ]
+          ],
+          "activeData": []
         },
         {
           "talentId": 902,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 40000,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1008,
           "param": [
             {
               "num": [
@@ -124423,7 +126198,7 @@ const skill_data ={
             }
           ],
           "timing": 1,
-          "range": 2,
+          "range": 3,
           "triggerData": [],
           "activeData": [
             {
@@ -125116,7 +126891,7 @@ const skill_data ={
     {
       "id": 15,
       "name": "わんダフル・ラッシュ",
-      "text": "On skill, increase Atk by [MAG,3,0]×\r\nand attack [0,2,0] enemies five times each",
+      "text": "On skill, increase Atk by [MAG,3,0]×\r\nand attack [0,2,0] enemy five times",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -125736,7 +127511,7 @@ const skill_data ={
     {
       "id": 10020,
       "name": "妖精のイタズラ",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttacks become magical attacksし\r\n敵の遠距離攻撃の対象にならない",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttacks become magical attacks, and\r\nbecome Untargetable",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -126266,7 +128041,7 @@ const skill_data ={
     {
       "id": 23,
       "name": "パラライズブレス",
-      "text": "For [duration]s, increase Atk by [MAG,2,0]×\r\nAttacks in a small AOE in front",
+      "text": "For [duration]s, increase Atk by [MAG,2,0]×\r\nAttacks in a small AOE in front and increase the stun gauge of enemies attacked",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -126669,7 +128444,7 @@ const skill_data ={
     {
       "id": 10025,
       "name": "ぼくたちプリキュバ♪",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0],\r\nand performs double attacks\r\nDecrease the Atk of Male and Female enemies by 20%",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×,\r\nand performs double attacks\r\nDecrease the Atk of Male and Female enemies by 20%",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -127554,7 +129329,7 @@ const skill_data ={
     {
       "id": 10030,
       "name": "パワーフルMAX200%",
-      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk and pDef by [MAG,1,0]×, increase Range by [MAG,3,0]×\r\n移動時にスキルが解除されない",
+      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk and pDef by [MAG,1,0]×, increase Range by [MAG,3,0]×\r\nSkill is not cancelled by movement",
       "maxLevel": 5,
       "minCoolTime": 5520,
       "maxCoolTime": 5400,
@@ -128813,7 +130588,7 @@ const skill_data ={
     {
       "id": 40,
       "name": "ニードルレイン",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×,\r\nattack up to [0,2,0] enemies in range\r\nCreates, on attack, a poison pool that deals 15% Atk as damage every 2 seconds",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×,\r\nattack up to [0,2,0] enemies in range\r\nOn attack, creates a poison pool that deals 15% Atk as damage every 2 seconds",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -129301,10 +131076,10 @@ const skill_data ={
     {
       "id": 10040,
       "name": "トキシックニードル",
-      "text": "[duration]秒、射程[MAG,0,0]倍上昇\r\n射程内の敵[0,1,0]体に攻撃し、攻撃した敵の足元に\r\n一定時間毒沼を生成、2秒毎に設置時攻撃力100％の継続ダメージを与える",
+      "text": "[duration]秒、射程[MAG,0,0]倍上昇\r\n射程内の敵[0,1,0]体に攻撃し、攻撃した敵の足元に\r\n一定時間毒沼を生成、2秒毎に設置時攻撃力80％の継続ダメージを与える",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
+      "minCoolTime": 1470,
+      "maxCoolTime": 1350,
       "minDurationTime": 300,
       "maxDurationTime": 300,
       "talentList": [
@@ -130054,7 +131829,7 @@ const skill_data ={
     {
       "id": 44,
       "name": "ゴートヘッドフレイム",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nAttacks all enemies in range at once",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nAttacks all enemies in range at once with magical attacks",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -130204,7 +131979,7 @@ const skill_data ={
     {
       "id": 10044,
       "name": "合魔の猛炎",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nAttacks up to 4 enemies in range at once",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×,\r\nAttacks up to 4 enemies in range at once with magical attacks",
       "maxLevel": 5,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -130649,7 +132424,7 @@ const skill_data ={
     {
       "id": 47,
       "name": "ライフイーター",
-      "text": "On skill, deal damage to all enemies in range, equal to [0,0,0]% of their maxHP\r\nRecover self HP to full",
+      "text": "On skill, deal damage to all enemies in range, equal to [0,0,0]% of their current HP\r\nRecover self HP to full",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -131225,7 +133000,7 @@ const skill_data ={
     {
       "id": 10050,
       "name": "ががう！ががう！",
-      "text": "[duration]秒、攻撃力[MAG,1,0]倍上昇\r\n攻撃が２連射に変化し攻撃対象数+1",
+      "text": "For [duration]s, increase Atk by [MAG,1,0]×\r\nPerforms double attacks and attack targets +1",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -132051,7 +133826,7 @@ const skill_data ={
     {
       "id": 10056,
       "name": "ドレインスラッシュ",
-      "text": "[duration]秒、物理と魔法防御力[MAG,0,0]倍上昇、\r\n敵を攻撃する度にHPが最大HPの[0,2,0]%回復",
+      "text": "For [duration]s, increase pDef and mDef by [MAG,0,0]×\r\nOn attack, recovers self HP by [0,2,0]% of self maxHP",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -133002,7 +134777,7 @@ const skill_data ={
     {
       "id": 64,
       "name": "百烈岩・天",
-      "text": "For [duration]s, increase Range by [MAG,0,0]\r\nand attack up to [0,2,0] enemies in range with drastically increased aSpd",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×\r\nand attack up to [0,2,0] enemies in range with drastically increased aSpd",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -133332,7 +135107,7 @@ const skill_data ={
     {
       "id": 66,
       "name": "サンダー☆クラウド",
-      "text": "For [duration]s, increase Range by [MAG,0,0], increase number of targets by [0,1,0]\r\nAttacks increase the Stun gauge of enemies (Accum: Medium)",
+      "text": "For [duration]s, increase Range by [MAG,0,0]×, increase number of targets by [0,1,0]\r\nAttacks increase the Stun gauge of enemies (Accum: Medium)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -134663,7 +136438,7 @@ const skill_data ={
     {
       "id": 200074,
       "name": "MAXタイガーモード！",
-      "text": "Infinite duration\r\nIncrease maxHP by　[MAG,0,0]×, increase Atk and pDef by [MAG,1,0]× and decrease PAD greatly",
+      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk and pDef by [MAG,1,0]× and decrease PAD greatly",
       "maxLevel": 5,
       "minCoolTime": 1920,
       "maxCoolTime": 1800,
@@ -135174,7 +136949,7 @@ const skill_data ={
     {
       "id": 10078,
       "name": "串刺し祭りぴょん♪",
-      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, perform quintuple attacks\r\When used by the unit, increase token stock by 1",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, perform quintuple attacks\r\nWhen used by the unit, increase token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -135230,7 +137005,7 @@ const skill_data ={
     {
       "id": 79,
       "name": "フロストスタンプ",
-      "text": "For [duration]s, decrease aSpd but\r\nincrease Atk by [MAG,0,0]×, performs magical attacks with increased AOE which Freeze enemies for 1s\r\Small chance to Blow Off enemies",
+      "text": "For [duration]s, decrease aSpd but\r\nincrease Atk by [MAG,0,0]×, performs magical attacks with increased AOE which Freeze enemies for 1s\r\nSmall chance to Blow Off enemies",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -135394,7 +137169,7 @@ const skill_data ={
     {
       "id": 10079,
       "name": "フローズンシュート",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍\r\n魔法遠距離攻撃化し、\r\n攻撃した敵の動きを1秒間停止させる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nAttacks become long-range magical attacks\r\nwhich Freeze enemies for 1s",
       "maxLevel": 5,
       "minCoolTime": 1170,
       "maxCoolTime": 1050,
@@ -135894,7 +137669,7 @@ const skill_data ={
     {
       "id": 82,
       "name": "光臨",
-      "text": "On skill, increase Atk by [MAG,1,0]×, increase Range by [MAG,0,0]×,\r\nthen attack [0,2,0] enemies in range with increased AOE",
+      "text": "On skill, increase Atk by [MAG,1,0]×, increase Range by [MAG,0,0]×,\r\nthen attack [0,2,0] enemies in range once with increased AOE",
       "maxLevel": 5,
       "minCoolTime": 720,
       "maxCoolTime": 600,
@@ -137000,7 +138775,7 @@ const skill_data ={
     {
       "id": 10088,
       "name": "ギアブーストI",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.5× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -137183,7 +138958,7 @@ const skill_data ={
     {
       "id": 210088,
       "name": "ギアブーストII",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.5× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -137366,7 +139141,7 @@ const skill_data ={
     {
       "id": 211088,
       "name": "ギアブーストIII",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.5× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -137549,7 +139324,7 @@ const skill_data ={
     {
       "id": 212088,
       "name": "ギアブーストIV",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.3× and movSpd by 50 (max 4 times)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase movSpd by +[0,2,0]\r\nDamage received from physical and magical attacks is reduced by 30%\r\nSkill changes after use, increasing status multipliers by +0.5× and movSpd by 50 (max 4 times)",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -138487,7 +140262,7 @@ const skill_data ={
     {
       "id": 92,
       "name": "つかまらないっち！",
-      "text": "Infinite duration\r\Increase maxHP by [MAG,0,0]×, increase Atk by [MAG,1,0]×\r\n50% chance to evade physical and magical attacks\r\nTrait continuous damage is increase to 3 times",
+      "text": "Infinite duration\r\nIncrease maxHP by [MAG,0,0]×, increase Atk by [MAG,1,0]×\r\n50% chance to evade physical and magical attacks\r\nTrait continuous damage is increase to 3 times",
       "maxLevel": 5,
       "minCoolTime": 3720,
       "maxCoolTime": 3600,
@@ -138836,7 +140611,7 @@ const skill_data ={
     {
       "id": 95,
       "name": "獅子の怒り",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]× and always attack [0,1,0] enemies at once\r\nWhen attacking less enemies, damage dealt increases (max 1.5×)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and always attack [0,1,0] enemies at once\r\nWhen attacking fewer enemies, damage dealt increases (max 1.5×)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -139317,7 +141092,7 @@ const skill_data ={
     {
       "id": 99,
       "name": "イービルサンダー",
-      "text": "Increase DP by [0,2,0], and for [duration]s after that,\r\nIncrease Range and Atk by [MAG,0,0]×, perform long-reanged magical attacks\r\nAttacks increase the stun gauge of enemies (Accum: Small) with a chance to Poison and Petrify enemies",
+      "text": "Increase DP by [0,2,0]\r\nAfter that, for [duration]s, increase Range and Atk by [MAG,0,0]×, perform long-ranged magical attacks\r\nAttacks increase the stun gauge of enemies (Accum: Small) with a chance to Poison and Petrify enemies",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -140050,7 +141825,7 @@ const skill_data ={
     {
       "id": 106,
       "name": "ドラゴニックオーラ",
-      "text": "For [duration]s, increase Atk by [MAG,0,0], increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE\r\nSkill changes after use, increasing status multipliers by +0.3× (max 4 more times)",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase pDef and mDef by [MAG,1,0]×\r\nAttacks become long-ranged magical AOE\r\nSkill changes after use, increasing status multipliers by +0.3× (max 4 more times)",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -140979,7 +142754,7 @@ const skill_data ={
     {
       "id": 107,
       "name": "死霊の呼び声",
-      "text": "For [duration]s, attacks lose AOE, but\r\nincrease Range by [MAG,0,0]×, increase Atk by [MAG,1,0]×, attack up 5 enemies at once\r\nEvery 3 enemies defeated increases token stock by 1",
+      "text": "For [duration]s, attacks lose AOE, but\r\nincrease Range by [MAG,0,0]×, increase Atk by [MAG,1,0]×, attack up 5 enemies at once\r\nEvery 3 enemies defeated by Lico increases token stock by 1",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -141215,7 +142990,7 @@ const skill_data ={
     {
       "id": 111,
       "name": "フェアリーナイツ",
-      "text": "Increase DP by [0,4,0], and for [duration]s after that,\r\nincrease Atk by [MAG,0,0] and increase aSpd for both self and Fairy Knight tokens\r\nIncrease token stock by [0,3,0]",
+      "text": "Increase DP by [0,4,0]\r\nAfter that, for [duration]s, increase Atk by [MAG,0,0]× and increase aSpd for both self and Fairy Knight tokens\r\nIncrease token stock by [0,3,0]",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -141436,7 +143211,7 @@ const skill_data ={
     {
       "id": 112,
       "name": "超ハードコーティング",
-      "text": "For [duration]s, increase attack AOE,\r\nincrease Atk by [MAG,0,0]×, increase pDef by [MAG,1,0]×\r\nBecome immune to Stun",
+      "text": "For [duration]s, attacks become AOE,\r\nincrease Atk by [MAG,0,0]×, increase pDef by [MAG,1,0]×\r\nBecome immune to Stun",
       "maxLevel": 5,
       "minCoolTime": 1620,
       "maxCoolTime": 1500,
@@ -141534,7 +143309,7 @@ const skill_data ={
     {
       "id": 113,
       "name": "インビジフード",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack [0,3,0] enemies at once\r\nBlock count become 0 and become Untargetable",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attack [0,3,0] enemies at once\r\nBlock count becomes 0 and become Untargetable",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -141774,7 +143549,7 @@ const skill_data ={
     {
       "id": 115,
       "name": "血塗れパーティタイム！",
-      "text": "For [duration]s, increase Atk [MAG,0,0]×\r\nTrait healing on attack is increased to 5 times",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×\r\nTrait healing on attack is increased to 5 times",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -144716,7 +146491,7 @@ const skill_data ={
     {
       "id": 144,
       "name": "幽体招待ショータイム♪",
-      "text": "[duration]秒射程[MAG,0,0]倍、攻撃速度が大幅に上昇\r\n小範囲攻撃になり、攻撃時に\r\n範囲内全ての敵を僅かに後退させる",
+      "text": "For [duration]s, increase Range by [MAG,0,0]× and increase aSpd drastically\r\nAttacks become a small AOE, and knocks back all enemies in range very slightly on attack",
       "maxLevel": 5,
       "minCoolTime": 1470,
       "maxCoolTime": 1350,
@@ -145334,7 +147109,7 @@ const skill_data ={
     {
       "id": 149,
       "name": "天魔頭蓋斬・焔！",
-      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase pDef [MAG,1,0]×\r\nAttacks become a small AOE",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase pDef by [MAG,1,0]×\r\nAttacks become a small AOE",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -146992,10 +148767,10 @@ const skill_data ={
     {
       "id": 170,
       "name": "エナジーコンバート",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n10秒毎に範囲内の敵味方のHPを\r\n最大値の1%減少し、トークン所持数+1",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nEvery 10s, deal 1% maxHP damage to both allies and enemies in range and increase token stock by 1",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
+      "minCoolTime": 1620,
+      "maxCoolTime": 1500,
       "minDurationTime": 1200,
       "maxDurationTime": 1200,
       "talentList": [
@@ -147214,7 +148989,7 @@ const skill_data ={
     {
       "id": 173,
       "name": "アシッドコラプション",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、遠距離範囲攻撃化\r\n種族特性の被ダメージ上昇と\r\n継続ダメージが範囲内の敵に発生",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]× and attacks become long-ranged AOE\r\nTrait damage received effect and continuous damage applies to enemies in range",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
@@ -147591,7 +149366,7 @@ const skill_data ={
     {
       "id": 176,
       "name": "ドラゴニックブーケ",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、射程[MAG,1,0]倍\r\n種族特性の竜炎が全ての攻撃で生成され、\r\n竜炎の持続時間が2倍になる",
+      "text": "For [duration]s, increase Atk by [MAG,0,0]×, increase Range by [MAG,1,0]×\r\nTrait special attack applies to all attacks,\r\nand special attack damage field duration is doubled",
       "maxLevel": 5,
       "minCoolTime": 870,
       "maxCoolTime": 750,
@@ -148119,16 +149894,16 @@ const skill_data ={
     },
     {
       "id": 182,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "バーストレーザー",
+      "text": "[duration]秒、射程[MAG,0,0]倍、攻撃時ターゲットに対し\r\n一定時間持続する直線レーザーを発射し\r\nレーザーに触れた敵に攻撃力[0,1,0]%で毎秒2回の防御力無視の攻撃",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
+      "minCoolTime": 1620,
+      "maxCoolTime": 1500,
       "minDurationTime": 900,
       "maxDurationTime": 900,
       "talentList": [
         {
-          "talentId": 6,
+          "talentId": 36,
           "param": [
             {
               "num": [
@@ -148147,21 +149922,158 @@ const skill_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 1009,
+          "param": [
+            {
+              "num": [
+                60
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 11,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 67,
+          "param": [
+            {
+              "num": [
+                10140
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1088,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 49,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 43
     },
     {
       "id": 183,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "白翼の狩猟者",
+      "text": "Increase DP by [0,0,0]\r\nAfter that, for [duration]s, increase Atk and pDef by [MAG,1,0]×,\r\nincrease movSpd by [0,4,0], and moveCost becomes 0.",
       "maxLevel": 5,
       "minCoolTime": 1020,
       "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minDurationTime": 600,
+      "maxDurationTime": 600,
       "talentList": [
+        {
+          "talentId": 1005,
+          "param": [
+            {
+              "num": [
+                17
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
         {
           "talentId": 6,
           "param": [
@@ -148174,7 +150086,91 @@ const skill_data ={
           "maxParam": [
             {
               "num": [
-                140
+                120
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 62,
+          "param": [
+            {
+              "num": [
+                99
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 23,
+          "param": [
+            {
+              "num": [
+                250
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                300
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1103,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -148185,31 +150181,179 @@ const skill_data ={
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 44
     },
     {
       "id": 184,
-      "name": "ダミー",
-      "text": "ダミー",
+      "name": "ブレイクショット",
+      "text": "Increase token stock by 3\r\nAfter that, for [duration]s, increase Atk by [MAG,0,0]× and become Untargetable\r\nDecrease the Atk and pDef of attacked enemies by [0,2,0]% for 3s",
       "maxLevel": 5,
-      "minCoolTime": 1020,
-      "maxCoolTime": 900,
-      "minDurationTime": 900,
-      "maxDurationTime": 900,
+      "minCoolTime": 1920,
+      "maxCoolTime": 1800,
+      "minDurationTime": 1200,
+      "maxDurationTime": 1200,
       "talentList": [
         {
           "talentId": 6,
           "param": [
             {
               "num": [
-                100
+                140
               ]
             }
           ],
           "maxParam": [
             {
               "num": [
-                140
+                180
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 504,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 7,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                90
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                40
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 12,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            },
+            {
+              "num": [
+                90
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10020
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                40
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 40001,
+              "num": [
+                2
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1084,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
               ]
             }
           ],
@@ -148220,7 +150364,7 @@ const skill_data ={
         }
       ],
       "isInvalidAutoSkill": 0,
-      "recipeId": 24
+      "recipeId": 46
     },
     {
       "id": 185,
@@ -151306,6 +153450,27 @@ const token_data ={
       "isAttack": 0,
       "summonType": 3,
       "offsetX": -0.45,
+      "offsetY": 0.0,
+      "isAppearAnim": 0
+    },
+    {
+      "id": 32,
+      "name": "ターゲットアロー",
+      "category": 3,
+      "cost": 5,
+      "summonIndex": 50037,
+      "enchantBone": 0,
+      "time": 30,
+      "stock": 7,
+      "simultaneous": 0,
+      "exclude": 99,
+      "standby": 30,
+      "interval": 30,
+      "directionLock": 0,
+      "damageType": 0,
+      "isAttack": 1,
+      "summonType": 3,
+      "offsetX": 0.0,
       "offsetY": 0.0,
       "isAppearAnim": 0
     }
