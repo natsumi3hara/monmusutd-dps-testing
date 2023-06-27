@@ -233,25 +233,25 @@ var equip13011 = {
     "0":[
         {"stat1":0,"stat2":7,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":3},
         {"stat1":0,"stat2":0,"stat3":9,"stat4":11,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
-        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":5,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
         {"stat1":0,"stat2":0,"stat3":12,"stat4":8,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ],
     "1":[
         {"stat1":0,"stat2":17,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":3},
         {"stat1":0,"stat2":0,"stat3":11,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
-        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":10,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
         {"stat1":0,"stat2":0,"stat3":15,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ],
     "2":[
         {"stat1":0,"stat2":27,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":3},
         {"stat1":0,"stat2":0,"stat3":13,"stat4":17,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
-        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
         {"stat1":0,"stat2":0,"stat3":18,"stat4":12,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ],
     "3":[
         {"stat1":0,"stat2":33,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":3},
         {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
-        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":20,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
         {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ]
 }
