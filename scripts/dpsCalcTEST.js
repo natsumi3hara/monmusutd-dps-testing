@@ -218,6 +218,7 @@ function compareChara(){
         masterValues["charaID"] = characterID;
         masterValues["unitcard"] = window["card"+masterValues.charaID];
         masterValues["baseClass"] = masterValues.unitcard["classId"];
+        talenttext()
         let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
         dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
     }
@@ -229,24 +230,29 @@ function compareChara(){
         document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = "";
     }
     for (let k=0;k<10;k++){ //filling rank
-        let compName = dpsRanking[k][1];
-        let compImg = "../../img/chara-icons/icon_"+dpsRanking[k][0].toString()+"_0_s.png";
-        let compDps = dpsRanking[k][2];
-        if (compDps === undefined){
-            document.getElementById("compChara-"+(k+1)+"-name").innerHTML = "";
-            document.getElementById("compChara-"+(k+1)+"-img").src = "../../img/chara-icons/icon_10000_0_s.png";
-            document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = "";
-            continue;
+        try {
+            let compName = dpsRanking[k][1];
+            let compImg = "../../img/chara-icons/icon_"+dpsRanking[k][0].toString()+"_0_s.png";
+            let compDps = dpsRanking[k][2];
+            if (compDps === undefined){
+                document.getElementById("compChara-"+(k+1)+"-name").innerHTML = "";
+                document.getElementById("compChara-"+(k+1)+"-img").src = "../../img/chara-icons/icon_10000_0_s.png";
+                document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = "";
+                continue;
+            }
+            document.getElementById("compChara-"+(k+1)+"-name").innerHTML = compName;
+            document.getElementById("compChara-"+(k+1)+"-img").src = compImg;
+            document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = compDps;
+        } catch (err) {
+            console.log("No more charas!")
         }
-        document.getElementById("compChara-"+(k+1)+"-name").innerHTML = compName;
-        document.getElementById("compChara-"+(k+1)+"-img").src = compImg;
-        document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = compDps;
     }
     //revert to normal//
     masterValues["charaID"] = Number(params.get("id"));
     masterValues["unitcard"] = window["card"+params.get("id")];
     masterValues["charaAwaked"] = (params.get("awaked")==="true");
     masterValues["baseClass"] = masterValues.unitcard["classId"];
+    talenttext()
     allDPS();
 }
 
