@@ -601,6 +601,11 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     //console.log(cooldown);
     //console.log(subskillID_1);
     //console.log(subskillID_2);
+    //true-false variables//
+    //↓if needed, this will be converted to lists like decrease1per1, decrease1per4 etc, count number of true//
+    let fullHeart = selfConditions["2000"]===100 && (subskillID_1 === 58||subskillID_2 === 58);
+    let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
+    let chara10147 = masterValues.charaID===10147 && selfConditions["2"]===1;
     //duration manipulation//
     if (duration === 0){duration = Number(document.getElementById("dps-dps-skill-averageFrame").innerHTML)/30}
     //initial manipulation//
@@ -611,6 +616,17 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
     if (selfConditions["1007"]===11024||selfConditions["1007"]===11044){initial -= 3;}
     if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
+    if (fullHeart && mattari && chara10147){
+        initial = Math.floor(initial/13)*4 + Math.ceil((initial%13)/3);
+    } else if (fullHeart && (mattari||chara10147)){
+        initial = Math.floor(initial/9)*4 + Math.ceil((initial%9)/2);
+    } else if (fullHeart){
+        initial = Math.floor(initial/5)*4 + Math.ceil(initial%5);
+    } else if (mattari&&chara10147){
+        initial = Math.ceil(initial/3);
+    } else if (mattari||chara10147){
+        initial = Math.ceil(initial/2);
+    } else {}
     if (initial < 0){initial = 0;}
     //console.log(initial);
     //cooldown manipulation//
@@ -622,10 +638,6 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
         }
     }
     //cooldown manipulation (subskill)//
-    //if needed, this will be converted to lists like decrease1per1, decrease1per4 etc, count number of true//
-    let fullHeart = selfConditions["2000"]===100 && (subskillID_1 === 58||subskillID_2 === 58);
-    let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
-    let chara10147 = masterValues.charaID===10147 && selfConditions["2"]===1;
     /*console.log(fullHeart);
     console.log(mattari);
     console.log(chara10147);
