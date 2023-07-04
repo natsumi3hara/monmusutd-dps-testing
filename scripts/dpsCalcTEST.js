@@ -644,6 +644,14 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     console.log(Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3));
     console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
     console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
+    if (document.getElementById("shared20007-1").checked && (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
+        cooldown -= 7*Number(document.getElementById("shared20007-2").value);
+    } else if ((selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
+        cooldown -= 10*Number(document.getElementById("shared20007-2").value);
+    }
+    if (true/*document.getElementById("shared20008-1").checked*/){
+        cooldown -= 3*Number(document.getElementById("shared20008-2").value);
+    }
     if (fullHeart && mattari && chara10147){
         cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
     } else if (fullHeart && (mattari||chara10147)){
@@ -655,14 +663,6 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     } else if (mattari||chara10147){
         cooldown = Math.ceil(cooldown/2);
     } else {}
-    if (document.getElementById("shared20007-1").checked && (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
-        cooldown -= 7*Number(document.getElementById("shared20007-2").value);
-    } else if ((selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
-        cooldown -= 10*Number(document.getElementById("shared20007-2").value);
-    }
-    if (true/*document.getElementById("shared20008-1").checked*/){
-        cooldown -= 3*Number(document.getElementById("shared20008-2").value);
-    }
     if (cooldown < 0) {cooldown = 0;}
     //final adjustment and display//
     if (duration === -1){
