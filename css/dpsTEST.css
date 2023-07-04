@@ -411,3 +411,14 @@ hr{
     width: 50px;
     display: block;
 }
+#compCharaResult3 td{
+    height:50px;
+    width: auto;
+    padding: 0px;
+    border: none;
+}
+#compCharaResult3 td img{
+    height:50px;
+    width: 50px;
+    display: block;
+}

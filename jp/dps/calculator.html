@@ -450,7 +450,7 @@
                             <table id="compCharaSelect">
                                 <tr>
                                     <td class="displaytext" colspan="2" style="border: 2px solid white;">
-                                        <span style="text-align: center;">AND選択</span><input type="checkbox" id="compChara-AND" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();">
+                                        <span style="text-align: center;">AND選択</span><input type="checkbox" id="compChara-AND" class="larger-check" style="vertical-align: bottom;">
                                     </td>
                                     <td class="displaytext" colspan="4" style="border: 2px solid white;">
                                         <span>DPSモード：</span>
@@ -591,6 +591,151 @@
                                         <td id="compChara-10-dps" style="width:15%"></td>
                                     </tr>
                                 </table>
+                                <button type="button" class="collapsible-button infoTabExpand" style="margin-bottom:4px;">11位～30位(クリックで開く)</button>
+                                <div style="display: none;">
+                                    <table id="compCharaResult3">
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">11位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-11-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-11-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-11-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">12位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-12-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-12-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-12-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">13位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-13-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-13-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-13-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">14位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-14-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-14-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-14-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">15位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-15-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-15-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-15-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">16位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-16-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-16-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-16-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">17位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-17-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-17-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-17-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">18位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-18-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-18-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-18-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">19位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-19-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-19-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-19-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">20位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-20-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-20-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-20-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">21位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-21-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-21-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-21-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">22位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-22-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-22-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-22-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">23位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-23-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-23-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-23-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">24位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-24-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-24-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-24-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">25位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-25-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-25-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-25-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">26位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-26-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-26-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-26-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">27位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-27-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-27-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-27-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">28位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-28-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-28-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-28-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">29位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-29-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-29-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-29-dps" style="width:15%"></td>
+                                        </tr>
+                                        <tr style="height:50px;">
+                                            <td class="displaytext" style="width:50px">30位</td>
+                                            <td class="displaytext" style="width:50px"><img id="compChara-30-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                            <td id="compChara-30-name"></td>
+                                            <td class="displaytext" style="width:10%">DPS</td>
+                                            <td id="compChara-30-dps" style="width:15%"></td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

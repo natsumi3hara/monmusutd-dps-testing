@@ -213,23 +213,91 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
+    let ex2List = [10008,10019,10020,10022,10024,10025,10030,10032,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10065,10068,10078,10079,10085,10088];
+    let exChangeList = [10088,10106,10126];
+    let exChangeRefr = [[0,4],[4],[3]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
     for (let characterID of allIncluded){
-        masterValues["charaID"] = characterID;
-        masterValues["unitcard"] = window["card"+masterValues.charaID];
-        masterValues["baseClass"] = masterValues.unitcard["classId"];
-        talenttext()
-        let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
-        dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+        console.log(characterID);
+        if (ex2List.includes(characterID) && exChangeList.includes(characterID)){//10088 only
+            //normal
+            setForCompare(characterID);
+            talenttext();
+            let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
+            dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            //cycle change, normal
+            let changeIndex = exChangeList.indexOf(characterID);
+            for (let i=0;i<exChangeRefr[changeIndex][0];i++){
+                document.getElementById("skill-change-select").value = (200000 + 1000 * i).toString();
+                setForCompare(characterID);
+                talenttext();
+                let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"]+"&nbsp;(変化"+(1+i).toString()+")";
+                dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            }
+            document.getElementById("skill-change-select").value = "0";//set back to normal
+            //ex2
+            document.getElementById("skill-alt-select").value = "0";
+            setForCompare(characterID);
+            talenttext();
+            unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"]+"&nbsp;(EXスキルII)";
+            dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            //cycle change, ex2
+            for (let i=0;i<exChangeRefr[changeIndex][1];i++){
+                document.getElementById("skill-change-select").value = (200000 + 1000 * i).toString();
+                setForCompare(characterID);
+                talenttext();
+                let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"]+"&nbsp;(EXスキルII、変化"+(1+i).toString()+")";
+                dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            }
+            //set back to normal
+            document.getElementById("skill-change-select").value = "0";
+            document.getElementById("skill-alt-select").value = "10000";
+        } else if (exChangeList.includes(characterID)){//10106 and 10126
+            //normal
+            setForCompare(characterID);
+            talenttext();
+            let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
+            dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            //cycle change
+            let changeIndex = exChangeList.indexOf(characterID);
+            for (let i=0;i<exChangeRefr[changeIndex];i++){
+                document.getElementById("skill-change-select").value = (200000 + 1000 * i).toString();
+                setForCompare(characterID);
+                talenttext();
+                let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"]+"&nbsp;(変化"+(1+i).toString()+")";
+                dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            }
+            //set back to normal
+            document.getElementById("skill-change-select").value = "0";
+        } else if (ex2List.includes(characterID)){//all the ex2
+            //normal
+            setForCompare(characterID);
+            talenttext();
+            let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
+            dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            //ex2
+            document.getElementById("skill-alt-select").value = "0";
+            setForCompare(characterID);
+            talenttext();
+            unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"]+"&nbsp;(EXスキルII)";
+            dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+            //set back to normal
+            document.getElementById("skill-alt-select").value = "10000";
+        } else {//everything else
+            setForCompare(characterID);
+            talenttext();
+            let unitname = "【"+masterValues.unitcard["nickname"]+"】"+masterValues.unitcard["charaName"];
+            dpsRanking.push([characterID,unitname,Number(allDPS()[sortMethod].toFixed(3))]);
+        }
     }
     dpsRanking.sort(function(a,b){return b[2] - a[2];});
     console.log(dpsRanking);
-    for (let k=0;k<10;k++){ //clearing rank
+    for (let k=0;k<30;k++){ //clearing rank
         document.getElementById("compChara-"+(k+1)+"-name").innerHTML = "";
         document.getElementById("compChara-"+(k+1)+"-img").src = "../../img/chara-icons/icon_10000_0_s.png";
         document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = "";
     }
-    for (let k=0;k<10;k++){ //filling rank
+    for (let k=0;k<30;k++){ //filling rank
         try {
             let compName = dpsRanking[k][1];
             let compImg = "../../img/chara-icons/icon_"+dpsRanking[k][0].toString()+"_0_s.png";
@@ -254,6 +322,12 @@ function compareChara(){
     masterValues["baseClass"] = masterValues.unitcard["classId"];
     talenttext()
     allDPS();
+}
+
+function setForCompare(ID){
+    masterValues["charaID"] = ID;
+    masterValues["unitcard"] = window["card"+masterValues.charaID];
+    masterValues["baseClass"] = masterValues.unitcard["classId"];
 }
 
 function createChart(){
