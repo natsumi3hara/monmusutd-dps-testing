@@ -287,7 +287,7 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">待機時間(秒)</span>
                 <input id="charaSpecific11011-1" class="" type="number" min="0" max="60" value="0" step="0.01" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfConditionChange('2002',Math.floor(Number(this.value)*30+0.0001));allDPS();">
-                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">(DPS比べに使用不可)</span>
             </div>
         </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-11031">
@@ -315,17 +315,34 @@ document.write(`
             </div>
         </div>
     </div>
+    <span>&nbsp;全て表示</span><input type="checkbox" id="charaShowAll-check" class="larger-check" style="vertical-align: bottom;" onchange="charaShowAll();">
 </div>
 <script>
-let charaSpecificDivs = document.getElementsByClassName("flex-container-charaSpecific-buff-inner");
-let checkCharaID = "chara-specific-" + masterValues.charaID.toString();
-let checkClassID = "chara-specific-" + masterValues.baseClass.toString();
-for (let i=0;i<charaSpecificDivs.length;i++){
-    if (charaSpecificDivs[i].classList.contains(checkCharaID)||charaSpecificDivs[i].classList.contains(checkClassID)){
-        //Correct ID//
+function charaShowAll(){
+    if (document.getElementById("charaShowAll-check").checked){
+        let charaSpecificDivs = document.getElementsByClassName("flex-container-charaSpecific-buff-inner");
+        let checkCharaID = "chara-specific-" + masterValues.charaID.toString();
+        let checkClassID = "chara-specific-" + masterValues.baseClass.toString();
+        for (let i=0;i<charaSpecificDivs.length;i++){
+            if (charaSpecificDivs[i].classList.contains(checkCharaID)||charaSpecificDivs[i].classList.contains(checkClassID)){
+                //Correct ID//
+            } else {
+                charaSpecificDivs[i].style.display = "flex";
+            }
+        }
     } else {
-        charaSpecificDivs[i].style.display = "none";
+        let charaSpecificDivs = document.getElementsByClassName("flex-container-charaSpecific-buff-inner");
+        let checkCharaID = "chara-specific-" + masterValues.charaID.toString();
+        let checkClassID = "chara-specific-" + masterValues.baseClass.toString();
+        for (let i=0;i<charaSpecificDivs.length;i++){
+            if (charaSpecificDivs[i].classList.contains(checkCharaID)||charaSpecificDivs[i].classList.contains(checkClassID)){
+                //Correct ID//
+            } else {
+                charaSpecificDivs[i].style.display = "none";
+            }
+        }
     }
 }
+charaShowAll()
 </script>
 `);

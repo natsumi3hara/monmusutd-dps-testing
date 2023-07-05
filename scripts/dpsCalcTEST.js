@@ -217,6 +217,10 @@ function compareChara(){
     let exChangeList = [10088,10106,10126];
     let exChangeRefr = [[0,4],[4],[3]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
+    //preliminary adjustments
+    document.getElementById("skill-change-select").value = "0";
+    document.getElementById("skill-alt-select").value = "10000";
+    selfConditionChange('2002',0);//set attack delay to 0 (invalidates scimitar ability)
     for (let characterID of allIncluded){
         console.log(characterID);
         if (ex2List.includes(characterID) && exChangeList.includes(characterID)){//10088 only
@@ -322,6 +326,9 @@ function compareChara(){
     masterValues["baseClass"] = masterValues.unitcard["classId"];
     talenttext()
     allDPS();
+    document.getElementById("skill-change-select").value = "0";
+    document.getElementById("skill-alt-select").value = "10000";
+    document.getElementById("skill-error").innerHTML = "";
 }
 
 function setForCompare(ID){
