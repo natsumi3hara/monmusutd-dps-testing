@@ -37,6 +37,9 @@ var selfConditions = {
 	"1006": 0, //jobSystemId (found in job_data)
 	"1007": 0, //jobId
 	"1008": 0, //charaId
+	"1009": 1, //skillNo
+	"1010": 0, //attributeTile
+	"1011": 0, //traitTag
 	"2000": 100, //hpRate
 	"2001": 0, //existenceTime (dot % operator)
 	"2002": 0,//waitTime (曲刀用)
@@ -51,6 +54,8 @@ var selfConditions = {
 	"2011": 0, //aliveSlaveCount (無用)
 	"2012": 0, //attackTargetCount (フィロソフィア、ラフーカ)
 	"2013": 0, //blockCount (いろいろ)
+	"2014": 0, //destroyCount
+	"2015": 0, //TotalDestroyCount
 	"3000": undefined, //questCategory (無用)
 	"3001": undefined, //questId (無用?)
 	"3002": undefined, //timeLimit (無用)
@@ -122,6 +127,9 @@ var enemyConditions = {
 	"1006": 0, //jobSystemId
 	"1007": 0, //jobId
 	"1008": 0, //charaId
+	"1009": 1, //skillNo
+	"1010": 0, //attributeTile
+	"1011": 0, //traitTag
 	"2000": 100, //hpRate
 	"2001": 0, //existenceTime (DoT % operator)
 	"2002": 0,//waitTime
@@ -136,6 +144,8 @@ var enemyConditions = {
 	"2011": 0, //aliveSlaveCount
 	"2012": 0, //attackTargetCount
 	"2013": 0, //blockCount
+	"2014": 0, //destroyCount
+	"2015": 0, //TotalDestroyCount
 	"3000": undefined, //questCategory
 	"3001": undefined, //questId
 	"3002": undefined, //timeLimit

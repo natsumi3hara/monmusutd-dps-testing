@@ -35,6 +35,7 @@
                     <button class="btn" onclick="filterSelection('orb')"> ヒーラー(オーブ)</button>
                     <button class="btn" onclick="filterSelection('dagger')"> スカウト(短剣)</button>
                     <button class="btn" onclick="filterSelection('fan')"> スカウト(扇)</button>
+                    <button class="btn" onclick="filterSelection('shuriken')"> スカウト(手裏剣)</button>
                     <button class="btn" onclick="filterSelection('twig')"> サポーター(霊枝)</button>
                     <button class="btn" onclick="filterSelection('instrument')"> サポーター(楽器)</button>
                 </div>
@@ -49,7 +50,12 @@
                     <button class="btn darkAB" onclick="filterSelection('darkA')"> 闇属性</button>
                 </div>
                 <hr class="hline">
-                <button style="background-color: #ffff7d;" class="collapsible-button">Tags↓ (今は使えない)</button>
+                <button style="background-color: #ffff7d;" class="collapsible-button">種族↓</button>
+                <div class="collapsible-content" style="display: none;">
+                    <button class="btn" onclick="filterSelection('youkai')"> 妖怪</button>
+                </div>
+                <!--<hr class="hline">
+                <button style="background-color: #91ff91;" class="collapsible-button">Tags↓ (今は使えない)</button>
                 <div class="collapsible-content" style="display: none;line-height: normal;">
                     <button class="btn" onclick="filterSelection('dps')"> DPS</button>
                     <button class="btn" onclick="filterSelection('aspd')"> Fast Attack</button>
@@ -65,14 +71,7 @@
                     <button class="btn" onclick="filterSelection('critical')"> Critical(Innate)</button>
                     <button class="btn" onclick="filterSelection('multihit')"> Multi-hit</button>
                     <button class="btn" onclick="filterSelection('multitarget')"> Multi-target</button>
-                </div>
-                <hr class="hline">
-                <button style="background-color: #91ff91;" class="collapsible-button">Support Buffs (Team)↓ (今は使えない)</button>
-                <div class="collapsible-content" style="display: none;">
-                    <button class="btn" onclick="filterSelection('atkbuff')"> Attack Buff</button>
-                    <button class="btn" onclick="filterSelection('movspdbuff')"> MovSpd Buff</button>
-                    <button class="btn" onclick="filterSelection('atkbuff')"> Evasion Buff</button>
-                </div>
+                </div>-->
             </div>
             <hr class="hline">
             <div class="container">
@@ -400,6 +399,9 @@
                 <div class="filterDiv legend twig waterA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10116_0_s.png">
                 </div>
+                <div class="filterDiv legend scimitar waterA youkai" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10117_0_s.png">
+                </div>
                 <div class="filterDiv legend instrument earthA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10119_0_s.png">
                 </div>
@@ -412,6 +414,9 @@
                 <div class="filterDiv free legend instrument lightA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10123_0_s.png">
                 </div>
+                <div class="filterDiv free epic fist waterA youkai" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10124_0_s.png">
+                </div>
                 <div class="filterDiv free legend instrument waterA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10125_0_s.png">
                 </div>
@@ -421,11 +426,20 @@
                 <div class="filterDiv legend book windA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10127_0_s.png">
                 </div>
+                <div class="filterDiv free common scimitar windA youkai" style="background-color:#c0c0c0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10128_0_s.png">
+                </div>
+                <div class="filterDiv free epic instrument windA youkai" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10129_0_s.png">
+                </div>
                 <div class="filterDiv free epic bow darkA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10132_0_s.png">
                 </div>
                 <div class="filterDiv free legend instrument lightA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10134_0_s.png">
+                </div>
+                <div class="filterDiv free rare hammer earthA youkai" style="background-color:#87ceeb;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10135_0_s.png">
                 </div>
                 <div class="filterDiv legend hammer fireA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10136_0_s.png">
@@ -444,6 +458,9 @@
                 </div>
                 <div class="filterDiv free epic gun waterA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10141_0_s.png">
+                </div>
+                <div class="filterDiv free common bow fireA youkai" style="background-color:#c0c0c0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10142_0_s.png">
                 </div>
                 <div class="filterDiv legend bow darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10143_0_s.png">
@@ -475,11 +492,23 @@
                 <div class="filterDiv legend orb waterA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10152_0_s.png">
                 </div>
+                <div class="filterDiv free epic shuriken windA youkai" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10155_0_s.png">
+                </div>
+                <div class="filterDiv free epic fan windA youkai" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10157_0_s.png">
+                </div>
                 <div class="filterDiv legend book earthA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10158_0_s.png">
                 </div>
+                <div class="filterDiv free epic hammer earthA youkai" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10160_0_s.png">
+                </div>
                 <div class="filterDiv legend staff darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10161_0_s.png">
+                </div>
+                <div class="filterDiv free rare shuriken lightA youkai" style="background-color:#87ceeb;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10162_0_s.png">
                 </div>
                 <div class="filterDiv free legend dagger earthA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10164_0_s.png">
@@ -490,11 +519,17 @@
                 <div class="filterDiv free epic book fireA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10166_0_s.png">
                 </div>
+                <div class="filterDiv free rare shuriken fireA youkai" style="background-color:#87ceeb;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10168_0_s.png">
+                </div>
                 <div class="filterDiv free legend scepter darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10170_0_s.png">
                 </div>
                 <div class="filterDiv legend hammer darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10173_0_s.png">
+                </div>
+                <div class="filterDiv legend shuriken earthA youkai" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10174_0_s.png">
                 </div>
                 <div class="filterDiv legend gun fireA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10176_0_s.png">
@@ -513,6 +548,27 @@
                 </div>
                 <div class="filterDiv legend bow darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10184_0_s.png">
+                </div>
+                <div class="filterDiv legend orb darkA youkai" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10185_0_s.png">
+                </div>
+                <div class="filterDiv free common spear windA youkai" style="background-color:#c0c0c0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10187_0_s.png">
+                </div>
+                <div class="filterDiv free epic shuriken earthA youkai" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10188_0_s.png">
+                </div>
+                <div class="filterDiv free common book earthA youkai" style="background-color:#c0c0c0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10189_0_s.png">
+                </div>
+                <div class="filterDiv free rare gun waterA youkai" style="background-color:#87ceeb;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10190_0_s.png">
+                </div>
+                <div class="filterDiv free common orb waterA youkai" style="background-color:#c0c0c0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10191_0_s.png">
+                </div>
+                <div class="filterDiv free common instrument darkA youkai" style="background-color:#c0c0c0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10192_0_s.png">
                 </div>
             </div>
         </div>

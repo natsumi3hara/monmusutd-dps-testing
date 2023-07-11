@@ -58,10 +58,17 @@ document.write(`
                 <span class="shared-buff-name">属性マス</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">配置</span>
-                <input type="checkbox" id="shared20001" class="larger-check shared-check" onChange="allDPS();">
-                <span class="shared-buff-label"></span>
+                <input type="checkbox" id="shared20001-1" class="larger-check shared-check" onChange="attributeTile();allDPS();">
+                <span class="shared-buff-label">属性</span>
+                <select name="attribute-tile-select" id="shared20001-2" style="width:70%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="attributeTile();allDPS();">
+                    <option value="2">火</option>
+                    <option value="3">水</option>
+                    <option value="4">風</option>
+                    <option value="7">土</option>
+                    <option value="5">光</option>
+                    <option value="6">闇</option>
+                </select>
             </div>
         </div>
         <div class="flex-container-shared-buff-inner">
@@ -177,6 +184,7 @@ for (let i=0;i<sharedchecks.length;i++){
         sharedchecks[i].disabled = true;
     } else {}
 }
+document.getElementById("shared20001-2").value = masterValues.unitcard["element"].toString();
 </script>
 
 

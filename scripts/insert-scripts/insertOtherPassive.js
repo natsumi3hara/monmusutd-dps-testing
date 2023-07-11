@@ -115,6 +115,22 @@ document.write(`
                 <input id="otherPassive10148-2" type="number" min="0" max="9999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10185_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ウスコ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10185-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">状態</span>
+                <select name="otherPassive10185-2" id="otherPassive10185-2" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="allDPS();">
+                    <option value="none">無し</option>
+                    <option value="deploy">配置</option>
+                    <option value="skill">スキル中</option>
+                </select>
+            </div>
+        </div>
     </div>
 </div>
 <script>

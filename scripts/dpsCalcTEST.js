@@ -60,6 +60,13 @@ function isDungeon(checked){
     if (checked) {selfConditions["3003"] = 1;}
     else {selfConditions["3003"] = 0;}
 }
+function attributeTile(){
+    if (document.getElementById("shared20001-1").checked) {
+        selfConditions["1010"] = Number(document.getElementById("shared20001-2").value);
+        enemyConditions["1010"] = Number(document.getElementById("shared20001-2").value);
+    }
+    else {selfConditions["1010"] = 0;enemyConditions["1010"] = 0;}
+}
 //
 function enemyConditionChange(index,value){
     enemyConditions[index] = Number(value);
@@ -616,8 +623,23 @@ function allDPS(slot1=-1,slot2=-1){
         if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
         if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
     }
-    //console.log(battleCritList,battlePenList);
-    //console.log(skillCritList,skillPenList);
+    if (document.getElementById("otherPassive10185-2").value == "none") {}
+    else if (document.getElementById("otherPassive10185-2").value == "deploy"){
+        if (document.getElementById("otherPassive10185-1").checked){
+            battleCritList.push({"probability":32,"damage":150});skillCritList.push({"probability":32,"damage":150});
+        } else {
+            battleCritList.push({"probability":25,"damage":150});skillCritList.push({"probability":25,"damage":150});
+        }
+    }
+    else if (document.getElementById("otherPassive10185-2").value == "skill"){
+        if (document.getElementById("otherPassive10185-1").checked){
+            battleCritList.push({"probability":64,"damage":150});skillCritList.push({"probability":64,"damage":150});
+        } else {
+            battleCritList.push({"probability":50,"damage":150});skillCritList.push({"probability":50,"damage":150});
+        }
+    }
+    console.log(battleCritList,battlePenList);
+    console.log(skillCritList,skillPenList);
     updateCritPen(battleCritList,battlePenList,false);
     updateCritPen(skillCritList,skillPenList,true);
     let battleAvgDmg = calculateAvgDmg("battle");
@@ -627,29 +649,43 @@ function allDPS(slot1=-1,slot2=-1){
     let battleFinalDPS = Number(battleAvgDmg) * Number(battleHitFrameList[0]) * 30 / Number(battleHitFrameList[1]);
     let skillFinalDPS = Number(skillAvgDmg) * Number(skillHitFrameList[0]) * 30 / Number(skillHitFrameList[1]);
     //continuous here//
-    let continuousCheck;
+    let continuousCheck,AAcheck;
     let continuousReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
+    let AAReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
     if (masterValues.charaAwaked){
         continuousReference = continuousReference.toString() + "a";
-    } else {continuousReference = continuousReference.toString();}
+        AAReference = AAReference.toString() + "a";
+    } else {continuousReference = continuousReference.toString();AAReference = AAReference.toString();}
     continuousReference += "-"+document.getElementById("skill-level-select").value.toString();
+    AAReference += "-"+document.getElementById("skill-level-select").value.toString();
     //console.log(continuousReference);
     continuousCheck = continuous_patterns[continuousReference];
     if (continuousCheck === undefined) {continuousReference = continuousReference.split("-")[0];}
+    AAcheck = additional_patterns[AAReference];
+    if (AAcheck === undefined) {AAReference = AAReference.split("-")[0];}
     //console.log(continuousReference);
     continuousCheck = continuous_patterns[continuousReference];
     if (continuousCheck === undefined) {continuousReference = continuousReference.split("a")[0];}
+    AAcheck = additional_patterns[AAReference];
+    if (AAcheck === undefined) {AAReference = AAReference.split("a")[0];}
     //console.log(continuousReference);
     continuousCheck = continuous_patterns[continuousReference];
     if (continuousCheck === undefined) {continuousReference = 0;}
+    AAcheck = additional_patterns[AAReference];
+    if (AAcheck === undefined) {AAReference = 0;}
     //console.log(continuousReference);
     //
     //console.log("beforeContinuous",battleFinalDPS);
     //console.log("beforeContinuous",skillFinalDPS);
     let excludeContinuous = document.getElementById("exclude-continuous-damage").checked;
+    let excludeAdditional = document.getElementById("exclude-additional-attack").checked;
     battleFinalDPS += getContinuousDamage("battle",continuousReference,excludeContinuous);
     skillFinalDPS += getContinuousDamage("skill",continuousReference,excludeContinuous);
-    let continuousWhenStun = getContinuousDamage("battle",continuousReference,excludeContinuous);
+    let continuousWhenStun = getContinuousDamage("battle",continuousReference,excludeContinuous,true);//true for stunCheck
+    battleFinalDPS += getAdditionalAttackDamage("battle",AAReference,excludeAdditional);
+    skillFinalDPS += getAdditionalAttackDamage("skill",AAReference,excludeAdditional);
+    battleFinalDPS += getAdditionalAttackDamage2("battle",AAReference,excludeAdditional);
+    skillFinalDPS += getAdditionalAttackDamage2("skill",AAReference,excludeAdditional);
     //console.log("afterContinuous",battleFinalDPS);
     //console.log("beforeContinuous",skillFinalDPS);
     //
@@ -786,13 +822,182 @@ function getFieldDamage(battleskill,fieldReference,exclude=false){
     let targetF = Number(document.getElementById("input-number-inDamageField").value)+1;
 }
 */
-function getAdditionalAttackDamage(battleskill,AAReference,exclude=false){
-    if (exclude){console.log("continuous damage excluded!");return 0;}
+function getAdditionalAttackDamage(battleskill,AAReference,exclude=false,stunCheck=false){
+    if (exclude){console.log("additional damage excluded!");return 0;}
+    //console.log("startContinuous",battleskill,continuousReference);
     let dmgAA,frameAA;
-    let targetAA = "target";
+    let targetAA = 0;
+    //targets//
+    let blockCount = Number(document.getElementById("input-number-blocked").value);
+    let inRangeCount = Number(document.getElementById("input-number-inRange").value);
+    let blockCountMax;
+    if (battleskill === "battle"){
+        blockCountMax = Number(document.getElementById("dps-output-battle-value-stat10").innerHTML);
+    } else {
+        blockCountMax = Number(document.getElementById("dps-output-skill-value-stat10").innerHTML);
+    }
+    if (blockCount > blockCountMax){blockCount = blockCountMax;}
+    //
+    let damageAdditional = additional_patterns[AAReference][battleskill];
+    console.log(damageAdditional);
+    let stunActiveAA = true;
+    for (let indivAA of damageAdditional){
+        //console.log(indivAA);
+        document.getElementById("dps-dps-"+battleskill+"-hitTypeAA").innerHTML = indivAA["damage"]["hitType"];
+        if (indivAA["cond"].length === 0){
+            dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
+            dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+            document.getElementById("dps-dps-"+battleskill+"-dmgAA").innerHTML = dmgAA;
+            let targets = 0;
+            if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
+            else if (indivAA["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetAA = blockCount+inRangeCount;}
+            else if (indivAA["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+            else if (indivAA["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-AA").value;targetAA= document.getElementById("charaSpecific"+masterValues.charaID+"-AA").value;}
+            document.getElementById("dps-dps-"+battleskill+"-targetAA").innerHTML = targets;
+            if (indivAA["time"] === "attack"){frameAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+            else{frameAA = indivAA["time"];}
+            document.getElementById("dps-dps-"+battleskill+"-frameAA").innerHTML = frameAA;
+            if (stunCheck){stunActiveAA = false;}
+            break;
+        } else { //have condition list
+            let allCondTrue = true;
+            let condArray = indivAA["cond"];
+            console.log(condArray);
+            for (let i=0;i<condArray.length;i++){
+                if (condArray[i][0] === "condition"){
+                    // for now, put an OR option here, might need change if negative effects on ally buff themselves
+                    if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
+                        console.log(condArray[i]," is true");
+                    } else {
+                        console.log(condArray[i]," made it false");
+                        allCondTrue = false;
+                    }
+                } else {//reference
+                    if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){console.log(condArray[i]," is true");}
+                    else {console.log(condArray[i]," made it false");allCondTrue = false;}
+                }
+            }
+            if (allCondTrue){
+                dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
+                dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+                document.getElementById("dps-dps-"+battleskill+"-dmgAA").innerHTML = dmgAA;
+                let targets = 0;
+                if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
+                else if (indivAA["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetAA = blockCount+inRangeCount;}
+                else if (indivAA["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+                else if (indivAA["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-AA").value;targetAA = document.getElementById("charaSpecific"+masterValues.charaID+"-AA").value;}
+                document.getElementById("dps-dps-"+battleskill+"-targetAA").innerHTML = targets;
+                if (indivAA["time"] === "attack"){frameAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+                else{frameAA = indivAA["time"];}
+                document.getElementById("dps-dps-"+battleskill+"-frameAA").innerHTML = frameAA;
+                if (stunCheck){stunActiveAA = false;}
+                break;
+            } else {
+                document.getElementById("dps-dps-"+battleskill+"-dmgAA").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-targetAA").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-frameAA").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-hitTypeAA").innerHTML = "無し";
+            }
+        }
+    }
+    console.log(dmgAA,targetAA,frameAA);
+    if (dmgAA === undefined||targetAA === undefined||frameAA === undefined||frameAA === 0){
+        //console.log("return 0");
+        return 0;
+    } else if (!stunActiveAA){
+        ///console.log("no additional when stun");
+    }
+    return Number(dmgAA)*Number(targetAA)*30/Number(frameAA);
+}
+function getAdditionalAttackDamage2(battleskill,AAReference,exclude=false,stunCheck=false){
+    if (exclude){console.log("additional damage excluded!");return 0;}
+    //console.log("startContinuous",battleskill,continuousReference);
+    let dmgAA,frameAA;
+    let targetAA = 0;
+    //targets//
+    let blockCount = Number(document.getElementById("input-number-blocked").value);
+    let inRangeCount = Number(document.getElementById("input-number-inRange").value);
+    let blockCountMax;
+    if (battleskill === "battle"){
+        blockCountMax = Number(document.getElementById("dps-output-battle-value-stat10").innerHTML);
+    } else {
+        blockCountMax = Number(document.getElementById("dps-output-skill-value-stat10").innerHTML);
+    }
+    if (blockCount > blockCountMax){blockCount = blockCountMax;}
+    //
+    let damageAdditional = additional_patterns_2[AAReference][battleskill];
+    console.log(damageAdditional);
+    let stunActiveAA = true;
+    for (let indivAA of damageAdditional){
+        //console.log(indivAA);
+        document.getElementById("dps-dps-"+battleskill+"-hitTypeAA2").innerHTML = indivAA["damage"]["hitType"];
+        if (indivAA["cond"].length === 0){
+            dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
+            dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+            document.getElementById("dps-dps-"+battleskill+"-dmgAA2").innerHTML = dmgAA;
+            let targets = 0;
+            if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
+            else if (indivAA["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetAA = blockCount+inRangeCount;}
+            else if (indivAA["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+            else if (indivAA["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-AA2").value;targetAA= document.getElementById("charaSpecific"+masterValues.charaID+"-AA2").value;}
+            document.getElementById("dps-dps-"+battleskill+"-targetAA2").innerHTML = targets;
+            if (indivAA["time"] === "attack"){frameAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+            else{frameAA = indivAA["time"];}
+            document.getElementById("dps-dps-"+battleskill+"-frameAA2").innerHTML = frameAA;
+            if (stunCheck){stunActiveAA = false;}
+            break;
+        } else { //have condition list
+            let allCondTrue = true;
+            let condArray = indivAA["cond"];
+            console.log(condArray);
+            for (let i=0;i<condArray.length;i++){
+                if (condArray[i][0] === "condition"){
+                    // for now, put an OR option here, might need change if negative effects on ally buff themselves
+                    if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
+                        console.log(condArray[i]," is true");
+                    } else {
+                        console.log(condArray[i]," made it false");
+                        allCondTrue = false;
+                    }
+                } else {//reference
+                    if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){console.log(condArray[i]," is true");}
+                    else {console.log(condArray[i]," made it false");allCondTrue = false;}
+                }
+            }
+            if (allCondTrue){
+                dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
+                dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+                document.getElementById("dps-dps-"+battleskill+"-dmgAA2").innerHTML = dmgAA;
+                let targets = 0;
+                if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
+                else if (indivAA["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetAA = blockCount+inRangeCount;}
+                else if (indivAA["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+                else if (indivAA["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-AA2").value;targetAA = document.getElementById("charaSpecific"+masterValues.charaID+"-AA2").value;}
+                document.getElementById("dps-dps-"+battleskill+"-targetAA2").innerHTML = targets;
+                if (indivAA["time"] === "attack"){frameAA = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+                else{frameAA = indivAA["time"];}
+                document.getElementById("dps-dps-"+battleskill+"-frameAA2").innerHTML = frameAA;
+                if (stunCheck){stunActiveAA = false;}
+                break;
+            } else {
+                document.getElementById("dps-dps-"+battleskill+"-dmgAA2").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-targetAA2").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-frameAA2").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-hitTypeAA2").innerHTML = "無し";
+            }
+        }
+    }
+    console.log(dmgAA,targetAA,frameAA);
+    if (dmgAA === undefined||targetAA === undefined||frameAA === undefined||frameAA === 0){
+        //console.log("return 0");
+        return 0;
+    } else if (!stunActiveAA){
+        ///console.log("no additional when stun");
+    }
+    return Number(dmgAA)*Number(targetAA)*30/Number(frameAA);
 }
 
-function getContinuousDamage(battleskill,continuousReference,exclude=false){
+function getContinuousDamage(battleskill,continuousReference,exclude=false,stunCheck=false){
     if (exclude){console.log("continuous damage excluded!");return 0;}
     //console.log("startContinuous",battleskill,continuousReference);
     let dmgC,frameC;
@@ -809,67 +1014,74 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false){
     if (blockCount > blockCountMax){blockCount = blockCountMax;}
     //
     let damageContinuous = continuous_patterns[continuousReference][battleskill];
-    document.getElementById("dps-dps-"+battleskill+"-hitTypeC").innerHTML = damageContinuous["damage"]["hitType"];
-    //console.log(damageContinuous);
-    if (damageContinuous["cond"].length === 0){
-        dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
-        dmgC = damageCalc(dmgC,damageContinuous["damage"]["hitType"]);
-        document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
-        let targets = 0;
-        if (continuous_patterns[continuousReference]["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
-        else if (continuous_patterns[continuousReference]["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
-        else if (continuous_patterns[continuousReference]["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
-        else if (continuous_patterns[continuousReference]["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
-        document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
-        if (continuous_patterns[continuousReference]["time"] === "attack"){frameC = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
-        else{frameC = continuous_patterns[continuousReference]["time"];}
-        document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
-    } else { //have condition list
-        let condArray = damageContinuous["cond"];
-        for (let i=0;i<condArray.length;i++){
-            if (condArray[i][0] === "condition"){
-                // for now, put an OR option here, might need change if negative effects on ally buff themselves
-                if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
-                    dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
-                    dmgC = damageCalc(dmgC,damageContinuous["damage"]["hitType"]);
-                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
-                    let targets = 0;
-                    if (continuous_patterns[continuousReference]["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
-                    else if (continuous_patterns[continuousReference]["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
-                    else if (continuous_patterns[continuousReference]["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
-                    else if (continuous_patterns[continuousReference]["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
-                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
-                    frameC = continuous_patterns[continuousReference]["time"];
-                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
-                } else {
-                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = 0;
-                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = 0;
-                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = 0;
-                    return 0;
+    console.log(damageContinuous);
+    let stunActiveC = true;
+    for (let indivCont of damageContinuous){
+        //console.log(indivCont);
+        document.getElementById("dps-dps-"+battleskill+"-hitTypeC").innerHTML = indivCont["damage"]["hitType"];
+        if (indivCont["cond"].length === 0){
+            dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivCont["damage"]["reference"]).innerHTML) * Number(indivCont["damage"]["multiplier"]) / 100);
+            dmgC = damageCalc(dmgC,indivCont["damage"]["hitType"]);
+            document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
+            let targets = 0;
+            if (indivCont["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
+            else if (indivCont["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
+            else if (indivCont["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+            else if (indivCont["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
+            document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
+            if (indivCont["time"] === "attack"){frameC = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+            else{frameC = indivCont["time"];}
+            document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+            if (stunCheck && indivCont["target"]==="target"){stunActiveC = false;}
+            break;
+        } else { //have condition list
+            let allCondTrue = true;
+            let condArray = indivCont["cond"];
+            console.log(condArray);
+            for (let i=0;i<condArray.length;i++){
+                if (condArray[i][0] === "condition"){
+                    // for now, put an OR option here, might need change if negative effects on ally buff themselves
+                    if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
+                        console.log(condArray[i]," is true");
+                    } else {
+                        console.log(condArray[i]," made it false");
+                        allCondTrue = false;
+                    }
+                } else {//reference
+                    if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){console.log(condArray[i]," is true");}
+                    else {console.log(condArray[i]," made it false");allCondTrue = false;}
                 }
-            } else {//reference
-                if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){
-                    dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+damageContinuous["damage"]["reference"]).innerHTML) * Number(damageContinuous["damage"]["multiplier"]) / 100);
-                    dmgC = damageCalc(dmgC,damageContinuous["damage"]["hitType"]);
-                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
-                    let targets = 0;
-                    if (continuous_patterns[continuousReference]["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
-                    else if (continuous_patterns[continuousReference]["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
-                    else if (continuous_patterns[continuousReference]["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
-                    else if (continuous_patterns[continuousReference]["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
-                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
-                    frameC = continuous_patterns[continuousReference]["time"];
-                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
-                } else {
-                    document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = 0;
-                    document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = 0;
-                    document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = 0;
-                    return 0;
-                }
+            }
+            if (allCondTrue){
+                dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivCont["damage"]["reference"]).innerHTML) * Number(indivCont["damage"]["multiplier"]) / 100);
+                dmgC = damageCalc(dmgC,indivCont["damage"]["hitType"]);
+                document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
+                let targets = 0;
+                if (indivCont["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
+                else if (indivCont["target"]==="range"){console.log("refRange");targets = blockCount+inRangeCount;targetC = blockCount+inRangeCount;}
+                else if (indivCont["target"]==="target"){console.log("refTarget");targets = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);targetC = Number(document.getElementById("dps-dps-"+battleskill+"-averageHit").innerHTML);}
+                else if (indivCont["target"]==="special"){console.log("refSpecial");targets = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;targetC = document.getElementById("charaSpecific"+masterValues.charaID+"-C").value;}
+                document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = targets;
+                if (indivCont["time"] === "attack"){frameC = Number(document.getElementById("dps-dps-"+battleskill+"-averageFrame").innerHTML);}
+                else{frameC = indivCont["time"];}
+                document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = frameC;
+                if (stunCheck && indivCont["target"]==="target"){stunActiveC = false;}
+                break;
+            } else {
+                document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-targetC").innerHTML = 0;
+                document.getElementById("dps-dps-"+battleskill+"-frameC").innerHTML = 0;
             }
         }
     }
-    //console.log(dmgC,targetC,frameC);
+    console.log(dmgC,targetC,frameC);
+    if (dmgC === undefined||targetC === undefined||frameC === undefined){
+        //console.log("return 0");
+        return 0;
+    } else if (!stunActiveC){
+        ///console.log("no continuous when stun");
+        return 0;
+    }
     return Number(dmgC)*Number(targetC)*30/Number(frameC);
 }
 
@@ -1048,6 +1260,10 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType){
         critProb = [100-critList[0]["probability"],critList[0]["probability"]];
     } else if (critList.length === 2){
         critProb = [(100-critList[0]["probability"])*(100-critList[1]["probability"])/100,critList[0]["probability"],(100-critList[0]["probability"])*critList[1]["probability"]/100];
+    } else if (critList.length === 3){
+        critProb = [(100-critList[0]["probability"])*(100-critList[1]["probability"])*(100-critList[2]["probability"])/10000,critList[0]["probability"],(100-critList[0]["probability"])*critList[1]["probability"]/100,(100-critList[0]["probability"])*(100-critList[1]["probability"])*critList[2]["probability"]/10000];
+    } else if (critList.length === 4){
+        critProb = [(100-critList[0]["probability"])*(100-critList[1]["probability"])*(100-critList[2]["probability"])*(100-critList[3]["probability"])/1000000,critList[0]["probability"],(100-critList[0]["probability"])*critList[1]["probability"]/100,(100-critList[0]["probability"])*(100-critList[1]["probability"])*critList[2]["probability"]/10000,(100-critList[0]["probability"])*(100-critList[1]["probability"])*(100-critList[2]["probability"])*critList[3]["probability"]/1000000];
     } else {critProb = [100];}
     let noPenProb = 100;
     ///console.log("penlist length: ",penList.length);
@@ -1059,13 +1275,13 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType){
     //arrays created//
     let iTitle,jOrder;
     if (penProb.length === 1) {
-        if (masterValues.language === "ja"){iTitle = ["普通攻撃","クリティカル(1)","クリティカル(2)"]}
-        else if (masterValues.language === "en"){iTitle = ["Normal","Critical(1)","Critical(2)"]}
+        if (masterValues.language === "ja"){iTitle = ["普通攻撃","クリティカル(1)","クリティカル(2)","クリティカル(3)","クリティカル(4)"];}
+        else if (masterValues.language === "en"){iTitle = ["Normal","Critical(1)","Critical(2)","Critical(3)","Critical(4)"];}
     } else {
         if (masterValues.language === "ja"){
-            iTitle = ["普通攻撃","貫通攻撃","クリティカル(1)","貫通+クリティカル(1)","クリティカル(2)","貫通+クリティカル(2)"]
+            iTitle = ["普通攻撃","貫通攻撃","クリティカル(1)","貫通+クリティカル(1)","クリティカル(2)","貫通+クリティカル(2)","クリティカル(3)","貫通+クリティカル(3)","クリティカル(4)","貫通+クリティカル(4)"];
         } else if (masterValues.language === "en"){
-            iTitle = ["Normal","Penetration","Critical(1)","Pen+Crit(1)","Critical(2)","Pen+Crit(2)"]
+            iTitle = ["Normal","Penetration","Critical(1)","Pen+Crit(1)","Critical(2)","Pen+Crit(2)"];
         }
     }
     jOrder = ["title","probability","multiplier","damage"]
@@ -1441,7 +1657,7 @@ function calculateStat(level,cc,type){
         //console.log("no unique to cycle")
     }
     //
-    if (document.getElementById("shared20001").checked){
+    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
     ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
@@ -1455,6 +1671,14 @@ function calculateStat(level,cc,type){
             multEffect2.count += 1;
         } else if (masterValues.charaID === 10024 && selfConditions["26"] === 1 && document.getElementById('enemybackattack').checked){
             multEffect2.buff *= 210;
+            multEffect2.count += 1;
+        } else {}
+        //yasome's troublesome effect//
+        if (masterValues.charaID === 10174 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
+            multEffect2.buff *= 200;
+            multEffect2.count += 1;
+        } else if (masterValues.charaID === 10174 && selfConditions["26"] === 1 && document.getElementById('enemybackattack').checked){
+            multEffect2.buff *= 250;
             multEffect2.count += 1;
         } else {}
         //dhirio's poison damage up//
@@ -1591,8 +1815,8 @@ function calculateStat(level,cc,type){
         multEffect2.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
     }
     //attribute tile effect x2//
-    if (document.getElementById("shared20001").checked){
-        if ([10005,10008,10010,10012,10080].includes(masterValues.charaID)){
+    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
+        if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
             if (["stat2","stat3","stat4"].includes(type)){
                 multEffect2.buff += 15;
@@ -1761,7 +1985,7 @@ function calculateStat(level,cc,type){
         //console.log("no unique to cycle")
     }
     //
-    if (document.getElementById("shared20001").checked){
+    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
     ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
@@ -1775,6 +1999,14 @@ function calculateStat(level,cc,type){
             multEffect3.count += 1;
         } else if (masterValues.charaID === 10024 && selfConditions["26"] === 1 && document.getElementById('enemybackattack').checked){
             multEffect3.buff *= 210;
+            multEffect3.count += 1;
+        } else {}
+        //yasome's troublesome effect//
+        if (masterValues.charaID === 10174 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
+            multEffect3.buff *= 200;
+            multEffect3.count += 1;
+        } else if (masterValues.charaID === 10174 && selfConditions["26"] === 1 && document.getElementById('enemybackattack').checked){
+            multEffect3.buff *= 250;
             multEffect3.count += 1;
         } else {}
         //dhirio's poison damage up//
@@ -1911,9 +2143,18 @@ function calculateStat(level,cc,type){
         multEffect3.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
     }
     //attribute tile effect x2//
-    if (document.getElementById("shared20001").checked){
-        if ([10005,10008,10010,10012,10080].includes(masterValues.charaID)){
+    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
+        if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
+            if (["stat2","stat3","stat4"].includes(type)){
+                multEffect3.buff += 15;
+            } else if (type === "stat8"){multEffect3.buff+=10} else {}
+        } else {}
+    }
+    //yano's attribute tile//
+    if ([10188].includes(masterValues.charaID)){
+        if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value != masterValues.unitcard.element){
+            //console.log("simulated attibute tile");
             if (["stat2","stat3","stat4"].includes(type)){
                 multEffect3.buff += 15;
             } else if (type === "stat8"){multEffect3.buff+=10} else {}
@@ -1972,8 +2213,8 @@ function calculateStat(level,cc,type){
             //console.log("no missile");
         }
     }
-    //lapis and thunderSuzu override
-    if ([10139,10177].includes(masterValues.charaID)){
+    //lapis, thunderSuzu and shirotae override
+    if ([10139,10177,10187].includes(masterValues.charaID)){
         document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
     }
     try {
@@ -2173,7 +2414,7 @@ function buffGet(indivBuff,additive=false,minus=false,damageUp=false){
 function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,referenceEnemy=false){
     let allTalents = abilityObject["talentList"];
     for (let i=0; i<allTalents.length;i++){
-        ///console.log(allTalents[i]);
+        console.log(allTalents[i]);
         if (eBuffTypeParse(allTalents[i]["talentId"])[0] === type){
             ///console.log("type matches");
             let conditionRecord = {"trigger":true,"active":true};
@@ -2182,9 +2423,9 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,re
                 for (let j=0;j<allTalents[i]["triggerData"].length;j++){
                     let conditionRef = enemyConditions[allTalents[i]["triggerData"][j]["type"]];
                     for (let k=0;k<allTalents[i]["triggerData"][j]["num"].length;k++){
-                        //console.log("conditionRef: "+conditionRef);
-                        //console.log("option: "+allTalents[i]["triggerData"][j]["option"][k]);
-                        //console.log("hurdle: "+allTalents[i]["triggerData"][j]["num"][k]);
+                        console.log("conditionRef: "+conditionRef);
+                        console.log("option: "+allTalents[i]["triggerData"][j]["option"][k]);
+                        console.log("hurdle: "+allTalents[i]["triggerData"][j]["num"][k]);
                         if (conditionalOption(conditionRef,allTalents[i]["triggerData"][j]["option"][k],allTalents[i]["triggerData"][j]["num"][k])){
                         } else {conditionRecord["trigger"]=false;}
                     }
@@ -2815,13 +3056,14 @@ function uniqueWeaponReplace(charaID){
     }
 }
 function dpsDetailShow(){
-    let dpsC = [10040,10049,10063,10092,10136,10145,10178,/*for now aa is here*/10067,10177];
+    let dpsC = [10040,10049,10063,10092,10136,10145,10178];
     //let dpsF = [];
-    let dpsAA = [10067,10177];
+    let dpsAA = [10067,10155,10162,10168,10174,10177,10188];
     if (dpsC.includes(masterValues.charaID)){
         document.getElementById("battleC").style.display = "block";
         document.getElementById("skillC").style.display = "block";
-    } else if (dpsAA.includes(masterValues.charaID)){
+    }
+    if (dpsAA.includes(masterValues.charaID)){
         document.getElementById("battleAA").style.display = "block";
         document.getElementById("skillAA").style.display = "block";
     }

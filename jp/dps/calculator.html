@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js) 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1914Y0N5HJ"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-1914Y0N5HJ');
-        </script>
+        </script>-->
         <meta charset="utf-8"/>
         <title>DPS計算機</title>
         <script src="../../scripts/console&devTools.js"></script>
@@ -21,6 +21,8 @@
         <script src="../../scripts/equipConvert.js"></script>
         <script src="../../scripts/statsCalc/cond-timing-range.js"></script>
         <script src="../../scripts/statsCalc/attackPatterns.js"></script>
+        <script src="../../scripts/statsCalc/addtionalPatterns.js"></script>
+        <script src="../../scripts/statsCalc/addtionalPatterns2.js"></script>
         <script src="../../scripts/statsCalc/continuousPatterns.js"></script>
         <script src="../../scripts/statsCalc/selfStunPatterns.js"></script>
         <script src="../../scripts/statsCalc/extraInfoList.js"></script>
@@ -172,6 +174,7 @@
                             <span>&nbsp;ダメージ倍率：</span><input id="input-number-extraAffectDamage" type="number" value="100" style="width:10%" disabled><br>
                             -->
                             <span>&nbsp;継続ダメージ除外</span><input type="checkbox" id="exclude-continuous-damage" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"><br>
+                            <span>&nbsp;追加攻撃除外</span><input type="checkbox" id="exclude-additional-attack" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"><br>
                             <!--exclude until needed
                             <span>&nbsp;ダメージフィールド(追加敵数)：</span><input id="input-number-inDamageField" type="number" min="0" max="99" value="0" onchange="allDPS();" style="width:15%"><br>
                             -->
@@ -189,7 +192,7 @@
                                 <span style="text-align: center;">スタン</span><input type="checkbox" id="enemystun" class="larger-check" style="vertical-align: bottom;" onchange="enemyStun(this.checked);allDPS();">
                                 <span style="text-align: center;">石化</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyPetrify(this.checked);allDPS();">
                                 <span style="text-align: center;">毒</span><input type="checkbox" id="enemypoison" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();">
-                                <span style="text-align: center;">背面攻撃(アメリ)</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();"><br>
+                                <span style="text-align: center;">背面攻撃</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();"><br>
                                 <span style="text-align: center; border: 1px solid black;">&nbsp;移動タイプ&nbsp;</span><br>
                                 <span style="text-align: center;">地上</span><input type="checkbox" id="enemyground" class="larger-check" style="vertical-align: bottom;" onchange="enemyGround(this.checked);allDPS();">
                                 <span style="text-align: center;">飛行</span><input type="checkbox" id="enemyflying" class="larger-check" style="vertical-align: bottom;" onchange="enemyFlying(this.checked);allDPS();"><br>
@@ -852,12 +855,28 @@
                             <div style="display: none;">
                                 <table>
                                     <tr>
-                                        <td class="displaytext">追加ダメージ</td>
-                                        <td id="dps-dps-battle-dmgAA">8888.88</td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">ダメージ</td>
                                         <td class="displaytext">対象数</td>
-                                        <td id="dps-dps-battle-targetAA">88</td>
                                         <td class="displaytext">フレーム</td>
+                                        <td class="displaytext">タイプ</td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext">追加攻撃</td>
+                                        <td id="dps-dps-battle-dmgAA">8888.88</td>
+                                        <td id="dps-dps-battle-targetAA">88</td>
                                         <td id="dps-dps-battle-frameAA">888</td>
+                                        <td id="dps-dps-battle-hitTypeAA"></td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext">追加攻撃2</td>
+                                        <td id="dps-dps-battle-dmgAA2">8888.88</td>
+                                        <td id="dps-dps-battle-targetAA2">88</td>
+                                        <td id="dps-dps-battle-frameAA2">888</td>
+                                        <td id="dps-dps-battle-hitTypeAA2"></td>
+                                        <td class="displaytext"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -1001,12 +1020,28 @@
                             <div style="display: none;">
                                 <table>
                                     <tr>
-                                        <td class="displaytext">追加ダメージ</td>
-                                        <td id="dps-dps-skill-dmgAA">8888.88</td>
+                                        <td class="displaytext"></td>
+                                        <td class="displaytext">ダメージ</td>
                                         <td class="displaytext">対象数</td>
-                                        <td id="dps-dps-skill-targetAA">88</td>
                                         <td class="displaytext">フレーム</td>
+                                        <td class="displaytext">タイプ</td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext">追加攻撃</td>
+                                        <td id="dps-dps-skill-dmgAA">8888.88</td>
+                                        <td id="dps-dps-skill-targetAA">88</td>
                                         <td id="dps-dps-skill-frameAA">888</td>
+                                        <td id="dps-dps-skill-hitTypeAA"></td>
+                                        <td class="displaytext"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="displaytext">追加攻撃2</td>
+                                        <td id="dps-dps-skill-dmgAA2">8888.88</td>
+                                        <td id="dps-dps-skill-targetAA2">88</td>
+                                        <td id="dps-dps-skill-frameAA2">888</td>
+                                        <td id="dps-dps-skill-hitTypeAA2"></td>
+                                        <td class="displaytext"></td>
                                     </tr>
                                 </table>
                             </div>

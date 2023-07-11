@@ -486,6 +486,39 @@ var equip16021 = {
         {"stat1":140,"stat2":0,"stat3":21,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ]
 }
+var formula16031 = {
+    "stat1":[13.8,0.092,0.0666666667,0.0551111111,0.0494166667,00,00,00],
+    "stat2":[0.8,0.008,0.0053333333,0.0054444444,0.0055,00,00,00],
+    "stat3":[0.85,0.0083333333,0.00583333333,0.0057777778,0.0058333333,00,00,00],
+    "stat4":[0.62,0.006,0.0041666667,0.0042222222,0.00425,00,00,00]
+}
+//weapon, head, accessory, body
+var equip16031 = {
+    "0":[
+        {"stat1":0,"stat2":18,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":9,"stat4":11,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":5,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":12,"stat4":8,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "1":[
+        {"stat1":0,"stat2":28,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":11,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":10,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "2":[
+        {"stat1":0,"stat2":38,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":13,"stat4":17,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":18,"stat4":12,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "3":[
+        {"stat1":0,"stat2":43,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":20,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ]
+}
 var formula17011 = {
     "stat1":[10.5,0.07,0.0508333333,0.042,0.0376666667,2.0141,1.2087,1.5339],
     "stat2":[0,0,0,0,0,0,0,0],

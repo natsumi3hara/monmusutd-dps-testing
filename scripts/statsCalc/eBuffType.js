@@ -125,6 +125,7 @@ const eBuffType = {
 	"518":["stat57","none-none"],
 	"519":["stat58","none-none"],
 	"520":["stat59","none-none"],
+	"521":["stat1001","none-none"],
 	//Status negation//
 	"901":["stat60","none-none"],
 	"902":["stat61","none-none"],
@@ -247,4 +248,10 @@ const eBuffType = {
 	"1110":["stat176","none-none"],
 	"1111":["stat177","none-none"],
 	"1112":["stat178","none-none"],
+	"1113":["stat179","none-none"],
+	"1114":["stat180","none-none"],
+	"1115":["stat181","none-none"],
+	"1116":["stat182","none-none"],
+	"1117":["stat183","none-none"],
+	"1118":["stat184","none-none"],
 }
