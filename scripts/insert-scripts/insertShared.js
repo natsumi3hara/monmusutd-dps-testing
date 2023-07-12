@@ -184,7 +184,10 @@ for (let i=0;i<sharedchecks.length;i++){
         sharedchecks[i].disabled = true;
     } else {}
 }
-document.getElementById("shared20001-2").value = masterValues.unitcard["element"].toString();
+function makeSameAttribute(){
+    document.getElementById("shared20001-2").value = masterValues.unitcard["element"].toString();
+}
+makeSameAttribute();
 </script>
 
 

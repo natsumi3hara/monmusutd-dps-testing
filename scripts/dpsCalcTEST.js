@@ -342,6 +342,10 @@ function setForCompare(ID){
     masterValues["charaID"] = ID;
     masterValues["unitcard"] = window["card"+masterValues.charaID];
     masterValues["baseClass"] = masterValues.unitcard["classId"];
+    if (document.getElementById("make-same-attribute").value === "make"){
+        makeSameAttribute();
+        attributeTile();
+    }
 }
 
 function createChart(){
