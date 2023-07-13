@@ -535,8 +535,8 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10101,10112].includes(masterValues.charaID)){
-        //repeat because stat2 depends on stat3
+    if ([10101,10112,10160].includes(masterValues.charaID)){
+        //repeat because stat2 depends on stat3 (skill or no skill, place here)
         calculateStat(level,cc,"stat2");
     }
     //statcalc over//
@@ -627,6 +627,7 @@ function allDPS(slot1=-1,slot2=-1){
         if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
         if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
     }
+    //usuko's crit buff
     if (document.getElementById("otherPassive10185-2").value == "none") {}
     else if (document.getElementById("otherPassive10185-2").value == "deploy"){
         if (document.getElementById("otherPassive10185-1").checked){
@@ -1710,6 +1711,13 @@ function calculateStat(level,cc,type){
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
+    //kyou's wind ally aSpd and PAD buff
+    if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+        multEffect2.buff += 25;
+    }
+    if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+        multEffect2.buff -= 25;
+    }
     //poisonRin's enemy defeat buff
     if (type === "stat2" && masterValues.charaID === 10178 && masterValues.charaAwaked){
         multEffect2.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
@@ -1851,7 +1859,9 @@ function calculateStat(level,cc,type){
     ///console.log("addEffect2: "+addEffect2);
     ///console.log(addEffect2);
     let outputBattle = Math.floor(outputMenu * multEffect2.buff / 100**(multEffect2.count)) + Math.floor(addEffect2.buff);
-    if (["stat7","stat8","stat76"].includes(type)){}
+    if (["stat7","stat8","stat76"].includes(type)){
+        if (outputBattle < 0){outputBattle = 0;}
+    }
     else if (outputBattle < lowerStat){
         outputBattle = lowerStat;
     } else if (outputBattle > upperStat){
@@ -2038,6 +2048,18 @@ function calculateStat(level,cc,type){
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
+    //chika's stat3 dependent buff on skill
+    if (type === "stat2" && masterValues.charaID === 10160){
+        let multiplier10160 = [0,50,55,60,65,70];
+        addEffect3.buff += Math.floor(multiplier10160[Number(document.getElementById("skill-level-select").value)] * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+    }
+    //kyou's wind ally aSpd and PAD buff
+    if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+        multEffect3.buff += 25;
+    }
+    if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+        multEffect3.buff -= 25;
+    }
     //poisonRin's enemy defeat buff
     if (type === "stat2" && masterValues.charaID === 10178 && masterValues.charaAwaked){
         multEffect3.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
@@ -2188,7 +2210,9 @@ function calculateStat(level,cc,type){
     ///console.log("addEffect3: "+addEffect3);
     ///console.log(addEffect3);
     let outputSkill = Math.floor(outputMenu * multEffect3.buff / 100**(multEffect3.count)) + Math.floor(addEffect3.buff);
-    if (["stat7","stat8","stat76"].includes(type)){}
+    if (["stat7","stat8","stat76"].includes(type)){
+        if (outputSkill < 0){outputSkill = 0;}
+    }
     else if (outputSkill < lowerStat){
         outputSkill = lowerStat;
     } else if (outputSkill > upperStat){

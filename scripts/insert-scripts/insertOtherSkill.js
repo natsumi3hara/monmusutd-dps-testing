@@ -81,6 +81,18 @@ document.write(`
         </div>
         <div class="flex-container-otherSkill-buff-inner">
             <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10157_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">キョウ</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10157" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10157" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
                 <img src="../../img/chara-icons/icon_10173_0_s.png" class="otherSkill-buff-img">
                 <span class="otherSkill-buff-name">ディフォーラ</span>
             </div>
