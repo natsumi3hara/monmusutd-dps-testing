@@ -201,7 +201,7 @@ function compareChara(){
     //to think about -- search "intersection of multiple arrays"//
     if (document.getElementById("compChara-AND").checked){
         includeList.sort(function(a,b){return a.length - b.length;});
-        console.log("includelist",includeList);
+        ///console.log("includelist",includeList);
         allIncluded = arrayIntersect(includeList);
     } else {
         includeList.sort(function(a,b){return a.length - b.length;});
@@ -211,10 +211,10 @@ function compareChara(){
         if (includeRarity.length===0){includeRarity=includeList;}
         if (includeAttribute.length===0){includeAttribute=includeList;}
         if (includeClass.length===0){includeClass=includeList;}
-        console.log("includelist",includeList);
-        console.log("includeRarity",includeRarity);
-        console.log("includeAttribute",includeAttribute);
-        console.log("includeClass",includeClass);
+        ///console.log("includelist",includeList);
+        ///console.log("includeRarity",includeRarity);
+        ///console.log("includeAttribute",includeAttribute);
+        ///console.log("includeClass",includeClass);
         allIncluded = arrayIntersect([arrayUnion(includeRarity),arrayUnion(includeAttribute),arrayUnion(includeClass)]);
     }
     console.log("allIncluded",allIncluded);
@@ -229,7 +229,7 @@ function compareChara(){
     document.getElementById("skill-alt-select").value = "10000";
     selfConditionChange('2002',0);//set attack delay to 0 (invalidates scimitar ability)
     for (let characterID of allIncluded){
-        console.log(characterID);
+        ///console.log(characterID);
         if (ex2List.includes(characterID) && exChangeList.includes(characterID)){//10088 only
             //normal
             setForCompare(characterID);
@@ -302,7 +302,7 @@ function compareChara(){
         }
     }
     dpsRanking.sort(function(a,b){return b[2] - a[2];});
-    console.log(dpsRanking);
+    ///console.log(dpsRanking);
     for (let k=0;k<30;k++){ //clearing rank
         document.getElementById("compChara-"+(k+1)+"-name").innerHTML = "";
         document.getElementById("compChara-"+(k+1)+"-img").src = "../../img/chara-icons/icon_10000_0_s.png";
@@ -323,7 +323,7 @@ function compareChara(){
             document.getElementById("compChara-"+(k+1)+"-img").src = compImg;
             document.getElementById("compChara-"+(k+1)+"-dps").innerHTML = compDps;
         } catch (err) {
-            console.log("No more charas!")
+            //console.log("No more charas!")
         }
     }
     //revert to normal//
@@ -455,11 +455,11 @@ function optimiseSubskill(number,battleSkillFinal){
     let lastSubskillID = 1114;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
-    console.log("no of subskills is",noOfSubskills);
+    //console.log("no of subskills is",noOfSubskills);
     if (number === 1){
         for (let i=1001;i<lastSubskillID+1;i++){
             if (excludedSubskills.includes(i.toString())) {continue;}
-            console.log(i);
+            //console.log(i);
             collection.push([i,0,allDPS(i)[sortMethod]]);
         }
         document.getElementById("subskill1").value = "0";
@@ -468,7 +468,7 @@ function optimiseSubskill(number,battleSkillFinal){
             if (excludedSubskills.includes(i.toString())) {continue;}
             for (let j=1001;j<lastSubskillID+1;j++){
                 if (excludedSubskills.includes(j.toString())||i>=j) {continue;}
-                console.log(i,j);
+                //console.log(i,j);
                 collection.push([i,j,allDPS(i,j)[sortMethod]]);
             }
         }
@@ -643,8 +643,8 @@ function allDPS(slot1=-1,slot2=-1){
             battleCritList.push({"probability":50,"damage":150});skillCritList.push({"probability":50,"damage":150});
         }
     }
-    console.log(battleCritList,battlePenList);
-    console.log(skillCritList,skillPenList);
+    ///console.log(battleCritList,battlePenList);
+    ///console.log(skillCritList,skillPenList);
     updateCritPen(battleCritList,battlePenList,false);
     updateCritPen(skillCritList,skillPenList,true);
     let battleAvgDmg = calculateAvgDmg("battle");
@@ -844,7 +844,7 @@ function getAdditionalAttackDamage(battleskill,AAReference,exclude=false,stunChe
     if (blockCount > blockCountMax){blockCount = blockCountMax;}
     //
     let damageAdditional = additional_patterns[AAReference][battleskill];
-    console.log(damageAdditional);
+    ///console.log(damageAdditional);
     let stunActiveAA = true;
     for (let indivAA of damageAdditional){
         //console.log(indivAA);
@@ -867,19 +867,19 @@ function getAdditionalAttackDamage(battleskill,AAReference,exclude=false,stunChe
         } else { //have condition list
             let allCondTrue = true;
             let condArray = indivAA["cond"];
-            console.log(condArray);
+            ///console.log(condArray);
             for (let i=0;i<condArray.length;i++){
                 if (condArray[i][0] === "condition"){
                     // for now, put an OR option here, might need change if negative effects on ally buff themselves
                     if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
-                        console.log(condArray[i]," is true");
+                        ///console.log(condArray[i]," is true");
                     } else {
-                        console.log(condArray[i]," made it false");
+                        ///console.log(condArray[i]," made it false");
                         allCondTrue = false;
                     }
                 } else {//reference
                     if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){console.log(condArray[i]," is true");}
-                    else {console.log(condArray[i]," made it false");allCondTrue = false;}
+                    else {/*console.log(condArray[i]," made it false");*/allCondTrue = false;}
                 }
             }
             if (allCondTrue){
@@ -905,7 +905,7 @@ function getAdditionalAttackDamage(battleskill,AAReference,exclude=false,stunChe
             }
         }
     }
-    console.log(dmgAA,targetAA,frameAA);
+    ///console.log(dmgAA,targetAA,frameAA);
     if (dmgAA === undefined||targetAA === undefined||frameAA === undefined||frameAA === 0){
         //console.log("return 0");
         return 0;
@@ -931,7 +931,7 @@ function getAdditionalAttackDamage2(battleskill,AAReference,exclude=false,stunCh
     if (blockCount > blockCountMax){blockCount = blockCountMax;}
     //
     let damageAdditional = additional_patterns_2[AAReference][battleskill];
-    console.log(damageAdditional);
+    ///console.log(damageAdditional);
     let stunActiveAA = true;
     for (let indivAA of damageAdditional){
         //console.log(indivAA);
@@ -954,19 +954,19 @@ function getAdditionalAttackDamage2(battleskill,AAReference,exclude=false,stunCh
         } else { //have condition list
             let allCondTrue = true;
             let condArray = indivAA["cond"];
-            console.log(condArray);
+            ///console.log(condArray);
             for (let i=0;i<condArray.length;i++){
                 if (condArray[i][0] === "condition"){
                     // for now, put an OR option here, might need change if negative effects on ally buff themselves
                     if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
-                        console.log(condArray[i]," is true");
+                        ///console.log(condArray[i]," is true");
                     } else {
-                        console.log(condArray[i]," made it false");
+                        ///console.log(condArray[i]," made it false");
                         allCondTrue = false;
                     }
                 } else {//reference
                     if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){console.log(condArray[i]," is true");}
-                    else {console.log(condArray[i]," made it false");allCondTrue = false;}
+                    else {/*console.log(condArray[i]," made it false");*/allCondTrue = false;}
                 }
             }
             if (allCondTrue){
@@ -992,7 +992,7 @@ function getAdditionalAttackDamage2(battleskill,AAReference,exclude=false,stunCh
             }
         }
     }
-    console.log(dmgAA,targetAA,frameAA);
+    ///console.log(dmgAA,targetAA,frameAA);
     if (dmgAA === undefined||targetAA === undefined||frameAA === undefined||frameAA === 0){
         //console.log("return 0");
         return 0;
@@ -1019,7 +1019,7 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false,stunC
     if (blockCount > blockCountMax){blockCount = blockCountMax;}
     //
     let damageContinuous = continuous_patterns[continuousReference][battleskill];
-    console.log(damageContinuous);
+    ///console.log(damageContinuous);
     let stunActiveC = true;
     for (let indivCont of damageContinuous){
         //console.log(indivCont);
@@ -1042,19 +1042,19 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false,stunC
         } else { //have condition list
             let allCondTrue = true;
             let condArray = indivCont["cond"];
-            console.log(condArray);
+            ///console.log(condArray);
             for (let i=0;i<condArray.length;i++){
                 if (condArray[i][0] === "condition"){
                     // for now, put an OR option here, might need change if negative effects on ally buff themselves
                     if (conditionalOption(selfConditions[condArray[i][1]],condArray[i][2],condArray[i][3])||conditionalOption(enemyConditions[condArray[i][1]],condArray[i][2],condArray[i][3])){
-                        console.log(condArray[i]," is true");
+                        ///console.log(condArray[i]," is true");
                     } else {
-                        console.log(condArray[i]," made it false");
+                        ///console.log(condArray[i]," made it false");
                         allCondTrue = false;
                     }
                 } else {//reference
                     if (conditionalOption(selfReference[condArray[i][1]],condArray[i][2],condArray[i][3])){console.log(condArray[i]," is true");}
-                    else {console.log(condArray[i]," made it false");allCondTrue = false;}
+                    else {/*console.log(condArray[i]," made it false");*/allCondTrue = false;}
                 }
             }
             if (allCondTrue){
@@ -1079,7 +1079,7 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false,stunC
             }
         }
     }
-    console.log(dmgC,targetC,frameC);
+    ///console.log(dmgC,targetC,frameC);
     if (dmgC === undefined||targetC === undefined||frameC === undefined){
         //console.log("return 0");
         return 0;
@@ -2442,7 +2442,7 @@ function buffGet(indivBuff,additive=false,minus=false,damageUp=false){
 function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,referenceEnemy=false){
     let allTalents = abilityObject["talentList"];
     for (let i=0; i<allTalents.length;i++){
-        console.log(allTalents[i]);
+        ////console.log(allTalents[i]);
         if (eBuffTypeParse(allTalents[i]["talentId"])[0] === type){
             ///console.log("type matches");
             let conditionRecord = {"trigger":true,"active":true};
@@ -2451,9 +2451,9 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,re
                 for (let j=0;j<allTalents[i]["triggerData"].length;j++){
                     let conditionRef = enemyConditions[allTalents[i]["triggerData"][j]["type"]];
                     for (let k=0;k<allTalents[i]["triggerData"][j]["num"].length;k++){
-                        console.log("conditionRef: "+conditionRef);
-                        console.log("option: "+allTalents[i]["triggerData"][j]["option"][k]);
-                        console.log("hurdle: "+allTalents[i]["triggerData"][j]["num"][k]);
+                        ///console.log("conditionRef: "+conditionRef);
+                        ///console.log("option: "+allTalents[i]["triggerData"][j]["option"][k]);
+                        ///console.log("hurdle: "+allTalents[i]["triggerData"][j]["num"][k]);
                         if (conditionalOption(conditionRef,allTalents[i]["triggerData"][j]["option"][k],allTalents[i]["triggerData"][j]["num"][k])){
                         } else {conditionRecord["trigger"]=false;}
                     }
