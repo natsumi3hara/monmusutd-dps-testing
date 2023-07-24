@@ -1,12 +1,20 @@
 let conditions = ["filterDiv", "all"];
 const rarityList = ["common", "rare", "epic", "legend","free"];
+const attrList = ["fireA","waterA","windA","earthA","lightA","darkA"];
 let rarityFilter = [];
+let attrFilter = [];
 function filterSelection(condition) {
   if (rarityList.includes(condition)){
     if (rarityFilter.includes(condition)){
       rarityFilter.splice(rarityFilter.indexOf(condition),1)
     } else {
       rarityFilter.push(condition)
+    }
+  } else if (attrList.includes(condition)){
+    if (attrFilter.includes(condition)){
+      attrFilter.splice(attrFilter.indexOf(condition),1)
+    } else {
+      attrFilter.push(condition)
     }
   } else if (conditions.includes(condition)){
     conditions.splice(conditions.indexOf(condition),1)
@@ -21,10 +29,11 @@ function filterSelection(condition) {
   if (condition == "all") conditions = ["filterDiv", "all"];
   for (i = 0; i < x.length; i++) {
     w3RemoveClass(x[i], "show");
-    let condArray = x[i].className.split(" ")
-    console.log(condArray)
-    console.log(conditions)
-    console.log(rarityFilter)
+    let condArray = x[i].className.split(" ");
+    //console.log(condArray);
+    //console.log(conditions);
+    //console.log(rarityFilter);
+    //console.log(attrFilter);
     let checkerAND = (arr, target) => target.every(v => arr.includes(v));
     let checkerOR = (arr,target) => target.some(v => arr.includes(v))
     // console.log(checkerAND(condArray,conditions))
@@ -32,11 +41,11 @@ function filterSelection(condition) {
     // console.log(document.getElementById("andORswitch").checked)
     if (conditions.includes("all")){
       w3AddClass(x[i], "show");
-    } else if (checkerAND(condArray,conditions)&&checkerOR(condArray,rarityFilter)){
+    }/* else if (checkerAND(condArray,conditions)&&checkerOR(condArray,rarityFilter)){
         w3AddClass(x[i], "show");
-    } else if (document.getElementById("andORswitch").checked){
+    }*/ else if (document.getElementById("andORswitch").checked){
       condArray.splice(condArray.indexOf("filterDiv"),1)
-      if (checkerOR(condArray,conditions)&&checkerOR(condArray,rarityFilter)) {
+      if ((checkerOR(condArray,conditions)||conditions.length===1)&&(checkerOR(condArray,rarityFilter)||rarityFilter.length===0)&&(checkerOR(condArray,attrFilter)||attrFilter.length===0)) {
       w3AddClass(x[i], "show");
       }
     }
@@ -95,6 +104,7 @@ function allInactive(){
   this.className += " active";
   conditions = ["filterDiv", "all"];
   rarityFilter = [];
+  attrFilter = [];
 }
 function selectedActive(){
   let x = document.getElementById("showAll").className

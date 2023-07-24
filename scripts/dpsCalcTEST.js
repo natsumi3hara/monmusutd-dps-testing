@@ -220,7 +220,7 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
-    let ex2List = [10008,10019,10020,10022,10024,10025,10030,10032,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10065,10068,10078,10079,10085,10088];
+    let ex2List = [10008,10019,10020,10022,10024,10025,10030,10032,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10065,10068,10078,10079,10085,10088,10093,10094];
     let exChangeList = [10088,10106,10126];
     let exChangeRefr = [[0,4],[4],[3]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
@@ -1363,11 +1363,11 @@ function damageCalc(attack,hitType){
     let damage = 0;
     let guaranteeDamage = Math.floor(attack/10);
     let dmgRed = 100 - Number(document.getElementById("input-enemy-dmgRed").value);
-    if (masterValues.charaID === 10173 && masterValues.charaAwaked && selfConditions["1"] === 1){dmgRed=dmgRed*128/100;}
-    else if (masterValues.charaID === 10173 && selfConditions["1"] === 1){dmgRed=dmgRed*120/100;}
-    if (document.getElementById("otherSkill10173").checked && document.getElementById("otherSkill10173a").checked){dmgRed=dmgRed*128/100;}
-    else if (document.getElementById("otherSkill10173").checked){dmgRed=dmgRed*120/100;}
     if (hitType === "物理" || hitType === "Physical"){
+        if (masterValues.charaID === 10173 && masterValues.charaAwaked && selfConditions["1"] === 1){dmgRed=dmgRed*128/100;}
+        else if (masterValues.charaID === 10173 && selfConditions["1"] === 1){dmgRed=dmgRed*120/100;}
+        if (document.getElementById("otherSkill10173").checked && document.getElementById("otherSkill10173a").checked){dmgRed=dmgRed*128/100;}
+        else if (document.getElementById("otherSkill10173").checked){dmgRed=dmgRed*120/100;}
         //console.log("enemy-pDef:",document.getElementById("input-enemy-stat3").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat3").value);
     } else if (hitType === "魔法" || hitType === "Magical"){

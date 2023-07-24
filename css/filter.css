@@ -68,18 +68,18 @@
   background-color: #666;
   color: white;
 }
-.legendB{background-color:#fff6da;}
-.legendB:hover{background-color:#edd58f;}
-.legendB.active{background-color:#ffbf00;}
-.epicB{background-color:#ffddff;}
-.epicB:hover{background-color: #ef80ef;}
-.epicB.active{background-color: #ff00ff;}
-.rareB{background-color:#cff1ff;}
-.rareB:hover{background-color: #42c9ff;}
-.rareB.active{background-color: #00abee;}
-.commonB{background-color:#e1e1e1;}
-.commonB:hover{background-color: #aeaeae;}
-.commonB.active{background-color: #808080;}
+.legendB{background-color:#fff6da;border:1px solid #ffbf00;}
+.legendB:hover{background-color:#edd58f;border:1px solid #ffbf00;}
+.legendB.active{background-color:#ffbf00;border:1px solid #ffbf00;}
+.epicB{background-color:#ffddff;border:1px solid #ff00ff;}
+.epicB:hover{background-color: #ef80ef;border:1px solid #ff00ff;}
+.epicB.active{background-color: #ff00ff;border:1px solid #ff00ff;}
+.rareB{background-color:#cff1ff;border:1px solid #00abee;}
+.rareB:hover{background-color: #42c9ff;border:1px solid #00abee;}
+.rareB.active{background-color: #00abee;border:1px solid #00abee;}
+.commonB{background-color:#cdcdcd;border:1px solid #808080;}
+.commonB:hover{background-color: #aeaeae;border:1px solid #808080;}
+.commonB.active{background-color: #808080;border:1px solid #808080;}
 .fireAB{background-color:#f1f1f1;}
 .fireAB:hover{background-color: #FF9775;}
 .fireAB.active{background-color: #ff5820;}
@@ -126,4 +126,11 @@ table {
 }
 tr, td{
   border: 1px solid black;
+}
+
+#webheader{
+  background-color: #fedce1;
+}
+#selectionWindow{
+  background-color: #fedce1;
 }

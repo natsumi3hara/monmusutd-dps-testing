@@ -6,18 +6,32 @@
         <meta name="description" content="DMMゲーム：モンスター娘TDのDPS計算機。"/>
     </head>
     <body>
+        <div id="webheader">
+            <table style="border:none;padding:3px;border-spacing:0px;">
+                <tr>
+                    <td style="border:none;background-color:white;font-family:mtdfont;font-size:28px;">
+                        モンスター娘TD DPS計算機 (β版)
+                    </td>
+                    <td style="border:none;background-color:white;font-family:mtdfont;font-size:12px;text-align:right;vertical-align:bottom;">
+                        by 三原なつみ
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr>
         <div id="selectionWindow">
-            <div>
-                <input type="checkbox" id="andORswitch" onchange="filterSelection('')">
+            <table><tr><td>
+            <div style="display:none;">
+                <input type="checkbox" id="andORswitch" onchange="filterSelection('')" checked>
                 <label for="andORswitch">OR 検索</label>
             </div>
             <div id="buttonContainer">
                 <button id="showAll" class="btn" onclick="filterSelection('all')"> 全表示 (リセット)</button>
-                <button class="btn legendB" onclick="filterSelection('legend')"> レジェンド(Legend)</button>
-                <button class="btn epicB" onclick="filterSelection('epic')"> エピック(Epic)</button>
-                <button class="btn rareB" onclick="filterSelection('rare')"> レア(Rare)</button>
-                <button class="btn commonB" onclick="filterSelection('common')"> コモン(Common)</button>
-                <button class="btn commonB" onclick="filterSelection('free')"> イベ産+E以下(Event+E and below)</button>
+                <button class="btn commonB" onclick="filterSelection('free')"> イベ産+E以下</button>
+                <button class="btn legendB" onclick="filterSelection('legend')"> レジェンド(L)</button>
+                <button class="btn epicB" onclick="filterSelection('epic')"> エピック(E)</button>
+                <button class="btn rareB" onclick="filterSelection('rare')"> レア(R)</button>
+                <button class="btn commonB" onclick="filterSelection('common')"> コモン(C)</button>
                 <hr class="hline">
                 <button style="background-color: #ffb4b4;" class="collapsible-button">クラス</button>
                 <div class="collapsible-content" style="display: block;">
@@ -50,7 +64,7 @@
                     <button class="btn darkAB" onclick="filterSelection('darkA')"> 闇属性</button>
                 </div>
                 <hr class="hline">
-                <button style="background-color: #ffff7d;" class="collapsible-button">種族↓</button>
+                <button style="background-color: #ffff7d;" class="collapsible-button">種族</button>
                 <div class="collapsible-content" style="display: none;">
                     <button class="btn" onclick="filterSelection('youkai')"> 妖怪</button>
                 </div>
@@ -336,7 +350,7 @@
                 <div class="filterDiv free epic dagger darkA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10092_0_s.png">
                 </div>
-                <div class="filterDiv legend sword lightA" style="background-color:#efdfb0;">
+                <div class="filterDiv legend hammer lightA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10093_0_s.png">
                 </div>
                 <div class="filterDiv legend dagger fireA multihit" style="background-color:#efdfb0;">
@@ -571,6 +585,7 @@
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10192_0_s.png">
                 </div>
             </div>
+            </td></tr></table>
         </div>
         <div id="infoWindow">
             <p id="buttonback">
