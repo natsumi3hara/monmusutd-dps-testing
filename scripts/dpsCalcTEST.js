@@ -452,7 +452,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1114;
+    let lastSubskillID = 1117;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -535,8 +535,9 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10101,10112,10160].includes(masterValues.charaID)){
+    if ([10101,10112,10160,10196].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
+        //stat1 dependent here too (10196)
         calculateStat(level,cc,"stat2");
     }
     //statcalc over//
@@ -550,6 +551,16 @@ function allDPS(slot1=-1,slot2=-1){
         extraAffectDamage.value = "70";
     } else {extraAffectDamage.value = "100";}
     */
+    //henshinPattern
+    let henshinReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
+    henshinCheck = henshin_patterns[henshinReference];
+    if (henshinCheck === undefined) {henshinReference = 0;}
+    let henshinTime = Math.floor(Number(henshin_patterns[henshinReference])/Number(document.getElementById("dps-output-skill-value-stat6").innerHTML));
+    if (masterValues.language === "ja"){
+        document.getElementById("dps-all-henshinDuration").innerHTML = (henshinTime/30).toFixed(2)+"秒";
+    } else if (masterValues.language === "en"){
+        document.getElementById("dps-all-henshinDuration").innerHTML = (henshinTime/30).toFixed(2)+"秒";
+    }
     //attackPattern
     let attackPatternReference = masterValues.charaID - Number(document.getElementById("skill-alt-select").value);
     if (masterValues.charaAwaked){
@@ -697,14 +708,14 @@ function allDPS(slot1=-1,slot2=-1){
     document.getElementById("dps-battle-finalDPS").innerHTML = battleFinalDPS.toFixed(2);
     document.getElementById("dps-skill-finalDPS").innerHTML = skillFinalDPS.toFixed(2);
     //continuous end
-    let finalDPS = overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS,continuousWhenStun);
+    let finalDPS = overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS,continuousWhenStun,henshinTime);
     //reminder for enemy input//
     enemyReminder()
     ///console.log([battleFinalDPS,skillFinalDPS,finalDPS]);
     return [battleFinalDPS,skillFinalDPS,finalDPS];
 }
 
-function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS,continuousWhenStun){
+function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillFinalDPS,continuousWhenStun,henshinTime){
     let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
     let skillchangenumber = Number(document.getElementById("skill-change-select").value);
     let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
@@ -727,7 +738,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     //↓if needed, this will be converted to lists like decrease1per1, decrease1per4 etc, count number of true//
     let fullHeart = selfConditions["2000"]===100 && (subskillID_1 === 58||subskillID_2 === 58);
     let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
-    let chara10147 = masterValues.charaID===10147 && selfConditions["2"]===1;
+    let cooldown1to1 = (masterValues.charaID===10147||masterValues.charaID===10198) && selfConditions["2"]===1;
     //duration manipulation//
     if (duration === 0){duration = Number(document.getElementById("dps-dps-skill-averageFrame").innerHTML)/30}
     //initial manipulation//
@@ -738,15 +749,15 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
     if (selfConditions["1007"]===11024||selfConditions["1007"]===11044){initial -= 3;}
     if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
-    if (fullHeart && mattari && chara10147){
+    if (fullHeart && mattari && cooldown1to1){
         initial = Math.floor(initial/13)*4 + Math.ceil((initial%13)/3);
-    } else if (fullHeart && (mattari||chara10147)){
+    } else if (fullHeart && (mattari||cooldown1to1)){
         initial = Math.floor(initial/9)*4 + Math.ceil((initial%9)/2);
     } else if (fullHeart){
         initial = Math.floor(initial/5)*4 + Math.ceil(initial%5);
-    } else if (mattari&&chara10147){
+    } else if (mattari&&cooldown1to1){
         initial = Math.ceil(initial/3);
-    } else if (mattari||chara10147){
+    } else if (mattari||cooldown1to1){
         initial = Math.ceil(initial/2);
     } else {}
     if (initial < 0){initial = 0;}
@@ -762,7 +773,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     //cooldown manipulation (subskill)//
     /*console.log(fullHeart);
     console.log(mattari);
-    console.log(chara10147);
+    console.log(cooldown1to1);
     console.log(Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3));
     console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
     console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
@@ -774,15 +785,15 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (true/*document.getElementById("shared20008-1").checked*/){
         cooldown -= 3*Number(document.getElementById("shared20008-2").value);
     }
-    if (fullHeart && mattari && chara10147){
+    if (fullHeart && mattari && cooldown1to1){
         cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
-    } else if (fullHeart && (mattari||chara10147)){
+    } else if (fullHeart && (mattari||cooldown1to1)){
         cooldown = Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2);
     } else if (fullHeart){
         cooldown = Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5);
-    } else if (mattari&&chara10147){
+    } else if (mattari&&cooldown1to1){
         cooldown = Math.ceil(cooldown/3);
-    } else if (mattari||chara10147){
+    } else if (mattari||cooldown1to1){
         cooldown = Math.ceil(cooldown/2);
     } else {}
     if (cooldown < 0) {cooldown = 0;}
@@ -815,7 +826,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (duration === -1){
         finalDPS = skillFinalDPS;
     } else {
-        finalDPS = (battleFinalDPS*cooldown + skillFinalDPS*duration + continuousWhenStun*selfStun)/(cooldown+duration+selfStun);
+        finalDPS = (battleFinalDPS*(cooldown-selfStun) + skillFinalDPS*(duration-henshinTime/30) + continuousWhenStun*selfStun)/(cooldown+duration);
     }
     document.getElementById("dps-all-final").innerHTML = finalDPS.toFixed(2);
     return finalDPS;
@@ -1411,9 +1422,9 @@ function updateAttackTypes(typelist,skillAttack){
         let cell5 = row.insertCell(4);
         //this first condition is only for scimitars because their trait + skill duration 0//
         if (idType==="battle"&&Number(document.getElementById("dps-output-"+idType+"-value-stat7").innerHTML) < Number(selfConditions["2002"])){
-            cell5.innerHTML = Math.floor(Number(typelist[i]["time"]) / Number(document.getElementById("dps-output-"+idType+"-value-stat6").innerHTML)) + Number(selfConditions["2002"]);
+            cell5.innerHTML = Math.ceil(Number(typelist[i]["time"]) / Number(document.getElementById("dps-output-"+idType+"-value-stat6").innerHTML)) + Number(selfConditions["2002"]);
         } else {
-            cell5.innerHTML = Math.floor(Number(typelist[i]["time"]) / Number(document.getElementById("dps-output-"+idType+"-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-"+idType+"-value-stat7").innerHTML);
+            cell5.innerHTML = Math.ceil(Number(typelist[i]["time"]) / Number(document.getElementById("dps-output-"+idType+"-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-"+idType+"-value-stat7").innerHTML);
         }
         cell5.id = "dps-attacks-" + idType + i.toString() + "-frames";
     }
@@ -1711,6 +1722,18 @@ function calculateStat(level,cc,type){
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
+    //summer diffnilla's permanent buff//
+    if (type === "stat1" && masterValues.charaID === 10196){
+        multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
+    }
+    //summer diffnilla's stat1 dependent buff
+    if (type === "stat2" && masterValues.charaID === 10196){
+        if (selfConditions["26"] === 0){
+            addEffect2.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+        } else {
+            addEffect2.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+        }
+    }
     //kyou's wind ally aSpd and PAD buff
     if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect2.buff += 25;
@@ -1873,6 +1896,14 @@ function calculateStat(level,cc,type){
         if (key.includes("fixed")){
             if (type === "stat86" && masterValues.allBuff[key][0][1][0] !== 100){}
             else {outputBattle = masterValues.allBuff[key][0][0][0];}
+        }
+    }
+    //chifa override//
+    if (masterValues.charaID === 10131){
+        if (masterValues.language === "ja" && selfConditions["1010"]===2){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "魔法";
+        } else if (masterValues.language === "en" && selfConditions["1010"]===2){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "Magical";
         }
     }
     //lapis override//
@@ -2047,6 +2078,18 @@ function calculateStat(level,cc,type){
     } else {
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
+    }
+    //summer diffnilla's permanent buff//
+    if (type === "stat1" && masterValues.charaID === 10196){
+        multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
+    }
+    //summer diffnilla's stat1 dependent buff
+    if (type === "stat2" && masterValues.charaID === 10196){
+        if (selfConditions["26"] === 0){
+            addEffect3.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+        } else {
+            addEffect3.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+        }
     }
     //chika's stat3 dependent buff on skill
     if (type === "stat2" && masterValues.charaID === 10160){
@@ -3084,7 +3127,7 @@ function uniqueWeaponReplace(charaID){
     }
 }
 function dpsDetailShow(){
-    let dpsC = [10040,10049,10063,10092,10136,10145,10178];
+    let dpsC = [10040,10049,10063,10092,10131,10136,10145,10178];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188];
     if (dpsC.includes(masterValues.charaID)){
@@ -3275,10 +3318,16 @@ const attachOptions = [
     {value: 1112, text: 'オールレジスト'},
     {value: 1113, text: 'アサルトチャージ'},
     {value: 1114, text: 'MAXマッスル'},
-    //{value: 1115, text: 'ダミー'},
-    //{value: 1116, text: 'ダミー'},
-    //{value: 1117, text: 'ダミー'},
+    {value: 1115, text: 'きらめきの星騎士'},
+    {value: 1116, text: '触手も付けとくでぇ！'},
+    {value: 1117, text: 'ハイテンションサマー'},
     //{value: 1118, text: 'ダミー'},
+    //{value: 1119, text: 'ダミー'},
+    //{value: 1120, text: 'ダミー'},
+    //{value: 1121, text: 'ダミー'},
+    //{value: 1122, text: 'ダミー'},
+    //{value: 1123, text: 'ダミー'},
+    //{value: 1124, text: 'ダミー'},
 ];
 
 //loaders//

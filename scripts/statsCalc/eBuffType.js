@@ -1,3 +1,4 @@
+//last value is stat186
 const eBuffType = {
 	//Base stats//
     "0":["None","none-none"],
@@ -75,6 +76,8 @@ const eBuffType = {
 	"72":["stat23","rate-minus"],
 	"73":["stat24","fixed-none"],
 	"74":["stat25","fixed-none"],
+	"75":["stat185","fixed-none"],
+	"76":["stat186","fixed-none"],
 	//Resistances//
 	"400":["stat26","actual-plus"],
 	"401":["stat26","actual-minus"],

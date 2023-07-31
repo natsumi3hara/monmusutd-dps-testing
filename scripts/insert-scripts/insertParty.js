@@ -47,7 +47,7 @@ document.write(`
     <div id="flex-container-party-buff">
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10005_0_s.png" class="party-buff-img">
+                <abbr title="編成時、風属性モンスター娘の攻撃力+8%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10005_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">シルフィーネ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -59,7 +59,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10008_0_s.png" class="party-buff-img">
+                <abbr title="編成時、水属性モンスター娘の攻撃力+8%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10008_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">プネーマ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -71,7 +71,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10010_0_s.png" class="party-buff-img">
+                <abbr title="編成時、火属性モンスター娘の攻撃力+8%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10010_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">イグニ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -83,7 +83,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10012_0_s.png" class="party-buff-img">
+                <abbr title="編成時、地属性モンスター娘の攻撃力+8%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10012_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ペトラ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -95,7 +95,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10039_0_s.png" class="party-buff-img">
+                <abbr title="編成時、ガーディアン系のHP+8%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10039_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ディフニラ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -107,7 +107,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10044_0_s.png" class="party-buff-img">
+                <abbr title="編成時、ウォリアー系のHP+10%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10044_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ラゴス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -119,7 +119,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10069_0_s.png" class="party-buff-img">
+                <abbr title="編成時、全モンスター娘のHP+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10069_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ミテラス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -131,7 +131,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10080_0_s.png" class="party-buff-img">
+                <abbr title="編成時水属性モンスター娘の攻撃力と物理防御+4%(+1%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10080_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">フリス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -143,7 +143,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10095_0_s.png" class="party-buff-img">
+                <abbr title="編成時、火属性モンスター娘の攻撃力+10%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10095_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ラフーカ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -155,7 +155,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10106_0_s.png" class="party-buff-img">
+                <abbr title="編成時、水属性モンスター娘の攻撃力+10%" style="cursor: help;"><img src="../../img/chara-icons/icon_10106_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ロヴィリス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -167,7 +167,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10116_0_s.png" class="party-buff-img">
+                <abbr title="編成時水属性モンスター娘の攻撃力+9%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10116_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">リュプチェ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -179,7 +179,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10125_0_s.png" class="party-buff-img">
+                <abbr title="編成時水属性モンスター娘のHPと攻撃力+10%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10125_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">マリドゥーラ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -191,7 +191,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10127_0_s.png" class="party-buff-img">
+                <abbr title="編成時風属性モンスター娘のHPと攻撃力+10%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10127_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ヤーセファ</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -203,7 +203,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10134_0_s.png" class="party-buff-img">
+                <abbr title="編成時光属性モンスター娘の最大HP+10%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10134_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">鈴音マズル</span>
             </div>
             <div class="flex-container-party-buff-inner2">
@@ -215,7 +215,7 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
-                <img src="../../img/chara-icons/icon_10136_0_s.png" class="party-buff-img">
+                <abbr title="編成時、火属性モンスター娘のHPと攻撃力+10%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10136_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">イフィジャール</span>
             </div>
             <div class="flex-container-party-buff-inner2">

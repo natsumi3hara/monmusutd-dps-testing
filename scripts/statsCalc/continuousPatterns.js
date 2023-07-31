@@ -209,6 +209,22 @@ const continuous_patterns = {
 			},
 		],
 	},
+	"131": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":10},
+			"target":"block",
+			"time":15,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":10},
+			"target":"block",
+			"time":15,
+			},
+		],
+	},
 	"136-1": {
 		"battle":[
 			{"cond":[],

@@ -48,7 +48,7 @@ document.write(`
 
 </style>
 <button type="button" class="collapsible-button inputInsertButton">キャラ個別（クリックで開く）</button>
-<div class="collapsible-content" style="display:none;">
+<div class="collapsible-content" style="display:block;">
     <div id="flex-container-charaSpecific-buff">
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10007">
             <div class="flex-container-charaSpecific-buff-inner2">
@@ -275,6 +275,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">毒を回復した回数</span>
                 <input id="charaSpecific10178-1" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10196">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10196_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">最大HPアップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル発動回数</span>
+                <input id="charaSpecific10196-1" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>

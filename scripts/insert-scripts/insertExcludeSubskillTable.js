@@ -222,11 +222,11 @@ document.write(`
     <td id="exsub-1109" class="exsub" onclick="toggleExclude(1109)">ポイズンエンチャント</td>
     <td id="exsub-1110" class="exsub excluded" onclick="toggleExclude(1110)">ガードプロテクト</td>
     <td id="exsub-1111" class="exsub excluded" onclick="toggleExclude(1111)">パワフルリジェネ</td>
-    <td id="exsub-1112" class="exsub excluded" onclick="toggleExclude(1112)">状態異常レジスト</td>
+    <td id="exsub-1112" class="exsub excluded" onclick="toggleExclude(1112)">オールレジスト</td>
     <td id="exsub-1113" class="exsub" onclick="toggleExclude(1113)">アサルトチャージ</td>
 </tr>
 <tr>
-    <td id="exsub-1114" class="exsub" onclick="toggleExclude(1114)">パワフルマックス</td>
+    <td id="exsub-1114" class="exsub" onclick="toggleExclude(1114)">MAXマッスル</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
