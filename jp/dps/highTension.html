@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Google tag (gtag.js) 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1914Y0N5HJ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1914Y0N5HJ');
+        </script>-->
+        <meta charset="utf-8"/>
+        <title>DPS計算機</title>
+        <script src="../../scripts/console&devTools.js"></script>
+        <link href="../../css/dpsTEST.css" rel="stylesheet" type="text/css"/>
+        <script src="../../scripts/statsCalc/allData.js"></script>
+        <script src="../../scripts/statsCalc/allUnitcard.js"></script>
+        <script src="../../scripts/statsCalc/eBuffType.js"></script>
+        <script src="../../scripts/statsCalc/partybuff.js"></script>
+        <script src="../../scripts/highTensionTEST.js"></script>
+        <script src="../../scripts/equipConvert.js"></script>
+        <script src="../../scripts/statsCalc/cond-timing-range.js"></script>
+        <script src="../../scripts/statsCalc/attackPatterns.js"></script>
+        <script src="../../scripts/statsCalc/addtionalPatterns.js"></script>
+        <script src="../../scripts/statsCalc/addtionalPatterns2.js"></script>
+        <script src="../../scripts/statsCalc/continuousPatterns.js"></script>
+        <script src="../../scripts/statsCalc/henshinPatterns.js"></script>
+        <script src="../../scripts/statsCalc/selfStunPatterns.js"></script>
+        <script src="../../scripts/statsCalc/extraInfoList.js"></script>
+        <script src="../../scripts/statsCalc/10000.js"></script>
+        <script src="../../scripts/charaGroups.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+        <script>
+            //var console = {};
+            //console.log = function(){};
+            const params = (new URL(document.location)).searchParams;
+            var masterValues = {};
+            masterValues["language"] = "ja";
+            masterValues["charaID"] = Number(params.get("id"));
+            masterValues["unitcard"] = window["card"+params.get("id")];
+            masterValues["charaAwaked"] = (params.get("awaked")==="true");
+            masterValues["baseClass"] = masterValues.unitcard["classId"];
+            masterValues["allBuff"] = {} //temp global storage for each stat calc
+            var notawakedURL = document.location.href.split("?")[0] + "?id=" + params.get("id");
+            var awakedURL = document.location.href.split("?")[0] + "?id=" + params.get("id") + "&awaked=true";
+        </script>
+        <!-- obsolete, but kept in case rollback
+        <script>document.write('<script src="../../scripts/statsCalc/'+masterValues["baseClass"].toString()+'.js"><\/script>');</script>
+        -->
+    </head>
+    <body>
+        <div id="loading-fade">
+            <table id="loadText" style="width:100%;height:100%;">
+                <tr></tr>
+                <tr>
+                    <td style="width:100%;vertical-align:middle;">
+                        <span id="calculating" style="font-size: 36px;">計算中</span><br>
+                        <span id="turnOffFaster" style="font-size: 20px;">読み込みを加速するために一時的に画面を消します。</span><br><br>
+                        <span id="shirami" style="color:red;">※虱潰しで除外されたサブスキル以外の全組み合わせを試します。</span><br>
+                        <span id="notFreeze" style="color:red;">※フリーズしたに見えるが、ちゃんと計算が行っておりますので、安心してください。</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="chara-selection">
+            <table id="buttonback" style="margin:2px;vertical-align: middle;background-color: beige;width: 100%;">
+                <td style="width:40px;"><img onclick="location.href='../filter/index.html'" style="cursor: pointer; width:36px;height:36px;" src="../../img/ui-icons/Common_BtnTitleBackOff.png"></td>
+                <td style="width:1%;white-space: nowrap;"><span style="border-radius:4px;background-color: bisque;">キャラ選択に戻る</span></td>
+                <td style="width:1%;white-space: nowrap;"></td>
+                <td style="width:1%;white-space: nowrap;"><span style="border-radius:4px;background-color: bisque;">完凸/未完凸</span></td>
+                <td style="width:40px;"><abbr title="ページを切り換える"><img onclick="changeAwaked(masterValues.charaAwaked)" style="cursor: pointer; width:36px;height:36px;" src="../../img/ui-icons/Story_BtnArrowRightOff.png"></td>
+                <td></td>
+            </table>
+        </div>
+        <div id="main-display" style="display: flex;">
+            <div id="dps-input-info" style="display:flex; flex-direction: column; flex:1;">
+                <div id="dps-input">
+                    <div class="dps-tabs dps-input-tabs">
+                        <button class="dps-input-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'alliedunit','dps-input-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> ユニット</button>
+                        <button class="dps-input-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'conditions','dps-input-tablink')"><img src="../../img/ui-icons/Common_BtnQuestionOff.png"> 条件</button>
+                    </div>
+                    <div id="alliedunit" class="dps-input-tablink-content dps-tabcontent" style="display: block;">
+                        <div>
+                            <span>&nbsp;CC：</span><input id="input-cc" type="number" min="0" max="3" value="0" onchange="allDPS();">
+                            <span>&nbsp;&nbsp;スキル後行動不能無効：</span><input type="checkbox" id="selfStun-invalid" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
+                        </div>
+                        <hr>
+                        <div style="display: flex;">
+                            <div style="width:50%;text-align: center;vertical-align: middle;">
+                                <abbr id="equipweaponabbr" title="" style="cursor: help;">
+                                    <img src="../../img/equipment-icons/0001.png" id="equipweapon" class="equip-icon"></abbr>
+                                <input type="checkbox" id="equip1" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
+                                <abbr id="equipheadabbr" title="" style="cursor: help;">
+                                    <img src="../../img/equipment-icons/0002.png" id="equiphead" class="equip-icon"></abbr>
+                                <input type="checkbox" id="equip2" class="larger-check" style="vertical-align: middle;" onchange="allDPS();"><br>
+                                <abbr id="equipbodyabbr" title="" style="cursor: help;">
+                                    <img src="../../img/equipment-icons/0004.png" id="equipaccessory" class="equip-icon"></abbr>
+                                <input type="checkbox" id="equip3" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
+                                <abbr id="equipaccessoryabbr" title="" style="cursor: help;">
+                                    <img src="../../img/equipment-icons/0003.png" id="equipbody" class="equip-icon"></abbr>
+                                <input type="checkbox" id="equip4" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
+                            </div>
+                            <table style="width:50%;text-align: center;vertical-align: middle;">
+                                <tr>
+                                    <td><span id="talent3" style="padding:5px;text-align: center;">潜在覚醒3</span><input type="checkbox" id="talent3check" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="talent4" style="padding:5px;text-align: center;">潜在覚醒4</span><input type="checkbox" id="talent4check" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="talent5" style="padding:5px;text-align: center;">潜在覚醒5</span><input type="checkbox" id="talent5check" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr>
+                        <div style="display: flex;">
+                            <div style="width: 50%;">
+                                <span id="skill-error" style="color: red;"></span>
+                                <span>EXスキル</span>
+                                <select name="skill-alt-select" id="skill-alt-select" style="font-family:mtdfont; width: 40%;" onchange="allDPS();">
+                                    <option value="10000">I</option>
+                                    <option value="0">II</option>
+                                </select><br>
+                                <span>スキルレベル</span>
+                                <select name="skill-level-select" id="skill-level-select" style="font-family:mtdfont; width: 40%;" onchange="allDPS();">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select><br>
+                                <span>スキル変化</span>
+                                <select name="skill-change-select" id="skill-change-select" style="font-family:mtdfont; width: 40%;" onchange="allDPS();">
+                                    <option value="0">変化0</option>
+                                    <option value="200000">変化1</option>
+                                    <option value="201000">変化2</option>
+                                    <option value="202000">変化3</option>
+                                    <option value="203000">変化4</option>
+                                </select>
+                            </div>
+                            <div id="unique-weapon-div" style="width: 50%;">
+                                <table style="height:100%;width:100%;border:3px solid white;">
+                                    <tr>
+                                        <td style="border:none;vertical-align:top;width: 33%;">
+                                            <span>専用武器</span>
+                                        </td>
+                                        <td style="border:none;text-align:right;width: 33%;">
+                                            <img class="equip-icon" src="../../img/equipment-icons/0010.png">
+                                        </td>
+                                        <td style="border:none;text-align:left;width: 33%;">
+                                            <input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <span>サブスキル1</span>
+                        <select id="subskill1" style="font-size: smaller;width:50%;font-family: mtdfont;" onchange="allDPS();">
+                        </select><span id="subskill1condcheck"></span><br>
+                        <span>サブスキル2</span>
+                        <select id="subskill2" style="font-size: smaller;width:50%;font-family: mtdfont;" onchange="allDPS();">
+                        </select><span id="subskill2condcheck"></span>
+                    </div>
+                    <div id="conditions" class="dps-input-tablink-content dps-tabcontent" style="display: none;">
+                        <script src="../../scripts/insert-scripts/insertSharedHT.js"></script><br>
+                        <script src="../../scripts/insert-scripts/insertDivineHT.js"></script><br>
+                        <script src="../../scripts/insert-scripts/insertOtherSkillHT.js"></script><br>
+                    </div>
+                </div>
+                <hr>
+                <div id="dps-output">
+                    <div id="dps-output-stats">
+                        <div class="dps-tabs dps-output-stats-tabs">
+                            <button class="dps-output-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'stats-menu','dps-output-stats-tablink')"><img src="../../img/ui-icons/Footer_ImageNurturingIcon.png"> 基本</button>
+                            <button class="dps-output-stats-tablink" onclick="openTab(event, 'stats-battle','dps-output-stats-tablink')"><img src="../../img/ui-icons/Footer_ImageOrganizationIcon.png"> バトル</button>
+                            <button class="dps-output-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'stats-skill','dps-output-stats-tablink')"><img src="../../img/ui-icons/Btl_SkillNotice_Skill.png"> スキル</button>
+                        </div>
+                        <div id="stats-menu" class="dps-output-stats-tablink-content dps-tabcontent">
+                            <table>
+                                <tr>
+                                    <td class="displaytext">攻撃速度</td>
+                                    <td id="dps-output-menu-value-stat6">8888</td>
+                                    <td class="displaytext">攻撃硬直</td>
+                                    <td id="dps-output-menu-value-stat7">8888</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="stats-battle" class="dps-output-stats-tablink-content dps-tabcontent" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td class="displaytext">攻撃速度</td>
+                                    <td id="dps-output-battle-value-stat6">8888</td>
+                                    <td class="displaytext">攻撃硬直</td>
+                                    <td id="dps-output-battle-value-stat7">8888</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="stats-skill" class="dps-output-stats-tablink-content dps-tabcontent" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td class="displaytext">攻撃速度</td>
+                                    <td id="dps-output-skill-value-stat6">8888</td>
+                                    <td class="displaytext">攻撃硬直</td>
+                                    <td id="dps-output-skill-value-stat7">8888</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div style="width: 2px;"></div>
+            <div id="dps-dps-output" style="display:flex; flex-direction: column; flex:2;">
+                <div id="dps-info">
+                    <div id="dps-info-stats">
+                        <div class="dps-tabs dps-info-stats-tabs">
+                            <button class="dps-info-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'info-main','dps-info-stats-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> 情報</button>
+                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-compare','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> ハイテンション</button>
+                        </div>
+                        <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent">
+                            <table>
+                                <tr>
+                                    <td class="displaytext">キャラ名</td>
+                                    <td id="dps-info-charaName" colspan="3">Amazingly few discotheques provide jukeboxes.</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">クラス</td>
+                                    <td id="dps-info-jobTitle">バルス</td>
+                                    <td class="displaytext">初期コスト</td>
+                                    <td id="dps-info-initialCost">88</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">クラス特性</td>
+                                    <td id="dps-info-jobInfo" colspan="3">Amazingly few discotheques provide jukeboxes.</td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext">その他の情報</td>
+                                    <td id="dps-info-extraInfo" colspan="3">Amazingly few discotheques provide jukeboxes.</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="info-compare" class="dps-info-stats-tablink-content dps-tabcontent" style="display:none;">
+                            <table style="display: none;">
+                                <tr>
+                                    <td class="displaytext" style="width: 25%;">選択した条件(レアリティ)</td>
+                                    <td style="width: 75%;">
+                                        <input id="included-rarity" value="0" style="font-size:8px;" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width: 25%;">選択した条件(属性)</td>
+                                    <td style="width: 75%;">
+                                        <input id="included-attribute" value="0" style="font-size:8px;" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="displaytext" style="width: 25%;">選択した条件(クラス)</td>
+                                    <td style="width: 75%;">
+                                        <input id="included-class" value="0" style="font-size:8px;" disabled>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="compCharaSelect">
+                                <tr>
+                                    <td class="displaytext" colspan="2" style="border: 2px solid white;">
+                                        <span style="text-align: center;">AND選択</span><input type="checkbox" id="compChara-AND" class="larger-check" style="vertical-align: bottom;">
+                                    </td>
+                                    <td class="displaytext" colspan="4" style="border: 2px solid white;">
+                                        <span>モード：</span>
+                                        <select id="compChara-type-select" style="font-family:mtdfont; width:40%;">
+                                            <option value="0">非スキル</option>
+                                            <option value="4" selected>スキル</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext category">レアリティ</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-legendCharas" class="compChara" onclick="toggleChara('legendCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_SSR.png"></td>
+                                    <td id="compare-epicCharas" class="compChara" onclick="toggleChara('epicCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_SR.png"></td>
+                                    <td id="compare-rareCharas" class="compChara" onclick="toggleChara('rareCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_HR.png"></td>
+                                    <td id="compare-commonCharas" class="compChara" onclick="toggleChara('commonCharas','rarity');"><img src="../../img/ui-icons/Rarity_Logo_R.png"></td>
+                                    <td id="compare-freeCharas" class="compChara" onclick="toggleChara('freeCharas','rarity');" colspan="2"><img src="../../img/ui-icons/Yen_Icon.png" style="max-width:20px;">低レア/配布</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext category">属性</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-fireCharas" class="compChara" onclick="toggleChara('fireCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_2.png">火属性</td>
+                                    <td id="compare-waterCharas" class="compChara" onclick="toggleChara('waterCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_3.png">水属性</td>
+                                    <td id="compare-windCharas" class="compChara" onclick="toggleChara('windCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_4.png">風属性</td>
+                                    <td id="compare-earthCharas" class="compChara" onclick="toggleChara('earthCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_7.png">地属性</td>
+                                    <td id="compare-lightCharas" class="compChara" onclick="toggleChara('lightCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_5.png">光属性</td>
+                                    <td id="compare-darkCharas" class="compChara" onclick="toggleChara('darkCharas','attribute');"><img src="../../img/ui-icons/Icon_Type_6.png">闇属性</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="displaytext category">クラス</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-scimitarCharas" class="compChara" onclick="toggleChara('scimitarCharas','class');"><img src="../../img/equipment-icons/1201.png">曲刀</td>
+                                    <td id="compare-spearCharas" class="compChara" onclick="toggleChara('spearCharas','class');"><img src="../../img/equipment-icons/1101.png">槍</td>
+                                    <td id="compare-axeCharas" class="compChara" onclick="toggleChara('axeCharas','class');"><img src="../../img/equipment-icons/1001.png">斧</td>
+                                    <td id="compare-fistCharas" class="compChara" onclick="toggleChara('fistCharas','class');"><img src="../../img/equipment-icons/1601.png">拳</td>
+                                    <td id="compare-swordCharas" class="compChara" onclick="toggleChara('swordCharas','class');"><img src="../../img/equipment-icons/1301.png">剣盾</td>
+                                    <td id="compare-hammerCharas" class="compChara" onclick="toggleChara('hammerCharas','class');"><img src="../../img/equipment-icons/1401.png">鈍器</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-bowCharas" class="compChara" onclick="toggleChara('bowCharas','class');"><img src="../../img/equipment-icons/2001.png">弓</td>
+                                    <td id="compare-gunCharas" class="compChara" onclick="toggleChara('gunCharas','class');"><img src="../../img/equipment-icons/2101.png">銃</td>
+                                    <td id="compare-staffCharas" class="compChara" onclick="toggleChara('staffCharas','class');"><img src="../../img/equipment-icons/3001.png">杖</td>
+                                    <td id="compare-bookCharas" class="compChara" onclick="toggleChara('bookCharas','class');"><img src="../../img/equipment-icons/3101.png">本</td>
+                                    <td id="compare-scepterCharas" class="compChara" onclick="toggleChara('scepterCharas','class');"><img src="../../img/equipment-icons/3201.png">錫杖</td>
+                                    <td id="compare-orbCharas" class="compChara" onclick="toggleChara('orbCharas','class');"><img src="../../img/equipment-icons/3301.png">オーブ</td>
+                                </tr>
+                                <tr>
+                                    <td id="compare-daggerCharas" class="compChara" onclick="toggleChara('daggerCharas','class');"><img src="../../img/equipment-icons/1501.png">短剣</td>
+                                    <td id="compare-fanCharas" class="compChara" onclick="toggleChara('fanCharas','class');"><img src="../../img/equipment-icons/3501.png">扇</td>
+                                    <td id="compare-shurikenCharas" class="compChara" onclick="toggleChara('shurikenCharas','class');"><img src="../../img/equipment-icons/1701.png">手裏剣</td>
+                                    <td id="compare-twigCharas" class="compChara" onclick="toggleChara('twigCharas','class');"><img src="../../img/equipment-icons/3401.png">霊枝</td>
+                                    <td id="compare-instrumentCharas" class="compChara" onclick="toggleChara('instrumentCharas','class');"><img src="../../img/equipment-icons/3601.png">楽器</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td class="displaytext" style="border:none;text-align:left;height:30px;">
+                                        <button onclick="compareChara();" style="width:100%;height:100%;cursor:pointer;background-color:#e4ab00;border:none;float:left;font-family:mtdfont;border-radius:5px;">実行</button>
+                                    </td>
+                                    <td class="displaytext">
+                                        <span>ソート順</span>
+                                        <select name="sort-ranking" id="sort-ranking" style="width:60%;height:20%;margin:2px auto;border:none;font-family:mtdfont;">
+                                            <option value="norm">切り上げない</option>
+                                            <option value="ceil" selected>切り上げる</option>
+                                        </select>
+                                    </td>
+                                    <td class="displaytext" style="display:none;">
+                                        <span>属性マスを</span>
+                                        <select name="make-same-attribute" id="make-same-attribute" style="width:60%;height:20%;margin:2px auto;border:none;font-family:mtdfont;">
+                                            <option value="same">今のままにする</option>
+                                            <option value="make">キャラごと一致させる</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="compCharaResult">
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">〇位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-0-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td class="displaytext">キャラ名</td>
+                                    <td class="displaytext" style="width:10%" colspan="2">攻速硬直</td>
+                                    <td class="displaytext" style="width:10%" colspan="2">ハイテン<br>攻速硬直</td>
+                                    <td class="displaytext" style="width:10%" colspan="2">回数</td>
+                                    <td class="displaytext" style="width:10%" colspan="2">ハイテン<br>回数</td>
+                                    <td class="displaytext" style="width:10%">実質<br>被ダメ〇倍</td>
+                                    <td class="displaytext" id="compChara-0-ceilEff" style="width:10%">(切上)実質<br>被ダメ〇倍</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">1位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-1-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-1-name"></td>
+                                    <td id="compChara-1-NaSpd" style="width:5%">NAS</td>
+                                    <td id="compChara-1-NPAD" style="width:5%">NPAD</td>
+                                    <td id="compChara-1-HTaSpd" style="width:5%">HTAS</td>
+                                    <td id="compChara-1-HTPAD" style="width:5%">HTPAD</td>
+                                    <td id="compChara-1-N" style="width:6%">N</td>
+                                    <td id="compChara-1-Nc" style="width:4%">Nc</td>
+                                    <td id="compChara-1-HTT" style="width:6%">HTT</td>
+                                    <td id="compChara-1-HTTc" style="width:4%">HTTc</td>
+                                    <td id="compChara-1-eff" style="width:10%">実質</td>
+                                    <td id="compChara-1-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <!--
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">2位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-2-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-2-name"></td>
+                                    <td id="compChara-2-eff" style="width:10%">実質</td>
+                                    <td id="compChara-2-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">3位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-3-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-3-name"></td>
+                                    <td id="compChara-3-eff" style="width:10%">実質</td>
+                                    <td id="compChara-3-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">4位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-4-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-4-name"></td>
+                                    <td id="compChara-4-eff" style="width:10%">実質</td>
+                                    <td id="compChara-4-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">5位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-5-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-5-name"></td>
+                                    <td id="compChara-5-eff" style="width:10%">実質</td>
+                                    <td id="compChara-5-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">6位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-6-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-6-name"></td>
+                                    <td id="compChara-6-eff" style="width:10%">実質</td>
+                                    <td id="compChara-6-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">7位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-7-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-7-name"></td>
+                                    <td id="compChara-7-eff" style="width:10%">実質</td>
+                                    <td id="compChara-7-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">8位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-8-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-8-name"></td>
+                                    <td id="compChara-8-eff" style="width:10%">実質</td>
+                                    <td id="compChara-8-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">9位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-9-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-9-name"></td>
+                                    <td id="compChara-9-eff" style="width:10%">実質</td>
+                                    <td id="compChara-9-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">10位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-10-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-10-name"></td>
+                                    <td id="compChara-10-eff" style="width:10%">実質</td>
+                                    <td id="compChara-10-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">11位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-11-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-11-name"></td>
+                                    <td id="compChara-11-eff" style="width:10%">実質</td>
+                                    <td id="compChara-11-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">12位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-12-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-12-name"></td>
+                                    <td id="compChara-12-eff" style="width:10%">実質</td>
+                                    <td id="compChara-12-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">13位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-13-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-13-name"></td>
+                                    <td id="compChara-13-eff" style="width:10%">実質</td>
+                                    <td id="compChara-13-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">14位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-14-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-14-name"></td>
+                                    <td id="compChara-14-eff" style="width:10%">実質</td>
+                                    <td id="compChara-14-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">15位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-15-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-15-name"></td>
+                                    <td id="compChara-15-eff" style="width:10%">実質</td>
+                                    <td id="compChara-15-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">16位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-16-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-16-name"></td>
+                                    <td id="compChara-16-eff" style="width:10%">実質</td>
+                                    <td id="compChara-16-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">17位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-17-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-17-name"></td>
+                                    <td id="compChara-17-eff" style="width:10%">実質</td>
+                                    <td id="compChara-17-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">18位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-18-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-18-name"></td>
+                                    <td id="compChara-18-eff" style="width:10%">実質</td>
+                                    <td id="compChara-18-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">19位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-19-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-19-name"></td>
+                                    <td id="compChara-19-eff" style="width:10%">実質</td>
+                                    <td id="compChara-19-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">20位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-20-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-20-name"></td>
+                                    <td id="compChara-20-eff" style="width:10%">実質</td>
+                                    <td id="compChara-20-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">21位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-21-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-21-name"></td>
+                                    <td id="compChara-21-eff" style="width:10%">実質</td>
+                                    <td id="compChara-21-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">22位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-22-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-22-name"></td>
+                                    <td id="compChara-22-eff" style="width:10%">実質</td>
+                                    <td id="compChara-22-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">23位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-23-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-23-name"></td>
+                                    <td id="compChara-23-eff" style="width:10%">実質</td>
+                                    <td id="compChara-23-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">24位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-24-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-24-name"></td>
+                                    <td id="compChara-24-eff" style="width:10%">実質</td>
+                                    <td id="compChara-24-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">25位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-25-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-25-name"></td>
+                                    <td id="compChara-25-eff" style="width:10%">実質</td>
+                                    <td id="compChara-25-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">26位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-26-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-26-name"></td>
+                                    <td id="compChara-26-eff" style="width:10%">実質</td>
+                                    <td id="compChara-26-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">27位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-27-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-27-name"></td>
+                                    <td id="compChara-27-eff" style="width:10%">実質</td>
+                                    <td id="compChara-27-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">28位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-28-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-28-name"></td>
+                                    <td id="compChara-28-eff" style="width:10%">実質</td>
+                                    <td id="compChara-28-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">29位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-29-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-29-name"></td>
+                                    <td id="compChara-29-eff" style="width:10%">実質</td>
+                                    <td id="compChara-29-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                <tr style="height:50px;">
+                                    <td class="displaytext" style="width:50px">30位</td>
+                                    <td class="displaytext" style="width:50px"><img id="compChara-30-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
+                                    <td id="compChara-30-name"></td>
+                                    <td id="compChara-30-eff" style="width:10%">実質</td>
+                                    <td id="compChara-30-ceilEff" style="width:10%">切上実質</td>
+                                </tr>
+                                -->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        //scripts to load html stuff, no calculations//
+        var coll = document.getElementsByClassName("collapsible-button");
+        var i;
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("collActive");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+        function openTab(evt, tabName, linktype) {
+            var i, tabcontent, tablinks;
+            // Get all elements with class="something" and hide them
+            tabcontent = document.getElementsByClassName(linktype+"-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            // Get all elements with class=linktype and remove the class "active"
+            tablinks = document.getElementsByClassName(linktype);
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        function changeAwaked(awakened){
+            if (awakened){
+                location.href = notawakedURL;
+            } else {
+                location.href = awakedURL;
+            }
+        }
+    </script>
+</html>
