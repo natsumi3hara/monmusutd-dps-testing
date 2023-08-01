@@ -211,8 +211,8 @@ document.write(`
 <tr>
     <td id="exsub-1089" class="exsub" onclick="toggleExclude(1089)">まったり充電寝正月</td>
     <td id="exsub-1098" class="exsub" onclick="toggleExclude(1098)">1stAnniversaryの祝福</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1116" class="exsub" onclick="toggleExclude(1116)">触手も付けとくでぇ！</td>
+    <td id="exsub-1117" class="exsub" onclick="toggleExclude(1117)">ハイテンションサマー</td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -238,7 +238,7 @@ document.write(`
 <tr>
     <td id="exsub-1055" class="exsub excluded" onclick="toggleExclude(1055)">霧を晴らす列車</td>
     <td id="exsub-1061" class="exsub excluded" onclick="toggleExclude(1061)">純白ヴェール</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1115" class="exsub excluded" onclick="toggleExclude(1115)">きらめきの星騎士</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
