@@ -485,8 +485,12 @@ function allDPS(AT,HT=false){
     let battleAttackTypes = getAttackTypeList("battle",attackPatternReference);
     console.log(battleAttackTypes);
     let battleAverageFrames = 0;
-    for (let i=0;i<battleAttackTypes.length;i++){
-        battleAverageFrames += battleAttackTypes[i]["probability"] * (Math.ceil(battleAttackTypes[i]["time"] / Number(document.getElementById("dps-output-battle-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-battle-value-stat7").innerHTML));
+    if ([10061,10176].includes(masterValues.charaID)){
+        battleAverageFrames += 100 * (Math.ceil(4000 / Number(document.getElementById("dps-output-battle-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-battle-value-stat7").innerHTML));
+    } else {
+        for (let i=0;i<battleAttackTypes.length;i++){
+            battleAverageFrames += battleAttackTypes[i]["probability"] * (Math.ceil(battleAttackTypes[i]["time"] / Number(document.getElementById("dps-output-battle-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-battle-value-stat7").innerHTML));
+        }
     }
     battleAverageFrames /= 100;
     console.log(battleAverageFrames);
@@ -494,8 +498,12 @@ function allDPS(AT,HT=false){
     let skillAttackTypes = getAttackTypeList("skill",attackPatternReference);
     console.log(skillAttackTypes);
     let skillAverageFrames = 0;
-    for (let i=0;i<skillAttackTypes.length;i++){
-        skillAverageFrames += skillAttackTypes[i]["probability"] * (Math.ceil(skillAttackTypes[i]["time"] / Number(document.getElementById("dps-output-skill-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-skill-value-stat7").innerHTML));
+    if ([10061,10176].includes(masterValues.charaID)){
+        skillAverageFrames += 100 * (Math.ceil(4000 / Number(document.getElementById("dps-output-skill-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-skill-value-stat7").innerHTML));
+    } else {
+        for (let i=0;i<skillAttackTypes.length;i++){
+            skillAverageFrames += skillAttackTypes[i]["probability"] * (Math.ceil(skillAttackTypes[i]["time"] / Number(document.getElementById("dps-output-skill-value-stat6").innerHTML)) + Number(document.getElementById("dps-output-skill-value-stat7").innerHTML));
+        }
     }
     skillAverageFrames /= 100;
     console.log(skillAverageFrames);
