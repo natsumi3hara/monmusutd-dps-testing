@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Google tag (gtag.js) 
+        <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1914Y0N5HJ"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-1914Y0N5HJ');
-        </script>-->
+        </script>
         <meta charset="utf-8"/>
         <title>DPS計算機</title>
         <script src="../../scripts/console&devTools.js"></script>
@@ -168,8 +168,7 @@
                         <script src="../../scripts/insert-scripts/insertOtherSkillHT.js"></script><br>
                     </div>
                 </div>
-                <hr>
-                <div id="dps-output">
+                <div id="dps-output" style="display:none;">
                     <div id="dps-output-stats">
                         <div class="dps-tabs dps-output-stats-tabs">
                             <button class="dps-output-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'stats-menu','dps-output-stats-tablink')"><img src="../../img/ui-icons/Footer_ImageNurturingIcon.png"> 基本</button>
@@ -354,6 +353,7 @@
                                     <td class="displaytext" style="width:10%">実質<br>被ダメ〇倍</td>
                                     <td class="displaytext" id="compChara-0-ceilEff" style="width:10%">(切上)実質<br>被ダメ〇倍</td>
                                 </tr>
+                                <!--
                                 <tr style="height:50px;">
                                     <td class="displaytext" style="width:50px">1位</td>
                                     <td class="displaytext" style="width:50px"><img id="compChara-1-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
@@ -369,7 +369,7 @@
                                     <td id="compChara-1-eff" style="width:10%">実質</td>
                                     <td id="compChara-1-ceilEff" style="width:10%">切上実質</td>
                                 </tr>
-                                <!--
+                                //<- place here if needed
                                 <tr style="height:50px;">
                                     <td class="displaytext" style="width:50px">2位</td>
                                     <td class="displaytext" style="width:50px"><img id="compChara-2-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
