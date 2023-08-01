@@ -213,10 +213,9 @@
                 <div id="dps-info">
                     <div id="dps-info-stats">
                         <div class="dps-tabs dps-info-stats-tabs">
-                            <button class="dps-info-stats-tablink active" style="border-top-left-radius: 15px;" onclick="openTab(event, 'info-main','dps-info-stats-tablink')"><img src="../../img/ui-icons/Friend_ImageiconProfile.png"> 情報</button>
-                            <button class="dps-info-stats-tablink" style="border-top-right-radius: 15px;" onclick="openTab(event, 'info-compare','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> ハイテンション</button>
+                            <button class="dps-info-stats-tablink active" style="border-top-right-radius: 15px;border-top-left-radius: 15px;" onclick="openTab(event, 'info-compare','dps-info-stats-tablink')"><img src="../../img/ui-icons/sub_skill.png"> ハイテンション</button>
                         </div>
-                        <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent">
+                        <div id="info-main" class="dps-info-stats-tablink-content dps-tabcontent" style="display:none;">
                             <table>
                                 <tr>
                                     <td class="displaytext">キャラ名</td>
@@ -238,7 +237,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div id="info-compare" class="dps-info-stats-tablink-content dps-tabcontent" style="display:none;">
+                        <div id="info-compare" class="dps-info-stats-tablink-content dps-tabcontent">
                             <table style="display: none;">
                                 <tr>
                                     <td class="displaytext" style="width: 25%;">選択した条件(レアリティ)</td>
