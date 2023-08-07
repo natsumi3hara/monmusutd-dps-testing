@@ -193,7 +193,7 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1097" class="exsub excluded" onclick="toggleExclude(1097)">穴鏡触手の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1118" class="exsub excluded" onclick="toggleExclude(1118)">灼熱噴然の討伐証</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>

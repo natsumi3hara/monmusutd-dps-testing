@@ -1369,9 +1369,11 @@ function calculateStat(cc,type,highTension){
     ///console.log("equipEffect:"+equipEffect);
     ///console.log("pdMult: "+pdMult);
     ///console.log("dAdd: ",dAdd);
+    let upperStat, lowerStat;
     let outputMenu = Math.floor((Math.floor(rawStat * multEffect1.buff / 100**(multEffect1.count)) + Math.floor(addEffect1.buff) + equipEffect) * pdMult / 100) + dAdd;
-    let upperStat = 10*outputMenu;
-    let lowerStat = Math.floor(0.5*outputMenu);
+    upperStat = Number(10*outputMenu);
+    if (type === "stat7"){lowerStat = Math.floor(0.1*outputMenu);}
+    else {lowerStat = Math.floor(0.5*outputMenu);}
     //check for FIXED
     for (let key in masterValues.allBuff){
         if (key.includes("fixed") && type !== "stat21"){
@@ -1447,14 +1449,48 @@ function calculateStat(cc,type,highTension){
     if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
-    ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
+    if (type === "stat6"){ //can extend to all types, remove if statement
+        ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
+        if (masterValues.allBuff["rate-plus-1"] !== undefined){
+            if (masterValues.allBuff["rate-minus-1"] === undefined){
+                //only rate-plus-1//
+                //console.log(masterValues.allBuff["rate-plus-1"]);
+                masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-plus-1"].splice(1);
+                //console.log(masterValues.allBuff["rate-plus-1"]);
+            } else {
+                //rate-plus-1 AND rate-minus-1//
+                let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
+                let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
+                //console.log(totalMinus,totalPlus);
+                if (totalMinus >= totalPlus){
+                    //total is negative or zero//
+                    //as of now, no combined abilities can produce lower than -50, so safeguard is later//
+                    masterValues.allBuff["rate-plus-1"] = [[[0]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[totalMinus-totalPlus]]];
+                } else if (totalMinus < totalPlus){
+                    //total is positive//
+                    //as of now, no combined abilities can produce a two time increase from a negative value//
+                    masterValues.allBuff["rate-plus-1"] = [[[totalPlus-totalMinus]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[0]]];
+                }
+            }
+        } else if (masterValues.allBuff["rate-minus-1"] !== undefined){
+            //only rate-minus-1//
+            //do nothing//
+        }
+        //console.log(masterValues.allBuff);
+    }
     //↑ REPEAT ↑//
     let multEffect2, addEffect2;
     multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
     addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     //kyou's wind ally aSpd and PAD buff
+    //as of now, do pure stacking first
     if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        multEffect2.buff += 25;
+        if (multEffect2.buff < 100){multEffect2.buff += 25;}
+        else if (multEffect2.buff > 100 && multEffect2 <= 125){multEffect2.buff = 125;}
+        else if (multEffect2.buff > 125){}
     }
     if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect2.buff -= 25;
@@ -1551,16 +1587,50 @@ function calculateStat(cc,type,highTension){
     if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
-    ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+    if (type === "stat6"){ //can extend to all types, remove if statement
+        ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+        if (masterValues.allBuff["rate-plus-1"] !== undefined){
+            if (masterValues.allBuff["rate-minus-1"] === undefined){
+                //only rate-plus-1//
+                //console.log(masterValues.allBuff["rate-plus-1"]);
+                masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-plus-1"].splice(1);
+                //console.log(masterValues.allBuff["rate-plus-1"]);
+            } else {
+                //rate-plus-1 AND rate-minus-1//
+                let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
+                let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
+                //console.log(totalMinus,totalPlus);
+                if (totalMinus >= totalPlus){
+                    //total is negative or zero//
+                    //as of now, no combined abilities can produce lower than -50, so safeguard is later//
+                    masterValues.allBuff["rate-plus-1"] = [[[0]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[totalMinus-totalPlus]]];
+                } else if (totalMinus < totalPlus){
+                    //total is positive//
+                    //as of now, no combined abilities can produce a two time increase from a negative value//
+                    masterValues.allBuff["rate-plus-1"] = [[[totalPlus-totalMinus]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[0]]];
+                }
+            }
+        } else if (masterValues.allBuff["rate-minus-1"] !== undefined){
+            //only rate-minus-1//
+            //do nothing//
+        }
+        //console.log(masterValues.allBuff);
+    }
     //↑ REPEAT ↑//
     let multEffect3, addEffect3;
     multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
     addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     //kyou's wind ally aSpd and PAD buff
-    if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4 && masterValues.charaID !== 10157){
-        multEffect3.buff += 25;
+    //as of now, do pure stacking first
+    if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+        if (multEffect3.buff < 100){multEffect3.buff += 125;}
+        else if (multEffect3.buff > 100 && multEffect3 <= 125){multEffect3.buff = 125;}
+        else if (multEffect3.buff > 125){}
     }
-    if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4 && masterValues.charaID !== 10157){
+    if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect3.buff -= 25;
     }
     ///console.log("multEffect3: "+multEffect3);

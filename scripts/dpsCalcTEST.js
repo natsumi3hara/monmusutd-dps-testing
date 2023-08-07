@@ -452,7 +452,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1117;
+    let lastSubskillID = 1118;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -1678,7 +1678,38 @@ function calculateStat(level,cc,type){
     if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
-    ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
+    if (type === "stat6"){ //can extend to all types, remove if statement
+        ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
+        if (masterValues.allBuff["rate-plus-1"] !== undefined){
+            if (masterValues.allBuff["rate-minus-1"] === undefined){
+                //only rate-plus-1//
+                //console.log(masterValues.allBuff["rate-plus-1"]);
+                masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-plus-1"].splice(1);
+                //console.log(masterValues.allBuff["rate-plus-1"]);
+            } else {
+                //rate-plus-1 AND rate-minus-1//
+                let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
+                let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
+                //console.log(totalMinus,totalPlus);
+                if (totalMinus >= totalPlus){
+                    //total is negative or zero//
+                    //as of now, no combined abilities can produce lower than -50, so safeguard is later//
+                    masterValues.allBuff["rate-plus-1"] = [[[0]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[totalMinus-totalPlus]]];
+                } else if (totalMinus < totalPlus){
+                    //total is positive//
+                    //as of now, no combined abilities can produce a two time increase from a negative value//
+                    masterValues.allBuff["rate-plus-1"] = [[[totalPlus-totalMinus]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[0]]];
+                }
+            }
+        } else if (masterValues.allBuff["rate-minus-1"] !== undefined){
+            //only rate-minus-1//
+            //do nothing//
+        }
+        //console.log(masterValues.allBuff);
+    }
     //↑ REPEAT ↑//
     let multEffect2, addEffect2;
     if (type === "stat76"){
@@ -2058,19 +2089,19 @@ function calculateStat(level,cc,type){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
     if (type === "stat6"){ //can extend to all types, remove if statement
-        console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+        ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         if (masterValues.allBuff["rate-plus-1"] !== undefined){
             if (masterValues.allBuff["rate-minus-1"] === undefined){
                 //only rate-plus-1//
-                console.log(masterValues.allBuff["rate-plus-1"]);
+                //console.log(masterValues.allBuff["rate-plus-1"]);
                 masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
                 masterValues.allBuff["rate-plus-1"].splice(1);
-                console.log(masterValues.allBuff["rate-plus-1"]);
+                //console.log(masterValues.allBuff["rate-plus-1"]);
             } else {
                 //rate-plus-1 AND rate-minus-1//
                 let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
                 let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
-                console.log(totalMinus,totalPlus);
+                //console.log(totalMinus,totalPlus);
                 if (totalMinus >= totalPlus){
                     //total is negative or zero//
                     //as of now, no combined abilities can produce lower than -50, so safeguard is later//
@@ -2087,7 +2118,7 @@ function calculateStat(level,cc,type){
             //only rate-minus-1//
             //do nothing//
         }
-        console.log(masterValues.allBuff);
+        //console.log(masterValues.allBuff);
     }
     //↑ REPEAT ↑//
     let multEffect3, addEffect3;
