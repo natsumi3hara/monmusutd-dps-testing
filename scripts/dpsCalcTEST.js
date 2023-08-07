@@ -1601,9 +1601,11 @@ function calculateStat(level,cc,type){
     ///console.log("equipEffect:"+equipEffect);
     ///console.log("pdMult: "+pdMult);
     ///console.log("dAdd: ",dAdd);
+    let upperStat, lowerStat;
     let outputMenu = Math.floor((Math.floor(rawStat * multEffect1.buff / 100**(multEffect1.count)) + Math.floor(addEffect1.buff) + equipEffect) * pdMult / 100) + dAdd;
-    let upperStat = 10*outputMenu;
-    let lowerStat = Math.floor(0.5*outputMenu);
+    upperStat = Number(10*outputMenu);
+    if (type === "stat7"){lowerStat = Math.floor(0.1*outputMenu);}
+    else {lowerStat = Math.floor(0.5*outputMenu);}
     //check for FIXED
     for (let key in masterValues.allBuff){
         if (key.includes("fixed") && type !== "stat21"){
@@ -1735,8 +1737,11 @@ function calculateStat(level,cc,type){
         }
     }
     //kyou's wind ally aSpd and PAD buff
+    //as of now, do pure stacking first
     if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        multEffect2.buff += 25;
+        if (multEffect2.buff < 100){multEffect2.buff += 25;}
+        else if (multEffect2.buff > 100 && multEffect2 <= 125){multEffect2.buff = 125;}
+        else if (multEffect2.buff > 125){}
     }
     if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect2.buff -= 25;
@@ -1860,10 +1865,17 @@ function calculateStat(level,cc,type){
     }
     //other allies' skills
     multEffect2.buff += allAlliesSkillRate(type); //timing must be 1
+    //extrabuffs
     try {
-        //extrabuffs
-        multEffect2.buff += Number(document.getElementById("extra-"+type+"-1").value);
-        addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
+        if (type === "stat6"){
+            let multToAdd = Number(document.getElementById("extra-"+type+"-1").value);
+            if (multEffect2.buff < 100){multEffect2.buff+=multToAdd;}
+            else if (multToAdd+100 > multEffect2.buff){multEffect2.buff=multToAdd+100;}
+            addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
+        } else {
+            multEffect2.buff += Number(document.getElementById("extra-"+type+"-1").value);
+            addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
+        }
     } catch (err) {}
     try {
         //supporters
@@ -1877,13 +1889,21 @@ function calculateStat(level,cc,type){
     if (type === "stat2" && (subskillID_1 === 100 || subskillID_2 === 100)){
         multEffect2.buff += Number(document.getElementById("shared20009").value)*1;
     } else {}
+    //aSpd debuff limit
+    if (type === "stat6"){
+        if (multEffect2.buff < 50){multEffect2.buff=50}
+    }
     ///console.log("multEffect2: "+multEffect2);
     ///console.log(multEffect2);
     ///console.log("addEffect2: "+addEffect2);
     ///console.log(addEffect2);
     let outputBattle = Math.floor(outputMenu * multEffect2.buff / 100**(multEffect2.count)) + Math.floor(addEffect2.buff);
-    if (["stat7","stat8","stat76"].includes(type)){
+    if (["stat8","stat76"].includes(type)){
         if (outputBattle < 0){outputBattle = 0;}
+    }
+    else if (["stat7"].includes(type)){
+        if (outputBattle <= 0){outputBattle = 1;}
+        else if (outputBattle < lowerStat){outputBattle = lowerStat;}
     }
     else if (outputBattle < lowerStat){
         outputBattle = lowerStat;
@@ -1897,6 +1917,10 @@ function calculateStat(level,cc,type){
             if (type === "stat86" && masterValues.allBuff[key][0][1][0] !== 100){}
             else {outputBattle = masterValues.allBuff[key][0][0][0];}
         }
+    }
+    //PAD minimum 1 frame//
+    if (["stat7"].includes(type)){
+        if (outputBattle <= 0){outputBattle = 1;}
     }
     //chifa override//
     if (masterValues.charaID === 10131){
@@ -2033,8 +2057,37 @@ function calculateStat(level,cc,type){
     if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
-    if (type === "stat6"){
-    console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+    if (type === "stat6"){ //can extend to all types, remove if statement
+        console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+        if (masterValues.allBuff["rate-plus-1"] !== undefined){
+            if (masterValues.allBuff["rate-minus-1"] === undefined){
+                //only rate-plus-1//
+                console.log(masterValues.allBuff["rate-plus-1"]);
+                masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-plus-1"].splice(1);
+                console.log(masterValues.allBuff["rate-plus-1"]);
+            } else {
+                //rate-plus-1 AND rate-minus-1//
+                let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
+                let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
+                console.log(totalMinus,totalPlus);
+                if (totalMinus >= totalPlus){
+                    //total is negative or zero//
+                    //as of now, no combined abilities can produce lower than -50, so safeguard is later//
+                    masterValues.allBuff["rate-plus-1"] = [[[0]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[totalMinus-totalPlus]]];
+                } else if (totalMinus < totalPlus){
+                    //total is positive//
+                    //as of now, no combined abilities can produce a two time increase from a negative value//
+                    masterValues.allBuff["rate-plus-1"] = [[[totalPlus-totalMinus]]];
+                    masterValues.allBuff["rate-minus-1"] = [[[0]]];
+                }
+            }
+        } else if (masterValues.allBuff["rate-minus-1"] !== undefined){
+            //only rate-minus-1//
+            //do nothing//
+        }
+        console.log(masterValues.allBuff);
     }
     //↑ REPEAT ↑//
     let multEffect3, addEffect3;
@@ -2099,8 +2152,11 @@ function calculateStat(level,cc,type){
         addEffect3.buff += Math.floor(multiplier10160[Number(document.getElementById("skill-level-select").value)] * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
     }
     //kyou's wind ally aSpd and PAD buff
+    //as of now, do pure stacking first
     if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        multEffect3.buff += 25;
+        if (multEffect3.buff < 100){multEffect3.buff += 125;}
+        else if (multEffect3.buff > 100 && multEffect3 <= 125){multEffect3.buff = 125;}
+        else if (multEffect3.buff > 125){}
     }
     if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect3.buff -= 25;
@@ -2233,10 +2289,17 @@ function calculateStat(level,cc,type){
     }
     //other allies' skills
     multEffect3.buff += allAlliesSkillRate(type); //timing must be 1
+    //extrabuffs
     try {
-        //extrabuffs
-        multEffect3.buff += Number(document.getElementById("extra-"+type+"-1").value);
-        addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
+        if (type === "stat6"){
+            let multToAdd = Number(document.getElementById("extra-"+type+"-1").value);
+            if (multEffect3.buff < 100){multEffect3.buff+=multToAdd;}
+            else if (multToAdd+100 > multEffect3.buff){multEffect3.buff=multToAdd+100;}
+            addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
+        } else {
+            multEffect3.buff += Number(document.getElementById("extra-"+type+"-1").value);
+            addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
+        }
     } catch (err) {}
     try {
         //supporters
@@ -2250,13 +2313,21 @@ function calculateStat(level,cc,type){
     if (type === "stat2" && (subskillID_1 === 100 || subskillID_2 === 100)){
         multEffect3.buff += Number(document.getElementById("shared20009").value)*1;
     } else {}
+    //aSpd debuff limit
+    if (type === "stat6"){
+        if (multEffect3.buff < 50){multEffect3.buff=50}
+    }
     ///console.log("multEffect3: "+multEffect3);
     ///console.log(multEffect3);
     ///console.log("addEffect3: "+addEffect3);
     ///console.log(addEffect3);
     let outputSkill = Math.floor(outputMenu * multEffect3.buff / 100**(multEffect3.count)) + Math.floor(addEffect3.buff);
-    if (["stat7","stat8","stat76"].includes(type)){
+    if (["stat8","stat76"].includes(type)){
         if (outputSkill < 0){outputSkill = 0;}
+    }
+    else if (["stat7"].includes(type)){
+        if (outputSkill <= 0){outputSkill = 1;}
+        else if (outputSkill < lowerStat){outputSkill = lowerStat;}
     }
     else if (outputSkill < lowerStat){
         outputSkill = lowerStat;
@@ -2269,6 +2340,10 @@ function calculateStat(level,cc,type){
             if (type === "stat86" && masterValues.allBuff[key][0][1][0] !== 100){}
             else {outputSkill = masterValues.allBuff[key][0][0][0];}
         }
+    }
+    //PAD minimum 1 frame//
+    if (["stat7"].includes(type)){
+        if (outputSkill <= 0){outputSkill = 1;}
     }
     //missile override//
     if (type === "stat19"){
@@ -3323,7 +3398,7 @@ const attachOptions = [
     {value: 1115, text: 'きらめきの星騎士'},
     {value: 1116, text: '触手も付けとくでぇ！'},
     {value: 1117, text: 'ハイテンションサマー'},
-    //{value: 1118, text: 'ダミー'},
+    {value: 1118, text: '灼熱噴然の討伐証'},
     //{value: 1119, text: 'ダミー'},
     //{value: 1120, text: 'ダミー'},
     //{value: 1121, text: 'ダミー'},
