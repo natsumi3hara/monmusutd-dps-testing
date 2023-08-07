@@ -2033,7 +2033,9 @@ function calculateStat(level,cc,type){
     if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
-    ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+    if (type === "stat6"){
+    console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+    }
     //↑ REPEAT ↑//
     let multEffect3, addEffect3;
     if (type === "stat76"){
@@ -2807,9 +2809,9 @@ function talentIdentifier(talentText){
         } else if (talentText.slice(0,3) == "攻撃対") {
             return "stat11";
         }
-    } else if (talentText.slice(0,2) == "物理"){
+    } else if (talentText.slice(0,3) == "物理防"){
         return "stat3";
-    } else if (talentText.slice(0,2) == "魔法"){
+    } else if (talentText.slice(0,3) == "魔法防"){
         return "stat4";
     } else if (talentText.slice(0,2) == "射程"){
         return "stat8";
