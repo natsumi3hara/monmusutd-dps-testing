@@ -131,12 +131,27 @@ document.write(`
                 </select>
             </div>
         </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10179_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">マシュロア</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10179-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">ゴブリン数</span>
+                <input id="otherPassive10179-2" type="number" min="1" max="50" value="1" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
 </div>
 <script>
 let otherPassivechecks = document.getElementsByClassName("otherPassive-check")
 for (let i=0;i<otherPassivechecks.length;i++){
     if (otherPassivechecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
+        if (masterValues.charaID === 10179){
+            otherPassivechecks[i].checked = true;
+        }
         otherPassivechecks[i].disabled = true;
     } else {}
     if (otherPassivechecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && charAwaked){

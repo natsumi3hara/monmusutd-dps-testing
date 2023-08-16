@@ -1500,8 +1500,12 @@ function calculateStat(cc,type,highTension){
     ///console.log("addEffect2: "+addEffect2);
     ///console.log(addEffect2);
     let outputBattle = Math.floor(outputMenu * multEffect2.buff / 100**(multEffect2.count)) + Math.floor(addEffect2.buff);
-    if (["stat7","stat8","stat76"].includes(type)){
+    if (["stat8","stat76"].includes(type)){
         if (outputBattle < 0){outputBattle = 0;}
+    }
+    else if (["stat7"].includes(type)){
+        if (outputBattle <= 0){outputBattle = 1;}
+        else if (outputBattle < lowerStat){outputBattle = lowerStat;}
     }
     else if (outputBattle < lowerStat){
         outputBattle = lowerStat;
@@ -1515,6 +1519,10 @@ function calculateStat(cc,type,highTension){
             if (type === "stat86" && masterValues.allBuff[key][0][1][0] !== 100){}
             else {outputBattle = masterValues.allBuff[key][0][0][0];}
         }
+    }
+    //PAD minimum 1 frame//
+    if (["stat7"].includes(type)){
+        if (outputBattle <= 0){outputBattle = 1;}
     }
     document.getElementById("dps-output-battle-value-"+type).innerHTML = outputBattle;
     document.getElementById("dps-output-battle-value-"+type).innerHTML = outputBattle;
@@ -1638,8 +1646,12 @@ function calculateStat(cc,type,highTension){
     ///console.log("addEffect3: "+addEffect3);
     ///console.log(addEffect3);
     let outputSkill = Math.floor(outputMenu * multEffect3.buff / 100**(multEffect3.count)) + Math.floor(addEffect3.buff);
-    if (["stat7","stat8","stat76"].includes(type)){
+    if (["stat8","stat76"].includes(type)){
         if (outputSkill < 0){outputSkill = 0;}
+    }
+    else if (["stat7"].includes(type)){
+        if (outputSkill <= 0){outputSkill = 1;}
+        else if (outputSkill < lowerStat){outputSkill = lowerStat;}
     }
     else if (outputSkill < lowerStat){
         outputSkill = lowerStat;
@@ -1652,6 +1664,10 @@ function calculateStat(cc,type,highTension){
             if (type === "stat86" && masterValues.allBuff[key][0][1][0] !== 100){}
             else {outputSkill = masterValues.allBuff[key][0][0][0];}
         }
+    }
+    //PAD minimum 1 frame//
+    if (["stat7"].includes(type)){
+        if (outputSkill <= 0){outputSkill = 1;}
     }
     document.getElementById("dps-output-skill-value-"+type).innerHTML = outputSkill;
     document.getElementById("dps-output-skill-value-"+type).innerHTML = outputSkill;

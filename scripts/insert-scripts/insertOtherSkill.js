@@ -103,6 +103,18 @@ document.write(`
                 <input type="checkbox" id="otherSkill10173a" class="larger-check otherSkill-check" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10179_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">マシュロア</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10179" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10179" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
 </div>
 <script>

@@ -1755,6 +1755,12 @@ function calculateStat(level,cc,type){
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
+    //marshlowa's goblin buff
+    if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
+        if (document.getElementById("otherPassive10179-1").checked){
+            multEffect2.buff += 7 * Number(document.getElementById("otherPassive10179-2").value);
+        }
+    }
     //summer diffnilla's permanent buff//
     if (type === "stat1" && masterValues.charaID === 10196){
         multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
@@ -1900,7 +1906,7 @@ function calculateStat(level,cc,type){
     try {
         if (type === "stat6"){
             let multToAdd = Number(document.getElementById("extra-"+type+"-1").value);
-            if (multEffect2.buff < 100){multEffect2.buff+=multToAdd;}
+            if (multEffect2.buff <= 100){multEffect2.buff+=multToAdd;}
             else if (multToAdd+100 > multEffect2.buff){multEffect2.buff=multToAdd+100;}
             addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
         } else {
@@ -2165,6 +2171,25 @@ function calculateStat(level,cc,type){
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
+    //marshlowa's goblin buff
+    if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
+        if (document.getElementById("otherPassive10179-1").checked){
+            multEffect3.buff += 7 * Number(document.getElementById("otherPassive10179-2").value);
+        }
+    }
+    //marshlowa's goblin skill
+    if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
+        if (document.getElementById("otherSkill10179").checked){
+            multEffect3.buff += [40,50,60,70,80][Number(document.getElementById("level10179").value)-1];
+        }
+    }
+    if (type === "stat6" && [10004,10032,10179].includes(masterValues.charaID)){
+        if (document.getElementById("otherSkill10179").checked){
+            if (multEffect3.buff < 100){multEffect3.buff += 50;}
+            else if (multEffect3.buff > 100 && multEffect3 <= 150){multEffect3.buff = 150;}
+            else if (multEffect3.buff > 150){}
+        }
+    }
     //summer diffnilla's permanent buff//
     if (type === "stat1" && masterValues.charaID === 10196){
         multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
@@ -2185,7 +2210,7 @@ function calculateStat(level,cc,type){
     //kyou's wind ally aSpd and PAD buff
     //as of now, do pure stacking first
     if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        if (multEffect3.buff < 100){multEffect3.buff += 125;}
+        if (multEffect3.buff < 100){multEffect3.buff += 25;}
         else if (multEffect3.buff > 100 && multEffect3 <= 125){multEffect3.buff = 125;}
         else if (multEffect3.buff > 125){}
     }
@@ -2324,7 +2349,7 @@ function calculateStat(level,cc,type){
     try {
         if (type === "stat6"){
             let multToAdd = Number(document.getElementById("extra-"+type+"-1").value);
-            if (multEffect3.buff < 100){multEffect3.buff+=multToAdd;}
+            if (multEffect3.buff <= 100){multEffect3.buff+=multToAdd;}
             else if (multToAdd+100 > multEffect3.buff){multEffect3.buff=multToAdd+100;}
             addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
         } else {
@@ -2357,8 +2382,8 @@ function calculateStat(level,cc,type){
         if (outputSkill < 0){outputSkill = 0;}
     }
     else if (["stat7"].includes(type)){
-        if (outputSkill <= 0){outputSkill = 1;}
-        else if (outputSkill < lowerStat){outputSkill = lowerStat;}
+        if (outputSkill <= 0){outputSkill = 1;}//flip order of this if needed
+        else if (outputSkill < lowerStat){outputSkill = lowerStat;}//flip order of this if needed
     }
     else if (outputSkill < lowerStat){
         outputSkill = lowerStat;
@@ -2370,6 +2395,12 @@ function calculateStat(level,cc,type){
         if (key.includes("fixed")){
             if (type === "stat86" && masterValues.allBuff[key][0][1][0] !== 100){}
             else {outputSkill = masterValues.allBuff[key][0][0][0];}
+        }
+    }
+    //marshlowa's goblin fixed PAD
+    if (type === "stat7" && [10004,10032,10179].includes(masterValues.charaID)){
+        if (document.getElementById("otherSkill10179").checked){
+            outputSkill = 10;
         }
     }
     //PAD minimum 1 frame//
@@ -2798,6 +2829,12 @@ function pdMultValues(type){ //timing = 4//
                 } catch (err) {}
             }
         }
+    }
+    if (type === "stat1" && (getAttachID("subskill1") === 119 || getAttachID("subskill2") === 119)){
+        totalPartyBuff += 10;
+    }
+    if (type === "stat2" && (getAttachID("subskill1") === 118 || getAttachID("subskill2") === 118)){
+        totalPartyBuff += 5;
     }
     ///console.log(type+"-pBuff:",totalPartyBuff);
     for (let i=0;i<divinechecks.length;i++){
@@ -3430,8 +3467,8 @@ const attachOptions = [
     {value: 1116, text: '触手も付けとくでぇ！'},
     {value: 1117, text: 'ハイテンションサマー'},
     {value: 1118, text: '灼熱噴然の討伐証'},
-    //{value: 1119, text: 'ダミー'},
-    //{value: 1120, text: 'ダミー'},
+    {value: 1119, text: 'テッパンツンデレ皇女'},
+    {value: 1120, text: 'おっとりお姉ちゃん皇女'},
     //{value: 1121, text: 'ダミー'},
     //{value: 1122, text: 'ダミー'},
     //{value: 1123, text: 'ダミー'},
