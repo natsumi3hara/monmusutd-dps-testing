@@ -3469,10 +3469,16 @@ const attachOptions = [
     {value: 1118, text: '灼熱噴然の討伐証'},
     {value: 1119, text: 'テッパンツンデレ皇女'},
     {value: 1120, text: 'おっとりお姉ちゃん皇女'},
-    //{value: 1121, text: 'ダミー'},
-    //{value: 1122, text: 'ダミー'},
-    //{value: 1123, text: 'ダミー'},
+    {value: 1121, text: '逆境の力'},
+    {value: 1122, text: 'マジックボディ'},
+    {value: 1123, text: '魔法防御強化+魔法攻撃回避'},
     //{value: 1124, text: 'ダミー'},
+    //{value: 1125, text: 'ダミー'},
+    //{value: 1126, text: 'ダミー'},
+    //{value: 1127, text: 'ダミー'},
+    //{value: 1128, text: 'ダミー'},
+    //{value: 1129, text: 'ダミー'},
+    //{value: 1130, text: 'ダミー'},
 ];
 
 //loaders//

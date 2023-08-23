@@ -125,10 +125,10 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1087" class="exsub" onclick="toggleExclude(1087)">攻撃強化+貫通攻撃</td>
-    <td id="exsub-1088" class="exsub" onclick="toggleExclude(1088)">生命力吸収+攻撃待機短縮</td>
+    
     <td id="exsub-1093" class="exsub excluded" onclick="toggleExclude(1093)">HP強化+リジェネ</td>
     <td id="exsub-1094" class="exsub excluded" onclick="toggleExclude(1094)">物理攻撃+魔法攻撃回避</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1123" class="exsub excluded" onclick="toggleExclude(1123)">魔法防御強化+魔法攻撃回避</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">プレミアム (L)</td>
@@ -152,6 +152,13 @@ document.write(`
     <td id="exsub-1101" class="exsub" onclick="toggleExclude(1101)">屍山血河</td>
     <td id="exsub-1100" class="exsub excluded" onclick="toggleExclude(1100)">アタッチヒール</td>
     <td id="exsub-1099" class="exsub excluded" onclick="toggleExclude(1099)">プロトバリア</td>
+    <td id="exsub-1121" class="exsub" onclick="toggleExclude(1121)">逆境の力</td>
+</tr>
+<tr>
+    <td id="exsub-1122" class="exsub excluded" onclick="toggleExclude(1122)">マジックボディ</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -209,10 +216,17 @@ document.write(`
     <td id="exsub-1083" class="exsub excluded" onclick="toggleExclude(1083)">ぐねぐねスライムくん（緑）</td>
 </tr>
 <tr>
+    <td id="exsub-1088" class="exsub excluded" onclick="toggleExclude(1088)">生命力吸収+攻撃待機短縮</td>
     <td id="exsub-1089" class="exsub" onclick="toggleExclude(1089)">まったり充電寝正月</td>
     <td id="exsub-1098" class="exsub" onclick="toggleExclude(1098)">1stAnniversaryの祝福</td>
-    <td id="exsub-1116" class="exsub" onclick="toggleExclude(1116)">触手も付けとくでぇ！</td>
+    <td id="exsub-1102" class="exsub" onclick="toggleExclude(1102)">攻撃強化+クリティカル</td>
+    <td id="exsub-1116" class="exsub excluded" onclick="toggleExclude(1116)">触手も付けとくでぇ！</td>
+</tr>
+<tr>
     <td id="exsub-1117" class="exsub" onclick="toggleExclude(1117)">ハイテンションサマー</td>
+    <td id="exsub-1119" class="exsub" onclick="toggleExclude(1119)">テッパンツンデレ皇女</td>
+    <td id="exsub-1120" class="exsub excluded" onclick="toggleExclude(1120)">おっとりお姉ちゃん皇女</td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
