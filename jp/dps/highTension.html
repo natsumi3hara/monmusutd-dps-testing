@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js) 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1914Y0N5HJ"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-1914Y0N5HJ');
-        </script>
+        </script>-->
         <meta charset="utf-8"/>
         <title>DPS計算機</title>
         <script src="../../scripts/console&devTools.js"></script>
@@ -325,11 +325,13 @@
                                         <button onclick="compareChara();" style="width:100%;height:100%;cursor:pointer;background-color:#e4ab00;border:none;float:left;font-family:mtdfont;border-radius:5px;">実行</button>
                                     </td>
                                     <td class="displaytext">
-                                        <span>ソート順</span>
-                                        <select name="sort-ranking" id="sort-ranking" style="width:60%;height:20%;margin:2px auto;border:none;font-family:mtdfont;">
+                                        <span>ソート順：</span>
+                                        <select name="sort-ranking" id="sort-ranking" style="width:40%;height:20%;margin:2px auto;border:none;font-family:mtdfont;">
                                             <option value="norm">切り上げない</option>
                                             <option value="ceil" selected>切り上げる</option>
                                         </select>
+                                        <br>
+                                        <span style="font-size:11px;color:red;">※切り上げると最大〇倍になる</span>
                                     </td>
                                     <td class="displaytext" style="display:none;">
                                         <span>属性マスを</span>
@@ -345,12 +347,12 @@
                                     <td class="displaytext" style="width:50px">〇位</td>
                                     <td class="displaytext" style="width:50px"><img id="compChara-0-img" src="../../img/chara-icons/icon_10000_0_s.png"></td>
                                     <td class="displaytext">キャラ名</td>
-                                    <td class="displaytext" style="width:10%" colspan="2">攻速硬直</td>
-                                    <td class="displaytext" style="width:10%" colspan="2">ハイテン<br>攻速硬直</td>
+                                    <td class="displaytext" style="width:10%" colspan="2">攻速/硬直</td>
+                                    <td class="displaytext" style="width:10%" colspan="2">ハイテン<br>攻速/硬直</td>
                                     <td class="displaytext" style="width:10%" colspan="2">回数</td>
                                     <td class="displaytext" style="width:10%" colspan="2">ハイテン<br>回数</td>
-                                    <td class="displaytext" style="width:10%">実質<br>被ダメ〇倍</td>
-                                    <td class="displaytext" id="compChara-0-ceilEff" style="width:10%">(切上)実質<br>被ダメ〇倍</td>
+                                    <td class="displaytext" style="width:10%">(平均)実質<br>被ダメ〇倍</td>
+                                    <td class="displaytext" id="compChara-0-ceilEff" style="width:10%">(最大)実質<br>被ダメ〇倍</td>
                                 </tr>
                                 <!--
                                 <tr style="height:50px;">

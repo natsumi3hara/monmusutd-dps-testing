@@ -355,6 +355,28 @@ const attack_patterns = {
 		"BPL":0,
 		"SPL":0,
 	},
+	"10014": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
 	"15": {
 		"attack":[
 			{"cond":[],
@@ -400,6 +422,58 @@ const attack_patterns = {
 		"SPL":0,
 	},
 	"17": {
+		"attack":[
+			{"cond":[["condition","1007","",13014]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"攻撃(弓)","text-en":"Attack (Archer)","text-zhtw":"攻撃(弓)","text-zhcn":"攻击(弓)","text-kr":"공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+			{"cond":[["condition","1007","",13013]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"攻撃(弓)","text-en":"Attack (Archer)","text-zhtw":"攻撃(弓)","text-zhcn":"攻击(弓)","text-kr":"공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+			{"cond":[["condition","1007","",13012]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":1,"text-ja":"攻撃(弓)","text-en":"Attack (Archer)","text-zhtw":"攻撃(弓)","text-zhcn":"攻击(弓)","text-kr":"공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[["condition","1007","",13014]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃(弓)","text-en":"Skill Attack (Archer)","text-zhtw":"技能攻撃(弓)","text-zhcn":"技能攻击(弓)","text-kr":"스킬공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+			{"cond":[["condition","1007","",13013]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃(弓)","text-en":"Skill Attack (Archer)","text-zhtw":"技能攻撃(弓)","text-zhcn":"技能攻击(弓)","text-kr":"스킬공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+			{"cond":[["condition","1007","",13012]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":1,"text-ja":"スキル攻撃(弓)","text-en":"Skill Attack (Archer)","text-zhtw":"技能攻撃(弓)","text-zhcn":"技能攻击(弓)","text-kr":"스킬공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"10017": {
 		"attack":[
 			{"cond":[["condition","1007","",13014]],
 			"pattern":[
@@ -925,6 +999,28 @@ const attack_patterns = {
 		"BPL":0,
 		"SPL":0,
 	},
+	"10028": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
 	"29": {
 		"attack":[
 			{"cond":[],
@@ -1102,6 +1198,28 @@ const attack_patterns = {
 		"SPL":0,
 	},
 	"35": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"10035": {
 		"attack":[
 			{"cond":[],
 			"pattern":[
@@ -2030,6 +2148,58 @@ const attack_patterns = {
 				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
 				{"probability":33.33,"time":2500,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
 				{"probability":33.34,"time":2500,"extraTarget":0,"extraMulti":1,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":2500,"extraTarget":0,"extraMulti":1,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"10064": {
+		"attack":[
+			{"cond":[["condition","1007","",13014]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"攻撃(弓)","text-en":"Attack (Archer)","text-zhtw":"攻撃(弓)","text-zhcn":"攻击(弓)","text-kr":"공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+			{"cond":[["condition","1007","",13013]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"攻撃(弓)","text-en":"Attack (Archer)","text-zhtw":"攻撃(弓)","text-zhcn":"攻击(弓)","text-kr":"공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+			{"cond":[["condition","1007","",13012]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":1,"text-ja":"攻撃(弓)","text-en":"Attack (Archer)","text-zhtw":"攻撃(弓)","text-zhcn":"攻击(弓)","text-kr":"공격(활)"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[["condition","1007","",13014]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃(弓)","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+			{"cond":[["condition","1007","",13013]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃(弓)","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+			{"cond":[["condition","1007","",13012]],
+			"pattern":[
+				{"probability":33.33,"time":4000,"extraTarget":0,"extraMulti":1,"text-ja":"スキル攻撃(弓)","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+				{"probability":66.67,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
 			]},
 			{"cond":[],
 			"pattern":[
@@ -3206,6 +3376,28 @@ const attack_patterns = {
 		"SPL":0,
 	},
 	"100": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"10100": {
 		"attack":[
 			{"cond":[],
 			"pattern":[
@@ -4421,6 +4613,28 @@ const attack_patterns = {
 		"BPL":0,
 		"SPL":0,
 	},
+	"154": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Heal","text-zhtw":"恢復","text-zhcn":"恢复","text-kr":"회복"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Heal","text-zhtw":"技能恢復","text-zhcn":"技能恢复","text-kr":"스킬회복"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
 	"155": {
 		"attack":[
 			{"cond":[],
@@ -4575,6 +4789,28 @@ const attack_patterns = {
 		"BPL":0,
 		"SPL":0,
 	},
+	"163": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Heal","text-zhtw":"恢復","text-zhcn":"恢复","text-kr":"회복"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃","text-en":"Skill Heal","text-zhtw":"技能恢復","text-zhcn":"技能恢复","text-kr":"스킬회복"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
 	"164": {
 		"attack":[
 			{"cond":[],
@@ -4653,6 +4889,28 @@ const attack_patterns = {
 			{"cond":[],
 			"pattern":[
 				{"probability":100,"time":4000,"extraTarget":2,"extraMulti":2,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"169": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Heal","text-zhtw":"恢復","text-zhcn":"恢复","text-kr":"회복"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Heal","text-zhtw":"技能恢復","text-zhcn":"技能恢复","text-kr":"스킬회복"},
 			]},
 		],
 		"critical":[],

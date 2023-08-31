@@ -67,6 +67,15 @@ function attributeTile(){
     }
     else {selfConditions["1010"] = 0;enemyConditions["1010"] = 0;}
 }
+function skillNumber(value){
+    if (value == 10000){
+        selfConditions["1009"] = 1;
+        enemyConditions["1009"] = 1; //because enemy no skill
+    } else if (value == 0){
+        selfConditions["1009"] = 2;
+        enemyConditions["1009"] = 2;
+    }
+}
 //
 function enemyConditionChange(index,value){
     enemyConditions[index] = Number(value);
@@ -220,7 +229,7 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
-    let ex2List = [10008,10019,10020,10022,10024,10025,10030,10032,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10065,10068,10078,10079,10085,10088,10093,10094];
+    let ex2List = [10008,10014,10017,10019,10020,10022,10024,10025,10028,10030,10032,10035,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10093,10094,10100];
     let exChangeList = [10088,10106,10126];
     let exChangeRefr = [[0,4],[4],[3]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
@@ -331,7 +340,7 @@ function compareChara(){
     masterValues["unitcard"] = window["card"+params.get("id")];
     masterValues["charaAwaked"] = (params.get("awaked")==="true");
     masterValues["baseClass"] = masterValues.unitcard["classId"];
-    talenttext()
+    talenttext();
     allDPS();
     document.getElementById("skill-change-select").value = "0";
     document.getElementById("skill-alt-select").value = "10000";
@@ -784,6 +793,9 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     }
     if (true/*document.getElementById("shared20008-1").checked*/){
         cooldown -= 3*Number(document.getElementById("shared20008-2").value);
+    }
+    if (masterValues.charaID === 10100 && document.getElementById("skill-alt-select").value === "0"){
+        cooldown -= 2*Number(document.getElementById("charaSpecific10100-1").value);
     }
     if (fullHeart && mattari && cooldown1to1){
         cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
@@ -2421,6 +2433,14 @@ function calculateStat(level,cc,type){
             }
         } catch (err) {
             //console.log("no missile");
+        }
+    }
+    //letia override//
+    if (masterValues.charaID === 10017){
+        if (masterValues.language === "ja" && document.getElementById("charaSpecific10017-1").checked && document.getElementById("skill-alt-select").value === "0"){
+            document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
+        } else if (masterValues.language === "en" && document.getElementById("charaSpecific10017-1").checked && document.getElementById("skill-alt-select").value === "0"){
+            document.getElementById("dps-output-skill-value-stat22").innerHTML = "Penetrate";
         }
     }
     //lapis, thunderSuzu and shirotae override

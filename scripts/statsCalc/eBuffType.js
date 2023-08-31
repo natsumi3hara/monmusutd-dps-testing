@@ -1,4 +1,4 @@
-//last value is stat186
+//last value is stat188
 const eBuffType = {
 	//Base stats//
     "0":["None","none-none"],
@@ -257,4 +257,7 @@ const eBuffType = {
 	"1116":["stat182","none-none"],
 	"1117":["stat183","none-none"],
 	"1118":["stat184","none-none"],
+	//31-8-2023 need to update!! below are temp//
+	"1119":["stat187","none-none"],
+	"1120":["stat188","none-none"],
 }

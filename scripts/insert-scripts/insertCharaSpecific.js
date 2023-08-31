@@ -86,6 +86,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10017">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10017_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">貫通攻撃</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">ティーレ配置</span>
+                <input id="charaSpecific10017-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10029">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10029_0_s.png" class="charaSpecific-buff-img">
@@ -227,6 +239,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">スキル発動回数</span>
                 <input id="charaSpecific10098-1" class="" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10100">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10100_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">再使用時間</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキルで倒した敵</span>
+                <input id="charaSpecific10100-1" class="" type="number" min="0" max="15" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>

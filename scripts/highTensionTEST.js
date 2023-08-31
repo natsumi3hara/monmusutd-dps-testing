@@ -605,6 +605,9 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (true/*document.getElementById("shared20008-1").checked*/){
         cooldown -= 3*Number(document.getElementById("shared20008-2").value);
     }
+    if (masterValues.charaID === 10100){
+        cooldown -= 2*Number(document.getElementById("charaSpecific10100-1").value);
+    }
     if (fullHeart && mattari && cooldown1to1){
         cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
     } else if (fullHeart && (mattari||cooldown1to1)){
