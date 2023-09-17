@@ -225,6 +225,64 @@ document.write(`
                 <input type="checkbox" id="awake10136" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="セット時、全モンスター娘の攻撃力+5%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">ツンデレ皇妹</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label"></span>
+                <span class="party-buff-label">枚数</span>
+                <input id="partySub-1119" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="party-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="セット時、全モンスター娘の最大HP+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">おっとり皇姉</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label"></span>
+                <span class="party-buff-label">枚数</span>
+                <input id="partySub-1120" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="party-buff-label"></span>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="collapsible-button inputInsertButton">変身キャラ（クリックで開く）</button>
+    <div class="collapsible-content" style="display:none;">
+        <div id="flex-container-party-buff">
+            <div class="flex-container-party-buff-inner" style="width:225px;">
+                <div class="flex-container-party-buff-inner2">
+                    <abbr title="ドッペルゲンガー" style="cursor: help;"><img src="../../img/chara-icons/icon_10169_0_s.png" class="party-buff-img"></abbr>
+                    <span class="party-buff-name">ラッツェル</span>
+                </div>
+                <div class="flex-container-party-buff-inner2">
+                    <span class="party-buff-label">変身元</span>
+                    <select name="henshin-10169-select" id="henshin-10169-select" style="font-family:mtdfont;width:90%;font-size:0.7em;" onchange="allDPS();">
+                        <option value="10000">無し</option>
+                        <option value="10005">シルフィーネ</option>
+                        <option value="10008">プネーマ</option>
+                        <option value="10010">イグニ</option>
+                        <option value="10012">ペトラ</option>
+                        <option value="10039">ディフニラ</option>
+                        <option value="10044">ラゴス</option>
+                        <option value="10069">ミテラス</option>
+                        <option value="10080">フリス</option>
+                        <option value="10095">ラフーカ</option>
+                        <option value="10106">ロヴィリス</option>
+                        <option value="10116">リュプチェ</option>
+                        <option value="10125">マリドゥーラ</option>
+                        <option value="10127">ヤーセファ</option>
+                        <option value="10134">鈴音マズル</option>
+                        <option value="10136">イフィジャール</option>
+                    </select>
+                    <span class="party-buff-label">変身元完凸</span>
+                    <input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>

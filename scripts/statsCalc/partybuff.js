@@ -1,4 +1,10 @@
 var partybuffref = {
+    "party10000":{
+        "cond":[],"stat1":[0]
+    },
+    "awake10000":{
+        "cond":[],"stat1":[0]
+    },
     "party10005": {
         "cond":[4],"stat2":[8]
     },

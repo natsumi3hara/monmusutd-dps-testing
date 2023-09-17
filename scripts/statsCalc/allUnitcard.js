@@ -4804,7 +4804,7 @@ var card10163 ={
   "awakingAbilityId2": 90026,
   "awakingAbilityId3": 90037,
   "awakingAbilityId4": 90038,
-  "awakingAbilityId5": 90036,
+  "awakingAbilityId5": 90056,
   "moveAction": 1,
   "nextId": 0,
   "familyId": 0,

@@ -797,6 +797,9 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (masterValues.charaID === 10100 && document.getElementById("skill-alt-select").value === "0"){
         cooldown -= 2*Number(document.getElementById("charaSpecific10100-1").value);
     }
+    if (masterValues.charaID === 10154){
+        cooldown -= 2*Number(document.getElementById("charaSpecific10154-1").value); 
+    }
     if (fullHeart && mattari && cooldown1to1){
         cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
     } else if (fullHeart && (mattari||cooldown1to1)){
@@ -2853,9 +2856,39 @@ function pdMultValues(type){ //timing = 4//
     if (type === "stat1" && (getAttachID("subskill1") === 119 || getAttachID("subskill2") === 119)){
         totalPartyBuff += 10;
     }
+    if (type === "stat1"){//other chara's or ratzel's
+        totalPartyBuff += Number(document.getElementById("partySub-1120").value) * 10;
+    }
     if (type === "stat2" && (getAttachID("subskill1") === 118 || getAttachID("subskill2") === 118)){
         totalPartyBuff += 5;
     }
+    if (type === "stat2"){//other chara's or ratzel's
+        totalPartyBuff += Number(document.getElementById("partySub-1119").value) * 5;
+    }
+    //↓ ratzel's partybuff copy (10169) ↓//
+    let partyString = "party" + document.getElementById("henshin-10169-select").value;
+    let awakeString = "awake" + document.getElementById("henshin-10169-select").value;
+    if (partybuffref[partyString].cond.length == 0){
+        try {
+            totalPartyBuff += partybuffref[partyString][type][0];
+        } catch (err) {}
+    } else if (partybuffref[partyString].cond.includes(masterValues.unitcard["element"])||partybuffref[partyString].cond.includes(masterValues.baseClass)){
+        try {
+            totalPartyBuff += partybuffref[partyString][type][0];
+        } catch (err) {}
+    }
+    if (document.getElementById("henshin-10169-awake").checked){
+        if (partybuffref[awakeString].cond.length == 0){
+            try {
+                totalPartyBuff += partybuffref[awakeString][type][0];
+            } catch (err) {}
+        } else if (partybuffref[awakeString].cond.includes(masterValues.unitcard["element"])||partybuffref[awakeString].cond.includes(masterValues.baseClass)){
+            try {
+                totalPartyBuff += partybuffref[awakeString][type][0];
+            } catch (err) {}
+        }
+    }
+    //↑ ratzel's partybuff copy ↑//
     ///console.log(type+"-pBuff:",totalPartyBuff);
     for (let i=0;i<divinechecks.length;i++){
         let divineCB = divinechecks[i];

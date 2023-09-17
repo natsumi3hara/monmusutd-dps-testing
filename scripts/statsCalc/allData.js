@@ -7229,7 +7229,7 @@ const ability_data ={
     {
       "id": 60,
       "name": "コボルトプライド",
-      "text": "最大HP、攻撃力、物理防御、魔法防御が\r\n低い代わりにコストが-２\r\n配置中コボルト族の攻撃力+15%",
+      "text": "最大HP、攻撃力、物理防御、魔法防御が\r\n低い代わりにコストが-２\r\n配置中<color=yellow><link=\"コボルト族\">コボルト族</link></color>の攻撃力+15%",
       "talentList": [
         {
           "talentId": 60,
@@ -19151,7 +19151,7 @@ const ability_data ={
     {
       "id": 121,
       "name": "コボルトプライド(白毛)",
-      "text": "最大HP、攻撃力、物理防御力が低い代わりにコストが-4、攻撃が即着弾し、攻撃した相手をスタンさせる(蓄積値：小)\r\n配置中コボルト族の攻撃力+20%",
+      "text": "最大HP、攻撃力、物理防御力が低い代わりにコストが-4、攻撃が即着弾し、攻撃した相手をスタンさせる(蓄積値：小)\r\n配置中<color=yellow><link=\"コボルト族\">コボルト族</link></color>の攻撃力+20%",
       "talentList": [
         {
           "talentId": 60,
@@ -26723,6 +26723,17 @@ const ability_data ={
               ],
               "target": 1,
               "targetNum": []
+            },
+            {
+              "type": 15,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
             }
           ],
           "activeData": []
@@ -28098,7 +28109,7 @@ const ability_data ={
     {
       "id": 163,
       "name": "燻り狂う捕食者",
-      "text": "敵の遠距離攻撃の対象にならず、攻撃した敵を1秒[awaked,+0.3秒]移動不可にする\r\n獣鋏トークンを使役し、トークンは配置数に含まれずブロック数0で周囲の敵を攻撃し、攻撃した敵を0.5秒間移動不可にする",
+      "text": "<color=yellow><link=\"獣鋏トークン\">獣鋏トークン</link></color>を使役可能\r\nブロック数0で敵の遠距離攻撃の対象にならず、攻撃した敵を1秒[awaked,+0.3秒]移動不可にする\r\n",
       "talentList": [
         {
           "talentId": 504,
@@ -28206,6 +28217,27 @@ const ability_data ={
               "targetNum": []
             }
           ],
+          "activeData": []
+        },
+        {
+          "talentId": 46,
+          "param": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
           "activeData": []
         }
       ],
@@ -29043,7 +29075,7 @@ const ability_data ={
     {
       "id": 169,
       "name": "もう一人のアナタ",
-      "text": "戦闘開始時に編成モンスター娘の<color=yellow><link=\"ドッペルゲンガー\">ドッペルゲンガー</link></color>にランダムで変身する\r\nドッペルゲンガーのステータスは変身対象のステータスの60％[awaked,+20%]になり、2回場から離れると変身が解除される",
+      "text": "戦闘開始時に編成されているモンスター娘の<color=yellow><link=\"ドッペルゲンガー\">ドッペルゲンガー</link></color>に変身(変身対象は編成メンバーの6番目までの中からランダム)\r\nステータスは変身対象の60％[awaked,+20%]になり、2回場から離れると変身が解除される",
       "talentList": [
         {
           "talentId": 1120,
@@ -29060,7 +29092,7 @@ const ability_data ={
             },
             {
               "num": [
-                0
+                6
               ]
             }
           ],
@@ -29113,7 +29145,7 @@ const ability_data ={
             },
             {
               "num": [
-                0
+                6
               ]
             }
           ],
@@ -30687,7 +30719,7 @@ const ability_data ={
     {
       "id": 179,
       "name": "アタシサマがキングゴブ♪",
-      "text": "[awaked,トークン所持数+4、]2連続で遠距離攻撃を行うゴブリン部隊トークンを使役し、配置中のゴブリン族1体につき、ゴブリン族の攻撃力7%上昇（ゴブリン部隊は4体分上昇）",
+      "text": "[awaked,トークン所持数+4、]2連続で遠距離攻撃を行うゴブリン部隊トークンを使役し、配置中の<color=yellow><link=\"ゴブリン族\">ゴブリン族</link></color>1体につき、ゴブリン族の攻撃力7%上昇（ゴブリン部隊は4体分上昇）",
       "talentList": [
         {
           "talentId": 1016,
@@ -40315,6 +40347,62 @@ const ability_data ={
               "targetNum": []
             }
           ]
+        },
+        {
+          "talentId": 1005,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                90030
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                90033
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -40666,6 +40754,62 @@ const ability_data ={
               "type": 3001,
               "num": [
                 90023
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1005,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                90030
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                90033
               ],
               "option": [
                 "<="
@@ -41075,6 +41219,62 @@ const ability_data ={
               "targetNum": []
             }
           ]
+        },
+        {
+          "talentId": 1005,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                90030
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                90033
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -41468,6 +41668,62 @@ const ability_data ={
               "type": 3001,
               "num": [
                 90023
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1005,
+          "param": [
+            {
+              "num": [
+                3
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                300
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 3001,
+              "num": [
+                90030
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 3001,
+              "num": [
+                90033
               ],
               "option": [
                 "<="
@@ -46488,7 +46744,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                20
+                15
               ]
             }
           ],
@@ -47457,6 +47713,36 @@ const ability_data ={
             {
               "num": [
                 50
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 90056,
+      "name": "トークン所持数+1",
+      "text": "潜在覚醒",
+      "talentList": [
+        {
+          "talentId": 1084,
+          "param": [
+            {
+              "num": [
+                1
               ]
             }
           ],
@@ -95086,11 +95372,62 @@ const ability_data ={
           "param": [
             {
               "num": [
-                400
+                600
               ]
             }
           ],
           "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                400
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10046
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
             {
               "num": [
                 0
@@ -95464,7 +95801,19 @@ const ability_data ={
           ],
           "timing": 1,
           "range": 2,
-          "triggerData": [],
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": []
         }
       ],
@@ -95553,7 +95902,18 @@ const ability_data ={
                 500700
               ],
               "option": [
-                ""
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 1008,
+              "num": [
+                500708
+              ],
+              "option": [
+                "|1"
               ],
               "target": 1,
               "targetNum": []
@@ -95565,7 +95925,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                400
+                900
               ]
             },
             {
@@ -95624,11 +95984,11 @@ const ability_data ={
           "activeData": []
         },
         {
-          "talentId": 1025,
+          "talentId": 1024,
           "param": [
             {
               "num": [
-                999999
+                15
               ]
             },
             {
@@ -95639,6 +95999,11 @@ const ability_data ={
             {
               "num": [
                 0
+              ]
+            },
+            {
+              "num": [
+                1
               ]
             }
           ],
@@ -95657,11 +96022,28 @@ const ability_data ={
               "num": [
                 0
               ]
+            },
+            {
+              "num": [
+                0
+              ]
             }
           ],
           "timing": 1,
-          "range": 5,
-          "triggerData": [],
+          "range": 6,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                250
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
           "activeData": [
             {
               "type": 1008,
@@ -95702,9 +96084,19 @@ const ability_data ={
               "num": [
                 0
               ]
+            },
+            {
+              "num": [
+                150
+              ]
             }
           ],
           "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
             {
               "num": [
                 0
@@ -95762,12 +96154,12 @@ const ability_data ={
           "param": [
             {
               "num": [
-                80
+                100
               ]
             },
             {
               "num": [
-                190
+                500
               ]
             },
             {
@@ -95795,6 +96187,70 @@ const ability_data ={
           ],
           "timing": 8,
           "range": 2,
+          "triggerData": [],
+          "activeData": []
+        },
+        {
+          "talentId": 1079,
+          "param": [
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 10,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1107,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                150
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
           "triggerData": [],
           "activeData": []
         }
@@ -95971,7 +96427,7 @@ const ability_data ={
           "param": [
             {
               "num": [
-                30
+                50
               ]
             }
           ],
@@ -95988,11 +96444,26 @@ const ability_data ={
           "activeData": []
         },
         {
-          "talentId": 1010,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                180
+                50
+              ]
+            },
+            {
+              "num": [
+                -1
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                10046
               ]
             }
           ],
@@ -96001,9 +96472,24 @@ const ability_data ={
               "num": [
                 0
               ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
             }
           ],
-          "timing": 26,
+          "timing": 2,
           "range": 1,
           "triggerData": [],
           "activeData": []
@@ -96079,6 +96565,37 @@ const ability_data ={
             }
           ],
           "activeData": []
+        },
+        {
+          "talentId": 1107,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                150
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
         }
       ],
       "recipeId": 0,
@@ -96086,7 +96603,7 @@ const ability_data ={
     },
     {
       "id": 500407,
-      "name": "歩く薔薇",
+      "name": "歩くヒナギク",
       "text": "被弾時自身以外のHP回復",
       "talentList": [
         {
@@ -96106,9 +96623,19 @@ const ability_data ={
               "num": [
                 0
               ]
+            },
+            {
+              "num": [
+                200
+              ]
             }
           ],
           "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
             {
               "num": [
                 0
@@ -96132,10 +96659,193 @@ const ability_data ={
             {
               "type": 1008,
               "num": [
-                600222
+                600323
               ],
               "option": [
                 "!"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 1008,
+              "num": [
+                500700
+              ],
+              "option": [
+                "!"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1107,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            },
+            {
+              "num": [
+                200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
+      "id": 500408,
+      "name": "",
+      "text": "アラクネ娘(ハートの女王)によるキンググリフォンの強化",
+      "talentList": [
+        {
+          "talentId": 6,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                600327
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 11,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                600327
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 16,
+          "param": [
+            {
+              "num": [
+                200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                600327
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
+        },
+        {
+          "talentId": 1111,
+          "param": [
+            {
+              "num": [
+                1
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 6,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1008,
+              "num": [
+                600327
+              ],
+              "option": [
+                ""
               ],
               "target": 1,
               "targetNum": []
@@ -123820,6 +124530,577 @@ const ability_data ={
       ],
       "recipeId": 0,
       "skipend": 0
+    },
+    {
+      "id": 800076,
+      "name": "プシュキニア",
+      "text": "非ブロック中は魔法防御力増加",
+      "talentList": [
+        {
+          "talentId": 16,
+          "param": [
+            {
+              "num": [
+                1000
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 1,
+              "num": [
+                0
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1200
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2003,
+              "num": [
+                3
+              ],
+              "option": [
+                "%"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1202
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1202
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                20
+              ],
+              "option": [
+                "<"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                750
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                101
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                1650
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                102
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                2550
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                3450
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                101
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                4350
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                102
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                5250
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                6150
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                101
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                7050
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                102
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                7950
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1072,
+          "param": [
+            {
+              "num": [
+                1201
+              ]
+            },
+            {
+              "num": [
+                100
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            },
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2001,
+              "num": [
+                8850
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
     }
   ]
 }
@@ -130830,14 +132111,14 @@ const attach_ability_data ={
       "rarity": 1397969457,
       "name": "快適快速",
       "kana": "かいてきかいそく",
-      "text": "移動時物理、魔法攻撃を20％の確率で回避\r\n移動コストが-5になるが、配置時コスト+10",
+      "text": "移動時物理、魔法攻撃を20％の確率で回避\r\n移動消費コスト-5",
       "talentList": [
         {
-          "talentId": 59,
+          "talentId": 1079,
           "param": [
             {
               "num": [
-                10
+                20
               ]
             }
           ],
@@ -130848,10 +132129,45 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
+          "timing": 1,
           "range": 1,
-          "triggerData": [],
-          "activeData": []
+          "triggerData": [
+            {
+              "type": 2,
+              "num": [
+                1
+              ],
+              "option": [
+                ""
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": [
+            {
+              "type": 7,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 8,
+              "num": [
+                1
+              ],
+              "option": [
+                "|1"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         },
         {
           "talentId": 62,
@@ -130964,16 +132280,16 @@ const attach_ability_data ={
     {
       "id": 1126,
       "rarity": 1397969457,
-      "name": "ダミーデータ２１",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "魔導傑作の討伐証",
+      "kana": "まどうけっさくのとうばつしょう",
+      "text": "攻撃力+15%、杖クラス装備時射程+10",
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 6,
           "param": [
             {
               "num": [
-                1
+                15
               ]
             }
           ],
@@ -130988,6 +132304,50 @@ const attach_ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 38,
+          "param": [
+            {
+              "num": [
+                10
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": [
+            {
+              "type": 1007,
+              "num": [
+                14011
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            },
+            {
+              "type": 1007,
+              "num": [
+                14019
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ]
         }
       ],
       "recipeId": 0,
@@ -140582,7 +141942,7 @@ const missile_data ={
       "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
-      "drawSize": 60,
+      "drawSize": 40,
       "drawIndex": 20071,
       "damageField": [
         0,
@@ -140614,7 +141974,7 @@ const missile_data ={
       "blastEffectSize": 0,
       "landHitType": 3,
       "blastHitType": 0,
-      "drawSize": 60,
+      "drawSize": 40,
       "drawIndex": 20072,
       "damageField": [
         0,
@@ -140646,6 +142006,70 @@ const missile_data ={
       "blastEffectSize": 0,
       "landHitType": 1,
       "blastHitType": 0,
+      "drawSize": 50,
+      "drawIndex": 0,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0,
+      "penetrationRange": 0
+    },
+    {
+      "id": 155,
+      "missileId": 10165,
+      "trajectory": 1,
+      "speed": 0,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 1,
+      "blastShape": 1,
+      "blastRange": 180,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 100243,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 1,
+      "drawSize": 50,
+      "drawIndex": 0,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0,
+      "penetrationRange": 0
+    },
+    {
+      "id": 156,
+      "missileId": 10166,
+      "trajectory": 1,
+      "speed": 0,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 1,
+      "blastShape": 1,
+      "blastRange": 230,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 100243,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 1,
+      "blastHitType": 1,
       "drawSize": 50,
       "drawIndex": 0,
       "damageField": [
@@ -166156,12 +167580,12 @@ const skill_data ={
     {
       "id": 163,
       "name": "スナッチャーバイト",
-      "text": "[duration]秒、ブロック数0になり攻撃力[MAG,0,0]倍\r\n攻撃範囲が減少するが、範囲内の敵を3連続で攻撃し、\r\n自身とトークンの攻撃後の待ち時間を短縮",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍\r\n攻撃範囲が減少するが、範囲内の敵を3連続で攻撃し、\r\n自身とトークンの攻撃後の待ち時間を短縮",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
-      "minDurationTime": 450,
-      "maxDurationTime": 450,
+      "minDurationTime": 600,
+      "maxDurationTime": 600,
       "talentList": [
         {
           "talentId": 6,
@@ -166211,27 +167635,6 @@ const skill_data ={
             {
               "num": [
                 -1
-              ]
-            }
-          ],
-          "maxParam": [
-            {
-              "num": [
-                0
-              ]
-            }
-          ],
-          "timing": 1,
-          "range": 1,
-          "triggerData": [],
-          "activeData": []
-        },
-        {
-          "talentId": 46,
-          "param": [
-            {
-              "num": [
-                0
               ]
             }
           ],
@@ -166805,7 +168208,7 @@ const skill_data ={
     {
       "id": 169,
       "name": "影の刃",
-      "text": "[duration]秒、攻撃力[MAG,0,0]倍、攻撃対象数+[0,3,0]、敵の防御力を無視して攻撃するが、スキル終了後に死亡する\r\n",
+      "text": "[duration]秒、攻撃力[MAG,0,0]倍、攻撃対象数+[0,2,0]、敵の防御力を無視して攻撃するが、スキル終了後に死亡する",
       "maxLevel": 5,
       "minCoolTime": 1320,
       "maxCoolTime": 1200,
@@ -166853,27 +168256,6 @@ const skill_data ={
                 0
               ]
             },
-            {
-              "num": [
-                0
-              ]
-            }
-          ],
-          "timing": 1,
-          "range": 1,
-          "triggerData": [],
-          "activeData": []
-        },
-        {
-          "talentId": 67,
-          "param": [
-            {
-              "num": [
-                10163
-              ]
-            }
-          ],
-          "maxParam": [
             {
               "num": [
                 0
@@ -174757,7 +176139,7 @@ const token_data ={
       "summonIndex": 50046,
       "enchantBone": 0,
       "time": -1,
-      "stock": 3,
+      "stock": 2,
       "simultaneous": 0,
       "exclude": 99,
       "standby": 0,
