@@ -183,7 +183,7 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1103" class="exsub" onclick="toggleExclude(1103)">恩愛触手の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1126" class="exsub" onclick="toggleExclude(1126)">魔導傑作の討伐証</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
@@ -226,8 +226,8 @@ document.write(`
     <td id="exsub-1117" class="exsub" onclick="toggleExclude(1117)">ハイテンションサマー</td>
     <td id="exsub-1119" class="exsub" onclick="toggleExclude(1119)">テッパンツンデレ皇女</td>
     <td id="exsub-1120" class="exsub excluded" onclick="toggleExclude(1120)">おっとりお姉ちゃん皇女</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1124" class="exsub excluded" onclick="toggleExclude(1124)">快適快速</td>
+    <td id="exsub-1125" class="exsub excluded" onclick="toggleExclude(1125)">グレイトコンダクト</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">生成</td>
