@@ -249,6 +249,18 @@ document.write(`
                 <span class="party-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時風属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">風エクステンド</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label"></span>
+                <span class="party-buff-label">枚数</span>
+                <input id="partySub-1130" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="party-buff-label"></span>
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">変身キャラ（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">

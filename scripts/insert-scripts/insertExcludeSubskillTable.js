@@ -60,7 +60,7 @@ document.write(`
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
-    <td id="exsub-1025" class="exsub" onclick="toggleExclude(1025)">クリティカル I</td>
+    <td id="exsub-1025" class="exsub excluded" onclick="toggleExclude(1025)">クリティカル I</td>
     <td id="exsub-1026" class="exsub" onclick="toggleExclude(1026)">クリティカル II</td>
     <td id="exsub-1027" class="exsub" onclick="toggleExclude(1027)">クリティカル III</td>
 </tr>
@@ -69,6 +69,7 @@ document.write(`
     <td id="exsub-1028" class="exsub excluded" onclick="toggleExclude(1028)">再出撃時間短縮 I</td>
     <td id="exsub-1029" class="exsub excluded" onclick="toggleExclude(1029)">再出撃時間短縮 II</td>
     <td id="exsub-1030" class="exsub excluded" onclick="toggleExclude(1030)">再出撃時間短縮 III</td>
+    <td id="exsub-1127" class="exsub excluded" onclick="toggleExclude(1127)">再出撃時間短縮 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -78,19 +79,20 @@ document.write(`
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
-    <td id="exsub-1034" class="exsub" onclick="toggleExclude(1034)">攻撃待機短縮 I</td>
+    <td id="exsub-1034" class="exsub excluded" onclick="toggleExclude(1034)">攻撃待機短縮 I</td>
     <td id="exsub-1035" class="exsub" onclick="toggleExclude(1035)">攻撃待機短縮 II</td>
     <td id="exsub-1036" class="exsub" onclick="toggleExclude(1036)">攻撃待機短縮 III</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
-    <td id="exsub-1037" class="exsub" onclick="toggleExclude(1037)">貫通攻撃 I</td>
+    <td id="exsub-1037" class="exsub excluded" onclick="toggleExclude(1037)">貫通攻撃 I</td>
     <td id="exsub-1038" class="exsub" onclick="toggleExclude(1038)">貫通攻撃 II</td>
     <td id="exsub-1039" class="exsub" onclick="toggleExclude(1039)">貫通攻撃 III</td>
+    <td id="exsub-1128" class="exsub" onclick="toggleExclude(1128)">貫通攻撃 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
-    <td id="exsub-1040" class="exsub" onclick="toggleExclude(1040)">底力(攻撃) I</td>
+    <td id="exsub-1040" class="exsub excluded" onclick="toggleExclude(1040)">底力(攻撃) I</td>
     <td id="exsub-1041" class="exsub" onclick="toggleExclude(1041)">底力(攻撃) II</td>
     <td id="exsub-1042" class="exsub" onclick="toggleExclude(1042)">底力(攻撃) III</td>
 </tr>
@@ -230,6 +232,13 @@ document.write(`
     <td id="exsub-1125" class="exsub excluded" onclick="toggleExclude(1125)">グレイトコンダクト</td>
 </tr>
 <tr>
+    <td id="exsub-1133" class="exsub excluded" onclick="toggleExclude(1133)">再出撃時間短縮+撤退時コスト回復</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">生成</td>
 </tr>
 <tr>
@@ -241,10 +250,10 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1114" class="exsub" onclick="toggleExclude(1114)">MAXマッスル</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1129" class="exsub" onclick="toggleExclude(1129)">ラピッドチャージャー</td>
+    <td id="exsub-1130" class="exsub" onclick="toggleExclude(1130)">ウィンドエクステンド</td>
+    <td id="exsub-1131" class="exsub" onclick="toggleExclude(1131)">決死の一撃</td>
+    <td id="exsub-1132" class="exsub" onclick="toggleExclude(1132)">メデューサソウル</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">その他</td>
@@ -253,7 +262,7 @@ document.write(`
     <td id="exsub-1055" class="exsub excluded" onclick="toggleExclude(1055)">霧を晴らす列車</td>
     <td id="exsub-1061" class="exsub excluded" onclick="toggleExclude(1061)">純白ヴェール</td>
     <td id="exsub-1115" class="exsub excluded" onclick="toggleExclude(1115)">きらめきの星騎士</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1052" class="exsub excluded" onclick="toggleExclude(1052)">エレメンタルブースト</td>
     <td class="exsub excluded"></td>
 </tr>
 `);

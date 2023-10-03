@@ -45,18 +45,6 @@ document.write(`
     <div id="flex-container-otherPassive-buff">
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
-                <img src="../../img/chara-icons/icon_10046_0_s.png" class="otherPassive-buff-img">
-                <span class="otherPassive-buff-name">ルルゥ</span>
-            </div>
-            <div class="flex-container-otherPassive-buff-inner2">
-                <span class="otherPassive-buff-label"></span>
-                <span class="otherPassive-buff-label">専用武器</span>
-                <input type="checkbox" id="otherPassive10046" class="larger-check otherPassive-check" onchange="allDPS();">
-                <span class="otherPassive-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-otherPassive-buff-inner">
-            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10060_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">バウ</span>
             </div>
@@ -100,7 +88,7 @@ document.write(`
                 <span class="otherPassive-buff-label">覚醒?</span>
                 <input type="checkbox" id="otherPassive10137-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">攻撃力</span>
-                <input id="otherPassive10137-2" type="number" min="0" max="9999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input id="otherPassive10137-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
         <div class="flex-container-otherPassive-buff-inner">
@@ -112,7 +100,19 @@ document.write(`
                 <span class="otherPassive-buff-label">覚醒?</span>
                 <input type="checkbox" id="otherPassive10148-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">物理防御</span>
-                <input id="otherPassive10148-2" type="number" min="0" max="9999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input id="otherPassive10148-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10179_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">マシュロア</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10179-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">ゴブリン数</span>
+                <input id="otherPassive10179-2" type="number" min="1" max="50" value="1" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
         <div class="flex-container-otherPassive-buff-inner">
@@ -133,14 +133,31 @@ document.write(`
         </div>
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
-                <img src="../../img/chara-icons/icon_10179_0_s.png" class="otherPassive-buff-img">
-                <span class="otherPassive-buff-name">マシュロア</span>
+                <img src="../../img/chara-icons/icon_10202_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">号令アルギュロ</span>
             </div>
             <div class="flex-container-otherPassive-buff-inner2">
-                <span class="otherPassive-buff-label">配置</span>
-                <input type="checkbox" id="otherPassive10179-1" class="larger-check otherPassive-check" onchange="allDPS();">
-                <span class="otherPassive-buff-label">ゴブリン数</span>
-                <input id="otherPassive10179-2" type="number" min="1" max="50" value="1" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="otherPassive-buff-label">状態</span>
+                <select name="otherPassive10202-1" id="otherPassive10202-1" class="otherPassive-check" style="width:80%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="allDPS();">
+                    <option value="15">通常</option>
+                    <option value="30">通常+スキル</option>
+                    <option value="20">覚醒</option>
+                    <option value="40">覚醒+スキル</option>
+                </select>
+                <span class="otherPassive-buff-label">攻撃回数</span>
+                <input id="otherPassive10202-2" type="number" min="0" max="9" value="0" class="otherPassive-check" style="width:80%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10203_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">援武ニグリュ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">覚醒?</span>
+                <input type="checkbox" id="otherPassive10203-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">攻撃力</span>
+                <input id="otherPassive10203-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
     </div>

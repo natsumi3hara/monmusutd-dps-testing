@@ -230,8 +230,8 @@ function compareChara(){
     //using the allIncluded array to cycle//
     let dpsRanking = [];
     let ex2List = [10008,10014,10017,10019,10020,10022,10024,10025,10028,10030,10032,10035,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10093,10094,10100];
-    let exChangeList = [10088,10106,10126];
-    let exChangeRefr = [[0,4],[4],[3]];
+    let exChangeList = [10088,10106,10126,10211];
+    let exChangeRefr = [[0,4],[4],[3],[2]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
     //preliminary adjustments
     document.getElementById("skill-change-select").value = "0";
@@ -461,7 +461,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1118;
+    let lastSubskillID = 1133;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -546,7 +546,7 @@ function allDPS(slot1=-1,slot2=-1){
     calculateStat(level,cc,"stat19");
     if ([10101,10112,10160,10196].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
-        //stat1 dependent here too (10196)
+        //stat1 dependent here too (10016,10196)
         calculateStat(level,cc,"stat2");
     }
     //statcalc over//
@@ -757,6 +757,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     else if (selfConditions["1003"] === 5460818) {initial = Math.round(initial * 30 / 100);}
     if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
     if (selfConditions["1007"]===11024||selfConditions["1007"]===11044){initial -= 3;}
+    if (getAttachID("subskill1") === 128||getAttachID("subskill1") === 128){initial -= 4;}
     if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
     if (fullHeart && mattari && cooldown1to1){
         initial = Math.floor(initial/13)*4 + Math.ceil((initial%13)/3);
@@ -799,6 +800,12 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     }
     if (masterValues.charaID === 10154){
         cooldown -= 2*Number(document.getElementById("charaSpecific10154-1").value); 
+    }
+    if (getAttachID("subskill1") === 49 || getAttachID("subskill1") === 49){
+        cooldown -= 3;
+    }
+    if (getAttachID("subskill1") === 128 || getAttachID("subskill1") === 128){
+        cooldown -= 4;
     }
     if (fullHeart && mattari && cooldown1to1){
         cooldown = Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3);
@@ -1252,6 +1259,7 @@ function subskillGetPen(subskillID){
     else if (subskillID === 37){return 15;}
     else if (subskillID === 38){return 20;}
     else if (subskillID === 86){return 8;}
+    else if (subskillID === 127){return 27;}
     else {return undefined;}
 }
 
@@ -1695,6 +1703,26 @@ function calculateStat(level,cc,type){
     }
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
+        //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //kyou's buff//
+        if (document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[25]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[25]]];
+            }
+        }
+        //sports argyro buff//
+        if (document.getElementById("otherPassive10202-2").value !== "0"){
+            let aSpdBuff202 = Number(document.getElementById("otherPassive10202-1").value);
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[aSpdBuff202]]);
+            } catch (err) {
+                masterValues.allBuff["rate-plus-1"] = [[[aSpdBuff202]]];
+            }
+        }
+        //place to include aSpd buffs//
+        ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff);
         if (masterValues.allBuff["rate-plus-1"] !== undefined){
             if (masterValues.allBuff["rate-minus-1"] === undefined){
                 //only rate-plus-1//
@@ -1704,24 +1732,27 @@ function calculateStat(level,cc,type){
                 //console.log(masterValues.allBuff["rate-plus-1"]);
             } else {
                 //rate-plus-1 AND rate-minus-1//
+                //get highest plus//
+                masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-plus-1"].splice(1);
+                //get highest minus//
+                masterValues.allBuff["rate-minus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-minus-1"].splice(1);
                 let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
                 let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
                 //console.log(totalMinus,totalPlus);
                 if (totalMinus >= totalPlus){
-                    //total is negative or zero//
-                    //as of now, no combined abilities can produce lower than -50, so safeguard is later//
                     masterValues.allBuff["rate-plus-1"] = [[[0]]];
                     masterValues.allBuff["rate-minus-1"] = [[[totalMinus-totalPlus]]];
                 } else if (totalMinus < totalPlus){
-                    //total is positive//
-                    //as of now, no combined abilities can produce a two time increase from a negative value//
                     masterValues.allBuff["rate-plus-1"] = [[[totalPlus-totalMinus]]];
                     masterValues.allBuff["rate-minus-1"] = [[[0]]];
                 }
             }
         } else if (masterValues.allBuff["rate-minus-1"] !== undefined){
             //only rate-minus-1//
-            //do nothing//
+            masterValues.allBuff["rate-minus-1"].sort(function(a, b){return b[0] - a[0]});
+            masterValues.allBuff["rate-minus-1"].splice(1);
         }
         //console.log(masterValues.allBuff);
     }
@@ -1756,7 +1787,7 @@ function calculateStat(level,cc,type){
             multEffect2.count += 1;
         }
         //lulu's unique weapon//
-        if (document.getElementById("otherPassive10046").checked){
+        if (document.getElementById("otherUnique10046").checked){
             multEffect2.buff *= 110;
             multEffect2.count += 1;
         }
@@ -1769,6 +1800,34 @@ function calculateStat(level,cc,type){
     } else {
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
+    }
+    //lagos' unique weapon buff
+    if (type === "stat2" && masterValues.charaID === 10044){
+        if (document.getElementById("unique-equip-check").checked){
+            multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
+        }
+    }
+    //rin's unique weapon buff
+    if (type === "stat3"){
+        multEffect2.buff += 10 * Number(document.getElementById("otherUnique10006-1").value);
+    }
+    //silva's unique weapon stat1 dependent buff (on base)
+    if (type === "stat2" && masterValues.charaID === 10016){
+        if (document.getElementById("unique-equip-check").checked){
+            addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
+    }
+    //sports nigru's stat 2 dependent buff (passive)
+    if (type === "stat2" && !document.getElementById("otherPassive10203-1").checked){
+        addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10203-2").value) /100);
+    } else if (type === "stat2" && document.getElementById("otherPassive10203-1").checked){
+        addEffect2.buff += Math.floor(60 * Number(document.getElementById("otherPassive10203-2").value) /100);
+    }
+    //sports argryo's PAD buff
+    if (type === "stat7"){
+        let attacks202 = Number(document.getElementById("otherPassive10202-2").value)
+        let PADbuff202 = Number(document.getElementById("otherPassive10202-1").value);
+        multEffect2.buff -= attacks202*PADbuff202;
     }
     //marshlowa's goblin buff
     if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
@@ -1783,18 +1842,12 @@ function calculateStat(level,cc,type){
     //summer diffnilla's stat1 dependent buff
     if (type === "stat2" && masterValues.charaID === 10196){
         if (selfConditions["26"] === 0){
-            addEffect2.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+            addEffect2.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
         } else {
-            addEffect2.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+            addEffect2.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
         }
     }
-    //kyou's wind ally aSpd and PAD buff
-    //as of now, do pure stacking first
-    if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        if (multEffect2.buff < 100){multEffect2.buff += 25;}
-        else if (multEffect2.buff > 100 && multEffect2 <= 125){multEffect2.buff = 125;}
-        else if (multEffect2.buff > 125){}
-    }
+    //kyou's wind ally PAD buff
     if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect2.buff -= 25;
     }
@@ -1913,7 +1966,7 @@ function calculateStat(level,cc,type){
             if (["stat2","stat3","stat4"].includes(type)){
                 multEffect2.buff += 15;
             } else if (type === "stat8"){multEffect2.buff+=10} else {}
-        } else {}
+        }
     }
     //other allies' skills
     multEffect2.buff += allAlliesSkillRate(type); //timing must be 1
@@ -1954,8 +2007,7 @@ function calculateStat(level,cc,type){
         if (outputBattle < 0){outputBattle = 0;}
     }
     else if (["stat7"].includes(type)){
-        if (outputBattle <= 0){outputBattle = 1;}
-        else if (outputBattle < lowerStat){outputBattle = lowerStat;}
+        if (outputBattle < lowerStat){outputBattle = lowerStat;}
     }
     else if (outputBattle < lowerStat){
         outputBattle = lowerStat;
@@ -2111,6 +2163,26 @@ function calculateStat(level,cc,type){
     }
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+        //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //kyou's buff//
+        if (document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[25]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[25]]];
+            }
+        }
+        //sports argyro buff//
+        if (document.getElementById("otherPassive10202-2").value !== "0"){
+            let aSpdBuff202 = Number(document.getElementById("otherPassive10202-1").value);
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[aSpdBuff202]]);
+            } catch (err) {
+                masterValues.allBuff["rate-plus-1"] = [[[aSpdBuff202]]];
+            }
+        }
+        //place to include aSpd buffs//
+        //console.log("allbuff-at-cl-tr-3:",masterValues.allBuff);
         if (masterValues.allBuff["rate-plus-1"] !== undefined){
             if (masterValues.allBuff["rate-minus-1"] === undefined){
                 //only rate-plus-1//
@@ -2120,28 +2192,36 @@ function calculateStat(level,cc,type){
                 //console.log(masterValues.allBuff["rate-plus-1"]);
             } else {
                 //rate-plus-1 AND rate-minus-1//
+                //get highest plus//
+                masterValues.allBuff["rate-plus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-plus-1"].splice(1);
+                //get highest minus//
+                masterValues.allBuff["rate-minus-1"].sort(function(a, b){return b[0] - a[0]});
+                masterValues.allBuff["rate-minus-1"].splice(1);
                 let totalPlus = masterValues.allBuff["rate-plus-1"].flat(2).reduce((a, b) => a + b, 0);
                 let totalMinus = masterValues.allBuff["rate-minus-1"].flat(2).reduce((a, b) => a + b, 0);
                 //console.log(totalMinus,totalPlus);
                 if (totalMinus >= totalPlus){
-                    //total is negative or zero//
-                    //as of now, no combined abilities can produce lower than -50, so safeguard is later//
                     masterValues.allBuff["rate-plus-1"] = [[[0]]];
                     masterValues.allBuff["rate-minus-1"] = [[[totalMinus-totalPlus]]];
                 } else if (totalMinus < totalPlus){
-                    //total is positive//
-                    //as of now, no combined abilities can produce a two time increase from a negative value//
                     masterValues.allBuff["rate-plus-1"] = [[[totalPlus-totalMinus]]];
                     masterValues.allBuff["rate-minus-1"] = [[[0]]];
                 }
             }
         } else if (masterValues.allBuff["rate-minus-1"] !== undefined){
             //only rate-minus-1//
+            masterValues.allBuff["rate-minus-1"].sort(function(a, b){return b[0] - a[0]});
+            masterValues.allBuff["rate-minus-1"].splice(1);
             //do nothing//
         }
         //console.log(masterValues.allBuff);
     }
     //↑ REPEAT ↑//
+    if (type === ""){
+        console.log("Test Value:");
+        console.log(masterValues.allBuff);
+    }    
     let multEffect3, addEffect3;
     if (type === "stat76"){
         multEffect3 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
@@ -2172,7 +2252,7 @@ function calculateStat(level,cc,type){
             multEffect3.count += 1;
         }
         //lulu's unique weapon//
-        if (document.getElementById("otherPassive10046").checked){
+        if (document.getElementById("otherUnique10046").checked){
             multEffect3.buff *= 110;
             multEffect3.count += 1;
         }
@@ -2185,6 +2265,34 @@ function calculateStat(level,cc,type){
     } else {
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
+    }
+    //lagos' unique weapon buff
+    if (type === "stat2" && masterValues.charaID === 10044){
+        if (document.getElementById("unique-equip-check").checked){
+            multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
+        }
+    }
+    //rin's unique weapon buff
+    if (type === "stat3"){
+        multEffect3.buff += 10 * Number(document.getElementById("otherUnique10006-1").value);
+    }
+    //silva's unique weapon stat1 dependent buff (on base)
+    if (type === "stat2" && masterValues.charaID === 10016){
+        if (document.getElementById("unique-equip-check").checked){
+            addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
+    }
+    //sports nigru's stat 2 dependent buff (passive)
+    if (type === "stat2" && !document.getElementById("otherPassive10203-1").checked){
+        addEffect3.buff += Math.floor(50 * Number(document.getElementById("otherPassive10203-2").value) /100);
+    } else if (type === "stat2" && document.getElementById("otherPassive10203-1").checked){
+        addEffect3.buff += Math.floor(60 * Number(document.getElementById("otherPassive10203-2").value) /100);
+    }
+    //sports argryo's PAD buff
+    if (type === "stat7"){
+        let attacks202 = Number(document.getElementById("otherPassive10202-2").value)
+        let PADbuff202 = Number(document.getElementById("otherPassive10202-1").value);
+        multEffect3.buff -= attacks202*PADbuff202;
     }
     //marshlowa's goblin buff
     if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
@@ -2212,9 +2320,9 @@ function calculateStat(level,cc,type){
     //summer diffnilla's stat1 dependent buff
     if (type === "stat2" && masterValues.charaID === 10196){
         if (selfConditions["26"] === 0){
-            addEffect3.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+            addEffect3.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
         } else {
-            addEffect3.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+            addEffect3.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
         }
     }
     //chika's stat3 dependent buff on skill
@@ -2222,13 +2330,7 @@ function calculateStat(level,cc,type){
         let multiplier10160 = [0,50,55,60,65,70];
         addEffect3.buff += Math.floor(multiplier10160[Number(document.getElementById("skill-level-select").value)] * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
     }
-    //kyou's wind ally aSpd and PAD buff
-    //as of now, do pure stacking first
-    if (type === "stat6" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        if (multEffect3.buff < 100){multEffect3.buff += 25;}
-        else if (multEffect3.buff > 100 && multEffect3 <= 125){multEffect3.buff = 125;}
-        else if (multEffect3.buff > 125){}
-    }
+    //kyou's wind ally PAD buff
     if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
         multEffect3.buff -= 25;
     }
@@ -2397,8 +2499,7 @@ function calculateStat(level,cc,type){
         if (outputSkill < 0){outputSkill = 0;}
     }
     else if (["stat7"].includes(type)){
-        if (outputSkill <= 0){outputSkill = 1;}//flip order of this if needed
-        else if (outputSkill < lowerStat){outputSkill = lowerStat;}//flip order of this if needed
+        if (outputSkill < lowerStat){outputSkill = lowerStat;}
     }
     else if (outputSkill < lowerStat){
         outputSkill = lowerStat;
@@ -2865,6 +2966,12 @@ function pdMultValues(type){ //timing = 4//
     if (type === "stat2"){//other chara's or ratzel's
         totalPartyBuff += Number(document.getElementById("partySub-1119").value) * 5;
     }
+    if ((type==="stat1"||type==="stat2") && masterValues.unitcard["element"]===4){//wind extend
+        if (getAttachID("subskill1") === 129 || getAttachID("subskill2") === 129){
+            totalPartyBuff += 10;
+        }
+        totalPartyBuff += Number(document.getElementById("partySub-1130").value) * 10;
+    }
     //↓ ratzel's partybuff copy (10169) ↓//
     let partyString = "party" + document.getElementById("henshin-10169-select").value;
     let awakeString = "awake" + document.getElementById("henshin-10169-select").value;
@@ -3312,7 +3419,7 @@ function charaInfoReplace(){
 }
 
 function uniqueWeaponReplace(charaID){
-    let unique = [1,4,7,11,23,27,28,37,46];
+    let unique = [1,4,6,7,11,16,23,24,27,28,37,38,44,46,57];
     let uwID = charaID-10000;
     let targetDiv = document.getElementById("unique-weapon-div");
     if (unique.includes(uwID)){
@@ -3453,7 +3560,7 @@ const attachOptions = [
     {value: 1049, text: 'アイアンボディ'},
     {value: 1050, text: 'ファストチャージャー'},
     {value: 1051, text: 'オートパニッシャー'},
-    //{value: 1052, text: 'エレメンタルブースト'},
+    {value: 1052, text: 'エレメンタルブースト'},
     {value: 1053, text: 'フェニックスの加護'},
     {value: 1054, text: '騎士の心得'},
     {value: 1055, text: '霧を晴らす列車'},
@@ -3528,10 +3635,25 @@ const attachOptions = [
     {value: 1124, text: '快適快速'},
     {value: 1125, text: 'グレイトコンダクト'},
     {value: 1126, text: '魔導傑作の討伐証'},
-    //{value: 1127, text: 'ダミー'},
-    //{value: 1128, text: 'ダミー'},
-    //{value: 1129, text: 'ダミー'},
-    //{value: 1130, text: 'ダミー'},
+    {value: 1127, text: '再出撃時間短縮 IV'},
+    {value: 1128, text: '貫通攻撃 IV'},
+    {value: 1129, text: 'ラピッドチャージャー'},
+    {value: 1130, text: 'ウィンドエクステンド'},
+    {value: 1131, text: '決死の一撃'},
+    {value: 1132, text: 'メデューサソウル'},
+    {value: 1133, text: '再出撃時間短縮+撤退時コスト回復'},
+    //{value: 1134, text: 'ダミー'},
+    //{value: 1135, text: 'ダミー'},
+    //{value: 1136, text: 'ダミー'},
+    //{value: 1137, text: 'ダミー'},
+    //{value: 1138, text: 'ダミー'},
+    //{value: 1139, text: 'ダミー'},
+    //{value: 1140, text: 'ダミー'},
+    //{value: 1141, text: 'ダミー'},
+    //{value: 1142, text: 'ダミー'},
+    //{value: 1143, text: 'ダミー'},
+    //{value: 1144, text: 'ダミー'},
+    //{value: 1145, text: 'ダミー'},
 ];
 
 //loaders//
