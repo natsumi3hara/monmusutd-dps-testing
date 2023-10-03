@@ -1967,6 +1967,12 @@ function calculateStat(level,cc,type){
                 multEffect2.buff += 15;
             } else if (type === "stat8"){multEffect2.buff+=10} else {}
         }
+        //elemental boost attribute tile x1.5//
+        if (subskillID_1 === 51 || subskillID_2 === 51){
+            if (["stat2","stat3","stat4"].includes(type)){
+                multEffect2.buff += 7.5; //if 7.5 gives problems then 8
+            } else if (type === "stat8"){multEffect2.buff+=5} else {}
+        }
     }
     //other allies' skills
     multEffect2.buff += allAlliesSkillRate(type); //timing must be 1
@@ -2442,14 +2448,20 @@ function calculateStat(level,cc,type){
         //console.log("chase assassin, attack, not moving");
         multEffect3.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
     }
-    //attribute tile effect x2//
+    //attribute tile effects//
     if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
         if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
             if (["stat2","stat3","stat4"].includes(type)){
                 multEffect3.buff += 15;
             } else if (type === "stat8"){multEffect3.buff+=10} else {}
-        } else {}
+        }
+        //elemental boost attribute tile x1.5//
+        if (subskillID_1 === 51 || subskillID_2 === 51){
+            if (["stat2","stat3","stat4"].includes(type)){
+                multEffect3.buff += 7.5; //if 7.5 gives problems then 8
+            } else if (type === "stat8"){multEffect3.buff+=5} else {}
+        }
     }
     //yano's attribute tile//
     if ([10188].includes(masterValues.charaID)){
