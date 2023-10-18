@@ -65,8 +65,77 @@
                 </div>
                 <hr class="hline">
                 <button style="background-color: #ffff7d;" class="collapsible-button">種族</button>
-                <div class="collapsible-content" style="display: none;">
+                <div class="collapsible-content" style="display: block;">
                     <button class="btn" onclick="filterSelection('youkai')"> 妖怪</button>
+                    <button class="btn" onclick="filterSelection('goblin')"> ゴブリン</button>
+                </div>
+                <hr class="hline">
+                <button style="background-color: #88ff20;" class="collapsible-button">その他(AND選択)</button>
+                <div style="display:none;">
+                    <div style="display:block;height:3px;"></div>
+                    <button style="background-color: #daffb9;" class="collapsible-button">攻撃系</button>
+                    <div class="collapsible-content" style="display: none;">
+                        <button class="btn" onclick="filterSelection('multiTarget')"> マルチ</button>
+                        <button class="btn" onclick="filterSelection('multiShot')"> 連射</button>
+                        <button class="btn" onclick="filterSelection('critical')"> クリティカル</button>
+                        <button class="btn" onclick="filterSelection('penetrate')"> 貫通</button>
+                        <button class="btn" onclick="filterSelection('aoe')"> 範囲攻撃</button>
+                        <button class="btn" onclick="filterSelection('dmgUp')"> ダメージ/回復量上昇</button>
+                        <button class="btn" onclick="filterSelection('contDmg')"> 継続ダメージ</button>
+                        <button class="btn" onclick="filterSelection('percentDmg')"> 割合ダメージ</button>
+                    </div>
+                    <div style="display:block;height:2px;"></div>
+                    <button style="background-color: #daffb9;" class="collapsible-button">防御/支援系</button>
+                    <div class="collapsible-content" style="display: none;">
+                        <button class="btn" onclick="filterSelection('physicalCut')"> 物理軽減</button>
+                        <button class="btn" onclick="filterSelection('magicalCut')"> 魔法軽減</button>
+                        <button class="btn" onclick="filterSelection('barrier')"> バリア</button>
+                        <button class="btn" onclick="filterSelection('regen')"> リジェネ</button>
+                        <button class="btn" onclick="filterSelection('lifesteal')"> 生命力吸収</button>
+                        <button class="btn" onclick="filterSelection('evasion')"> 回避</button>
+                        <button class="btn" onclick="filterSelection('noTarget')"> 隠密</button>
+                        <button class="btn" onclick="filterSelection('taunt')"> 引き付け</button>
+                        <button class="btn" onclick="filterSelection('revive')"> 復活</button>
+                        <button class="btn" onclick="filterSelection('redeploy')"> 再出撃時間短縮</button>
+                        <button class="btn" onclick="filterSelection('weather')"> 天候</button>
+                        <button class="btn" onclick="filterSelection('tileChange')"> マス変化</button>
+                    </div>
+                    <div style="display:block;height:2px;"></div>
+                    <button style="background-color: #daffb9;" class="collapsible-button">状態異常</button>
+                    <div class="collapsible-content" style="display: none;">
+                        
+                        <button class="btn" onclick="filterSelection('petrify')"> 石化</button>
+                        <button class="btn" onclick="filterSelection('petrifyCure')"> 石化回復</button>
+                        <button class="btn" onclick="filterSelection('petrifyImmune')"> 石化免疫</button>
+                        <button class="btn" onclick="filterSelection('poison')"> 毒</button>
+                        <button class="btn" onclick="filterSelection('poisonCure')"> 毒回復</button>
+                        <button class="btn" onclick="filterSelection('poisonImmune')"> 毒免疫</button>
+                        <button class="btn" onclick="filterSelection('stun')"> スタン</button>
+                        <button class="btn" onclick="filterSelection('stunImmune')"> スタン免疫</button>
+                        <button class="btn" onclick="filterSelection('knockback')"> 後退</button>
+                        <button class="btn" onclick="filterSelection('bind')"> バインド</button>
+                        <button class="btn" onclick="filterSelection('freeze')"> 行動停止</button>
+                        <button class="btn" onclick="filterSelection('blowOff')"> 吹き飛ばし</button>
+                    </div>
+                    <div style="display:block;height:2px;"></div>
+                    <button style="background-color: #daffb9;" class="collapsible-button">移動</button>
+                    <div class="collapsible-content" style="display: none;">
+                        <button class="btn" onclick="filterSelection('moveGround')"> 地上</button>
+                        <button class="btn" onclick="filterSelection('moveFly')"> 飛行</button>
+                        <button class="btn" onclick="filterSelection('moveCharge')"> 突進</button>
+                        <button class="btn" onclick="filterSelection('moveWarp')"> ワープ</button>
+                    </div>
+                    <div style="display:block;height:2px;"></div>
+                    <button style="background-color: #daffb9;" class="collapsible-button">バフ/デバフ/その他</button>
+                    <div class="collapsible-content" style="display: none;">
+                        <button class="btn" onclick="filterSelection('partyBuff')"> 編成バフ</button>
+                        <button class="btn" onclick="filterSelection('buffer')"> バッファー</button>
+                        <button class="btn" onclick="filterSelection('debuffer')"> デバッファー</button>
+                        <button class="btn" onclick="filterSelection('tokenOwner')"> トークン持ち</button>
+                        <button class="btn" onclick="filterSelection('freeDeploy')"> 配置人数含まず</button>
+                        <button class="btn" onclick="filterSelection('reflect')"> 反射</button>
+                        <button class="btn" onclick="filterSelection('lycan')"> 獣化</button>
+                    </div>
                 </div>
                 <!--<hr class="hline">
                 <button style="background-color: #91ff91;" class="collapsible-button">Tags↓ (今は使えない)</button>
@@ -89,64 +158,64 @@
             </div>
             <hr class="hline">
             <div class="container">
-                <div class="filterDiv free rare sword windA tankp critical movement" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare sword windA critical moveGround" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10001_0_s.png">
                 </div>
-                <div class="filterDiv free rare fan windA critical slow knockback multitarget" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare fan windA critical knockback multiTarget moveFly" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10003_0_s.png">
                 </div>
-                <div class="filterDiv free common bow windA multihit aspd" style="background-color:#c0c0c0;">
+                <div class="filterDiv free common bow windA goblin tokenOwner moveGround" style="background-color:#c0c0c0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10004_0_s.png">
                 </div>
-                <div class="filterDiv free epic fan windA evasion slow knockback" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic fan windA evasion knockback buffer moveFly" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10005_0_s.png">
                 </div>
-                <div class="filterDiv free rare orb waterA" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare orb waterA physicalCut taunt moveGround" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10006_0_s.png">
                 </div>
-                <div class="filterDiv free rare scepter waterA" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare scepter waterA dmgUp petrifyCure poisonCure stun moveGround" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10007_0_s.png">
                 </div>
-                <div class="filterDiv free epic staff waterA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic staff waterA multiTarget regen petrifyImmune poisonImmune partyBuff buffer moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10008_0_s.png">
                 </div>
-                <div class="filterDiv free epic spear fireA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic spear fireA multiTarget partyBuff moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10010_0_s.png">
                 </div>
-                <div class="filterDiv free common axe earthA" style="background-color:#c0c0c0;">
+                <div class="filterDiv free common axe earthA tokenOwner moveGround" style="background-color:#c0c0c0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10011_0_s.png">
                 </div>
-                <div class="filterDiv free epic bow earthA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic bow earthA stun partyBuff moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10012_0_s.png">
                 </div>
-                <div class="filterDiv free common dagger earthA" style="background-color:#c0c0c0;">
+                <div class="filterDiv free common dagger earthA tokenOwner moveGround" style="background-color:#c0c0c0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10013_0_s.png">
                 </div>
-                <div class="filterDiv free epic dagger earthA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic dagger earthA noTarget poison debuffer moveWarp" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10014_0_s.png">
                 </div>
-                <div class="filterDiv free epic scimitar darkA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic scimitar darkA noTarget moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10015_0_s.png">
                 </div>
-                <div class="filterDiv free epic axe lightA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic axe lightA multiTarget blowOff moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10016_0_s.png">
                 </div>
-                <div class="filterDiv free common bow darkA" style="background-color:#c0c0c0;">
+                <div class="filterDiv free common bow darkA multiTarget penetrate moveGround" style="background-color:#c0c0c0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10017_0_s.png">
                 </div>
-                <div class="filterDiv free epic staff darkA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic staff darkA multiTarget noTarget moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10019_0_s.png">
                 </div>
-                <div class="filterDiv free rare bow lightA" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare bow lightA noTarget freeDeploy moveFly" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10020_0_s.png">
                 </div>
-                <div class="filterDiv free rare book darkA" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare book darkA multiTarget dmgUp debuffer moveGround" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10021_0_s.png">
                 </div>
-                <div class="filterDiv free rare bow windA" style="background-color:#87ceeb;">
+                <div class="filterDiv free rare bow windA knockback moveFly" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10022_0_s.png">
                 </div>
-                <div class="filterDiv free epic hammer earthA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic hammer earthA dmgUp" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10023_0_s.png">
                 </div>
                 <div class="filterDiv free epic gun darkA" style="background-color:#ef80ef;">
@@ -382,6 +451,9 @@
                 </div>
                 <div class="filterDiv free epic instrument darkA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10104_0_s.png">
+                </div>
+                <div class="filterDiv legend staff waterA youkai" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10105_0_s.png">
                 </div>
                 <div class="filterDiv legend sword waterA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10106_0_s.png">
@@ -622,6 +694,9 @@
                 </div>
                 <div class="filterDiv legend dagger darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10203_0_s.png">
+                </div>
+                <div class="filterDiv legend orb darkA" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10204_0_s.png">
                 </div>
                 <div class="filterDiv free epic fist windA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10206_0_s.png">

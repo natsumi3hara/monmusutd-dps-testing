@@ -757,7 +757,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     else if (selfConditions["1003"] === 5460818) {initial = Math.round(initial * 30 / 100);}
     if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
     if (selfConditions["1007"]===11024||selfConditions["1007"]===11044){initial -= 3;}
-    if (getAttachID("subskill1") === 128||getAttachID("subskill1") === 128){initial -= 4;}
+    if (getAttachID("subskill1") === 128||getAttachID("subskill2") === 128){initial -= 4;}
     if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
     if (fullHeart && mattari && cooldown1to1){
         initial = Math.floor(initial/13)*4 + Math.ceil((initial%13)/3);
@@ -801,10 +801,10 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (masterValues.charaID === 10154){
         cooldown -= 2*Number(document.getElementById("charaSpecific10154-1").value); 
     }
-    if (getAttachID("subskill1") === 49 || getAttachID("subskill1") === 49){
+    if (getAttachID("subskill1") === 49 || getAttachID("subskill2") === 49){
         cooldown -= 3;
     }
-    if (getAttachID("subskill1") === 128 || getAttachID("subskill1") === 128){
+    if (getAttachID("subskill1") === 128 || getAttachID("subskill2") === 128){
         cooldown -= 4;
     }
     if (fullHeart && mattari && cooldown1to1){

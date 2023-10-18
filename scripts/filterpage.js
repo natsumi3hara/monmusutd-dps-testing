@@ -1,8 +1,10 @@
 let conditions = ["filterDiv", "all"];
 const rarityList = ["common", "rare", "epic", "legend","free"];
 const attrList = ["fireA","waterA","windA","earthA","lightA","darkA"];
+const speciesList = ["youkai","goblin"];
 let rarityFilter = [];
 let attrFilter = [];
+let speciesFilter = [];
 function filterSelection(condition) {
   if (rarityList.includes(condition)){
     if (rarityFilter.includes(condition)){
@@ -15,6 +17,12 @@ function filterSelection(condition) {
       attrFilter.splice(attrFilter.indexOf(condition),1)
     } else {
       attrFilter.push(condition)
+    }
+  } else if (speciesList.includes(condition)){
+    if (speciesFilter.includes(condition)){
+      speciesFilter.splice(speciesFilter.indexOf(condition),1)
+    } else {
+      speciesFilter.push(condition)
     }
   } else if (conditions.includes(condition)){
     conditions.splice(conditions.indexOf(condition),1)
@@ -35,7 +43,7 @@ function filterSelection(condition) {
     //console.log(rarityFilter);
     //console.log(attrFilter);
     let checkerAND = (arr, target) => target.every(v => arr.includes(v));
-    let checkerOR = (arr,target) => target.some(v => arr.includes(v))
+    let checkerOR = (arr,target) => target.some(v => arr.includes(v));
     // console.log(checkerAND(condArray,conditions))
     // console.log(checkerOR(condArray,conditions))
     // console.log(document.getElementById("andORswitch").checked)
@@ -45,7 +53,11 @@ function filterSelection(condition) {
         w3AddClass(x[i], "show");
     }*/ else if (document.getElementById("andORswitch").checked){
       condArray.splice(condArray.indexOf("filterDiv"),1)
-      if ((checkerOR(condArray,conditions)||conditions.length===1)&&(checkerOR(condArray,rarityFilter)||rarityFilter.length===0)&&(checkerOR(condArray,attrFilter)||attrFilter.length===0)) {
+      //let a new array for checking of conditions
+      let condtionsCheck = Array.from(conditions);
+      condtionsCheck.splice(condtionsCheck.indexOf("filterDiv"),1)
+      //console.log(condArray,conditions,condtionsCheck);
+      if ((checkerAND(condArray,condtionsCheck)||condtionsCheck.length===0)&&(checkerOR(condArray,rarityFilter)||rarityFilter.length===0)&&(checkerOR(condArray,attrFilter)||attrFilter.length===0)&&(checkerOR(condArray,speciesFilter)||speciesFilter.length===0)) {
       w3AddClass(x[i], "show");
       }
     }
@@ -105,6 +117,7 @@ function allInactive(){
   conditions = ["filterDiv", "all"];
   rarityFilter = [];
   attrFilter = [];
+  speciesFilter = [];
 }
 function selectedActive(){
   let x = document.getElementById("showAll").className
