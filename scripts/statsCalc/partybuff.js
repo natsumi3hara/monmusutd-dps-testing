@@ -53,6 +53,12 @@ var partybuffref = {
     "awake10080": {
         "cond":[3],"stat2":[1],"stat3":[1]
     },
+    "party10082": {
+        "cond":[],"stat3":[0],"stat4":[0] //this is settled directly until revamp
+    },
+    "awake10082": {
+        "cond":[],"stat3":[0],"stat4":[0] //this is settled directly until revamp
+    },
     "party10095": {
         "cond":[2],"stat2":[10]
     },
@@ -95,6 +101,24 @@ var partybuffref = {
     "awake10136": {
         "cond":[2],"stat1":[3],"stat2":[3]
     },
+    "party10199": {
+        "cond":[14011,14021],"stat2":[7]
+    },
+    "awake10199": {
+        "cond":[14011,14021],"stat2":[3]
+    },
+    "party10218": {
+        "cond":[],"stat1":[12],"stat2":[12]
+    },
+    "awake10218": {
+        "cond":[],"stat1":[4],"stat2":[4]
+    },
+    "party10226": {
+        "cond":[6],"stat7":[-25]
+    },
+    "awake10226": {
+        "cond":[6],"stat7":[0]
+    },
     //divine beasts
     "divine30000": {
         "cond":[]
@@ -135,6 +159,10 @@ var partybuffref = {
     "divine30010": {
         "cond":[13011,13021],
 		"stat2":[10,11,12,13,15],"stat7":[-30,-32,-35,-37,-40]
+    },
+    "divine30011": {
+        "cond":[11011,11021,11031,11041],
+        "stat1":[15,18,22,26,30],"stat2":[10,12,15,17,20]
     },
     //otherSkills
     "otherSkill10070": {

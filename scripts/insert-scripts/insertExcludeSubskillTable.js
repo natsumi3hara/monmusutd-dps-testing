@@ -174,6 +174,13 @@ document.write(`
     <td id="exsub-1104" class="exsub" onclick="toggleExclude(1104)">暗躍する影</td>
 </tr>
 <tr>
+    <td id="exsub-1135" class="exsub excluded" onclick="toggleExclude(1135)">聖女の加護</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">ボスチャレンジ</td>
 </tr>
 <tr>
@@ -186,7 +193,7 @@ document.write(`
 <tr>
     <td id="exsub-1103" class="exsub" onclick="toggleExclude(1103)">恩愛触手の討伐証</td>
     <td id="exsub-1126" class="exsub" onclick="toggleExclude(1126)">魔導傑作の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1138" class="exsub excluded" onclick="toggleExclude(1138)">怪幹呑獣の討伐証</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
@@ -233,8 +240,8 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1133" class="exsub excluded" onclick="toggleExclude(1133)">再出撃時間短縮+撤退時コスト回復</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1136" class="exsub" onclick="toggleExclude(1136)">クリティカル+貫通攻撃</td>
+    <td id="exsub-1137" class="exsub" onclick="toggleExclude(1137)">1.5th Anniversaryの恩恵</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
@@ -262,7 +269,14 @@ document.write(`
     <td id="exsub-1055" class="exsub excluded" onclick="toggleExclude(1055)">霧を晴らす列車</td>
     <td id="exsub-1061" class="exsub excluded" onclick="toggleExclude(1061)">純白ヴェール</td>
     <td id="exsub-1115" class="exsub excluded" onclick="toggleExclude(1115)">きらめきの星騎士</td>
+    <td id="exsub-1134" class="exsub excluded" onclick="toggleExclude(1134)">麗しき藝術家</td>
     <td id="exsub-1052" class="exsub excluded" onclick="toggleExclude(1052)">エレメンタルブースト</td>
+</tr>
+<tr>
+    <td id="exsub-1139" class="exsub" onclick="toggleExclude(1139)">一級ご主人証明書</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
 `);

@@ -28,6 +28,10 @@ var selfConditions = {
 	"26": 0, //isAwakingCompleted
 	"27": 0, //isWaitMotion (無用)
 	"28": 0, //isSummonAll (無用)
+	"29": 0, //isOwnerEnchantTarget (NEW)
+	"30": 0, //isIndomitable (NEW)
+	"31": 0, //isBurn (NEW)
+	"32": 0, //isScratch (NEW)
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -38,7 +42,7 @@ var selfConditions = {
 	"1007": 0, //jobId
 	"1008": 0, //charaId
 	"1009": 1, //skillNo
-	"1010": 0, //attributeTile
+	"1010": [0], //attributeTile
 	"1011": 0, //traitTag
 	"2000": 100, //hpRate
 	"2001": 0, //existenceTime (dot % operator)
@@ -71,6 +75,8 @@ var selfConditions = {
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
 	"40002": 0, //limit (いろいろ)
+	"40003": 0, //touchArea (NEW)
+	"40004": 0, //totalLimit (NEW)
 }
 var selfReference = {
 	"0": 0, //None
@@ -118,6 +124,10 @@ var enemyConditions = {
 	"26": 0, //isAwakingCompleted (無用)
 	"27": 0, //isWaitMotion
 	"28": 0, //isSummonAll
+	"29": 0, //isOwnerEnchantTarget (NEW)
+	"30": 0, //isIndomitable (NEW)
+	"31": 0, //isBurn (NEW)
+	"32": 0, //isScratch (NEW)
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute
@@ -128,7 +138,7 @@ var enemyConditions = {
 	"1007": 0, //jobId
 	"1008": 0, //charaId
 	"1009": 1, //skillNo
-	"1010": 0, //attributeTile
+	"1010": [0], //attributeTile
 	"1011": 0, //traitTag
 	"2000": 100, //hpRate
 	"2001": 0, //existenceTime (DoT % operator)
@@ -161,4 +171,6 @@ var enemyConditions = {
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
 	"40002": 0, //limit
+	"40003": 0, //touchArea (NEW)
+	"40004": 0, //totalLimit (NEW)
 }

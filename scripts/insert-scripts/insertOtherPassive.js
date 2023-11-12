@@ -45,6 +45,18 @@ document.write(`
     <div id="flex-container-otherPassive-buff">
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10005_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">シルフィーネ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>
+                <span class="otherPassive-buff-label">風マス配置</span>
+                <input type="checkbox" id="otherPassive10005" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10060_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">バウ</span>
             </div>
@@ -158,6 +170,18 @@ document.write(`
                 <input type="checkbox" id="otherPassive10203-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">攻撃力</span>
                 <input id="otherPassive10203-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10209_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">火竜イグニ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">範囲内</span>
+                <input type="checkbox" id="otherPassive10209-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">スキル中</span>
+                <input type="checkbox" id="otherPassive10209-2" class="larger-check otherPassive-check" onchange="allDPS();">
             </div>
         </div>
     </div>

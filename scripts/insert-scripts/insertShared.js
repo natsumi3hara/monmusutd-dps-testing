@@ -65,7 +65,7 @@ document.write(`
                     <option value="2">火</option>
                     <option value="3">水</option>
                     <option value="4">風</option>
-                    <option value="7">土</option>
+                    <option value="7">地</option>
                     <option value="5">光</option>
                     <option value="6">闇</option>
                 </select>

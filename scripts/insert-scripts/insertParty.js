@@ -143,6 +143,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時竜特性の物理防御と魔法防御+10%" style="cursor: help;"><img src="../../img/chara-icons/icon_10082_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">ソレイア</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10082" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10082" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="編成時、火属性モンスター娘の攻撃力+10%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10095_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ラフーカ</span>
             </div>
@@ -223,6 +235,42 @@ document.write(`
                 <input type="checkbox" id="party10136" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10136" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、ソーサラー系の攻撃力7%(+3%)上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_10199_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">戯祭ラゴス</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10199" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10199" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、全モンスター娘のHPと攻撃力+12%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10218_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">庭ペトラ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10218" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10218" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、闇属性の味方の攻撃後の待ち時間を短縮" style="cursor: help;"><img src="../../img/chara-icons/icon_10226_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">墓守リッチ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10226" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10226" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
         <div class="flex-container-party-buff-inner">

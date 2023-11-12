@@ -62,10 +62,26 @@ function isDungeon(checked){
 }
 function attributeTile(){
     if (document.getElementById("shared20001-1").checked) {
-        selfConditions["1010"] = Number(document.getElementById("shared20001-2").value);
-        enemyConditions["1010"] = Number(document.getElementById("shared20001-2").value);
+        selfConditions["1010"][0] = Number(document.getElementById("shared20001-2").value);
+        enemyConditions["1010"][0] = Number(document.getElementById("shared20001-2").value);
     }
-    else {selfConditions["1010"] = 0;enemyConditions["1010"] = 0;}
+    else {selfConditions["1010"][0] = 0;enemyConditions["1010"][0] = 0;}
+}
+function giveAttributeTile(){
+    selfConditions["1010"].splice(1);
+    enemyConditions["1010"].splice(1);
+    //igni's give fire tile
+    if (document.getElementById("otherPassive10209-2").checked) {
+        selfConditions["1010"].push(2);
+        enemyConditions["1010"].push(2);
+    }
+    //yuyle's earth tile giving water tile
+    if (masterValues.charaID === 10033 && document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == "7"){
+        selfConditions["1010"].push(3);
+        enemyConditions["1010"].push(3);
+    }
+    //other give tile in future goes here
+    console.log(selfConditions["1010"]);
 }
 function skillNumber(value){
     if (value == 10000){
@@ -518,11 +534,12 @@ function loadToggle(onOffsetting){
 }
 
 function allDPS(slot1=-1,slot2=-1){
+    giveAttributeTile();
     if (slot1 !== -1){document.getElementById("subskill1").value = slot1;}
     if (slot2 !== -1){document.getElementById("subskill2").value = slot2;}
     //console.log("selfCond1",selfConditions["1"]);
     //console.log("selfCond2",selfConditions["2"]);
-    testLevelCC()
+    testLevelCC();
     var level = Number(document.getElementById("input-level").value);
     var cc = Number(document.getElementById("input-cc").value);
     selfConditions["1007"] = masterValues.baseClass+cc; //for attack pattern//
@@ -541,13 +558,23 @@ function allDPS(slot1=-1,slot2=-1){
     calculateStat(level,cc,"stat22");
     calculateStat(level,cc,"stat76");
     calculateStat(level,cc,"stat86");
+    calculateStat(level,cc,"stat193");
+    calculateStat(level,cc,"stat194");
+    //191 and 192 must come after 193 and 194 because it reads their values//
+    calculateStat(level,cc,"stat191");
+    calculateStat(level,cc,"stat192");
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10101,10112,10160,10196].includes(masterValues.charaID)){
+    if ([10016,10101,10112,10160,10196].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
         //stat1 dependent here too (10016,10196)
         calculateStat(level,cc,"stat2");
+    }
+    if ([10041,10079].includes(masterValues.charaID)){
+        //double dependent stats
+        calculateStat(level,cc,"stat2");
+        calculateStat(level,cc,"stat3");
     }
     //statcalc over//
     /* exclude until can reliably determine
@@ -586,12 +613,20 @@ function allDPS(slot1=-1,slot2=-1){
     updateAttackTypes(battleAttackTypes,false);
     let skillAttackTypes = getAttackTypeList("skill",attackPatternReference);
     updateAttackTypes(skillAttackTypes,true);
-    let battleCritList = attack_patterns[attackPatternReference]["critical"];
-    let skillCritList = attack_patterns[attackPatternReference]["skill_critical"];
+    //new crit list//
+    let battleCritList = [{"probability":Number(document.getElementById("dps-output-battle-value-stat191").innerHTML),"damage":Number(document.getElementById("dps-output-battle-value-stat192").innerHTML)}];
+    let skillCritList = [{"probability":Number(document.getElementById("dps-output-skill-value-stat191").innerHTML),"damage":Number(document.getElementById("dps-output-skill-value-stat192").innerHTML)}];
+    //legacy crit buff//
+    //let battleCritList = attack_patterns[attackPatternReference]["critical"];
+    //let skillCritList = attack_patterns[attackPatternReference]["skill_critical"];
     let battlePenList = attack_patterns[attackPatternReference]["penetration"];
     let skillPenList = attack_patterns[attackPatternReference]["skill_penetration"];
-    let BCL = attack_patterns[attackPatternReference]["BCL"];
-    let SCL = attack_patterns[attackPatternReference]["SCL"];
+    //new crit buff//
+    let BCL = 1;
+    let SCL = 1;
+    //legacy crit buff//
+    //let BCL = attack_patterns[attackPatternReference]["BCL"];
+    //let SCL = attack_patterns[attackPatternReference]["SCL"];
     let BPL = attack_patterns[attackPatternReference]["BPL"];
     let SPL = attack_patterns[attackPatternReference]["SPL"];
     //somehow need to do this twice so ???//
@@ -611,43 +646,43 @@ function allDPS(slot1=-1,slot2=-1){
         //console.log("Either subskill is 'None'");
         if (subskillID_1 == -1 && subskillID_2 != -1) {
             //subskill 2 is active
-            let crit = subskillGetCrit(subskillID_2);
+            //let crit = subskillGetCrit(subskillID_2);
             let pen = subskillGetPen(subskillID_2);
-            if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
+            //if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
             if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
         } else if (subskillID_1 != -1 && subskillID_2 == -1) {
             //subskill 1 is active
-            let crit = subskillGetCrit(subskillID_1);
+            //let crit = subskillGetCrit(subskillID_1);
             let pen = subskillGetPen(subskillID_1);
-            if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
+            //if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
             if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
         } else {
         }
     } else if (attach_ability_data.table[subskillID_1].name.split(" ")[0] == attach_ability_data.table[subskillID_2].name.split(" ")[0]){
         //console.log("Same kind of subskill");
         if (subskillID_1 >= subskillID_2){
-            let crit = subskillGetCrit(subskillID_1);
+            //let crit = subskillGetCrit(subskillID_1);
             let pen = subskillGetPen(subskillID_1);
-            if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
+            //if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
             if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
         } else {
-            let crit = subskillGetCrit(subskillID_2);
+            //let crit = subskillGetCrit(subskillID_2);
             let pen = subskillGetPen(subskillID_2);
-            if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
+            //if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
             if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
         }
     } else {
         //console.log("Different kind of subskill");
-        let crit = subskillGetCrit(subskillID_1);
+        //let crit = subskillGetCrit(subskillID_1);
         let pen = subskillGetPen(subskillID_1);
-        if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
+        //if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
         if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
-        crit = subskillGetCrit(subskillID_2);
+        //crit = subskillGetCrit(subskillID_2);
         pen = subskillGetPen(subskillID_2);
-        if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
+        //if (crit !== undefined){battleCritList.push(crit);skillCritList.push(crit);}
         if (pen !== undefined){battlePenList.push(pen);skillPenList.push(pen);}
     }
-    //usuko's crit buff
+    /*usuko's crit buff
     if (document.getElementById("otherPassive10185-2").value == "none") {}
     else if (document.getElementById("otherPassive10185-2").value == "deploy"){
         if (document.getElementById("otherPassive10185-1").checked){
@@ -662,7 +697,7 @@ function allDPS(slot1=-1,slot2=-1){
         } else {
             battleCritList.push({"probability":50,"damage":150});skillCritList.push({"probability":50,"damage":150});
         }
-    }
+    }*/
     ///console.log(battleCritList,battlePenList);
     ///console.log(skillCritList,skillPenList);
     updateCritPen(battleCritList,battlePenList,false);
@@ -800,6 +835,9 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     }
     if (masterValues.charaID === 10154){
         cooldown -= 2*Number(document.getElementById("charaSpecific10154-1").value); 
+    }
+    if (masterValues.charaID === 10199){
+        cooldown -= Number(document.getElementById("charaSpecific10199-1").value); 
     }
     if (getAttachID("subskill1") === 49 || getAttachID("subskill2") === 49){
         cooldown -= 3;
@@ -1260,6 +1298,7 @@ function subskillGetPen(subskillID){
     else if (subskillID === 38){return 20;}
     else if (subskillID === 86){return 8;}
     else if (subskillID === 127){return 27;}
+    else if (subskillID === 135){return 18;}
     else {return undefined;}
 }
 
@@ -1288,12 +1327,13 @@ function updateCritPen(critList,penList,skillCritPen){
     //console.log("rowcount: ",rowCount);
     while(--rowCount) {targetTable.deleteRow(rowCount)};
     //one crit only//
-    insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType)
+    insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType,skillCritPen);
     ////console.log(insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType));
     //here
 }
 
-function insertRowCellCritPen(table,critList,penList,attack,hitType,idType){
+function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,skillCritPen){
+    //console.log(skillCritPen);
     let critProb,penProb;
     if (critList.length === 1){
         critProb = [100-critList[0]["probability"],critList[0]["probability"]];
@@ -1308,17 +1348,21 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType){
     ///console.log("penlist length: ",penList.length);
     for (let i=0;i<penList.length;i++){noPenProb *= (100-penList[i]);}
     noPenProb /= (100**penList.length); //noPenProb now 73.6
-    if(selfConditions["1007"]===13024){noPenProb=noPenProb*2/3;} //account for sharpshooter
+    if(selfConditions["1007"]===13024){//account for sharpshooter
+        if(skillCritPen && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
+            noPenProb=noPenProb*1/3; //naberius bug//
+        } else {noPenProb=noPenProb*2/3;}
+    } 
     if (noPenProb === 100){penProb = [100];}
     else {penProb = [noPenProb,100-noPenProb];}
     //arrays created//
     let iTitle,jOrder;
     if (penProb.length === 1) {
-        if (masterValues.language === "ja"){iTitle = ["普通攻撃","クリティカル(1)","クリティカル(2)","クリティカル(3)","クリティカル(4)"];}
+        if (masterValues.language === "ja"){iTitle = ["普通攻撃","クリティカル","クリティカル(2)","クリティカル(3)","クリティカル(4)"];}
         else if (masterValues.language === "en"){iTitle = ["Normal","Critical(1)","Critical(2)","Critical(3)","Critical(4)"];}
     } else {
         if (masterValues.language === "ja"){
-            iTitle = ["普通攻撃","貫通攻撃","クリティカル(1)","貫通+クリティカル(1)","クリティカル(2)","貫通+クリティカル(2)","クリティカル(3)","貫通+クリティカル(3)","クリティカル(4)","貫通+クリティカル(4)"];
+            iTitle = ["普通攻撃","貫通攻撃","クリティカル","貫通+クリティカル","クリティカル(2)","貫通+クリティカル(2)","クリティカル(3)","貫通+クリティカル(3)","クリティカル(4)","貫通+クリティカル(4)"];
         } else if (masterValues.language === "en"){
             iTitle = ["Normal","Penetration","Critical(1)","Pen+Crit(1)","Critical(2)","Pen+Crit(2)"];
         }
@@ -1518,6 +1562,14 @@ function calculateStat(level,cc,type){
         var rawStat = Math.floor(job["attackCount"]);
     } else if (type == "stat10"){
         var rawStat = Math.floor(job["blockNum"]);
+    } else if (type == "stat191"){
+        var rawStat = 0
+    } else if (type == "stat192"){
+        var rawStat = 150
+    } else if (type == "stat193"){
+        var rawStat = 50
+    } else if (type == "stat194"){
+        var rawStat = 1000
     //basic stats above//
     } else if (type == "stat11"){
         var rawStat = Math.floor(job["targetNum"]);
@@ -1626,9 +1678,16 @@ function calculateStat(level,cc,type){
     ///console.log("dAdd: ",dAdd);
     let upperStat, lowerStat;
     let outputMenu = Math.floor((Math.floor(rawStat * multEffect1.buff / 100**(multEffect1.count)) + Math.floor(addEffect1.buff) + equipEffect) * pdMult / 100) + dAdd;
-    upperStat = Number(10*outputMenu);
+    if (type === "stat191"||type === "stat193"){upperStat = 100;}
+    else if (type === "stat192"||type === "stat194"){upperStat = 1000;}
+    else {upperStat = Number(10*outputMenu);}
     if (type === "stat7"){lowerStat = Math.floor(0.1*outputMenu);}
+    else if (type === "stat191"||type === "stat193"){lowerStat = 0;}
+    else if (type === "stat192"||type === "stat194"){lowerStat = 0;}
     else {lowerStat = Math.floor(0.5*outputMenu);}
+    //adjusting for critical//
+    if ((type === "stat191"||type === "stat193")&&outputMenu>100){outputMenu = 100;}
+    if ((type === "stat191"||type === "stat193")&&outputMenu<0){outputMenu = 0;}
     //check for FIXED
     for (let key in masterValues.allBuff){
         if (key.includes("fixed") && type !== "stat21"){
@@ -1698,12 +1757,20 @@ function calculateStat(level,cc,type){
         //console.log("no unique to cycle")
     }
     //
-    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
+    if (selfConditions["1010"].includes(masterValues.unitcard.element)){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //marshlowa's goblin buff on skill//
+        if ([10004,10032,10179].includes(masterValues.charaID) && document.getElementById("otherSkill10179").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[50]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[50]]];
+            }
+        }
         //kyou's buff//
         if (document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
             try {
@@ -1801,176 +1868,259 @@ function calculateStat(level,cc,type){
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect2 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
-    //lagos' unique weapon buff
-    if (type === "stat2" && masterValues.charaID === 10044){
-        if (document.getElementById("unique-equip-check").checked){
-            multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
+    //battle - stat193//
+    if (type === "stat193"){
+        //usuko's reworked crit buff//
+        if (document.getElementById("otherPassive10185-2").value === "deploy"||document.getElementById("otherPassive10185-2").value === "skill"){
+            addEffect2.buff += 25;
         }
     }
-    //rin's unique weapon buff
-    if (type === "stat3"){
-        multEffect2.buff += 10 * Number(document.getElementById("otherUnique10006-1").value);
+    //battle - stat191//
+    if (type === "stat191"){
+        //sylphine's crit buff//
+        if (document.getElementById("otherPassive10005").checked){
+            addEffect2.buff += 20;
+        }
+        //usuko's reworked crit buff//
+        if (document.getElementById("otherPassive10185-1").checked){
+            if (document.getElementById("otherPassive10185-2").value === "deploy"){
+                addEffect2.buff += 50;
+            } else if (document.getElementById("otherPassive10185-2").value === "skill"){
+                addEffect2.buff += 64;
+            }
+        } else {
+            if (document.getElementById("otherPassive10185-2").value === "deploy"){
+                addEffect2.buff += 25;
+            } else if (document.getElementById("otherPassive10185-2").value === "skill"){
+                addEffect2.buff += 32;
+            }
+        }
     }
-    //silva's unique weapon stat1 dependent buff (on base)
-    if (type === "stat2" && masterValues.charaID === 10016){
-        if (document.getElementById("unique-equip-check").checked){
+    //battle - stat8//
+    if (type === "stat8"){
+        //garden petra's permanent buff//
+        if (masterValues.charaID === 10218){
+            addEffect2.buff += 40 * Number(document.getElementById("charaSpecific10218-1").value);
+        }
+    }
+    //battle - stat7//
+    if (type === "stat7"){
+        //sports argryo's PAD buff
+        if (true){
+            let attacks202 = Number(document.getElementById("otherPassive10202-2").value);
+            let PADbuff202 = Number(document.getElementById("otherPassive10202-1").value);
+            multEffect2.buff -= attacks202*PADbuff202;
+        }
+        //kyou's wind ally PAD buff
+        if (document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+            multEffect2.buff -= 25;
+        }
+    }
+    //battle - stat5//
+    if (type === "stat5"){
+        //nothing//
+    }
+    //battle - stat4//
+    if (type === "stat4"){
+        //soleia's permanent buff//
+        if (masterValues.charaID === 10082){
+            multEffect2.buff += 30 * document.getElementById("charaSpecific10082-1").value;
+        }
+    }
+    //battle - stat3//
+    if (type === "stat3"){
+        //melon's trait stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10041){
             addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
         }
-    }
-    //sports nigru's stat 2 dependent buff (passive)
-    if (type === "stat2" && !document.getElementById("otherPassive10203-1").checked){
-        addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10203-2").value) /100);
-    } else if (type === "stat2" && document.getElementById("otherPassive10203-1").checked){
-        addEffect2.buff += Math.floor(60 * Number(document.getElementById("otherPassive10203-2").value) /100);
-    }
-    //sports argryo's PAD buff
-    if (type === "stat7"){
-        let attacks202 = Number(document.getElementById("otherPassive10202-2").value)
-        let PADbuff202 = Number(document.getElementById("otherPassive10202-1").value);
-        multEffect2.buff -= attacks202*PADbuff202;
-    }
-    //marshlowa's goblin buff
-    if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
-        if (document.getElementById("otherPassive10179-1").checked){
-            multEffect2.buff += 7 * Number(document.getElementById("otherPassive10179-2").value);
+        //soleia's permanent buff//
+        if (masterValues.charaID === 10082){
+            multEffect2.buff += 30 * document.getElementById("charaSpecific10082-1").value;
+        }
+        //rin's unique weapon buff
+        if (true){
+            multEffect2.buff += 10 * Number(document.getElementById("otherUnique10006-1").value);
+        }
+        //tamamo's stat 3 dependent buff (passive)
+        if (masterValues.charaID !== 10148 && !document.getElementById("otherPassive10148-1").checked){
+            addEffect2.buff += Math.floor(30 * Number(document.getElementById("otherPassive10148-2").value) /100);
+        } else if (masterValues.charaID !== 10148 && document.getElementById("otherPassive10148-1").checked){
+            addEffect2.buff += Math.floor(40 * Number(document.getElementById("otherPassive10148-2").value) /100);
+        }
+        //logica's permanent buffs//
+        if (masterValues.charaID === 10098){
+            multEffect2.buff += [10,12,15,17,20][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
         }
     }
-    //summer diffnilla's permanent buff//
-    if (type === "stat1" && masterValues.charaID === 10196){
-        multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
-    }
-    //summer diffnilla's stat1 dependent buff
-    if (type === "stat2" && masterValues.charaID === 10196){
-        if (selfConditions["26"] === 0){
-            addEffect2.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
-        } else {
-            addEffect2.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
-        }
-    }
-    //kyou's wind ally PAD buff
-    if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        multEffect2.buff -= 25;
-    }
-    //poisonRin's enemy defeat buff
-    if (type === "stat2" && masterValues.charaID === 10178 && masterValues.charaAwaked){
-        multEffect2.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
-    } else if (type === "stat2" && masterValues.charaID === 10178){
-        multEffect2.buff += 9 * Number(document.getElementById("charaSpecific10178-1").value);
-    }
-    //headia's enemy defeat buff
-    if (type === "stat1" && masterValues.charaID === 10147){
-        multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
-    } else if (type === "stat2" && masterValues.charaID === 10147){
-        multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
-    }
-    //tamamo's stat 3 dependent buff (passive)
-    if (type === "stat3" && !document.getElementById("otherPassive10148-1").checked){
-        addEffect2.buff += Math.floor(30 * Number(document.getElementById("otherPassive10148-2").value) /100);
-    } else if (type === "stat3" && document.getElementById("otherPassive10148-1").checked){
-        addEffect2.buff += Math.floor(40 * Number(document.getElementById("otherPassive10148-2").value) /100);
-    }
-    //santa miteras' stat 2 dependent buff (passive)
-    if (type === "stat2" && !document.getElementById("otherPassive10137-1").checked){
-        addEffect2.buff += Math.floor(20 * Number(document.getElementById("otherPassive10137-2").value) /100);
-    } else if (type === "stat2" && document.getElementById("otherPassive10137-1").checked){
-        addEffect2.buff += Math.floor(25 * Number(document.getElementById("otherPassive10137-2").value) /100);
-    }
-    //yasefa's token buff
-    if (type === "stat2" && selfConditions["1002"] === 4){
-        multEffect2.buff += 25 * Number(document.getElementById("shared20006").value);
-    }
-    //mithrena's stat3 dependent buff
-    if (type === "stat2" && masterValues.charaID === 10112){
-        if (selfConditions["26"] === 0){
-            addEffect2.buff += Math.floor(40 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
-        } else {
-            addEffect2.buff += Math.floor(52 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
-        }
-    }
-    //danadilly's fairy count buff
-    if (type === "stat2" && masterValues.charaID === 10111){
-        if (selfConditions["26"] === 0)
-            multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10111-1").value);
-        else {
-            multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10111-1").value);
-        }
-    }
-    //lico's token buff
-    if (type === "stat2" && !document.getElementById("shared20005-1").checked){
-        multEffect2.buff += 12 * Number(document.getElementById("shared20005-2").value);   
-    } else if (type === "stat2" && document.getElementById("shared20005-1").checked){
-        multEffect2.buff += 15 * Number(document.getElementById("shared20005-2").value);
-    }
-    //airen's stat3 dependent buff
-    if (type === "stat2" && masterValues.charaID === 10101){
-        if (selfConditions["26"] === 0){
-            addEffect2.buff += Math.floor(50 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
-        } else {
-            addEffect2.buff += Math.floor(65 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
-        }
-    }
-    //logica's permanent buffs//
-    if (type === "stat2" && masterValues.charaID === 10098){
-        multEffect2.buff += [5,6,7,8,10][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
-    } else if (type === "stat3" && masterValues.charaID === 10098){
-        multEffect2.buff += [10,12,15,17,20][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
-    }
-    //veratu's buffs//
-    if (type === "stat2" && masterValues.charaID === 10083 && selfConditions["26"] === 1){
-        multEffect2.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
-        multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
-    } else if (type === "stat2" && masterValues.charaID === 10083 && selfConditions["26"] === 1){
-        multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
-        multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
-    }
-    //soleia's permanent buff//
-    if ((type === "stat3"||type === "stat4") && masterValues.charaID === 10082){
-        multEffect2.buff += 30 * document.getElementById("charaSpecific10082-1").value;
-    }
-    //kobold buff -- bow and pent//
-    if (type === "stat2" && (masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10060").checked){
-        multEffect2.buff += 15;
-    }
-    if (type === "stat2" && (masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10121").checked){
-        multEffect2.buff += 20;
-    }
-    //amirami's permanent buff//
-    if (type === "stat2" && masterValues.charaID === 10047){
-        multEffect2.buff += 5 * Number(document.getElementById("charaSpecific10047-1").value);
-    }
-    //acqua's permanent buff//
-    if (type === "stat2" && masterValues.charaID === 10043){
-        multEffect2.buff += 10 * Number(document.getElementById("charaSpecific10043-1").value);
-    }
-    //asta's permanent buff//
-    if (type === "stat1" && masterValues.charaID === 10029){
-        multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
-    }
-    //orc rage effect -- podel and diffnilla//
+    //battle - stat2//
     if (type === "stat2"){
+        //melon's trait stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10041){
+            addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
+        //narcepafne's trait stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10079){
+            addEffect2.buff += Math.floor(6 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
+        //lagos' unique weapon buff
+        if (masterValues.charaID === 10044){
+            if (document.getElementById("unique-equip-check").checked){
+                multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
+            }
+        }
+        //silva's unique weapon stat1 dependent buff (on base)
+        if (masterValues.charaID === 10016){
+            if (document.getElementById("unique-equip-check").checked){
+                addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+            }
+        }
+        //sports nigru's stat 2 dependent buff (passive)
+        if (masterValues.charaID !== 10203 && !document.getElementById("otherPassive10203-1").checked){
+            addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10203-2").value) /100);
+        } else if (masterValues.charaID !== 10203 && document.getElementById("otherPassive10203-1").checked){
+            addEffect2.buff += Math.floor(60 * Number(document.getElementById("otherPassive10203-2").value) /100);
+        }
+        //marshlowa's goblin buff
+        if ([10004,10032,10179].includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10179-1").checked){
+                multEffect2.buff += 7 * Number(document.getElementById("otherPassive10179-2").value);
+            }
+        }
+        //marshlowa's goblin buff on skill
+        if ([10004,10032,10179].includes(masterValues.charaID)){
+            if (document.getElementById("otherSkill10179").checked){
+                multEffect2.buff += [40,50,60,70,80][Number(document.getElementById("level10179").value)-1];
+            }
+        }
+        //summer diffnilla's stat1 dependent buff
+        if (masterValues.charaID === 10196){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+            } else {
+                addEffect2.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+            }
+        }
+        //poisonRin's poison dispel buff
+        if (masterValues.charaID === 10178 && masterValues.charaAwaked){
+            multEffect2.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
+        } else if (masterValues.charaID === 10178){
+            multEffect2.buff += 9 * Number(document.getElementById("charaSpecific10178-1").value);
+        }
+        //headia's enemy defeat buff//
+        if (masterValues.charaID === 10147){
+            multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
+        }
+        //santa miteras' stat 2 dependent buff (passive)
+        if (masterValues.charaID !== 10137 && !document.getElementById("otherPassive10137-1").checked){
+            addEffect2.buff += Math.floor(20 * Number(document.getElementById("otherPassive10137-2").value) /100);
+        } else if (masterValues.charaID !== 10137 && document.getElementById("otherPassive10137-1").checked){
+            addEffect2.buff += Math.floor(25 * Number(document.getElementById("otherPassive10137-2").value) /100);
+        }
+        //yasefa's token buff
+        if (selfConditions["1002"] === 4){
+            multEffect2.buff += 25 * Number(document.getElementById("shared20006").value);
+        }
+        //mithrena's stat3 dependent buff
+        if (masterValues.charaID === 10112){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(40 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
+            } else {
+                addEffect2.buff += Math.floor(52 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
+            }
+        }
+        //danadilly's fairy count buff
+        if (masterValues.charaID === 10111){
+            if (selfConditions["26"] === 0)
+                multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10111-1").value);
+            else {
+                multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10111-1").value);
+            }
+        }
+        //lico's token buff
+        if (!document.getElementById("shared20005-1").checked){
+            multEffect2.buff += 12 * Number(document.getElementById("shared20005-2").value);   
+        } else if (document.getElementById("shared20005-1").checked){
+            multEffect2.buff += 15 * Number(document.getElementById("shared20005-2").value);
+        }
+        //airen's stat3 dependent buff
+        if (masterValues.charaID === 10101){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(50 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
+            } else {
+                addEffect2.buff += Math.floor(65 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
+            }
+        }
+        //logica's permanent buffs//
+        if (masterValues.charaID === 10098){
+            multEffect2.buff += [5,6,7,8,10][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
+        }
+        //veratu's buffs//
+        if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
+            multEffect2.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
+            multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+        } else if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
+            multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
+            multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+        }
+        //kobold buff -- bow and pent//
+        if ((masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10060").checked){
+            multEffect2.buff += 15;
+        }
+        if ((masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10121").checked){
+            multEffect2.buff += 20;
+        }
+        //amirami's permanent buff//
+        if (masterValues.charaID === 10047){
+            multEffect2.buff += 5 * Number(document.getElementById("charaSpecific10047-1").value);
+        }
+        //acqua's permanent buff//
+        if (masterValues.charaID === 10043){
+            multEffect2.buff += 10 * Number(document.getElementById("charaSpecific10043-1").value);
+        }
+        //orc rage effect -- podel and diffnilla//
         if (document.getElementById("charaSpecific10011-1").checked || selfConditions["2000"] <= 25 && masterValues.charaID === 10011){
             multEffect2.buff += 25;
         } else if (document.getElementById("charaSpecific10039-1").checked || selfConditions["2000"] <= 25 && masterValues.charaID === 10039){
             multEffect2.buff += 50;
         }
+        //chase assassin//
+        if (selfConditions["1007"] === 16014 && selfConditions["2"] === 0){
+            multEffect2.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
+        }
     }
-    //chase assassin//
-    if (type === "stat2" && selfConditions["1007"] === 16014 && selfConditions["2"] === 0){
-        //console.log("chase assassin, attack, not moving");
-        multEffect2.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
+    //battle - stat1//
+    if (type === "stat1"){
+        //summer diffnilla's permanent buff//
+        if (masterValues.charaID === 10196){
+            multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
+        }
+        //headia's enemy defeat buff
+        if (masterValues.charaID === 10147){
+            multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
+        }
+        //asta's permanent buff//
+        if (masterValues.charaID === 10029){
+            multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
+        }
     }
-    //attribute tile effect x2//
-    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
+    //attribute tile effects//
+    if (selfConditions["1010"].includes(masterValues.unitcard.element)){
         if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
             if (["stat2","stat3","stat4"].includes(type)){
-                multEffect2.buff += 15;
+                multEffect2.buff += 30;
             } else if (type === "stat8"){multEffect2.buff+=10} else {}
+        }
+        if (masterValues.charaID !== 10209 && fireCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10209-1").checked || document.getElementById("otherPassive10209-2").checked)){
+            //console.log("attribute tile triple effect!(not self)");
+            if (["stat2","stat3","stat4"].includes(type)){
+                multEffect2.buff += 60;
+            } else if (type === "stat8"){multEffect2.buff+=20} else {}
         }
         //elemental boost attribute tile x1.5//
         if (subskillID_1 === 51 || subskillID_2 === 51){
             if (["stat2","stat3","stat4"].includes(type)){
-                multEffect2.buff += 7.5; //if 7.5 gives problems then 8
+                multEffect2.buff += 15; //if 7.5 gives problems then 8
             } else if (type === "stat8"){multEffect2.buff+=5} else {}
         }
     }
@@ -2028,15 +2178,46 @@ function calculateStat(level,cc,type){
             else {outputBattle = masterValues.allBuff[key][0][0][0];}
         }
     }
+    //critical max checking//
+    if (type === "stat191"){
+        if (outputBattle >= Number(document.getElementById("dps-output-battle-value-stat193").innerHTML)){
+            outputBattle = Number(document.getElementById("dps-output-battle-value-stat193").innerHTML);
+            document.getElementById("dps-output-battle-value-stat191").style.color = "red";
+        } else {
+            document.getElementById("dps-output-battle-value-stat191").style.color = "";
+        }
+    }
+    if (type === "stat192"){
+        if (outputBattle >= Number(document.getElementById("dps-output-battle-value-stat194").innerHTML)){
+            outputBattle = Number(document.getElementById("dps-output-battle-value-stat194").innerHTML);
+            document.getElementById("dps-output-battle-value-stat192").style.color = "red";
+        } else {
+            document.getElementById("dps-output-battle-value-stat192").style.color = "";
+        }
+    }
+    //marshlowa's goblin fixed PAD
+    if (type === "stat7" && [10004,10032,10179].includes(masterValues.charaID)){
+        if (document.getElementById("otherSkill10179").checked){
+            outputBattle = 10;
+        }
+    }
     //PAD minimum 1 frame//
     if (["stat7"].includes(type)){
         if (outputBattle <= 0){outputBattle = 1;}
     }
     //chifa override//
     if (masterValues.charaID === 10131){
-        if (masterValues.language === "ja" && selfConditions["1010"]===2){
+        if (masterValues.language === "ja" && selfConditions["1010"].includes(2)){
             document.getElementById("dps-output-battle-value-stat22").innerHTML = "魔法";
-        } else if (masterValues.language === "en" && selfConditions["1010"]===2){
+        } else if (masterValues.language === "en" && selfConditions["1010"].includes(2)){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "Magical";
+        }
+    }
+    //drake igni override//
+    if (masterValues.charaID === 10209){
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "魔法";
+        } else if (masterValues.language === "en"){
             document.getElementById("dps-output-battle-value-stat22").innerHTML = "Magical";
         }
     }
@@ -2164,12 +2345,20 @@ function calculateStat(level,cc,type){
         //console.log("no unique to cycle")
     }
     //
-    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
+    if (selfConditions["1010"].includes(masterValues.unitcard.element)){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //marshlowa's goblin buff on skill//
+        if ([10004,10032,10179].includes(masterValues.charaID) && document.getElementById("otherSkill10179").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[50]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[50]]];
+            }
+        }
         //kyou's buff//
         if (document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
             try {
@@ -2272,203 +2461,282 @@ function calculateStat(level,cc,type){
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
         addEffect3 = tempCompile(masterValues.allBuff,[1,20],"actual",type);
     }
-    //lagos' unique weapon buff
-    if (type === "stat2" && masterValues.charaID === 10044){
-        if (document.getElementById("unique-equip-check").checked){
-            multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
+    //skill - stat193//
+    if (type === "stat193"){
+        //usuko's reworked crit buff//
+        if (document.getElementById("otherPassive10185-2").value === "deploy"||document.getElementById("otherPassive10185-2").value === "skill"){
+            addEffect3.buff += 25;
         }
     }
-    //rin's unique weapon buff
-    if (type === "stat3"){
-        multEffect3.buff += 10 * Number(document.getElementById("otherUnique10006-1").value);
+    //skill - stat191//
+    if (type === "stat191"){
+        //sylphine's crit buff//
+        if (document.getElementById("otherPassive10005").checked){
+            addEffect3.buff += 20;
+        }
+        //usuko's reworked crit buff//
+        if (document.getElementById("otherPassive10185-1").checked){
+            if (document.getElementById("otherPassive10185-2").value === "deploy"){
+                addEffect3.buff += 50;
+            } else if (document.getElementById("otherPassive10185-2").value === "skill"){
+                addEffect3.buff += 64;
+            }
+        } else {
+            if (document.getElementById("otherPassive10185-2").value === "deploy"){
+                addEffect3.buff += 25;
+            } else if (document.getElementById("otherPassive10185-2").value === "skill"){
+                addEffect3.buff += 32;
+            }
+        }
     }
-    //silva's unique weapon stat1 dependent buff (on base)
-    if (type === "stat2" && masterValues.charaID === 10016){
-        if (document.getElementById("unique-equip-check").checked){
+    //skill - stat8//
+    if (type === "stat8"){
+        //garden petra's permanent buff//
+        if (masterValues.charaID === 10218){
+            addEffect3.buff += 40 * Number(document.getElementById("charaSpecific10218-1").value);
+        }
+    }
+    //skill - stat7//
+    if (type === "stat7"){
+        //sports argryo's PAD buff
+        if (true){
+            let attacks202 = Number(document.getElementById("otherPassive10202-2").value)
+            let PADbuff202 = Number(document.getElementById("otherPassive10202-1").value);
+            multEffect3.buff -= attacks202*PADbuff202;
+        }
+        //kyou's wind ally PAD buff
+        if (document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
+            multEffect3.buff -= 25;
+        }
+    }
+    //skill - stat5//
+    if (type === "stat5"){
+        //nothing
+    }
+    //skill - stat4//
+    if (type === "stat4"){
+        //soleia's permanent buff//
+        if (masterValues.charaID === 10082){
+            multEffect3.buff += 30 * document.getElementById("charaSpecific10082-1").value;
+        }
+    }
+    //skill - stat3//
+    if (type === "stat3"){
+        //melon's trait stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10041){
             addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
         }
-    }
-    //sports nigru's stat 2 dependent buff (passive)
-    if (type === "stat2" && !document.getElementById("otherPassive10203-1").checked){
-        addEffect3.buff += Math.floor(50 * Number(document.getElementById("otherPassive10203-2").value) /100);
-    } else if (type === "stat2" && document.getElementById("otherPassive10203-1").checked){
-        addEffect3.buff += Math.floor(60 * Number(document.getElementById("otherPassive10203-2").value) /100);
-    }
-    //sports argryo's PAD buff
-    if (type === "stat7"){
-        let attacks202 = Number(document.getElementById("otherPassive10202-2").value)
-        let PADbuff202 = Number(document.getElementById("otherPassive10202-1").value);
-        multEffect3.buff -= attacks202*PADbuff202;
-    }
-    //marshlowa's goblin buff
-    if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
-        if (document.getElementById("otherPassive10179-1").checked){
-            multEffect3.buff += 7 * Number(document.getElementById("otherPassive10179-2").value);
+        //soleia's permanent buff//
+        if (masterValues.charaID === 10082){
+            multEffect3.buff += 30 * document.getElementById("charaSpecific10082-1").value;
+        }
+        //rin's unique weapon buff
+        if (true){
+            multEffect3.buff += 10 * Number(document.getElementById("otherUnique10006-1").value);
+        }
+        //tamamo's stat 3 dependent buff (passive)
+        if (masterValues.charaID !== 10148 && !document.getElementById("otherPassive10148-1").checked){
+            addEffect3.buff += Math.floor(30 * Number(document.getElementById("otherPassive10148-2").value) /100);
+        } else if (masterValues.charaID !== 10148 && document.getElementById("otherPassive10148-1").checked){
+            addEffect3.buff += Math.floor(40 * Number(document.getElementById("otherPassive10148-2").value) /100);
+        }
+        //logica's permanent buffs//
+        if (masterValues.charaID === 10098){
+            multEffect3.buff += [10,12,15,17,20][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
         }
     }
-    //marshlowa's goblin skill
-    if (type === "stat2" && [10004,10032,10179].includes(masterValues.charaID)){
-        if (document.getElementById("otherSkill10179").checked){
-            multEffect3.buff += [40,50,60,70,80][Number(document.getElementById("level10179").value)-1];
-        }
-    }
-    if (type === "stat6" && [10004,10032,10179].includes(masterValues.charaID)){
-        if (document.getElementById("otherSkill10179").checked){
-            if (multEffect3.buff < 100){multEffect3.buff += 50;}
-            else if (multEffect3.buff > 100 && multEffect3 <= 150){multEffect3.buff = 150;}
-            else if (multEffect3.buff > 150){}
-        }
-    }
-    //summer diffnilla's permanent buff//
-    if (type === "stat1" && masterValues.charaID === 10196){
-        multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
-    }
-    //summer diffnilla's stat1 dependent buff
-    if (type === "stat2" && masterValues.charaID === 10196){
-        if (selfConditions["26"] === 0){
-            addEffect3.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
-        } else {
-            addEffect3.buff += Math.floor(12 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
-        }
-    }
-    //chika's stat3 dependent buff on skill
-    if (type === "stat2" && masterValues.charaID === 10160){
-        let multiplier10160 = [0,50,55,60,65,70];
-        addEffect3.buff += Math.floor(multiplier10160[Number(document.getElementById("skill-level-select").value)] * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
-    }
-    //kyou's wind ally PAD buff
-    if (type === "stat7" && document.getElementById("otherSkill10157").checked && masterValues.unitcard.element === 4){
-        multEffect3.buff -= 25;
-    }
-    //poisonRin's enemy defeat buff
-    if (type === "stat2" && masterValues.charaID === 10178 && masterValues.charaAwaked){
-        multEffect3.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
-    } else if (type === "stat2" && masterValues.charaID === 10178){
-        multEffect3.buff += 9 * Number(document.getElementById("charaSpecific10178-1").value);
-    }
-    //headia's enemy defeat buff
-    if (type === "stat1" && masterValues.charaID === 10147){
-        multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
-    } else if (type === "stat2" && masterValues.charaID === 10147){
-        multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
-    }
-    //tamamo's stat 3 dependent buff (passive)
-    if (type === "stat3" && !document.getElementById("otherPassive10148-1").checked){
-        addEffect3.buff += Math.floor(30 * Number(document.getElementById("otherPassive10148-2").value) /100);
-    } else if (type === "stat3" && document.getElementById("otherPassive10148-1").checked){
-        addEffect3.buff += Math.floor(40 * Number(document.getElementById("otherPassive10148-2").value) /100);
-    }
-    //santa miteras' stat 2 dependent buff (passive)
-    if (type === "stat2" && !document.getElementById("otherPassive10137-1").checked){
-        addEffect3.buff += Math.floor(20 * Number(document.getElementById("otherPassive10137-2").value) /100);
-    } else if (type === "stat2" && document.getElementById("otherPassive10137-1").checked){
-        addEffect3.buff += Math.floor(25 * Number(document.getElementById("otherPassive10137-2").value) /100);
-    }
-    //yasefa's token buff
-    if (type === "stat2" && selfConditions["1002"] === 4){
-        multEffect3.buff += 25 * Number(document.getElementById("shared20006").value);
-    }
-    //mithrena's stat3 dependent buff
-    if (type === "stat2" && masterValues.charaID === 10112){
-        if (selfConditions["26"] === 0){
-            addEffect3.buff += Math.floor(40 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
-        } else {
-            addEffect3.buff += Math.floor(52 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
-        }
-    }
-    //danadilly's fairy count buff
-    if (type === "stat2" && masterValues.charaID === 10111){
-        if (selfConditions["26"] === 0)
-            multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10111-1").value);
-        else {
-            multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10111-1").value);
-        }
-    }
-    //lico's token buff
-    if (type === "stat2" && !document.getElementById("shared20005-1").checked){
-        multEffect3.buff += 12 * Number(document.getElementById("shared20005-2").value);   
-    } else if (type === "stat2" && document.getElementById("shared20005-1").checked){
-        multEffect3.buff += 15 * Number(document.getElementById("shared20005-2").value);
-    }
-    //airen's stat3 dependent buff
-    if (type === "stat2" && masterValues.charaID === 10101){
-        if (selfConditions["26"] === 0){
-            addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
-        } else {
-            addEffect3.buff += Math.floor(65 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
-        }
-    }
-    //logica's permanent buffs//
-    if (type === "stat2" && masterValues.charaID === 10098){
-        multEffect3.buff += [5,6,7,8,10][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
-    } else if (type === "stat3" && masterValues.charaID === 10098){
-        multEffect3.buff += [10,12,15,17,20][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
-    }
-    //veratu's buffs//
-    if (type === "stat2" && masterValues.charaID === 10083 && selfConditions["26"] === 1){
-        multEffect3.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
-        multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
-    } else if (type === "stat2" && masterValues.charaID === 10083 && selfConditions["26"] === 1){
-        multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
-        multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
-    }
-    //soleia's permanent buff//
-    if ((type === "stat3"||type === "stat4") && masterValues.charaID === 10082){
-        multEffect3.buff += 30 * document.getElementById("charaSpecific10082-1").value;
-    }
-    //kobold buff -- bow and pent//
-    if (type === "stat2" && (masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10060").checked){
-        multEffect3.buff += 15;
-    }
-    if (type === "stat2" && (masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10121").checked){
-        multEffect3.buff += 20;
-    }
-    //amirami's permanent buff//
-    if (type === "stat2" && masterValues.charaID === 10047){
-        multEffect3.buff += 5 * Number(document.getElementById("charaSpecific10047-1").value);
-    }
-    //acqua's permanent buff//
-    if (type === "stat2" && masterValues.charaID === 10043){
-        multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10043-1").value);
-    }
-    //asta's permanent buff//
-    if (type === "stat1" && masterValues.charaID === 10029){
-        multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
-    }
-    //orc rage effect -- podel and diffnilla//
+    //skill - stat2//
     if (type === "stat2"){
+        //melon's trait stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10041){
+            addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
+        //narcepafne's trait stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10079){
+            addEffect3.buff += Math.floor(6 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
+        //lagos' unique weapon buff
+        if (masterValues.charaID === 10044){
+            if (document.getElementById("unique-equip-check").checked){
+                multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
+            }
+        }
+        //silva's unique weapon stat1 dependent buff
+        if (masterValues.charaID === 10016){
+            if (document.getElementById("unique-equip-check").checked){
+                addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+            }
+        }
+        //sports nigru's stat 2 dependent buff (passive)
+        if (masterValues.charaID !== 10203 && !document.getElementById("otherPassive10203-1").checked){
+            addEffect3.buff += Math.floor(50 * Number(document.getElementById("otherPassive10203-2").value) /100);
+        } else if (masterValues.charaID !== 10203 && document.getElementById("otherPassive10203-1").checked){
+            addEffect3.buff += Math.floor(60 * Number(document.getElementById("otherPassive10203-2").value) /100);
+        }
+        //marshlowa's goblin buff
+        if ([10004,10032,10179].includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10179-1").checked){
+                multEffect3.buff += 7 * Number(document.getElementById("otherPassive10179-2").value);
+            }
+        }
+        //marshlowa's goblin buff on skill
+        if ([10004,10032,10179].includes(masterValues.charaID)){
+            if (document.getElementById("otherSkill10179").checked){
+                multEffect3.buff += [40,50,60,70,80][Number(document.getElementById("level10179").value)-1];
+            }
+        }
+        //summer diffnilla's stat1 dependent buff
+        if (masterValues.charaID === 10196){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(9 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+            } else {
+                addEffect3.buff += Math.floor(12 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+            }
+        }
+        //chika's stat3 dependent buff on skill
+        if (masterValues.charaID === 10160){
+            let multiplier10160 = [0,50,55,60,65,70];
+            addEffect3.buff += Math.floor(multiplier10160[Number(document.getElementById("skill-level-select").value)] * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+        }
+        //poisonRin's poison dispel buff
+        if (masterValues.charaID === 10178 && masterValues.charaAwaked){
+            multEffect3.buff += 12 * Number(document.getElementById("charaSpecific10178-1").value);
+        } else if (masterValues.charaID === 10178){
+            multEffect3.buff += 9 * Number(document.getElementById("charaSpecific10178-1").value);
+        }
+        //headia's enemy defeat buff
+        if (masterValues.charaID === 10147){
+            multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
+        }
+        //santa miteras' stat 2 dependent buff (passive)
+        if (masterValues.charaID !== 10137 && !document.getElementById("otherPassive10137-1").checked){
+            addEffect3.buff += Math.floor(20 * Number(document.getElementById("otherPassive10137-2").value) /100);
+        } else if (masterValues.charaID !== 10137 && document.getElementById("otherPassive10137-1").checked){
+            addEffect3.buff += Math.floor(25 * Number(document.getElementById("otherPassive10137-2").value) /100);
+        }
+        //yasefa's token buff
+        if (selfConditions["1002"] === 4){
+            multEffect3.buff += 25 * Number(document.getElementById("shared20006").value);
+        }
+        //mithrena's stat3 dependent buff
+        if (masterValues.charaID === 10112){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(40 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+            } else {
+                addEffect3.buff += Math.floor(52 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+            }
+        }
+        //danadilly's fairy count buff
+        if (masterValues.charaID === 10111){
+            if (selfConditions["26"] === 0)
+                multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10111-1").value);
+            else {
+                multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10111-1").value);
+            }
+        }
+        //lico's token buff
+        if (!document.getElementById("shared20005-1").checked){
+            multEffect3.buff += 12 * Number(document.getElementById("shared20005-2").value);   
+        } else if (document.getElementById("shared20005-1").checked){
+            multEffect3.buff += 15 * Number(document.getElementById("shared20005-2").value);
+        }
+        //airen's stat3 dependent buff
+        if (masterValues.charaID === 10101){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+            } else {
+                addEffect3.buff += Math.floor(65 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+            }
+        }
+        //logica's permanent buffs//
+        if (masterValues.charaID === 10098){
+            multEffect3.buff += [5,6,7,8,10][Number(document.getElementById("skill-level-select").value)-1] * document.getElementById("charaSpecific10098-1").value;
+        }
+        //veratu's buffs//
+        if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
+            multEffect3.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
+            multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+        } else if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
+            multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
+            multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+        }
+        //kobold buff -- bow and pent//
+        if ((masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10060").checked){
+            multEffect3.buff += 15;
+        }
+        if ((masterValues.charaID === 10060||masterValues.charaID === 10121) && document.getElementById("otherPassive10121").checked){
+            multEffect3.buff += 20;
+        }
+        //amirami's permanent buff//
+        if (masterValues.charaID === 10047){
+            multEffect3.buff += 5 * Number(document.getElementById("charaSpecific10047-1").value);
+        }
+        //acqua's permanent buff//
+        if (masterValues.charaID === 10043){
+            multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10043-1").value);
+        }
+        //orc rage effect -- podel and diffnilla//
         if (document.getElementById("charaSpecific10011-1").checked || selfConditions["2000"] <= 25 && masterValues.charaID === 10011){
             multEffect3.buff += 25;
         } else if (document.getElementById("charaSpecific10039-1").checked || selfConditions["2000"] <= 25 && masterValues.charaID === 10039){
             multEffect3.buff += 50;
         }
+        //chase assassin//
+        if (selfConditions["1007"] === 16014 && selfConditions["2"] === 0){
+            multEffect3.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
+        }
     }
-    //chase assassin//
-    if (type === "stat2" && selfConditions["1007"] === 16014 && selfConditions["2"] === 0){
-        //console.log("chase assassin, attack, not moving");
-        multEffect3.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
+    //skill - stat1//
+    if (type === "stat1"){
+        //summer diffnilla's permanent buff//
+        if (masterValues.charaID === 10196){
+            multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10196-1").value);
+        }
+        //headia's enemy defeat buff
+        if (masterValues.charaID === 10147){
+            multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
+        }
+        //asta's permanent buff//
+        if (masterValues.charaID === 10029){
+            multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
+        }
     }
     //attribute tile effects//
-    if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element){
+    if (selfConditions["1010"].includes(masterValues.unitcard.element)){
         if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
             if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 15;
+                multEffect3.buff += 30;
             } else if (type === "stat8"){multEffect3.buff+=10} else {}
+        }
+        if (masterValues.charaID !== 10209 && fireCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10209-1").checked || document.getElementById("otherPassive10209-2").checked)){
+            //console.log("attribute tile triple effect!(not self)");
+            if (["stat2","stat3","stat4"].includes(type)){
+                multEffect3.buff += 60;
+            } else if (type === "stat8"){multEffect2.buff+=20} else {}
         }
         //elemental boost attribute tile x1.5//
         if (subskillID_1 === 51 || subskillID_2 === 51){
             if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 7.5; //if 7.5 gives problems then 8
+                multEffect3.buff += 15; //if 7.5 gives problems then 8
             } else if (type === "stat8"){multEffect3.buff+=5} else {}
         }
+    }
+    //when attribute tile is not selected, or attribute doesn't match -- only skill//
+    if (!(selfConditions["1010"].includes(masterValues.unitcard.element))){
+        if ([10209].includes(masterValues.charaID)){
+            //console.log("attribute tile triple effect guaranteed during skill!");
+            if (["stat2","stat3","stat4"].includes(type)){
+                multEffect3.buff += 90;
+            } else if (type === "stat8"){multEffect3.buff+=30} else {}
+        } 
     }
     //yano's attribute tile//
     if ([10188].includes(masterValues.charaID)){
         if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value != masterValues.unitcard.element){
             //console.log("simulated attibute tile");
             if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 15;
+                multEffect3.buff += 30;
             } else if (type === "stat8"){multEffect3.buff+=10} else {}
         } else {}
     }
@@ -2525,6 +2793,23 @@ function calculateStat(level,cc,type){
             else {outputSkill = masterValues.allBuff[key][0][0][0];}
         }
     }
+    //critical max checking//
+    if (type === "stat191"){
+        if (outputSkill >= Number(document.getElementById("dps-output-skill-value-stat193").innerHTML)){
+            outputSkill = Number(document.getElementById("dps-output-skill-value-stat193").innerHTML);
+            document.getElementById("dps-output-skill-value-stat191").style.color = "red";
+        } else {
+            document.getElementById("dps-output-skill-value-stat191").style.color = "";
+        }
+    }
+    if (type === "stat192"){
+        if (outputSkill >= Number(document.getElementById("dps-output-skill-value-stat194").innerHTML)){
+            outputSkill = Number(document.getElementById("dps-output-skill-value-stat194").innerHTML);
+            document.getElementById("dps-output-skill-value-stat192").style.color = "red";
+        } else {
+            document.getElementById("dps-output-skill-value-stat192").style.color = "";
+        }
+    }
     //marshlowa's goblin fixed PAD
     if (type === "stat7" && [10004,10032,10179].includes(masterValues.charaID)){
         if (document.getElementById("otherSkill10179").checked){
@@ -2549,6 +2834,14 @@ function calculateStat(level,cc,type){
             }
         } catch (err) {
             //console.log("no missile");
+        }
+    }
+    //drake igni override//
+    if (masterValues.charaID === 10209){
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-output-skill-value-stat22").innerHTML = "魔法";
+        } else if (masterValues.language === "en"){
+            document.getElementById("dps-output-skill-value-stat22").innerHTML = "Magical";
         }
     }
     //letia override//
@@ -2983,6 +3276,9 @@ function pdMultValues(type){ //timing = 4//
             totalPartyBuff += 10;
         }
         totalPartyBuff += Number(document.getElementById("partySub-1130").value) * 10;
+    }
+    if (document.getElementById("party10082").checked && (type==="stat3"||type==="stat4") && dragonCharas.includes(masterValues.charaID)){//soleia's dragon buff
+        totalPartyBuff += 10;
     }
     //↓ ratzel's partybuff copy (10169) ↓//
     let partyString = "party" + document.getElementById("henshin-10169-select").value;
@@ -3441,10 +3737,17 @@ function uniqueWeaponReplace(charaID){
         } else if (masterValues.language === "en"){
             targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
         }
+    } else {
+        let uwSRC = "'../../img/chara-icons/icon_10000_0_s.png'";
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        }
     }
 }
 function dpsDetailShow(){
-    let dpsC = [10040,10049,10063,10092,10131,10136,10145,10178];
+    let dpsC = [10040,10049,10063,10092,10131,10136,10145,10178,10209];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188];
     if (dpsC.includes(masterValues.charaID)){
@@ -3472,6 +3775,8 @@ function conditionalOption(conditional, option, value){
         return (conditional <= value);
     } else if (option === "%") {
         return false;
+    } else if (option === "^") {
+        return (conditional.includes(value));
     } else {return true;}
 }
 function statConvertUnique(statX){
@@ -3654,18 +3959,24 @@ const attachOptions = [
     {value: 1131, text: '決死の一撃'},
     {value: 1132, text: 'メデューサソウル'},
     {value: 1133, text: '再出撃時間短縮+撤退時コスト回復'},
-    //{value: 1134, text: 'ダミー'},
-    //{value: 1135, text: 'ダミー'},
-    //{value: 1136, text: 'ダミー'},
-    //{value: 1137, text: 'ダミー'},
-    //{value: 1138, text: 'ダミー'},
-    //{value: 1139, text: 'ダミー'},
+    {value: 1134, text: '麗しき藝術家'},
+    {value: 1135, text: '聖女の加護'},
+    {value: 1136, text: 'クリティカル+貫通攻撃'},
+    {value: 1137, text: '1.5th Anniversaryの恩恵'},
+    {value: 1138, text: '怪幹呑獣の討伐証'},
+    {value: 1139, text: '一級ご主人証明書'},
     //{value: 1140, text: 'ダミー'},
     //{value: 1141, text: 'ダミー'},
     //{value: 1142, text: 'ダミー'},
     //{value: 1143, text: 'ダミー'},
     //{value: 1144, text: 'ダミー'},
     //{value: 1145, text: 'ダミー'},
+    //{value: 1146, text: 'ダミー'},
+    //{value: 1147, text: 'ダミー'},
+    //{value: 1148, text: 'ダミー'},
+    //{value: 1149, text: 'ダミー'},
+    //{value: 1150, text: 'ダミー'},
+    //{value: 1151, text: 'ダミー'},
 ];
 
 //loaders//

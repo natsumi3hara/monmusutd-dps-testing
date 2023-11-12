@@ -171,6 +171,18 @@ document.write(`
                 <input id="level30010" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-divine-buff-inner">
+            <div class="flex-container-divine-buff-inner2">
+                <abbr title="編成中、ウォリアーの最大HPが\n[15%,18%,22%,26%,30%]上昇、\n攻撃力が\n[10%,12%,15%,17%,20%]上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30011_0_s.png" class="divine-buff-img"></abbr>
+                <span class="divine-buff-name">リーファー</span>
+            </div>
+            <div class="flex-container-divine-buff-inner2">
+                <span class="divine-buff-label">編成</span>
+                <input type="checkbox" id="divine30011" class="larger-check divine-check" onChange="divineOneOnly('divine30011');allDPS();">
+                <span class="divine-buff-label">加護Lv</span>
+                <input id="level30011" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
 </div>
 <script>

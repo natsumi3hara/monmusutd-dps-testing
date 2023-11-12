@@ -242,6 +242,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10097">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10097_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">HPアップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">受けたダメージ</span>
+                <input id="charaSpecific10097-1" class="" type="number" min="0" max="10000" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfReferenceChange('102',this.value);allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10098">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10098_0_s.png" class="charaSpecific-buff-img">
@@ -335,6 +347,42 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">スキル発動回数</span>
                 <input id="charaSpecific10196-1" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10199">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10199_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">再使用時間</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">非スキル中に倒した敵</span>
+                <input id="charaSpecific10199-1" class="" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10210">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10210_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">貫通率</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label">敵が遠い</span>
+                <input id="charaSpecific10210-1" type="checkbox" class="larger-check charaSpecific-check" onchange="isSameAttributeTarget(this.checked);allDPS();">
+                <span class="charaSpecific-buff-label" style="color:red;">バグです。特性の貫通</span>
+                <span class="charaSpecific-buff-label" style="color:red;">が3回中2回発生します。</span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10218">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10218_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">射程アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル発動回数</span>
+                <input id="charaSpecific10218-1" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>

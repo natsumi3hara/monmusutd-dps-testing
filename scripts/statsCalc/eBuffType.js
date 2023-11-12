@@ -1,4 +1,4 @@
-//last value is stat188
+//last value is stat203
 const eBuffType = {
 	//Base stats//
     "0":["None","none-none"],
@@ -78,6 +78,16 @@ const eBuffType = {
 	"74":["stat25","fixed-none"],
 	"75":["stat185","fixed-none"],
 	"76":["stat186","fixed-none"],
+	"77":["stat191","rate-plus"],//critChance
+	"78":["stat191","actual-plus"],//critChance
+	"79":["stat191","rate-minus"],//critChance
+	"80":["stat191","actual-minus"],//critChance
+	"81":["stat192","rate-plus"],//critDmg
+	"82":["stat192","actual-plus"],//critDmg
+	"83":["stat192","rate-minus"],//critDmg
+	"84":["stat192","actual-minus"],//critDmg
+	"85":["stat193","actual-plus"],//critChanceMax
+	"86":["stat194","actual-plus"],//critDmgMax
 	//Resistances//
 	"400":["stat26","actual-plus"],
 	"401":["stat26","actual-minus"],
@@ -95,6 +105,10 @@ const eBuffType = {
 	"413":["stat32","actual-minus"],
 	"414":["stat33","actual-plus"],
 	"415":["stat33","actual-minus"],
+	"416":["stat195","actual-plus"],
+	"417":["stat195","actual-minus"],
+	"418":["stat196","actual-plus"],
+	"419":["stat196","actual-minus"],
 	//More resistances//
 	"450":["stat34","actual-plus"],
 	"451":["stat34","actual-minus"],
@@ -107,6 +121,8 @@ const eBuffType = {
 	//Misc(?)
 	"458":["stat38","none-none"],
 	"459":["stat39","none-none"],
+	"460":["stat197","none-none"],
+	"461":["stat198","none-none"],
 	//Statuses//
 	"501":["stat40","none-none"],
 	"502":["stat41","none-none"],
@@ -128,7 +144,9 @@ const eBuffType = {
 	"518":["stat57","none-none"],
 	"519":["stat58","none-none"],
 	"520":["stat59","none-none"],
-	"521":["stat1001","none-none"],
+	"521":["stat199","none-none"],
+	"522":["stat200","none-none"],
+	"523":["stat201","none-none"],
 	//Status negation//
 	"901":["stat60","none-none"],
 	"902":["stat61","none-none"],
@@ -137,6 +155,9 @@ const eBuffType = {
 	"905":["stat64","none-none"],
 	"906":["stat65","none-none"],
 	"907":["stat66","none-none"],
+	"908":["stat202","none-none"],
+	"909":["stat203","none-none"],
+	"910":["stat204","none-none"],
 	"1000":["stat67","none-none"],
 	//Talent definitions//
 	"1001":["stat68","none-none"],
@@ -257,7 +278,9 @@ const eBuffType = {
 	"1116":["stat182","none-none"],
 	"1117":["stat183","none-none"],
 	"1118":["stat184","none-none"],
-	//31-8-2023 need to update!! below are temp//
 	"1119":["stat187","none-none"],
 	"1120":["stat188","none-none"],
+	"1121":["stat189","none-none"],
+	"1122":["stat190","none-none"],
+	"1123":["stat205","none-none"],
 }
