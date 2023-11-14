@@ -330,6 +330,7 @@ document.write(`
                         <option value="10044">ラゴス</option>
                         <option value="10069">ミテラス</option>
                         <option value="10080">フリス</option>
+                        <option value="10082">ソレイア</option>
                         <option value="10095">ラフーカ</option>
                         <option value="10106">ロヴィリス</option>
                         <option value="10116">リュプチェ</option>
@@ -337,6 +338,9 @@ document.write(`
                         <option value="10127">ヤーセファ</option>
                         <option value="10134">鈴音マズル</option>
                         <option value="10136">イフィジャール</option>
+                        <option value="10199">戯祭ラゴス</option>
+                        <option value="10218">庭ペトラ</option>
+                        <option value="10226">墓守リッチ</option>
                     </select>
                     <span class="party-buff-label">変身元完凸</span>
                     <input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">

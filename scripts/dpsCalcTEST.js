@@ -503,12 +503,12 @@ function optimiseSubskill(number,battleSkillFinal){
         document.getElementById("subskill2condcheck").innerHTML = "";
     }
     collection.sort(function(a,b){return b[2] - a[2];});
-    for (let k=0;k<10;k++){ //clearing rank
+    for (let k=0;k<30;k++){ //clearing rank
         document.getElementById("optimise-"+(k+1)+"-1").innerHTML = "";
         document.getElementById("optimise-"+(k+1)+"-2").innerHTML = "";
         document.getElementById("optimise-dps-"+(k+1)).innerHTML = "";
     }
-    for (let k=0;k<10;k++){ //filling rank
+    for (let k=0;k<30;k++){ //filling rank
         let optSubID1 = collection[k][0];
         let optSubID2 = collection[k][1];
         if (optSubID1 === undefined || optSubID2 === undefined){
@@ -3279,6 +3279,9 @@ function pdMultValues(type){ //timing = 4//
     }
     if (document.getElementById("party10082").checked && (type==="stat3"||type==="stat4") && dragonCharas.includes(masterValues.charaID)){//soleia's dragon buff
         totalPartyBuff += 10;
+        if (Number(document.getElementById("henshin-10169-select").value) === 10082){
+            totalPartyBuff += 10;
+        }
     }
     //↓ ratzel's partybuff copy (10169) ↓//
     let partyString = "party" + document.getElementById("henshin-10169-select").value;
