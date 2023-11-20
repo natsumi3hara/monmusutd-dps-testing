@@ -11856,7 +11856,7 @@ const ability_data ={
     {
       "id": 82,
       "name": "金色の竜鱗",
-      "text": "物理防御力と魔法防御力+15％[awaked,+5％]\r\nスキルを使用する度に、自身の物理防御力[defense,[MAG,4,0]]上昇、魔法防御力[mdefense,[MAG,4,0]]上昇\r\n撤退後も持続する（最大5回）\r\n編成時<color=yellow><link=\"竜特性\">竜特性</link></color>の物理防御と魔法防御+10%",
+      "text": "物理防御力と魔法防御力+15％[awaked,+5％]\r\nスキルを使用する度に、自身の物理防御力[defense,[MAG,6,0]]上昇、魔法防御力[mdefense,[MAG,6,0]]上昇\r\n撤退後も持続する（最大5回）\r\n編成時<color=yellow><link=\"竜特性\">竜特性</link></color>の物理防御と魔法防御+10%",
       "talentList": [
         {
           "talentId": 11,
@@ -28467,7 +28467,7 @@ const ability_data ={
     {
       "id": 158,
       "name": "始祖なる蛇竜",
-      "text": "飛行して移動、移動速度が2倍\r\nHPが1秒毎に最大HPの10%回復し、再出撃時間が70%[awaked,+10%]短縮\r\n(再出撃時間短縮は重複不可)\r\n範囲内の<color=yellow><link=\"竜特性\">竜特性</link></color>の最大HPを1秒毎に最大HPの3%回復",
+      "text": "飛行して移動、移動速度が2倍\r\nHPが1秒毎に最大HPの10%回復し、再出撃時間が70%[awaked,+10%]短縮\r\n(再出撃時間短縮は重複不可)\r\n範囲内の<color=yellow><link=\"竜特性\">竜特性</link></color>のHPを1秒毎に最大HPの3%回復",
       "talentList": [
         {
           "talentId": 21,
@@ -110434,6 +110434,147 @@ const ability_data ={
       "skipend": 0
     },
     {
+      "id": 500523,
+      "name": "女魔術師2",
+      "text": "攻撃したユニットの被ダメージをアップ",
+      "talentList": [
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                110
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                ">"
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1010,
+          "param": [
+            {
+              "num": [
+                120
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 2,
+          "range": 4,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 36,
+          "param": [
+            {
+              "num": [
+                20
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 47,
+          "param": [
+            {
+              "num": [
+                2
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2000,
+              "num": [
+                50
+              ],
+              "option": [
+                "<="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0
+    },
+    {
       "id": 800001,
       "name": "デカイオー",
       "text": "ミサイル攻撃",
@@ -148937,16 +149078,16 @@ const attach_ability_data ={
     {
       "id": 1140,
       "rarity": 1397969457,
-      "name": "ダミーデータ３４",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "ライフブロック",
+      "kana": "らいふぶろっく",
+      "text": "HP+15%、ブロックしている敵1体につき\r\n最大HP+8%",
       "talentList": [
         {
           "talentId": 1,
           "param": [
             {
               "num": [
-                1
+                15
               ]
             }
           ],
@@ -148961,6 +149102,237 @@ const attach_ability_data ={
           "range": 1,
           "triggerData": [],
           "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                1
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                2
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                3
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                4
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                5
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                6
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
+        },
+        {
+          "talentId": 1,
+          "param": [
+            {
+              "num": [
+                8
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 1,
+          "range": 1,
+          "triggerData": [
+            {
+              "type": 2013,
+              "num": [
+                7
+              ],
+              "option": [
+                ">="
+              ],
+              "target": 1,
+              "targetNum": []
+            }
+          ],
+          "activeData": []
         }
       ],
       "recipeId": 0,
@@ -148968,21 +149340,21 @@ const attach_ability_data ={
       "salePrice": 0,
       "salable": 0,
       "purchase": 0,
-      "category": 0
+      "category": 2
     },
     {
       "id": 1141,
       "rarity": 1397969457,
-      "name": "ダミーデータ３５",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "name": "タクティクスMガード",
+      "kana": "たくてぃくすえむがーど",
+      "text": "配置中、全味方の魔法防御力+4％",
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 16,
           "param": [
             {
               "num": [
-                1
+                4
               ]
             }
           ],
@@ -148993,8 +149365,8 @@ const attach_ability_data ={
               ]
             }
           ],
-          "timing": 23,
-          "range": 1,
+          "timing": 1,
+          "range": 3,
           "triggerData": [],
           "activeData": []
         }
@@ -149004,57 +149376,21 @@ const attach_ability_data ={
       "salePrice": 0,
       "salable": 0,
       "purchase": 0,
-      "category": 0
-    },
-    {
-      "id": 1142,
-      "rarity": 1397969457,
-      "name": "ダミーデータ３６",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
-      "talentList": [
-        {
-          "talentId": 1,
-          "param": [
-            {
-              "num": [
-                1
-              ]
-            }
-          ],
-          "maxParam": [
-            {
-              "num": [
-                0
-              ]
-            }
-          ],
-          "timing": 23,
-          "range": 1,
-          "triggerData": [],
-          "activeData": []
-        }
-      ],
-      "recipeId": 0,
-      "skipend": 0,
-      "salePrice": 0,
-      "salable": 0,
-      "purchase": 0,
-      "category": 0
+      "category": 2
     },
     {
       "id": 1143,
-      "rarity": 1397969457,
-      "name": "ダミーデータ３７",
-      "kana": "だみぃでぇた",
-      "text": "ダミーデータ",
+      "rarity": 21041,
+      "name": "クリティカルダメージ強化 II",
+      "kana": "くりてぃかるだめーじきょうか2",
+      "text": "クリティカルダメージ+30%",
       "talentList": [
         {
-          "talentId": 1,
+          "talentId": 82,
           "param": [
             {
               "num": [
-                1
+                30
               ]
             }
           ],
@@ -149076,7 +149412,43 @@ const attach_ability_data ={
       "salePrice": 0,
       "salable": 0,
       "purchase": 0,
-      "category": 0
+      "category": 1
+    },
+    {
+      "id": 1142,
+      "rarity": 5460529,
+      "name": "クリティカルダメージ強化 III",
+      "kana": "くりてぃかるだめーじきょうか3",
+      "text": "クリティカルダメージ+40%",
+      "talentList": [
+        {
+          "talentId": 82,
+          "param": [
+            {
+              "num": [
+                40
+              ]
+            }
+          ],
+          "maxParam": [
+            {
+              "num": [
+                0
+              ]
+            }
+          ],
+          "timing": 23,
+          "range": 1,
+          "triggerData": [],
+          "activeData": []
+        }
+      ],
+      "recipeId": 0,
+      "skipend": 0,
+      "salePrice": 0,
+      "salable": 0,
+      "purchase": 0,
+      "category": 1
     },
     {
       "id": 1144,
@@ -159420,6 +159792,38 @@ const missile_data ={
       "blastHitType": 0,
       "drawSize": 50,
       "drawIndex": 0,
+      "damageField": [
+        0,
+        0,
+        0
+      ],
+      "finalAction": 0,
+      "fixedOrientation": 0,
+      "targetBone": 0,
+      "penetrationRange": 0
+    },
+    {
+      "id": 172,
+      "missileId": 10182,
+      "trajectory": 1,
+      "speed": 12,
+      "shotWaitTime": 0,
+      "activeTime": -1,
+      "damageDuration": -1,
+      "lostInvalid": 0,
+      "blastShape": 0,
+      "blastRange": 0,
+      "blastBreadth": 0,
+      "blastRotate": 0,
+      "highestPoint": 0,
+      "landEffect": 10109,
+      "landEffectSize": 0,
+      "blastEffect": 0,
+      "blastEffectSize": 0,
+      "landHitType": 2,
+      "blastHitType": 0,
+      "drawSize": 50,
+      "drawIndex": 20014,
       "damageField": [
         0,
         0,

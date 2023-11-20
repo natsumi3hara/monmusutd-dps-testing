@@ -66,6 +66,12 @@ document.write(`
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
+    <td class="displaytext" style="border:none"></td>
+    <td id="exsub-1143" class="exsub" onclick="toggleExclude(1143)">CRIダメージ強化 II</td>
+    <td id="exsub-1142" class="exsub" onclick="toggleExclude(1142)">CRIダメージ強化 III</td>
+</tr>
+<tr>
+    <td class="displaytext" style="border:none"></td>
     <td id="exsub-1028" class="exsub excluded" onclick="toggleExclude(1028)">再出撃時間短縮 I</td>
     <td id="exsub-1029" class="exsub excluded" onclick="toggleExclude(1029)">再出撃時間短縮 II</td>
     <td id="exsub-1030" class="exsub excluded" onclick="toggleExclude(1030)">再出撃時間短縮 III</td>
@@ -127,7 +133,6 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1087" class="exsub" onclick="toggleExclude(1087)">攻撃強化+貫通攻撃</td>
-    
     <td id="exsub-1093" class="exsub excluded" onclick="toggleExclude(1093)">HP強化+リジェネ</td>
     <td id="exsub-1094" class="exsub excluded" onclick="toggleExclude(1094)">物理攻撃+魔法攻撃回避</td>
     <td id="exsub-1123" class="exsub excluded" onclick="toggleExclude(1123)">魔法防御強化+魔法攻撃回避</td>
@@ -158,8 +163,8 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1122" class="exsub excluded" onclick="toggleExclude(1122)">マジックボディ</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1140" class="exsub excluded" onclick="toggleExclude(1140)">ライフブロック</td>
+    <td id="exsub-1141" class="exsub excluded" onclick="toggleExclude(1141)">ラッキーヒール</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>

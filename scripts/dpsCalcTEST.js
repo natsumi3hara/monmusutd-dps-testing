@@ -477,7 +477,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1138;
+    let lastSubskillID = 1143;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -1569,7 +1569,7 @@ function calculateStat(level,cc,type){
     } else if (type == "stat193"){
         var rawStat = 50
     } else if (type == "stat194"){
-        var rawStat = 1000
+        var rawStat = 300
     //basic stats above//
     } else if (type == "stat11"){
         var rawStat = Math.floor(job["targetNum"]);
@@ -1679,7 +1679,7 @@ function calculateStat(level,cc,type){
     let upperStat, lowerStat;
     let outputMenu = Math.floor((Math.floor(rawStat * multEffect1.buff / 100**(multEffect1.count)) + Math.floor(addEffect1.buff) + equipEffect) * pdMult / 100) + dAdd;
     if (type === "stat191"||type === "stat193"){upperStat = 100;}
-    else if (type === "stat192"||type === "stat194"){upperStat = 1000;}
+    else if (type === "stat192"||type === "stat194"){upperStat = 10000;}
     else {upperStat = Number(10*outputMenu);}
     if (type === "stat7"){lowerStat = Math.floor(0.1*outputMenu);}
     else if (type === "stat191"||type === "stat193"){lowerStat = 0;}
@@ -1789,6 +1789,35 @@ function calculateStat(level,cc,type){
             }
         }
         //place to include aSpd buffs//
+        //extraBuff for stat6 - battle//
+        let extraASpdMult = Number(document.getElementById("extra-"+type+"-1").value);
+        let extraASpdAdd = Number(document.getElementById("extra-"+type+"-2").value);
+        if (extraASpdMult > 0){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[extraASpdMult]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[extraASpdMult]]];
+            }
+        } else if (extraASpdMult < 0){
+            try {
+                masterValues.allBuff["rate-minus-1"].push([[extraASpdMult*-1]]);
+            } catch(err) {
+                masterValues.allBuff["rate-minus-1"] = [[[extraASpdMult*-1]]];
+            }
+        } else {}//no mult buff
+        if (extraASpdAdd > 0){
+            try {
+                masterValues.allBuff["actual-plus-1"].push([[extraASpdAdd]]);
+            } catch(err) {
+                masterValues.allBuff["actual-plus-1"] = [[[extraASpdAdd]]];
+            }
+        } else if (extraASpdAdd < 0){
+            try {
+                masterValues.allBuff["actual-minus-1"].push([[extraASpdAdd*-1]]);
+            } catch(err) {
+                masterValues.allBuff["actual-minus-1"] = [[[extraASpdAdd*-1]]];
+            }
+        } else {}//no add buff
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff);
         if (masterValues.allBuff["rate-plus-1"] !== undefined){
             if (masterValues.allBuff["rate-minus-1"] === undefined){
@@ -1827,6 +1856,9 @@ function calculateStat(level,cc,type){
     let multEffect2, addEffect2;
     if (type === "stat76"){
         multEffect2 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
+        //extraBuff for stat76 - battle//
+        multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
+        multEffect2.count += 1;
         //ameri's troublesome effect//
         if (masterValues.charaID === 10024 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
             multEffect2.buff *= 180;
@@ -1884,7 +1916,7 @@ function calculateStat(level,cc,type){
         //usuko's reworked crit buff//
         if (document.getElementById("otherPassive10185-1").checked){
             if (document.getElementById("otherPassive10185-2").value === "deploy"){
-                addEffect2.buff += 50;
+                addEffect2.buff += 32;
             } else if (document.getElementById("otherPassive10185-2").value === "skill"){
                 addEffect2.buff += 64;
             }
@@ -1892,7 +1924,7 @@ function calculateStat(level,cc,type){
             if (document.getElementById("otherPassive10185-2").value === "deploy"){
                 addEffect2.buff += 25;
             } else if (document.getElementById("otherPassive10185-2").value === "skill"){
-                addEffect2.buff += 32;
+                addEffect2.buff += 50;
             }
         }
     }
@@ -2128,12 +2160,8 @@ function calculateStat(level,cc,type){
     multEffect2.buff += allAlliesSkillRate(type); //timing must be 1
     //extrabuffs
     try {
-        if (type === "stat6"){
-            let multToAdd = Number(document.getElementById("extra-"+type+"-1").value);
-            if (multEffect2.buff <= 100){multEffect2.buff+=multToAdd;}
-            else if (multToAdd+100 > multEffect2.buff){multEffect2.buff=multToAdd+100;}
-            addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
-        } else {
+        if (type === "stat6" || type === "stat76"){}
+        else {
             multEffect2.buff += Number(document.getElementById("extra-"+type+"-1").value);
             addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
         }
@@ -2377,6 +2405,35 @@ function calculateStat(level,cc,type){
             }
         }
         //place to include aSpd buffs//
+        //extraBuff for stat6 - skill//
+        let extraASpdMult = Number(document.getElementById("extra-"+type+"-1").value);
+        let extraASpdAdd = Number(document.getElementById("extra-"+type+"-2").value);
+        if (extraASpdMult > 0){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[extraASpdMult]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[extraASpdMult]]];
+            }
+        } else if (extraASpdMult < 0){
+            try {
+                masterValues.allBuff["rate-minus-1"].push([[extraASpdMult*-1]]);
+            } catch(err) {
+                masterValues.allBuff["rate-minus-1"] = [[[extraASpdMult*-1]]];
+            }
+        } else {}//no mult buff
+        if (extraASpdAdd > 0){
+            try {
+                masterValues.allBuff["actual-plus-1"].push([[extraASpdAdd]]);
+            } catch(err) {
+                masterValues.allBuff["actual-plus-1"] = [[[extraASpdAdd]]];
+            }
+        } else if (extraASpdAdd < 0){
+            try {
+                masterValues.allBuff["actual-minus-1"].push([[extraASpdAdd*-1]]);
+            } catch(err) {
+                masterValues.allBuff["actual-minus-1"] = [[[extraASpdAdd*-1]]];
+            }
+        } else {}//no add buff
         //console.log("allbuff-at-cl-tr-3:",masterValues.allBuff);
         if (masterValues.allBuff["rate-plus-1"] !== undefined){
             if (masterValues.allBuff["rate-minus-1"] === undefined){
@@ -2420,6 +2477,9 @@ function calculateStat(level,cc,type){
     let multEffect3, addEffect3;
     if (type === "stat76"){
         multEffect3 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
+        //extraBuff for stat76 - battle//
+        multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
+        multEffect3.count += 1;
         //ameri's troublesome effect//
         if (masterValues.charaID === 10024 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
             multEffect3.buff *= 180;
@@ -2477,7 +2537,7 @@ function calculateStat(level,cc,type){
         //usuko's reworked crit buff//
         if (document.getElementById("otherPassive10185-1").checked){
             if (document.getElementById("otherPassive10185-2").value === "deploy"){
-                addEffect3.buff += 50;
+                addEffect3.buff += 32;
             } else if (document.getElementById("otherPassive10185-2").value === "skill"){
                 addEffect3.buff += 64;
             }
@@ -2485,7 +2545,7 @@ function calculateStat(level,cc,type){
             if (document.getElementById("otherPassive10185-2").value === "deploy"){
                 addEffect3.buff += 25;
             } else if (document.getElementById("otherPassive10185-2").value === "skill"){
-                addEffect3.buff += 32;
+                addEffect3.buff += 50;
             }
         }
     }
@@ -2744,12 +2804,7 @@ function calculateStat(level,cc,type){
     multEffect3.buff += allAlliesSkillRate(type); //timing must be 1
     //extrabuffs
     try {
-        if (type === "stat6"){
-            let multToAdd = Number(document.getElementById("extra-"+type+"-1").value);
-            if (multEffect3.buff <= 100){multEffect3.buff+=multToAdd;}
-            else if (multToAdd+100 > multEffect3.buff){multEffect3.buff=multToAdd+100;}
-            addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
-        } else {
+        if (type === "stat6" || type === "stat76"){} else {
             multEffect3.buff += Number(document.getElementById("extra-"+type+"-1").value);
             addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
         }
@@ -3968,10 +4023,10 @@ const attachOptions = [
     {value: 1137, text: '1.5th Anniversaryの恩恵'},
     {value: 1138, text: '怪幹呑獣の討伐証'},
     {value: 1139, text: '一級ご主人証明書'},
-    //{value: 1140, text: 'ダミー'},
-    //{value: 1141, text: 'ダミー'},
-    //{value: 1142, text: 'ダミー'},
-    //{value: 1143, text: 'ダミー'},
+    {value: 1140, text: 'ライフブロック'},
+    {value: 1141, text: 'ラッキーヒール'},
+    {value: 1143, text: 'クリティカルダメージ強化 II'}, //note the swapped index
+    {value: 1142, text: 'クリティカルダメージ強化 III'},//note the swapped index
     //{value: 1144, text: 'ダミー'},
     //{value: 1145, text: 'ダミー'},
     //{value: 1146, text: 'ダミー'},

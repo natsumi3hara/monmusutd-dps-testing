@@ -185,6 +185,10 @@ document.write(`
             </div>
         </div>
     </div>
+    <button type="button" class="collapsible-button inputInsertButton">計算（工事中）</button>
+    <div class="collapsible-content" style="display:none;">
+        計算
+    </div>
 </div>
 <script>
 let otherPassivechecks = document.getElementsByClassName("otherPassive-check")
