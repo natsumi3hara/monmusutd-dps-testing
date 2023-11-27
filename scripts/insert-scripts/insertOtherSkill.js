@@ -45,6 +45,18 @@ document.write(`
     <div id="flex-container-otherSkill-buff">
         <div class="flex-container-otherSkill-buff-inner">
             <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10037_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">メアルス</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">EX2発動</span>
+                <input type="checkbox" id="otherSkill10037" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10037" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
                 <img src="../../img/chara-icons/icon_10070_0_s.png" class="otherSkill-buff-img">
                 <span class="otherSkill-buff-name">ヴィルエ</span>
             </div>

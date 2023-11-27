@@ -245,7 +245,7 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
-    let ex2List = [10008,10014,10017,10019,10020,10022,10024,10025,10028,10030,10032,10035,10038,10039,10040,10044,10046,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10093,10094,10100];
+    let ex2List = [10001,10008,10014,10017,10019,10020,10022,10023,10024,10025,10026,10028,10029,10030,10031,10032,10035,10037,10038,10039,10040,10044,10046,10047,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10091,10093,10094,10100];
     let exChangeList = [10088,10106,10126,10211];
     let exChangeRefr = [[0,4],[4],[3],[2]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
@@ -566,7 +566,7 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10016,10101,10112,10160,10196].includes(masterValues.charaID)){
+    if ([10016,10101,10112,10118,10160,10196].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
         //stat1 dependent here too (10016,10196)
         calculateStat(level,cc,"stat2");
@@ -1859,6 +1859,11 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - battle//
         multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect2.count += 1;
+        //melissa's poison damage up//
+        if (enemyConditions["25"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherSkill10037").checked){
+            multEffect2.buff *= 110;
+            multEffect2.count += 1;
+        }
         //ameri's troublesome effect//
         if (masterValues.charaID === 10024 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
             multEffect2.buff *= 180;
@@ -1909,6 +1914,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat191//
     if (type === "stat191"){
+        //ala's enemy attack stacking buff//
+        if (masterValues.charaID === 10091 && document.getElementById("skill-alt-select").value === "0"){
+            addEffect2.buff += 5 * Number(document.getElementById("charaSpecific10091-1").value);
+        }
         //sylphine's crit buff//
         if (document.getElementById("otherPassive10005").checked){
             addEffect2.buff += 20;
@@ -1926,6 +1935,17 @@ function calculateStat(level,cc,type){
             } else if (document.getElementById("otherPassive10185-2").value === "skill"){
                 addEffect2.buff += 50;
             }
+        }
+    }
+    //battle - stat194//
+    if (type === "stat194"){
+
+    }
+    //battle - stat192//
+    if (type === "stat192"){
+        //ala's enemy attack stacking buff//
+        if (masterValues.charaID === 10091 && document.getElementById("skill-alt-select").value === "0"){
+            addEffect2.buff += 8 * Number(document.getElementById("charaSpecific10091-1").value);
         }
     }
     //battle - stat8//
@@ -1986,6 +2006,22 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //platina's enemy defeat buff
+        if (masterValues.charaID === 10026 && document.getElementById("skill-alt-select").value === "0"){
+            addEffect2.buff += 100 * Number(document.getElementById("charaSpecific10026-1").value);
+        }
+        //darcy's attack steal buff
+        if (masterValues.charaID === 10205){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(4 * Number(document.getElementById("charaSpecific10205-1").value) / 100);
+            } else {
+                addEffect2.buff += Math.floor(5 * Number(document.getElementById("charaSpecific10205-1").value) / 100);
+            }
+        }
+        //gneiss' stat3 dependent buff
+        if (masterValues.charaID === 10118){
+            addEffect2.buff += Math.floor(70 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
+        }
         //melon's trait stat1 dependent buff (base HP)
         if (masterValues.charaID === 10041){
             addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
@@ -2480,6 +2516,11 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - battle//
         multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect3.count += 1;
+        //melissa's poison damage up//
+        if (enemyConditions["25"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherSkill10037").checked){
+            multEffect3.buff *= 110;
+            multEffect3.count += 1;
+        }
         //ameri's troublesome effect//
         if (masterValues.charaID === 10024 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
             multEffect3.buff *= 180;
@@ -2530,6 +2571,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat191//
     if (type === "stat191"){
+        //ala's enemy attack stacking buff//
+        if (masterValues.charaID === 10091 && document.getElementById("skill-alt-select").value === "0"){
+            addEffect3.buff += 5 * Number(document.getElementById("charaSpecific10091-1").value);
+        }
         //sylphine's crit buff//
         if (document.getElementById("otherPassive10005").checked){
             addEffect3.buff += 20;
@@ -2547,6 +2592,17 @@ function calculateStat(level,cc,type){
             } else if (document.getElementById("otherPassive10185-2").value === "skill"){
                 addEffect3.buff += 50;
             }
+        }
+    }
+    //skill - stat194//
+    if (type === "stat194"){
+
+    }
+    //skill - stat192//
+    if (type === "stat192"){
+        //ala's enemy attack stacking buff//
+        if (masterValues.charaID === 10091 && document.getElementById("skill-alt-select").value === "0"){
+            addEffect3.buff += 8 * Number(document.getElementById("charaSpecific10091-1").value);
         }
     }
     //skill - stat8//
@@ -2607,6 +2663,22 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //platina's enemy defeat buff
+        if (masterValues.charaID === 10026 && document.getElementById("skill-alt-select").value === "0"){
+            addEffect3.buff += 100 * Number(document.getElementById("charaSpecific10026-1").value);
+        }
+        //darcy's attack steal buff
+        if (masterValues.charaID === 10205){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(4 * Number(document.getElementById("charaSpecific10205-1").innerHTML) / 100);
+            } else {
+                addEffect3.buff += Math.floor(5 * Number(document.getElementById("charaSpecific10205-1").innerHTML) / 100);
+            }
+        }
+        //gneiss' stat3 dependent buff
+        if (masterValues.charaID === 10118){
+            addEffect3.buff += Math.floor(70 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
+        }
         //melon's trait stat1 dependent buff (base HP)
         if (masterValues.charaID === 10041){
             addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
