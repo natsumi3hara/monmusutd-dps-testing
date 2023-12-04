@@ -107,11 +107,29 @@ var partybuffref = {
     "awake10199": {
         "cond":[14011,14021],"stat2":[3]
     },
+    "party10217": {
+        "cond":[],"stat191":["a10"],"stat193":["a10"]
+    },
+    "awake10217": {
+        "cond":[],"stat191":["a5"],"stat193":["a5"]
+    },
     "party10218": {
         "cond":[],"stat1":[12],"stat2":[12]
     },
     "awake10218": {
         "cond":[],"stat1":[4],"stat2":[4]
+    },
+    "party10224": {
+        "cond":[2],"stat1":[7]
+    },
+    "awake10224": {
+        "cond":[2],"stat1":[3]
+    },
+    "party10225": {
+        "cond":[3],"stat3":[9],"stat4":[9]
+    },
+    "awake10225": {
+        "cond":[3],"stat3":[0],"stat4":[0]
     },
     "party10226": {
         "cond":[6],"stat7":[-25]
@@ -164,7 +182,7 @@ var partybuffref = {
         "cond":[11011,11021,11031,11041],
         "stat1":[15,18,22,26,30],"stat2":[10,12,15,17,20]
     },
-    //otherSkills
+    /*otherSkills
     "otherSkill10070": {
         "cond":[],
         "stat2":[5,10,15,20,25,30,35,40,45,50]
@@ -176,5 +194,5 @@ var partybuffref = {
     "otherSkill10139": {
         "cond":[],
         "stat79":[0,0,0,0,0]
-    },
+    },*/
 }

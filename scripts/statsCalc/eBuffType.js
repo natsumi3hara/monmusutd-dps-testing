@@ -147,6 +147,7 @@ const eBuffType = {
 	"521":["stat199","none-none"],
 	"522":["stat200","none-none"],
 	"523":["stat201","none-none"],
+	"524":["stat202","none-none"],
 	//Status negation//
 	"901":["stat60","none-none"],
 	"902":["stat61","none-none"],
@@ -155,9 +156,9 @@ const eBuffType = {
 	"905":["stat64","none-none"],
 	"906":["stat65","none-none"],
 	"907":["stat66","none-none"],
-	"908":["stat202","none-none"],
-	"909":["stat203","none-none"],
-	"910":["stat204","none-none"],
+	"908":["stat203","none-none"],
+	"909":["stat204","none-none"],
+	"910":["stat205","none-none"],
 	"1000":["stat67","none-none"],
 	//Talent definitions//
 	"1001":["stat68","none-none"],
@@ -282,5 +283,5 @@ const eBuffType = {
 	"1120":["stat188","none-none"],
 	"1121":["stat189","none-none"],
 	"1122":["stat190","none-none"],
-	"1123":["stat205","none-none"],
+	"1123":["stat206","none-none"],
 }

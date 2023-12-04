@@ -251,6 +251,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、全モンスター娘のクリティカル率とクリティカル率上限+10%(+5%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10217_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">祝砲リクリフ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10217" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10217" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="編成時、全モンスター娘のHPと攻撃力+12%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10218_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">庭ペトラ</span>
             </div>
@@ -259,6 +271,30 @@ document.write(`
                 <input type="checkbox" id="party10218" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10218" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時火属性モンスター娘の最大HP+7%(+3%)上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_10224_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">雪鹿ラフーカ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10224" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10224" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時水属性のモンスター娘の物理と魔法防御+9%" style="cursor: help;"><img src="../../img/chara-icons/icon_10225_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">氷雪リュプチェ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10225" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10225" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
         <div class="flex-container-party-buff-inner">

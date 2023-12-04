@@ -32,6 +32,7 @@ var selfConditions = {
 	"30": 0, //isIndomitable (NEW)
 	"31": 0, //isBurn (NEW)
 	"32": 0, //isScratch (NEW)
+	"33": 0, //isFrozen (NEW)
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -128,6 +129,7 @@ var enemyConditions = {
 	"30": 0, //isIndomitable (NEW)
 	"31": 0, //isBurn (NEW)
 	"32": 0, //isScratch (NEW)
+	"33": 0, //isFrozen (NEW)
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute

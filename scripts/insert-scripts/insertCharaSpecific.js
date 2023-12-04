@@ -386,6 +386,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10202">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10202_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻速アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">攻撃回数(5秒)</span>
+                <input id="charaSpecific10202-1" class="" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10205">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10205_0_s.png" class="charaSpecific-buff-img">
@@ -410,6 +422,18 @@ document.write(`
                 <span class="charaSpecific-buff-label" style="color:red;">が3回中2回発生します。</span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10217">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10217_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">射程アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">クリティカル回数</span>
+                <input id="charaSpecific10217-1" class="" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10218">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10218_0_s.png" class="charaSpecific-buff-img">
@@ -419,6 +443,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">スキル発動回数</span>
                 <input id="charaSpecific10218-1" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10219">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10219_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">聖菓テティ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">存在時間(秒)</span>
+                <input id="charaSpecific10219-1" class="" type="number" min="0" max="300" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfReferenceChange('100',Math.floor(Number(this.value)*30+0.0001));allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>

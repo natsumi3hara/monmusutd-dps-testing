@@ -76,7 +76,11 @@ for (let i=0;i<otherUniquechecks.length;i++){
         if (masterValues.charaID === 10179){
             otherUniquechecks[i].checked = true;
         }
-        otherUniquechecks[i].disabled = true;
+        if (masterValues.charaID === 10006){
+            otherUniquechecks[i].disabled = false;
+        } else {
+            otherUniquechecks[i].disabled = true;
+        }
     } else {}
     if (otherUniquechecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && charAwaked){
         otherUniquechecks[i].disabled = true;

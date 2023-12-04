@@ -15,8 +15,8 @@
         <script src="../../scripts/console&devToolsDB.js"></script>
         -->
         <link href="../../css/dpsTEST.css" rel="stylesheet" type="text/css"/>
-        <script src="../../scripts/statsCalc/allDataOB.js"></script>
-        <script src="../../scripts/statsCalc/allUnitcardOB.js"></script>
+        <script src="../../scripts/statsCalc/allData.js"></script>
+        <script src="../../scripts/statsCalc/allUnitcard.js"></script>
         <script src="../../scripts/statsCalc/eBuffType.js"></script>
         <script src="../../scripts/statsCalc/partybuff.js"></script>
         <script src="../../scripts/dpsCalcTEST.js"></script>
@@ -146,11 +146,11 @@
                             </div>
                         </div>
                         <hr>
-                        <span>サブスキル1</span>
-                        <select id="subskill1" style="font-size: smaller;width:50%;font-family: mtdfont;" onchange="allDPS();">
+                        <span>サブスキル1 </span><button onclick="subskillSearchOpen('1');" style="border-radius:5px;background-color:#edd58f;font-family:mtdfont;">選択</button>
+                        <select id="subskill1" style="font-size: smaller;width:40%;font-family: mtdfont;" onchange="allDPS();">
                         </select><span id="subskill1condcheck"></span><br>
-                        <span>サブスキル2</span>
-                        <select id="subskill2" style="font-size: smaller;width:50%;font-family: mtdfont;" onchange="allDPS();">
+                        <span>サブスキル2 </span><button onclick="subskillSearchOpen('2');" style="border-radius:5px;background-color:#edd58f;font-family:mtdfont;">選択</button>
+                        <select id="subskill2" style="font-size: smaller;width:40%;font-family: mtdfont;" onchange="allDPS();">
                         </select><span id="subskill2condcheck"></span>
                     </div>
                     <div id="conditions" class="dps-input-tablink-content dps-tabcontent" style="display: none;">
@@ -194,8 +194,9 @@
                                 </select><br><br>
                                 <span style="text-align: center; border: 1px solid black;">&nbsp;状態異常&nbsp;</span><br>
                                 <span style="text-align: center;">スタン</span><input type="checkbox" id="enemystun" class="larger-check" style="vertical-align: bottom;" onchange="enemyStun(this.checked);allDPS();">
-                                <span style="text-align: center;">石化</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyPetrify(this.checked);allDPS();">
                                 <span style="text-align: center;">毒</span><input type="checkbox" id="enemypoison" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();">
+                                <span style="text-align: center;">石化</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyPetrify(this.checked);allDPS();">
+                                <span style="text-align: center;">凍結</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyFrozen(this.checked);allDPS();">
                                 <span style="text-align: center;">背面攻撃</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();"><br>
                                 <span style="text-align: center; border: 1px solid black;">&nbsp;移動タイプ&nbsp;</span><br>
                                 <span style="text-align: center;">地上</span><input type="checkbox" id="enemyground" class="larger-check" style="vertical-align: bottom;" onchange="enemyGround(this.checked);allDPS();">
@@ -1552,6 +1553,8 @@
                 </div>
             </div>
         </div>
+        <script src="../../scripts/insert-scripts/insertSubskillSelect1.js"></script>
+        <script src="../../scripts/insert-scripts/insertSubskillSelect2.js"></script>
     </body>
     <script>
         //scripts to load html stuff, no calculations//

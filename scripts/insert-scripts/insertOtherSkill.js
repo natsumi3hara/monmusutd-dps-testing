@@ -127,14 +127,43 @@ document.write(`
                 <input id="level10179" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10217_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">祝砲リクリフ</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10217" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10217" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10225_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">氷雪リュプチェ</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10225" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10225" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
+            </div>
+        </div>
     </div>
 </div>
 <script>
 let otherSkillchecks = document.getElementsByClassName("otherSkill-check")
 for (let i=0;i<otherSkillchecks.length;i++){
     if (otherSkillchecks[i].id == "otherSkill"+masterValues.charaID.toString()){
-        otherSkillchecks[i].disabled = true;
-        otherSkillchecks[i].checked = false;
+        if (masterValues.charaID === 10070){
+            otherSkillchecks[i].disabled = false;
+            otherSkillchecks[i].checked = false;
+        } else {
+            otherSkillchecks[i].disabled = true;
+            otherSkillchecks[i].checked = false;
+        }
     } else if (otherSkillchecks[i].id == "otherSkill"+masterValues.charaID.toString()+"a"){
         otherSkillchecks[i].disabled = true;
         otherSkillchecks[i].checked = false;
@@ -143,7 +172,11 @@ for (let i=0;i<otherSkillchecks.length;i++){
 let otherSkilllevels = document.getElementsByClassName("otherSkill-level")
 for (let i=0;i<otherSkilllevels.length;i++){
     if (otherSkilllevels[i].id == "level"+masterValues.charaID.toString()){
-        otherSkilllevels[i].disabled = true;
+        if (masterValues.charaID === 10070){
+            otherSkilllevels[i].disabled = false;
+        } else {
+            otherSkilllevels[i].disabled = true;
+        }
     } else {}
 }
 </script>
