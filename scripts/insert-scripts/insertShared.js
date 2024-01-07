@@ -168,6 +168,18 @@ document.write(`
                 <span class="shared-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="クリティカル率+20%、移動速度+100\nクリティカル時、攻撃速度が10秒間10%増加" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">来たる福女！</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label">10秒CRI数</span>
+                <input id="shared20010" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="shared-buff-label"></span>
+            </div>
+        </div>
     </div>
 </div>
 <script>

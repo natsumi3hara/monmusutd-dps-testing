@@ -140,9 +140,12 @@
                                     <option value="202000">変化3</option>
                                     <option value="203000">変化4</option>
                                 </select>
+                                <div id="kenki-div">
+                                    <script>kenkiReplace(masterValues.baseClass);</script>
+                                </div>
                             </div>
                             <div id="unique-weapon-div" style="width: 50%;">
-                                <script>uniqueWeaponReplace(masterValues.charaID)</script>
+                                <script>uniqueWeaponReplace(masterValues.charaID);</script>
                             </div>
                         </div>
                         <hr>
@@ -249,7 +252,7 @@
                                 <tr style="display: none;">
                                     <td class="displaytext" style="width: 25%;">除外したサブスキル</td>
                                     <td style="width: 75%;">
-                                        <input id="excluded-subskills" value="0,1052,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1028,1029,1030,1031,1032,1033,1034,1037,1040,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112,1115,1116,1118,1120,1122,1123,1124,1125,1127,1133,1134,1135,1138,1140,1141" style="font-size:8px;" disabled>
+                                        <input id="excluded-subskills" value="0,1052,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1028,1029,1030,1031,1032,1033,1034,1037,1040,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112,1115,1116,1118,1120,1122,1123,1124,1125,1127,1133,1134,1135,1138,1140,1141,1146,1149,1151,1152,1155" style="font-size:8px;" disabled>
                                     </td>
                                 </tr>
                                 <tr>
@@ -727,14 +730,15 @@
                                     <td id="compare-hammerCharas" class="compChara" onclick="toggleChara('hammerCharas','class');"><img src="../../img/equipment-icons/1401.png">鈍器</td>
                                 </tr>
                                 <tr>
+                                    <td id="compare-tachiCharas" class="compChara" onclick="toggleChara('tachiCharas','class');"><img src="../../img/equipment-icons/1801.png">大太刀</td>
                                     <td id="compare-bowCharas" class="compChara" onclick="toggleChara('bowCharas','class');"><img src="../../img/equipment-icons/2001.png">弓</td>
                                     <td id="compare-gunCharas" class="compChara" onclick="toggleChara('gunCharas','class');"><img src="../../img/equipment-icons/2101.png">銃</td>
                                     <td id="compare-staffCharas" class="compChara" onclick="toggleChara('staffCharas','class');"><img src="../../img/equipment-icons/3001.png">杖</td>
                                     <td id="compare-bookCharas" class="compChara" onclick="toggleChara('bookCharas','class');"><img src="../../img/equipment-icons/3101.png">本</td>
                                     <td id="compare-scepterCharas" class="compChara" onclick="toggleChara('scepterCharas','class');"><img src="../../img/equipment-icons/3201.png">錫杖</td>
-                                    <td id="compare-orbCharas" class="compChara" onclick="toggleChara('orbCharas','class');"><img src="../../img/equipment-icons/3301.png">オーブ</td>
                                 </tr>
                                 <tr>
+                                    <td id="compare-orbCharas" class="compChara" onclick="toggleChara('orbCharas','class');"><img src="../../img/equipment-icons/3301.png">オーブ</td>
                                     <td id="compare-daggerCharas" class="compChara" onclick="toggleChara('daggerCharas','class');"><img src="../../img/equipment-icons/1501.png">短剣</td>
                                     <td id="compare-fanCharas" class="compChara" onclick="toggleChara('fanCharas','class');"><img src="../../img/equipment-icons/3501.png">扇</td>
                                     <td id="compare-shurikenCharas" class="compChara" onclick="toggleChara('shurikenCharas','class');"><img src="../../img/equipment-icons/1701.png">手裏剣</td>

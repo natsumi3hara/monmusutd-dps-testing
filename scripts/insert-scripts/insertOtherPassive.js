@@ -97,7 +97,7 @@ document.write(`
                 <span class="otherPassive-buff-name">灯火ミテラス</span>
             </div>
             <div class="flex-container-otherPassive-buff-inner2">
-                <span class="otherPassive-buff-label">覚醒?</span>
+                <span class="otherPassive-buff-label">完凸</span>
                 <input type="checkbox" id="otherPassive10137-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">攻撃力</span>
                 <input id="otherPassive10137-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -109,10 +109,22 @@ document.write(`
                 <span class="otherPassive-buff-name">たまも</span>
             </div>
             <div class="flex-container-otherPassive-buff-inner2">
-                <span class="otherPassive-buff-label">覚醒?</span>
+                <span class="otherPassive-buff-label">完凸</span>
                 <input type="checkbox" id="otherPassive10148-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">物理防御</span>
                 <input id="otherPassive10148-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10171_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ココノハ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10171-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">妖怪人数</span>
+                <input id="otherPassive10171-2" type="number" min="1" max="50" value="1" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
         <div class="flex-container-otherPassive-buff-inner">
@@ -153,8 +165,8 @@ document.write(`
                 <select name="otherPassive10202-1" id="otherPassive10202-1" class="otherPassive-check" style="width:80%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="allDPS();">
                     <option value="15">通常</option>
                     <option value="30">通常+スキル</option>
-                    <option value="20">覚醒</option>
-                    <option value="40">覚醒+スキル</option>
+                    <option value="20">完凸</option>
+                    <option value="40">完凸+スキル</option>
                 </select>
                 <span class="otherPassive-buff-label">攻撃回数</span>
                 <input id="otherPassive10202-2" type="number" min="0" max="9" value="0" class="otherPassive-check" style="width:80%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
@@ -166,10 +178,22 @@ document.write(`
                 <span class="otherPassive-buff-name">援武ニグリュ</span>
             </div>
             <div class="flex-container-otherPassive-buff-inner2">
-                <span class="otherPassive-buff-label">覚醒?</span>
+                <span class="otherPassive-buff-label">完凸</span>
                 <input type="checkbox" id="otherPassive10203-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">攻撃力</span>
                 <input id="otherPassive10203-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10207_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">シナツ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10207-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">7秒攻撃回数</span>
+                <input id="otherPassive10207-2" type="number" min="0" max="20" value="0" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
         <div class="flex-container-otherPassive-buff-inner">

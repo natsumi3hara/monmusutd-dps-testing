@@ -311,6 +311,30 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、竜特性の攻撃力+10%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10228_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">賀照ソレイア</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10228" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10228" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、水属性モンスター娘の攻撃力+9%(+5%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10237_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">参詣ロヴィリス</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10237" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10237" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="セット時、全モンスター娘の攻撃力+5%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ツンデレ皇妹</span>
             </div>
@@ -375,8 +399,13 @@ document.write(`
                         <option value="10134">鈴音マズル</option>
                         <option value="10136">イフィジャール</option>
                         <option value="10199">戯祭ラゴス</option>
+                        <option value="10217">賀照ソレイア</option>
                         <option value="10218">庭ペトラ</option>
+                        <option value="10224">雪鹿ラフーカ</option>
+                        <option value="10225">氷雪リュプチェ</option>
                         <option value="10226">墓守リッチ</option>
+                        <option value="10228">賀照ソレイア</option>
+                        <option value="10237">参詣ロヴィリス</option>
                     </select>
                     <span class="party-buff-label">変身元完凸</span>
                     <input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">

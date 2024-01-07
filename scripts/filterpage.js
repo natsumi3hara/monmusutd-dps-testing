@@ -1,8 +1,10 @@
 let conditions = ["filterDiv", "all"];
 const rarityList = ["common", "rare", "epic", "legend","free"];
+const classList = ["scimitar","spear","axe","fist","sword","hammer","tachi","bow","gun","staff","book","scepter","orb","dagger","fan","shuriken","twig","instrument"];
 const attrList = ["fireA","waterA","windA","earthA","lightA","darkA"];
 const speciesList = ["youkai","goblin","dragon"];
 let rarityFilter = [];
+let classFilter = [];
 let attrFilter = [];
 let speciesFilter = [];
 function filterSelection(condition) {
@@ -11,6 +13,12 @@ function filterSelection(condition) {
       rarityFilter.splice(rarityFilter.indexOf(condition),1)
     } else {
       rarityFilter.push(condition)
+    }
+  } else if (classList.includes(condition)){
+    if (classFilter.includes(condition)){
+      classFilter.splice(classFilter.indexOf(condition),1)
+    } else {
+      classFilter.push(condition)
     }
   } else if (attrList.includes(condition)){
     if (attrFilter.includes(condition)){
@@ -57,7 +65,7 @@ function filterSelection(condition) {
       let condtionsCheck = Array.from(conditions);
       condtionsCheck.splice(condtionsCheck.indexOf("filterDiv"),1)
       //console.log(condArray,conditions,condtionsCheck);
-      if ((checkerAND(condArray,condtionsCheck)||condtionsCheck.length===0)&&(checkerOR(condArray,rarityFilter)||rarityFilter.length===0)&&(checkerOR(condArray,attrFilter)||attrFilter.length===0)&&(checkerOR(condArray,speciesFilter)||speciesFilter.length===0)) {
+      if ((checkerAND(condArray,condtionsCheck)||condtionsCheck.length===0)&&(checkerOR(condArray,rarityFilter)||rarityFilter.length===0)&&(checkerOR(condArray,classFilter)||classFilter.length===0)&&(checkerOR(condArray,attrFilter)||attrFilter.length===0)&&(checkerOR(condArray,speciesFilter)||speciesFilter.length===0)) {
       w3AddClass(x[i], "show");
       }
     }

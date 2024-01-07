@@ -33,6 +33,7 @@ var selfConditions = {
 	"31": 0, //isBurn (NEW)
 	"32": 0, //isScratch (NEW)
 	"33": 0, //isFrozen (NEW)
+	"34": 0, //isKenki (NEW)
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -78,6 +79,7 @@ var selfConditions = {
 	"40002": 0, //limit (いろいろ)
 	"40003": 0, //touchArea (NEW)
 	"40004": 0, //totalLimit (NEW)
+	"40005": 0, //classActionTalent
 }
 var selfReference = {
 	"0": 0, //None
@@ -130,6 +132,7 @@ var enemyConditions = {
 	"31": 0, //isBurn (NEW)
 	"32": 0, //isScratch (NEW)
 	"33": 0, //isFrozen (NEW)
+	"34": 0, //isKenki (NEW)
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute
@@ -169,10 +172,11 @@ var enemyConditions = {
 	"5001": undefined, //sortieJobSystem
 	"5002": undefined, //sortieJob
 	"5003": undefined, //sortieChara
-	"10000": undefined, //exclusiv
+	"10000": undefined, //exclusive
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
 	"40002": 0, //limit
 	"40003": 0, //touchArea (NEW)
 	"40004": 0, //totalLimit (NEW)
+	"40005": 0, //classActionTalent
 }

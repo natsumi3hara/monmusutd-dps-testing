@@ -63,12 +63,14 @@ document.write(`
     <td id="exsub-1025" class="exsub excluded" onclick="toggleExclude(1025)">クリティカル I</td>
     <td id="exsub-1026" class="exsub" onclick="toggleExclude(1026)">クリティカル II</td>
     <td id="exsub-1027" class="exsub" onclick="toggleExclude(1027)">クリティカル III</td>
+    <td id="exsub-1147" class="exsub" onclick="toggleExclude(1147)">クリティカル IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1143" class="exsub" onclick="toggleExclude(1143)">CRIダメージ強化 II</td>
     <td id="exsub-1142" class="exsub" onclick="toggleExclude(1142)">CRIダメージ強化 III</td>
+    <td id="exsub-1148" class="exsub" onclick="toggleExclude(1148)">CRIダメージ強化 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -199,7 +201,7 @@ document.write(`
     <td id="exsub-1103" class="exsub" onclick="toggleExclude(1103)">恩愛触手の討伐証</td>
     <td id="exsub-1126" class="exsub" onclick="toggleExclude(1126)">魔導傑作の討伐証</td>
     <td id="exsub-1138" class="exsub excluded" onclick="toggleExclude(1138)">怪幹呑獣の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1153" class="exsub" onclick="toggleExclude(1153)">膨大巨嚢の討伐証</td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -247,6 +249,13 @@ document.write(`
     <td id="exsub-1133" class="exsub excluded" onclick="toggleExclude(1133)">再出撃時間短縮+撤退時コスト回復</td>
     <td id="exsub-1136" class="exsub" onclick="toggleExclude(1136)">クリティカル+貫通攻撃</td>
     <td id="exsub-1137" class="exsub" onclick="toggleExclude(1137)">1.5th Anniversaryの恩恵</td>
+    <td id="exsub-1144" class="exsub" onclick="toggleExclude(1144)">クリティカル+CRIダメージ強化</td>
+    <td id="exsub-1145" class="exsub" onclick="toggleExclude(1145)">スキルエクステンド</td>
+</tr>
+<tr>
+    <td id="exsub-1146" class="exsub excluded" onclick="toggleExclude(1146)">攻撃強化+生命力吸収</td>
+    <td id="exsub-1155" class="exsub excluded" onclick="toggleExclude(1155)">攻撃待機短縮+出撃コスト減少</td>
+    <td id="exsub-1156" class="exsub" onclick="toggleExclude(1156)">来たる福女！</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
@@ -268,6 +277,13 @@ document.write(`
     <td id="exsub-1132" class="exsub" onclick="toggleExclude(1132)">メデューサソウル</td>
 </tr>
 <tr>
+    <td id="exsub-1149" class="exsub excluded" onclick="toggleExclude(1149)">マッスルチャレンジャー</td>
+    <td id="exsub-1150" class="exsub" onclick="toggleExclude(1150)">オーバードーピング</td>
+    <td id="exsub-1151" class="exsub excluded" onclick="toggleExclude(1151)">ラッキーヒール</td>
+    <td id="exsub-1152" class="exsub excluded" onclick="toggleExclude(1152)">ケルベロスソウル</td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">その他</td>
 </tr>
 <tr>
@@ -279,7 +295,7 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1139" class="exsub" onclick="toggleExclude(1139)">一級ご主人証明書</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1154" class="exsub" onclick="toggleExclude(1154)">妖怪島探検家</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>

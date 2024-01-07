@@ -350,6 +350,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10172">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10172_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃力アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">攻撃回数</span>
+                <input id="charaSpecific10172-1" class="" type="number" min="0" max="60" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10178">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10178_0_s.png" class="charaSpecific-buff-img">
@@ -455,6 +467,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">存在時間(秒)</span>
                 <input id="charaSpecific10219-1" class="" type="number" min="0" max="300" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfReferenceChange('100',Math.floor(Number(this.value)*30+0.0001));allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10228">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10228_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">HP&攻撃上昇</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル発動回数</span>
+                <input id="charaSpecific10228-1" class="" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>

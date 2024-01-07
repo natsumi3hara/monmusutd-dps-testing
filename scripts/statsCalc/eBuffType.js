@@ -88,6 +88,7 @@ const eBuffType = {
 	"84":["stat192","actual-minus"],//critDmg
 	"85":["stat193","actual-plus"],//critChanceMax
 	"86":["stat194","actual-plus"],//critDmgMax
+	"87":["stat207","rate-plus"],
 	//Resistances//
 	"400":["stat26","actual-plus"],
 	"401":["stat26","actual-minus"],
@@ -170,7 +171,7 @@ const eBuffType = {
 	"1007":["stat74","none-none"],
 	"1008":["stat75","none-none"],
 	"1009":["stat76","rate-plus"], //damageup
-	"1010":["stat77","none-none"],
+	"1010":["stat77","none-none"], //damagecut
 	"1011":["stat78","none-none"],
 	"1012":["stat79","none-none"],
 	"1013":["stat80","none-none"],
@@ -284,4 +285,6 @@ const eBuffType = {
 	"1121":["stat189","none-none"],
 	"1122":["stat190","none-none"],
 	"1123":["stat206","none-none"],
+	"1124":["stat208","none-none"],
+	"1125":["stat209","none-none"],
 }
