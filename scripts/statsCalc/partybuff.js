@@ -101,11 +101,29 @@ var partybuffref = {
     "awake10136": {
         "cond":[2],"stat1":[3],"stat2":[3]
     },
+    "party10153": {
+        "cond":[2],"stat2":[4]
+    },
+    "awake10153": {
+        "cond":[2],"stat2":[1]
+    },
+    "party10195": {
+        "cond":[5],"stat2":[10],"stat4":[10]
+    },
+    "awake10195": {
+        "cond":[5],"stat2":[3],"stat4":[3]
+    },
     "party10199": {
         "cond":[14011,14021],"stat2":[7]
     },
     "awake10199": {
         "cond":[14011,14021],"stat2":[3]
+    },
+    "party10212": {
+        "cond":[6],"stat1":[-10],"stat2":[16]
+    },
+    "awake10212": {
+        "cond":[6],"stat1":[0],"stat2":[4]
     },
     "party10217": {
         "cond":[],"stat191":["a10"],"stat193":["a10"]

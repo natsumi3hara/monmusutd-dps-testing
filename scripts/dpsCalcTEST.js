@@ -1622,9 +1622,9 @@ function calculateStat(level,cc,type){
     //RAW STAT//
     for (let i = 3; i < 6; i++){
         if (document.getElementById("talent"+i.toString()+"check").checked) {
-            if (talentIdentifier(document.getElementById("talent"+i.toString()).innerHTML) == type) {
+            if (talentIdentifier(document.getElementById("talent"+i.toString()).innerHTML).includes(type)) {
                 //TALENT STAT//
-                rawStat += Number(document.getElementById("talent"+i.toString()).innerHTML.split("+")[1]);
+                rawStat += Number(document.getElementById("talent"+i.toString()).innerHTML.split("+")[1].split("%")[0]);
                 //TALENT STAT//
             } else {}
         } else {}
@@ -3808,21 +3808,23 @@ function equipValues(equipnumber,type,cc){
 
 function talentIdentifier(talentText){
     if (talentText.slice(0,2) == "最大"){
-        return "stat1";
+        return ["stat1"];
     } else if (talentText.slice(0,2) == "攻撃"){
         if (talentText.slice(0,3) == "攻撃力") {
-            return "stat2";
+            return ["stat2"];
         } else if (talentText.slice(0,3) == "攻撃速") {
-            return "stat6";
+            return ["stat6"];
         } else if (talentText.slice(0,3) == "攻撃対") {
-            return "stat11";
+            return ["stat11"];
         }
     } else if (talentText.slice(0,3) == "物理防"){
-        return "stat3";
+        return ["stat3"];
     } else if (talentText.slice(0,3) == "魔法防"){
-        return "stat4";
+        return ["stat4"];
     } else if (talentText.slice(0,2) == "射程"){
-        return "stat8";
+        return ["stat8"];
+    } else if (talentText.slice(0,11) == "CRI率/CRI率上限"){
+        return ["stat191","stat193"];
     } else {
         return
     }
