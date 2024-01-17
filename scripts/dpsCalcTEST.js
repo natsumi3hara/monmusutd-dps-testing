@@ -2114,9 +2114,9 @@ function calculateStat(level,cc,type){
         //pyuli's fire tile buff (for other allies)
         if (masterValues.charaID !== 10153 && selfConditions["1010"].includes(2)){
             if (document.getElementById("otherPassive10153-1").value === "skill"){
-                multEffect3.buff += 12;
+                multEffect2.buff += 12;
             } else if (document.getElementById("otherPassive10153-1").value === "deploy"){
-                multEffect3.buff += 6;
+                multEffect2.buff += 6;
             }
         }
         //ny soleia's permanent buff//
