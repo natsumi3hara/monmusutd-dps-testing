@@ -117,6 +117,22 @@ document.write(`
         </div>
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10153_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ピューリ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>
+                <span class="otherPassive-buff-label">状態</span>
+                <select name="otherPassive10153-1" id="otherPassive10153-1" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="allDPS();">
+                    <option value="none">無し</option>
+                    <option value="deploy">配置</option>
+                    <option value="skill">スキル中</option>
+                </select>
+                <span class="otherPassive-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10171_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">ココノハ</span>
             </div>

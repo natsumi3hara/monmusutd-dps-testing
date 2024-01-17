@@ -2111,6 +2111,14 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //pyuli's fire tile buff (for other allies)
+        if (masterValues.charaID !== 10153 && selfConditions["1010"].includes(2)){
+            if (document.getElementById("otherPassive10153-1").value === "skill"){
+                multEffect3.buff += 12;
+            } else if (document.getElementById("otherPassive10153-1").value === "deploy"){
+                multEffect3.buff += 6;
+            }
+        }
         //ny soleia's permanent buff//
         if (masterValues.charaID === 10228){
             multEffect2.buff += 40 * document.getElementById("charaSpecific10228-1").value;
@@ -2860,6 +2868,18 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //pyuli's fire tile buff (for other allies)
+        if (masterValues.charaID !== 10153 && selfConditions["1010"].includes(2)){
+            if (document.getElementById("otherPassive10153-1").value === "skill"){
+                multEffect3.buff += 12;
+            } else if (document.getElementById("otherPassive10153-1").value === "deploy"){
+                multEffect3.buff += 6;
+            }
+        }
+        //pyuli's fire tile buff (for self, corrected)
+        else if (masterValues.charaID === 10153 && selfConditions["1010"].includes(2)){
+            multEffect3.buff += 6; //because the cycleTalents already capture +6%, skill need to make up to +12%
+        }
         //ny soleia's permanent buff//
         if (masterValues.charaID === 10228){
             multEffect3.buff += 40 * document.getElementById("charaSpecific10228-1").value;
