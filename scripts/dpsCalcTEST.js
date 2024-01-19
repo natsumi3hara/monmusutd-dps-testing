@@ -1622,6 +1622,7 @@ function calculateStat(level,cc,type){
     //RAW STAT//
     for (let i = 3; i < 6; i++){
         if (document.getElementById("talent"+i.toString()+"check").checked) {
+            //console.log(masterValues.charaID,talentIdentifier(document.getElementById("talent"+i.toString()).innerHTML))
             if (talentIdentifier(document.getElementById("talent"+i.toString()).innerHTML).includes(type)) {
                 //TALENT STAT//
                 rawStat += Number(document.getElementById("talent"+i.toString()).innerHTML.split("+")[1].split("%")[0]);
@@ -3836,6 +3837,8 @@ function talentIdentifier(talentText){
             return ["stat6"];
         } else if (talentText.slice(0,3) == "攻撃対") {
             return ["stat11"];
+        } else {
+            return [];
         }
     } else if (talentText.slice(0,3) == "物理防"){
         return ["stat3"];
@@ -3846,7 +3849,7 @@ function talentIdentifier(talentText){
     } else if (talentText.slice(0,11) == "CRI率/CRI率上限"){
         return ["stat191","stat193"];
     } else {
-        return
+        return [];
     }
 }
 
