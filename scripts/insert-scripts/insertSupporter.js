@@ -94,11 +94,13 @@ document.write(`
         <span style="font-family: mtdfontlight;font-size:14px;">CC1: 攻撃力と物防、最大240</span><br>
         <span style="font-family: mtdfontlight;font-size:14px;">CC2: 攻撃力と物防と魔防、最大300</span><br>
         <span style="font-family: mtdfontlight;font-size:14px;">CC3: 攻撃力と物防と魔防、最大300</span><br>
+        <span style="font-family: mtdfontlight;font-size:14px;">CC4: 攻撃力と物防と魔防、最大350</span><br>
         <span style="font-size:16px;">バード系</span><br>
         <span style="font-family: mtdfontlight;font-size:14px;">CC0: 攻撃力と物防と魔防+50</span><br>
         <span style="font-family: mtdfontlight;font-size:14px;">CC1: 攻撃力と物防と魔防+70、同属性の場合は+90</span><br>
         <span style="font-family: mtdfontlight;font-size:14px;">CC2: 攻撃力と物防と魔防+90、同属性の場合は+120</span><br>
         <span style="font-family: mtdfontlight;font-size:14px;">CC3: 攻撃力と物防と魔防+100、同属性の場合は+140</span><br>
+        <span style="font-family: mtdfontlight;font-size:14px;">CC4: 攻撃力と物防と魔防+120、同属性の場合は+170</span><br>
     </div>
 </div>
 <script>

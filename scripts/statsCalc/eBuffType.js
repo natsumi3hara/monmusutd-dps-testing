@@ -287,4 +287,6 @@ const eBuffType = {
 	"1123":["stat206","none-none"],
 	"1124":["stat208","none-none"],
 	"1125":["stat209","none-none"],
+	"1126":["stat210","none-none"],
+	"1127":["stat211","none-none"],
 }

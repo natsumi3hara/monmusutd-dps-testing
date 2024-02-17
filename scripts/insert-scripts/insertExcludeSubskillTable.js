@@ -182,7 +182,7 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1135" class="exsub excluded" onclick="toggleExclude(1135)">聖女の加護</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1160" class="exsub" onclick="toggleExclude(1160)">豪華絢爛</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
@@ -217,7 +217,7 @@ document.write(`
 <tr>
     <td id="exsub-1097" class="exsub excluded" onclick="toggleExclude(1097)">穴鏡触手の討伐証</td>
     <td id="exsub-1118" class="exsub excluded" onclick="toggleExclude(1118)">灼熱噴然の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1157" class="exsub excluded" onclick="toggleExclude(1157)">煩悶淫竜の討伐証</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
@@ -256,8 +256,8 @@ document.write(`
     <td id="exsub-1146" class="exsub excluded" onclick="toggleExclude(1146)">攻撃強化+生命力吸収</td>
     <td id="exsub-1155" class="exsub excluded" onclick="toggleExclude(1155)">攻撃待機短縮+出撃コスト減少</td>
     <td id="exsub-1156" class="exsub" onclick="toggleExclude(1156)">来たる福女！</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1158" class="exsub" onclick="toggleExclude(1158)">捕獲！自信に満ちた女勇者</td>
+    <td id="exsub-1159" class="exsub" onclick="toggleExclude(1159)">捕獲！二丁使いの女海賊</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">生成</td>

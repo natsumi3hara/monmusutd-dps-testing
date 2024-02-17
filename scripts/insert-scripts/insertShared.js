@@ -73,7 +73,7 @@ document.write(`
         </div>
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
-                <img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img">
+                <img src="../../img/ui-icons/heart_life_block.png" class="shared-buff-img">
                 <span class="shared-buff-name">底力系用</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
@@ -85,50 +85,13 @@ document.write(`
         </div>
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
-                <abbr title="配置中、全味方の物理防御力+4%\n(枚数は自身除外)" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
-                <span class="shared-buff-name">タクティクス</span>
-            </div>
-            <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label"></span>
-                <span class="shared-buff-label">枚数</span>
-                <input id="shared20003" type="number" min="0" max="9" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                <span class="shared-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-shared-buff-inner">
-            <div class="flex-container-shared-buff-inner2">
-                <abbr title="移動中、攻撃力+100%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
+                <abbr title="移動中" style="cursor: help;"><img src="../../img/ui-icons/pallios_walk.png" class="shared-buff-img"></abbr>
                 <span class="shared-buff-name">移動バフ</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">移動中</span>
-                <input type="checkbox" id="shared20004" class="larger-check shared-check" onChange="isMove(this.checked);allDPS();">
-                <span class="shared-buff-label"></span>
-            </div>
-        </div>
-        <div class="flex-container-shared-buff-inner">
-            <div class="flex-container-shared-buff-inner2">
-                <abbr title="付与した味方の攻撃力を20秒+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_50012_0_s.png" class="shared-buff-img"></abbr>
-                <span class="shared-buff-name">リコ</span>
-            </div>
-            <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label">覚醒?</span>
-                <input type="checkbox" id="shared20005-1" class="larger-check shared-check" onChange="allDPS();">
-                <span class="shared-buff-label">トークン数</span>
-                <input id="shared20005-2" type="number" min="0" max="30" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                
-            </div>
-        </div>
-        <div class="flex-container-shared-buff-inner">
-            <div class="flex-container-shared-buff-inner2">
-                <abbr title="風属性味方の攻撃力+25%" style="cursor: help;"><img src="../../img/chara-icons/icon_40210_0_s.png" class="shared-buff-img"></abbr>
-                <span class="shared-buff-name">ヤーセファ</span>
-            </div>
-            <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label"></span>
-                <span class="shared-buff-label">トークン数</span>
-                <input id="shared20006" type="number" min="0" max="4" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input type="checkbox" id="shared20003" class="larger-check shared-check" onChange="isMove(this.checked);allDPS();">
                 <span class="shared-buff-label"></span>
             </div>
         </div>
@@ -139,9 +102,9 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label">EXスキルⅡ</span>
-                <input type="checkbox" id="shared20007-1" class="larger-check shared-check" onChange="allDPS();">
+                <input type="checkbox" id="shared20004-1" class="larger-check shared-check" onChange="allDPS();">
                 <span class="shared-buff-label">回数</span>
-                <input id="shared20007-2" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input id="shared20004-2" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
         <div class="flex-container-shared-buff-inner">
@@ -153,31 +116,90 @@ document.write(`
                 <span class="shared-buff-label"></span>
                 <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">回数</span>
-                <input id="shared20008-2" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <input id="shared20005-2" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
-        <div class="flex-container-shared-buff-inner">
-            <div class="flex-container-shared-buff-inner2">
-                <abbr title="敵を攻撃で倒すごとに攻撃力が1%上昇\n(最大50回/死亡撤退時リセット)" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
-                <span class="shared-buff-name">屍山血河</span>
+    </div>
+    <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
+    <div class="collapsible-content" style="display:none;">
+        <div id="flex-container-shared-buff">
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="配置中、全味方の物理防御力+4%\n(枚数は自身除外)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">タクティクス</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">枚数</span>
+                    <input id="shared21001" type="number" min="0" max="9" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
             </div>
-            <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label"></span>
-                <span class="shared-buff-label">敵数</span>
-                <input id="shared20009" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                <span class="shared-buff-label"></span>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="敵を攻撃で倒すごとに攻撃力が1%上昇\n(最大50回/死亡撤退時リセット)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">屍山血河</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">敵数</span>
+                    <input id="shared21002" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="クリティカル率+20%、移動速度+100\nクリティカル時、攻撃速度が10秒間10%増加" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">来たる福女！</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">10秒CRI数</span>
+                    <input id="shared21003" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
             </div>
         </div>
-        <div class="flex-container-shared-buff-inner">
-            <div class="flex-container-shared-buff-inner2">
-                <abbr title="クリティカル率+20%、移動速度+100\nクリティカル時、攻撃速度が10秒間10%増加" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="shared-buff-img"></abbr>
-                <span class="shared-buff-name">来たる福女！</span>
+    </div>
+    <button type="button" class="collapsible-button inputInsertButton">　　-　トークン（クリックで開く）</button>
+    <div class="collapsible-content" style="display:none;">
+        <div id="flex-container-shared-buff">
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="付与した味方の攻撃力を20秒+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_50012_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">リコ</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label">覚醒?</span>
+                    <input type="checkbox" id="shared22001-1" class="larger-check shared-check" onChange="allDPS();">
+                    <span class="shared-buff-label">トークン数</span>
+                    <input id="shared22001-2" type="number" min="0" max="30" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    
+                </div>
             </div>
-            <div class="flex-container-shared-buff-inner2">
-                <span class="shared-buff-label"></span>
-                <span class="shared-buff-label">10秒CRI数</span>
-                <input id="shared20010" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                <span class="shared-buff-label"></span>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="風属性味方の攻撃力+25%" style="cursor: help;"><img src="../../img/chara-icons/icon_40210_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">ヤーセファ</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">トークン数</span>
+                    <input id="shared22002" type="number" min="0" max="4" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner">
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <img src="../../img/chara-icons/icon_50037_0_s.png" class="otherPassive-buff-img">
+                    <span class="otherPassive-buff-name">マージェル</span>
+                </div>
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <span class="otherPassive-buff-label"></span>
+                    <span class="otherPassive-buff-label">トークン数</span>
+                    <input id="shared22003" type="number" min="0" max="999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="otherPassive-buff-label"></span>
+                </div>
             </div>
         </div>
     </div>

@@ -523,11 +523,11 @@ document.write(`
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
         <img class="subskill-select-img-1"
         src="../../img/subskill-icons/subskill_1119.png"
-        alt="テッパンツンデレ皇女-てっぱんつんでれおうじょ-セット時、全モンスター娘の攻撃力+5%\r\nカティナをトークンとして使役可能-とーくん-こうげきりょく-へんせい"
+        alt="テッパンツンデレ皇女-てっぱんつんでれおうじょ-セット時、全モンスター娘の攻撃力+5%\r\nカティナをトークンとして使役可能-とーくん-こうげきりょく-へんせいじ"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
         <img class="subskill-select-img-1"
         src="../../img/subskill-icons/subskill_1120.png"
-        alt="おっとりお姉ちゃん皇女-おっとりおねえちゃんおうじょ-セット時、全モンスター娘の最大HP+10%\r\nリンデンハートをトークンとして使役可能-とーくん-へんせい"
+        alt="おっとりお姉ちゃん皇女-おっとりおねえちゃんおうじょ-セット時、全モンスター娘の最大HP+10%\r\nリンデンハートをトークンとして使役可能-とーくん-へんせいじ"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
         <img class="subskill-select-img-1"
         src="../../img/subskill-icons/subskill_1121.png"
@@ -672,6 +672,22 @@ document.write(`
         <img class="subskill-select-img-1"
         src="../../img/subskill-icons/subskill_1156.png"
         alt="来たる福女！-きたるふくおんな-クリティカル率+20％、移動速度+100\r\nクリティカル時、攻撃速度が10秒間10%増加-くりてぃかるりつ-くりてぃかるじ-いどうそくど-こうげきそくど"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1157.png"
+        alt="煩悶淫竜の討伐証-はんもんいんりゅうのとうばつしょう-魔法防御力+100、弓装備クラスにセット時追加で攻撃力+100、魔法防御力+30-まほうぼうぎょ-ゆみ-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1158.png"
+        alt="捕獲！自信に満ちた女勇者-ほかくじしんにみちたおんなゆうしゃ-セット時、全ウォリアー系クラスの攻撃力+15%\r\n自信に満ちた女勇者をトークンとして使役可能\r\n(元々トークン所持している場合は無効)-とーくん-へんせいじ-こうげきりょく-ウォリアー-うぉりあー"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1159.png"
+        alt="捕獲！二丁使いの女海賊-ほかくにちょうづかいのおんなかいぞく-セット時、全スナイパー系クラスの攻撃速度が15%増加\r\n二丁使いの女海賊をトークンとして使役可能\r\n(元々トークン所持している場合は無効)-とーくん-へんせいじ-こうげきそくど-すないぱー"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1160.png"
+        alt="豪華絢爛-ごうかけんらん-攻撃力+90、扇装備クラスにセット時追加で射程+10-こうげきりょく-しゃてい-せんす-うちわ-おうぎ"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
     </div>
 </div>

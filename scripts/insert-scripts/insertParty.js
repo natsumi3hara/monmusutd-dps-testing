@@ -369,44 +369,73 @@ document.write(`
                 <input type="checkbox" id="awake10237" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
-        <div class="flex-container-party-buff-inner">
-            <div class="flex-container-party-buff-inner2">
-                <abbr title="セット時、全モンスター娘の攻撃力+5%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
-                <span class="party-buff-name">ツンデレ皇妹</span>
+    </div>
+    <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
+    <div class="collapsible-content" style="display:none;">
+        <div id="flex-container-party-buff">
+            <div class="flex-container-party-buff-inner">
+                <div class="flex-container-party-buff-inner2">
+                    <abbr title="セット時、全モンスター娘の攻撃力+5%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <span class="party-buff-name">ツンデレ皇妹</span>
+                </div>
+                <div class="flex-container-party-buff-inner2">
+                    <span class="party-buff-label"></span>
+                    <span class="party-buff-label">枚数</span>
+                    <input id="partySub-1119" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="party-buff-label"></span>
+                </div>
             </div>
-            <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label"></span>
-                <span class="party-buff-label">枚数</span>
-                <input id="partySub-1119" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
-                <span class="party-buff-label"></span>
+            <div class="flex-container-party-buff-inner">
+                <div class="flex-container-party-buff-inner2">
+                    <abbr title="セット時、全モンスター娘の最大HP+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <span class="party-buff-name">おっとり皇姉</span>
+                </div>
+                <div class="flex-container-party-buff-inner2">
+                    <span class="party-buff-label"></span>
+                    <span class="party-buff-label">枚数</span>
+                    <input id="partySub-1120" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="party-buff-label"></span>
+                </div>
             </div>
-        </div>
-        <div class="flex-container-party-buff-inner">
-            <div class="flex-container-party-buff-inner2">
-                <abbr title="セット時、全モンスター娘の最大HP+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
-                <span class="party-buff-name">おっとり皇姉</span>
+            <div class="flex-container-party-buff-inner">
+                <div class="flex-container-party-buff-inner2">
+                    <abbr title="編成時風属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <span class="party-buff-name">風エクステンド</span>
+                </div>
+                <div class="flex-container-party-buff-inner2">
+                    <span class="party-buff-label"></span>
+                    <span class="party-buff-label">枚数</span>
+                    <input id="partySub-1130" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="party-buff-label"></span>
+                </div>
             </div>
-            <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label"></span>
-                <span class="party-buff-label">枚数</span>
-                <input id="partySub-1120" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
-                <span class="party-buff-label"></span>
+            <div class="flex-container-party-buff-inner">
+                <div class="flex-container-party-buff-inner2">
+                    <abbr title="セット時、全ウォリアー系クラスの攻撃力+15%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <span class="party-buff-name">捕獲！女勇者</span>
+                </div>
+                <div class="flex-container-party-buff-inner2">
+                    <span class="party-buff-label"></span>
+                    <span class="party-buff-label">枚数</span>
+                    <input id="partySub-1158" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="party-buff-label"></span>
+                </div>
             </div>
-        </div>
-        <div class="flex-container-party-buff-inner">
-            <div class="flex-container-party-buff-inner2">
-                <abbr title="編成時風属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
-                <span class="party-buff-name">風エクステンド</span>
-            </div>
-            <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label"></span>
-                <span class="party-buff-label">枚数</span>
-                <input id="partySub-1130" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
-                <span class="party-buff-label"></span>
+            <div class="flex-container-party-buff-inner">
+                <div class="flex-container-party-buff-inner2">
+                    <abbr title="セット時、全スナイパー系クラスの攻撃速度が15%増加" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <span class="party-buff-name">捕獲！女海賊</span>
+                </div>
+                <div class="flex-container-party-buff-inner2">
+                    <span class="party-buff-label"></span>
+                    <span class="party-buff-label">枚数</span>
+                    <input id="partySub-1159" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="party-buff-label"></span>
+                </div>
             </div>
         </div>
     </div>
-    <button type="button" class="collapsible-button inputInsertButton">変身キャラ（クリックで開く）</button>
+    <button type="button" class="collapsible-button inputInsertButton">　　-　変身キャラ（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">
         <div id="flex-container-party-buff">
             <div class="flex-container-party-buff-inner" style="width:225px;">

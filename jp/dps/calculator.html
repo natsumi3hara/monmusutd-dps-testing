@@ -15,8 +15,8 @@
         <script src="../../scripts/console&devToolsDB.js"></script>
         -->
         <link href="../../css/dpsTEST.css" rel="stylesheet" type="text/css"/>
-        <script src="../../scripts/statsCalc/allDataOB.js"></script>
-        <script src="../../scripts/statsCalc/allUnitcardOB.js"></script>
+        <script src="../../scripts/statsCalc/allData.js"></script>
+        <script src="../../scripts/statsCalc/allUnitcard.js"></script>
         <script src="../../scripts/statsCalc/eBuffType.js"></script>
         <script src="../../scripts/statsCalc/partybuff.js"></script>
         <script src="../../scripts/dpsCalcTEST.js"></script>
@@ -33,8 +33,8 @@
         <script src="../../scripts/charaGroups.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
         <script>
-            var console = {};
-            console.log = function(){};
+            //var console = {};
+            //console.log = function(){};
             const params = (new URL(document.location)).searchParams;
             var masterValues = {};
             masterValues["language"] = "ja";
@@ -84,8 +84,8 @@
                     </div>
                     <div id="alliedunit" class="dps-input-tablink-content dps-tabcontent" style="display: block;">
                         <div>
-                            <span>レベル：</span><input id="input-level" type="number" min="1" max="120" value="1" onchange="allDPS();">
-                            <span>&nbsp;CC：</span><input id="input-cc" type="number" min="0" max="3" value="0" onchange="equipImageChange();allDPS();">
+                            <span>レベル：</span><input id="input-level" type="number" min="1" max="150" value="1" onchange="allDPS();">
+                            <span>&nbsp;CC：</span><input id="input-cc" type="number" min="0" max="4" value="0" onchange="equipImageChange();allDPS();">
                         </div>
                         <hr>
                         <div style="display: flex;">
@@ -140,8 +140,8 @@
                                     <option value="202000">変化3</option>
                                     <option value="203000">変化4</option>
                                 </select>
-                                <div id="kenki-div">
-                                    <script>kenkiReplace(masterValues.baseClass);</script>
+                                <div id="class-act-div">
+                                    <script>classActReplace(masterValues.baseClass);</script>
                                 </div>
                             </div>
                             <div id="unique-weapon-div" style="width: 50%;">
