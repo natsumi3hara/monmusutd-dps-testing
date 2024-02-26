@@ -882,7 +882,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     //rupupu&tantal
     if (document.getElementById("shared20006-1").checked && document.getElementById("shared20006-2").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3) && masterValues.charaID!==10248){
         cooldown -= 6;
-    } else if (document.getElementById("shared20006-1").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3) && masterValues.charaID!==10248){
+    } else if (document.getElementById("shared20006-1").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3||selfConditions["1006"]===7) && masterValues.charaID!==10248){
         cooldown -= 4;
     }
     //kazune
