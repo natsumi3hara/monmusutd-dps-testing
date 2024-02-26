@@ -114,9 +114,21 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner2">
                 <span class="shared-buff-label"></span>
-                <span class="shared-buff-label"></span>
                 <span class="shared-buff-label">回数</span>
                 <input id="shared20005-2" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="shared-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="配置中、味方近接のスキル使用後、再発動までの時間を-4秒(フル覚醒で-2秒)" style="cursor: help;"><img src="../../img/chara-icons/icon_10248_0_s.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name" style="font-size:0.5em;">ルププ＆タンタル</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label">配置</span>
+                <input type="checkbox" id="shared20006-1" class="larger-check shared-check" onChange="allDPS();">
+                <span class="shared-buff-label">完凸</span>
+                <input type="checkbox" id="shared20006-2" class="larger-check shared-check" onChange="allDPS();">
             </div>
         </div>
     </div>
@@ -191,13 +203,25 @@ document.write(`
             </div>
             <div class="flex-container-otherPassive-buff-inner">
                 <div class="flex-container-otherPassive-buff-inner2">
-                    <img src="../../img/chara-icons/icon_50037_0_s.png" class="otherPassive-buff-img">
+                    <abbr title="付与した味方のステータスを撤退するまで強化する\n近接クラス：HP、攻撃力+10%\n遠隔/スカウト系クラス：攻撃力+10%、攻撃間隔-10%" style="cursor: help;"><img src="../../img/chara-icons/icon_50037_0_s.png" class="otherPassive-buff-img"></abbr>
                     <span class="otherPassive-buff-name">マージェル</span>
                 </div>
                 <div class="flex-container-otherPassive-buff-inner2">
                     <span class="otherPassive-buff-label"></span>
                     <span class="otherPassive-buff-label">トークン数</span>
                     <input id="shared22003" type="number" min="0" max="999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="otherPassive-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner">
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <abbr title="射程内の味方の物理魔法防御力を+5%\n光属性の場合は追加で攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_50040_0_s.png" class="otherPassive-buff-img"></abbr>
+                    <span class="otherPassive-buff-name">アージェ</span>
+                </div>
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <span class="otherPassive-buff-label"></span>
+                    <span class="otherPassive-buff-label">トークン数</span>
+                    <input id="shared22004" type="number" min="0" max="2" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                     <span class="otherPassive-buff-label"></span>
                 </div>
             </div>

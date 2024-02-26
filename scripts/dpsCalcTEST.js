@@ -497,7 +497,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1160;
+    let lastSubskillID = 1162;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -782,7 +782,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
     let skillchangenumber = Number(document.getElementById("skill-change-select").value);
     let skilllevelnumber = Number(document.getElementById("skill-level-select").value);
-    //console.log("skillReference: ",masterValues.charaID-skillaltnumber+skillchangenumber);
+    //console.log("skillReference: ",masterValues.charaID-skillaltnumber+skillchangenumber+skillOCnumber);
     let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
     let minDuration = skillObject["minDurationTime"];
     let maxDuration = skillObject["maxDurationTime"];
@@ -790,6 +790,9 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     let maxCooldown = skillObject["maxCoolTime"];
     let duration = Math.floor((minDuration + (maxDuration-minDuration)/4*(skilllevelnumber-1))/30);
     let cooldown = Math.floor((minCooldown + (maxCooldown-minCooldown)/4*(skilllevelnumber-1))/30);
+    if (overchargeCharas.includes(masterValues.charaID)&&document.getElementById("overcharge-check").checked){
+        cooldown = Math.floor(1.50001 * cooldown);
+    }
     let initial = cooldown;
     let selfStun = selfStun_patterns[(masterValues.charaID-skillaltnumber+skillchangenumber).toString()];
     if (selfStun === undefined || document.getElementById("selfStun-invalid").checked){selfStun = 0;}
@@ -876,11 +879,19 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     console.log(Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3));
     console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
     console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
+    //rupupu&tantal
+    if (document.getElementById("shared20006-1").checked && document.getElementById("shared20006-2").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3) && masterValues.charaID!==10248){
+        cooldown -= 6;
+    } else if (document.getElementById("shared20006-1").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3) && masterValues.charaID!==10248){
+        cooldown -= 4;
+    }
+    //kazune
     if (document.getElementById("shared20004-1").checked && (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
         cooldown -= 7*Number(document.getElementById("shared20004-2").value);
     } else if ((selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===8) && masterValues.charaID!==10068){
         cooldown -= 10*Number(document.getElementById("shared20004-2").value);
     }
+    //anishira
     if (true/*document.getElementById("shared20005-1").checked*/){
         cooldown -= 3*Number(document.getElementById("shared20005-2").value);
     }
@@ -1590,8 +1601,12 @@ function calculateStat(level,cc,type){
     ///console.log("uniqueStats",uniqueStats);
     let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
     let skillchangenumber = Number(document.getElementById("skill-change-select").value);
+    let skillOCnumber = 0;
+    if (overchargeCharas.includes(masterValues.charaID)&&document.getElementById("overcharge-check").checked){
+        skillOCnumber = 110000;
+    }
     ///console.log("skillReference: ",masterValues.charaID-skillaltnumber+skillchangenumber);
-    let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber)})];
+    let skillObject = skill_data["table"][skill_data["table"].findIndex(object => {return object.id === (masterValues.charaID-skillaltnumber+skillchangenumber+skillOCnumber)})];
     if (level < 31) {
         var a = 0;
     } else if (level > 30 && level < 61){
@@ -2115,6 +2130,10 @@ function calculateStat(level,cc,type){
         if (masterValues.charaID !== 10171 && document.getElementById("otherSkill10171").checked){
             multEffect2.buff -= 50;
         }
+        //aerial//
+        if (selfConditions["1007"] === 16025 && selfConditions["2"] === 0){
+            multEffect2.buff -= 20 * Number(document.getElementById("charaSpecific16021-1").value);
+        }
     }
     //battle - stat5//
     if (type === "stat5"){
@@ -2129,6 +2148,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat4//
     if (type === "stat4"){
+        //arge's sorcery drone
+        if (true){
+            multEffect2.buff += 5 * Number(document.getElementById("shared22004").value);
+        }
         //soleia's permanent buff//
         if (masterValues.charaID === 10082){
             multEffect2.buff += 30 * document.getElementById("charaSpecific10082-1").value;
@@ -2136,6 +2159,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat3//
     if (type === "stat3"){
+        //arge's sorcery drone
+        if (true){
+            multEffect2.buff += 5 * Number(document.getElementById("shared22004").value);
+        }
         //melon's trait stat1 dependent buff (base HP)
         if (masterValues.charaID === 10041){
             addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
@@ -2171,12 +2198,24 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //arge's sorcery drone
+        if (masterValues.unitcard.element === 5) {
+            multEffect2.buff += 8 * Number(document.getElementById("shared22004").value);
+        }
+        //idol ather's ally buff
+        if (masterValues.charaID !== 10239){
+            addEffect2.buff += Math.floor(40 * Number(document.getElementById("otherSkill10239-1").value) /100);
+        }
+        //arge's wait buff
+        if (masterValues.charaID === 10238){
+            multEffect2.buff += 10 * Number(document.getElementById("charaSpecific10238-1").value);
+        }
         //elute's unique weapon buff
         if (masterValues.charaID === 10061 && document.getElementById("unique-equip-check").checked){
-            multEffect2.buff += 20 * document.getElementById("charaSpecific10061-1").value;
+            multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10061-1").value);
         }
         //margel's token buff
-        if (masterValues.charaID !== 10122){
+        if (true){
             multEffect2.buff += 10 * document.getElementById("shared22003").value;
         }
         //pyuli's fire tile buff (for other allies)
@@ -2353,6 +2392,14 @@ function calculateStat(level,cc,type){
         //chase assassin//
         if (selfConditions["1007"] === 16014 && selfConditions["2"] === 0){
             multEffect2.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
+        }
+        //phantom//
+        if (selfConditions["1007"] === 16015 && selfConditions["2"] === 0){
+            multEffect2.buff += 70 * Number(document.getElementById("charaSpecific16011-1").value);
+        }
+        //arcane mage//
+        if (selfConditions["1007"] === 14015 && selfConditions["2"] === 0){
+            multEffect2.buff += 10 * Number(document.getElementById("charaSpecific14011-1").value);
         }
     }
     //battle - stat1//
@@ -2812,6 +2859,11 @@ function calculateStat(level,cc,type){
             multEffect3.buff *= 150;
             multEffect3.count += 1;
         }
+        //rupupu and tantal
+        if (document.getElementById('otherSkill10248-1').checked){
+            multEffect3.buff *= 130;
+            multEffect3.count += 1;
+        }
         addEffect3 = {"buff":0,"count":1};
     } else {
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
@@ -2901,6 +2953,10 @@ function calculateStat(level,cc,type){
         if (masterValues.charaID !== 10171 && document.getElementById("otherSkill10171").checked){
             multEffect3.buff -= 50;
         }
+        //aerial//
+        if (selfConditions["1007"] === 16025 && selfConditions["2"] === 0){
+            multEffect3.buff -= 20 * Number(document.getElementById("charaSpecific16021-1").value);
+        }
     }
     //skill - stat5//
     if (type === "stat5"){
@@ -2915,6 +2971,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat4//
     if (type === "stat4"){
+        //arge's sorcery drone
+        if (true){
+            multEffect3.buff += 5 * Number(document.getElementById("shared22004").value);
+        }
         //soleia's permanent buff//
         if (masterValues.charaID === 10082){
             multEffect3.buff += 30 * document.getElementById("charaSpecific10082-1").value;
@@ -2922,6 +2982,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat3//
     if (type === "stat3"){
+        //arge's sorcery drone
+        if (true){
+            multEffect3.buff += 5 * Number(document.getElementById("shared22004").value);
+        }
         //melon's trait stat1 dependent buff (base HP)
         if (masterValues.charaID === 10041){
             addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
@@ -2953,6 +3017,22 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //arge's sorcery drone
+        if (masterValues.unitcard.element === 5) {
+            multEffect3.buff += 8 * Number(document.getElementById("shared22004").value);
+        }
+        //idol ather's ally buff
+        if (masterValues.charaID !== 10239){
+            addEffect3.buff += Math.floor(40 * Number(document.getElementById("otherSkill10239-1").value) /100);
+        }
+        //idol ather's self buff
+        if (masterValues.charaID === 10239){
+            multEffect3.buff += 40;
+        }
+        //arge's wait buff
+        if (masterValues.charaID === 10238){
+            multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10238-1").value);
+        }
         //choco airen's stat3 dependent buff
         if (masterValues.charaID === 10235){
             addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-skill-value-stat3").innerHTML) / 100);
@@ -2962,7 +3042,7 @@ function calculateStat(level,cc,type){
             multEffect3.buff += 20 * document.getElementById("charaSpecific10061-1").value;
         }
         //margel's token buff
-        if (masterValues.charaID !== 10122){
+        if (true){
             multEffect3.buff += 10 * document.getElementById("shared22003").value;
         }
         //pyuli's fire tile buff (for other allies)
@@ -3149,6 +3229,14 @@ function calculateStat(level,cc,type){
         if (selfConditions["1007"] === 16014 && selfConditions["2"] === 0){
             multEffect3.buff += 50 * Number(document.getElementById("charaSpecific16011-1").value);
         }
+        //phantom//
+        if (selfConditions["1007"] === 16015 && selfConditions["2"] === 0){
+            multEffect3.buff += 70 * Number(document.getElementById("charaSpecific16011-1").value);
+        }
+        //arcane mage//
+        if (selfConditions["1007"] === 14015 && selfConditions["2"] === 0){
+            multEffect3.buff += 10 * Number(document.getElementById("charaSpecific14011-1").value);
+        }
     }
     //skill - stat1//
     if (type === "stat1"){
@@ -3209,7 +3297,7 @@ function calculateStat(level,cc,type){
     }
     //yano's attribute tile//
     if ([10188].includes(masterValues.charaID)){
-        if (document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value != masterValues.unitcard.element){
+        if (!(document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == masterValues.unitcard.element)){
             //console.log("simulated attibute tile");
             if (["stat2","stat3","stat4"].includes(type)){
                 multEffect3.buff += 30;
@@ -3327,8 +3415,8 @@ function calculateStat(level,cc,type){
             document.getElementById("dps-output-skill-value-stat22").innerHTML = "Penetrate";
         }
     }
-    //lapis, thunderSuzu and shirotae override
-    if ([10139,10177,10187].includes(masterValues.charaID)){
+    //lapis, thunderSuzu, shirotae, arge override
+    if ([10139,10177,10187,10238].includes(masterValues.charaID)){
         document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
     }
     try {
@@ -4010,7 +4098,8 @@ function skilltextreplace(){
     //manipulation//
     try {
         //excludes skills unreleased//
-        if (skillObject === undefined || [10095,10098].includes(skillObject["id"])) {
+        //if (skillObject === undefined || [10095,10098].includes(skillObject["id"])) {
+        if (skillObject === undefined) {
             if (masterValues.language === "ja"){throw "存在しないスキルです";}
             else if (masterValues.language === "en"){throw "Skill does not exist";}
         }
@@ -4270,10 +4359,9 @@ function charaInfoReplace(){
 }
 
 function uniqueWeaponReplace(charaID){
-    let unique = [1,3,4,6,7,8,10,11,12,13,15,16,17,19,21,23,24,25,26,27,28,30,34,36,37,38,40,43,44,46,49,51,52,57,61,63,66];
     let uwID = charaID-10000;
     let targetDiv = document.getElementById("unique-weapon-div");
-    if (unique.includes(uwID)){
+    if (uniqueCharas.includes(uwID)){
         let uwSRC = "'../../img/equipment-icons/uw_"+uwID+"001.png'";
         if (masterValues.language === "ja"){
             targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
@@ -4323,9 +4411,25 @@ function classActReplace(classID){
         }
     }
 }
+function overchargeReplace(charaID){
+    let targetDiv = document.getElementById("overcharge-div");
+    if (overchargeCharas.includes(charaID)){
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>OC</span></td><td style="border:none;"><input id="overcharge-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>OC</span></td><td style="border:none;"><input id="overcharge-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        }
+    } else {
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="border:none;display:none;"><tr><td style="border:none;vertical-align:top;"><span>OC</span></td><td style="border:none;"><input id="overcharge-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="border:none;display:none;"><tr><td style="border:none;vertical-align:top;"><span>OC</span></td><td style="border:none;"><input id="overcharge-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+        }
+    }
+}
 
 function dpsDetailShow(){
-    let dpsC = [10040,10049,10063,10092,10131,10136,10145,10178,10209];
+    let dpsC = [10040,10049,10063,10092,10131,10136,10145,10178,10209,10239];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201];
     if (dpsC.includes(masterValues.charaID)){
@@ -4591,8 +4695,8 @@ const attachOptions = [
     {value: 1158, text: '捕獲！自信に満ちた女勇者'},
     {value: 1159, text: '捕獲！二丁使いの女海賊'},
     {value: 1160, text: '豪華絢爛'},
-    //{value: 1161, text: 'ダミー'},
-    //{value: 1162, text: 'ダミー'},
+    {value: 1161, text: '再出撃時間+出撃コスト減少'},
+    {value: 1162, text: '攻撃強化+HP強化'},
     //{value: 1163, text: 'ダミー'},
     //{value: 1164, text: 'ダミー'},
     //{value: 1165, text: 'ダミー'},

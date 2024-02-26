@@ -163,6 +163,30 @@ document.write(`
                 <input id="level10225" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
             </div>
         </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10239_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">旋律アテエル</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+            <span class="otherSkill-buff-label"></span>
+                <span class="otherSkill-buff-label">基本攻撃力</span>
+                <input id="otherSkill10239-1" type="number" min="0" max="19999" value="0" class="otherSkill-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="otherSkill-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10248_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name" style="font-size:0.5em;">ルププ＆タンタル</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10248-1" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10248" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
+            </div>
+        </div>
     </div>
 </div>
 <script>

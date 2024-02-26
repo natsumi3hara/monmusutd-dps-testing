@@ -164,8 +164,14 @@ var partybuffref = {
     "party10237": {
         "cond":[3],"stat2":[9]
     },
-    "party10237": {
+    "awake10237": {
         "cond":[3],"stat2":[5]
+    },
+    "party10239": {
+        "cond":[],"stat2":[3]
+    },
+    "awake10239": {
+        "cond":[],"stat2":[2]
     },
     //divine beasts
     "divine30000": {

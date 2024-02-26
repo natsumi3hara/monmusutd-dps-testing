@@ -260,6 +260,13 @@ document.write(`
     <td id="exsub-1159" class="exsub" onclick="toggleExclude(1159)">捕獲！二丁使いの女海賊</td>
 </tr>
 <tr>
+    <td id="exsub-1161" class="exsub excluded" onclick="toggleExclude(1161)">再出撃時間+出撃コスト減少</td>
+    <td id="exsub-1162" class="exsub excluded" onclick="toggleExclude(1162)">攻撃強化+HP強化</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">生成</td>
 </tr>
 <tr>

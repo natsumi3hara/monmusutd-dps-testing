@@ -539,4 +539,20 @@ const continuous_patterns = {
 			},
 		],
 	},
+	"239": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":3},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":15},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
 }

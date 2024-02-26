@@ -689,6 +689,14 @@ document.write(`
         src="../../img/subskill-icons/subskill_1160.png"
         alt="豪華絢爛-ごうかけんらん-攻撃力+90、扇装備クラスにセット時追加で射程+10-こうげきりょく-しゃてい-せんす-うちわ-おうぎ"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1161.png"
+        alt="再出撃時間+出撃コスト減少-さいしゅつげんじかんたんしゅくしゅつげきこすとげんしょう-再出撃までの時間を45%短縮\r\n出撃コスト-1"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1162.png"
+        alt="攻撃強化+HP強化-こうげききょうかえいちぴーきょうか-攻撃力+17%、HP+20%-こうげきりょく-えいちぴー"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

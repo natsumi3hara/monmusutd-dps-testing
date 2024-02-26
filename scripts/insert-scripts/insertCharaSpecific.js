@@ -50,18 +50,6 @@ document.write(`
 <button type="button" class="collapsible-button inputInsertButton">キャラ個別（クリックで開く）</button>
 <div class="collapsible-content" style="display:block;">
     <div id="flex-container-charaSpecific-buff">
-        <div class="flex-container-charaSpecific-buff-inner chara-specific-10007">
-            <div class="flex-container-charaSpecific-buff-inner2">
-                <img src="../../img/chara-icons/icon_10007_0_s.png" class="charaSpecific-buff-img">
-                <span class="charaSpecific-buff-name">回復量アップ</span>
-            </div>
-            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
-                <span class="charaSpecific-buff-label"></span>
-                <span class="charaSpecific-buff-label">味方が水属性</span>
-                <input id="charaSpecific10007-1" type="checkbox" class="larger-check charaSpecific-check" onchange="isSameAttributeTarget(this.checked);allDPS();">
-                <span class="charaSpecific-buff-label"></span>
-            </div>
-        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10011">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10011_0_s.png" class="charaSpecific-buff-img">
@@ -441,7 +429,7 @@ document.write(`
             </div>
             <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
                 <span class="charaSpecific-buff-label">敵が遠い</span>
-                <input id="charaSpecific10210-1" type="checkbox" class="larger-check charaSpecific-check" onchange="isSameAttributeTarget(this.checked);allDPS();">
+                <input id="charaSpecific10210-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
                 <span class="charaSpecific-buff-label" style="color:red;">バグです。特性の貫通</span>
                 <span class="charaSpecific-buff-label" style="color:red;">が3回中2回発生します。</span>
             </div>
@@ -494,10 +482,22 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10238">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10238_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">アージェ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">待機バフ(%)</span>
+                <input id="charaSpecific10238-1" class="" type="number" min="0" max="700" step="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-11011">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/ui-icons/Icon_Job_11011.png" class="charaSpecific-buff-img">
-                <span class="charaSpecific-buff-name">ブレイダー</span>
+                <span class="charaSpecific-buff-name">曲刀CC1以上</span>
             </div>
             <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
                 <span class="charaSpecific-buff-label"></span>
@@ -509,7 +509,7 @@ document.write(`
         <div class="flex-container-charaSpecific-buff-inner chara-specific-11031">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/ui-icons/Icon_Job_11031.png" class="charaSpecific-buff-img">
-                <span class="charaSpecific-buff-name">バーバリアン</span>
+                <span class="charaSpecific-buff-name">斧CC1以上</span>
             </div>
             <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
                 <span class="charaSpecific-buff-label"></span>
@@ -518,15 +518,51 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-14011">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/ui-icons/Icon_Job_14011.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">杖CC4</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">倒した敵(10秒)</span>
+                <input id="charaSpecific14011-1" class="" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-15011">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/ui-icons/Icon_Job_15011.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">錫杖</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">味方が同属性</span>
+                <input id="charaSpecific15011-1" type="checkbox" class="larger-check charaSpecific-check" onchange="isSameAttributeTarget(this.checked);allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-16011">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/ui-icons/Icon_Job_16011.png" class="charaSpecific-buff-img">
-                <span class="charaSpecific-buff-name">アサシンCC3</span>
+                <span class="charaSpecific-buff-name">短剣CC3以上</span>
             </div>
             <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">移動回数(10秒)</span>
                 <input id="charaSpecific16011-1" class="" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-16021">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/ui-icons/Icon_Job_16021.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">扇CC3以上</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">移動回数(10秒)</span>
+                <input id="charaSpecific16021-1" class="" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
@@ -562,3 +598,17 @@ function charaShowAll(){
 charaShowAll()
 </script>
 `);
+/* oxy's outdated toggle
+<div class="flex-container-charaSpecific-buff-inner chara-specific-10007">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10007_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">回復量アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">味方が水属性</span>
+                <input id="charaSpecific10007-1" type="checkbox" class="larger-check charaSpecific-check" onchange="isSameAttributeTarget(this.checked);allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+*/
