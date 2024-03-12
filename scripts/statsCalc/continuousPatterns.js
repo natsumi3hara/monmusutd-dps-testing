@@ -17,6 +17,22 @@ const continuous_patterns = {
 			},
 		],
 	},
+	"14": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[["condition","80000","",1]],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
 	"40": {
 		"battle":[
 			{"cond":[],

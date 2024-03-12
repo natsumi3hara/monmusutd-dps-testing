@@ -697,6 +697,18 @@ document.write(`
         src="../../img/subskill-icons/subskill_1162.png"
         alt="攻撃強化+HP強化-こうげききょうかえいちぴーきょうか-攻撃力+17%、HP+20%-こうげきりょく-えいちぴー"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1163.png"
+        alt="戦意継承-せんいけいしょう-再出撃までの時間を40%短縮(重複不可)\r\n自身の死亡時、味方全員の攻撃力を10秒間100%上昇させる-さいしゅつげきたんしゅく-しぼう-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1164.png"
+        alt="パートナーチアー-ぱーとなーちあー-配置中の自身が使役しているトークンの\r\n攻撃力と物理防御力+60%-こうげきりょく-とーくん-ぶつりぼうぎょ"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1165.png"
+        alt="攻撃強化+攻撃待機短縮-こうげききょうかこうげきたいきたんしゅく-攻撃力+17%、攻撃後の待機時間を20%短縮-こうげきりょく-たいきじかん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

@@ -56,6 +56,10 @@ function isClassAct(checked){ //as of now enemy no act gauge//
     if (checked) {selfConditions["34"] = 1;enemyConditions["34"] = 1;}
     else {selfConditions["34"] = 0;enemyConditions["34"] = 0;}
 }
+function isUniqueWeaponEquipped(checked){ //as of now enemy no uw//
+    if (checked) {selfConditions["80000"] = 1;enemyConditions["80000"] = 1;}
+    else {selfConditions["80000"] = 0;enemyConditions["80000"] = 0;}
+}
 function isSameAttributeTarget(checked){
     if (checked) {selfConditions["22"] = 1;}
     else {selfConditions["22"] = 0;}
@@ -497,7 +501,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1162;
+    let lastSubskillID = 1165;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -880,7 +884,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
     console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
     //rupupu&tantal
-    if (document.getElementById("shared20006-1").checked && document.getElementById("shared20006-2").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3) && masterValues.charaID!==10248){
+    if (document.getElementById("shared20006-1").checked && document.getElementById("shared20006-2").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3||selfConditions["1006"]===7) && masterValues.charaID!==10248){
         cooldown -= 6;
     } else if (document.getElementById("shared20006-1").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3||selfConditions["1006"]===7) && masterValues.charaID!==10248){
         cooldown -= 4;
@@ -2425,7 +2429,7 @@ function calculateStat(level,cc,type){
             multEffect2.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
         }
         //asta's permanent buff//
-        if (masterValues.charaID === 10029){
+        if (masterValues.charaID === 10029 && document.getElementById("skill-alt-select").value === "10000"){
             multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
         }
     }
@@ -3261,7 +3265,7 @@ function calculateStat(level,cc,type){
             multEffect3.buff += 6 * Number(document.getElementById("charaSpecific10147-1").value);
         }
         //asta's permanent buff//
-        if (masterValues.charaID === 10029){
+        if (masterValues.charaID === 10029 && document.getElementById("skill-alt-select").value === "10000"){
             multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
         }
     }
@@ -3826,6 +3830,14 @@ function pdMultValues(type){ //timing = 4//
             }
         }
     }
+    //miteras unique weapon inclusion-exclusion//
+    if ((type==="stat3"||type==="stat4") && masterValues.charaID === 10069){
+        if (document.getElementById("unique10069").checked){} //if checked on partybuff, ignore uw
+        else if (document.getElementById("unique-equip-check").checked){//else add uw effect here
+            totalPartyBuff += 20;
+        }
+    }
+    // princess subskills//
     if (type === "stat1" && (getAttachID("subskill1") === 119 || getAttachID("subskill2") === 119)){
         totalPartyBuff += 10;
     }
@@ -3838,19 +3850,22 @@ function pdMultValues(type){ //timing = 4//
     if (type === "stat2"){//other chara's or ratzel's
         totalPartyBuff += Number(document.getElementById("partySub-1119").value) * 5;
     }
-    if ((type==="stat1"||type==="stat2") && masterValues.unitcard["element"]===4){//wind extend
+    //wind extend //
+    if ((type==="stat1"||type==="stat2") && masterValues.unitcard["element"]===4){
         if (getAttachID("subskill1") === 129 || getAttachID("subskill2") === 129){
             totalPartyBuff += 10;
         }
         totalPartyBuff += Number(document.getElementById("partySub-1130").value) * 10;
     }
-    if (document.getElementById("party10082").checked && (type==="stat3"||type==="stat4") && dragonCharas.includes(masterValues.charaID)){//soleia's dragon buff
+    //soleia's dragon buff
+    if (document.getElementById("party10082").checked && (type==="stat3"||type==="stat4") && dragonCharas.includes(masterValues.charaID)){
         totalPartyBuff += 10;
         if (Number(document.getElementById("henshin-10169-select").value) === 10082){
             totalPartyBuff += 10;
         }
     }
-    if (document.getElementById("party10228").checked && (type==="stat2") && dragonCharas.includes(masterValues.charaID)){//ny soleia's dragon buff
+    //ny soleia's dragon buff
+    if (document.getElementById("party10228").checked && (type==="stat2") && dragonCharas.includes(masterValues.charaID)){
         totalPartyBuff += 10;
         if (document.getElementById("awake10228").checked){
             totalPartyBuff += 4;
@@ -3860,6 +3875,13 @@ function pdMultValues(type){ //timing = 4//
             if (document.getElementById("henshin-10169-awake").checked){
                 totalPartyBuff += 4;
             }
+        }
+    }
+    //himino's youkai buff
+    if (document.getElementById("party10251").checked && type==="stat2" && youkaiCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 8;
+        if (Number(document.getElementById("henshin-10169-select").value) === 10251){
+            totalPartyBuff += 8;
         }
     }
     //hokaku 1 - warrior
@@ -3879,6 +3901,7 @@ function pdMultValues(type){ //timing = 4//
     //↓ ratzel's partybuff copy (10169) ↓//
     let partyString = "party" + document.getElementById("henshin-10169-select").value;
     let awakeString = "awake" + document.getElementById("henshin-10169-select").value;
+    let uniqueString = "unique" + document.getElementById("henshin-10169-select").value;
     if (partybuffref[partyString].cond.length == 0){
         try {
             if (typeof partybuffref[partyString][type][0] == "number"){
@@ -3906,6 +3929,23 @@ function pdMultValues(type){ //timing = 4//
                 } else {}
             } catch (err) {}
         }
+    }
+    if (document.getElementById("henshin-10169-unique").checked){
+        try {
+            if (partybuffref[uniqueString].cond.length == 0){
+                try {
+                    if (typeof partybuffref[uniqueString][type][0] == "number"){
+                        totalPartyBuff += partybuffref[uniqueString][type][0];
+                    } else {}
+                } catch (err) {}
+            } else if (partybuffref[uniqueString].cond.includes(masterValues.unitcard["element"])||partybuffref[uniqueString].cond.includes(masterValues.baseClass)){
+                try {
+                    if (typeof partybuffref[uniqueString][type][0] == "number"){
+                        totalPartyBuff += partybuffref[uniqueString][type][0];
+                    } else {}
+                } catch (err) {}
+            }
+        } catch (err) {}
     }
     //↑ ratzel's partybuff copy ↑//
     ///console.log(type+"-pBuff:",totalPartyBuff);
@@ -4364,16 +4404,16 @@ function uniqueWeaponReplace(charaID){
     if (uniqueCharas.includes(uwID)){
         let uwSRC = "'../../img/equipment-icons/uw_"+uwID+"001.png'";
         if (masterValues.language === "ja"){
-            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
         } else if (masterValues.language === "en"){
-            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
         }
     } else {
         let uwSRC = "'../../img/chara-icons/icon_10000_0_s.png'";
         if (masterValues.language === "ja"){
-            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
         } else if (masterValues.language === "en"){
-            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
         }
     }
 }
@@ -4429,7 +4469,7 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10040,10049,10063,10092,10131,10136,10145,10178,10209,10239];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10178,10209,10239];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201];
     if (dpsC.includes(masterValues.charaID)){

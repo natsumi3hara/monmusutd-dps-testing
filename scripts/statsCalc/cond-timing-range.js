@@ -81,6 +81,7 @@ var selfConditions = {
 	"40003": 0, //touchArea (NEW)
 	"40004": 0, //totalLimit (NEW)
 	"40005": 0, //classActionTalent
+	"80000": 0, //isUniqueWeaponEquipped
 }
 var selfReference = {
 	"0": 0, //None
@@ -181,4 +182,5 @@ var enemyConditions = {
 	"40003": 0, //touchArea (NEW)
 	"40004": 0, //totalLimit (NEW)
 	"40005": 0, //classActionTalent
+	"80000": 0, //isUniqueWeaponEquipped
 }

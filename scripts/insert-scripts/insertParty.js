@@ -123,10 +123,10 @@ document.write(`
                 <span class="party-buff-name">ミテラス</span>
             </div>
             <div class="flex-container-party-buff-inner2">
-                <span class="party-buff-label">編成</span>
-                <input type="checkbox" id="party10069" class="larger-check party-check" onchange="allDPS();">
-                <span class="party-buff-label">完凸</span>
-                <input type="checkbox" id="awake10069" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">編成/完凸</span>
+                <span class="party-buff-label"><input type="checkbox" id="party10069" class="larger-check party-check" onchange="allDPS();">　<input type="checkbox" id="awake10069" class="larger-check party-check" onchange="allDPS();"></span>
+                <span class="party-buff-label">専用武器</span>
+                <input type="checkbox" id="unique10069" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
         <div class="flex-container-party-buff-inner">
@@ -381,6 +381,18 @@ document.write(`
                 <input type="checkbox" id="awake10239" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、妖怪系・火属性のモンスター娘それぞれの攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_10251_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">ヒミノ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10251" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10251" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">
@@ -487,9 +499,10 @@ document.write(`
                         <option value="10228">賀照ソレイア</option>
                         <option value="10237">参詣ロヴィリス</option>
                         <option value="10239">旋律アテエル</option>
+                        <option value="10251">ヒミノ</option>
                     </select>
-                    <span class="party-buff-label">変身元完凸</span>
-                    <input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">
+                    <span class="party-buff-label"><abbr title="自身ではなく変身元" style="cursor: help;">完凸/専用武器</abbr></span>
+                    <span class="party-buff-lebel"><input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">　<input type="checkbox" id="henshin-10169-unique" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();"></span>
                 </div>
             </div>
         </div>
