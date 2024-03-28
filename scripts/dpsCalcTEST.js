@@ -271,9 +271,9 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
-    let ex2List = [10001,10008,10014,10017,10019,10020,10022,10023,10024,10025,10026,10028,10029,10030,10031,10032,10035,10037,10038,10039,10040,10044,10046,10047,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10091,10093,10094,10100];
-    let exChangeList = [10088,10106,10126,10211];
-    let exChangeRefr = [[0,4],[4],[3],[2]];
+    let ex2List = [10001,10004,10006,10008,10012,10014,10017,10019,10020,10022,10023,10024,10025,10026,10028,10029,10030,10031,10032,10035,10037,10038,10039,10040,10041,10044,10046,10047,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10089,10090,10091,10093,10094,10100];
+    let exChangeList = [10088,10106,10126,10211,10237];
+    let exChangeRefr = [[0,4],[4],[3],[2],[4]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
     //preliminary adjustments
     document.getElementById("skill-change-select").value = "0";
@@ -1868,6 +1868,14 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //chizane
+        if (masterValues.charaID === 10208 && Number(document.getElementById("charaSpecific10208-1").value) > 9){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
         //kitaru fukuonna
         if ((subskillID_1 === 155 || subskillID_2 === 155) && Number(document.getElementById("shared21003").value) > 0){
             try {
@@ -2110,6 +2118,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat7//
     if (type === "stat7"){
+        //chizane
+        if (masterValues.charaID === 10208){
+            multEffect2.buff -= 10 * Math.floor(Number(document.getElementById("charaSpecific10208-1").value)/10);
+        }
         //margel's token buff
         if (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===6||selfConditions["1006"]===7||selfConditions["1006"]===8){
             multEffect2.buff -= 10 * document.getElementById("shared22003").value;
@@ -2681,6 +2693,14 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //chizane
+        if (masterValues.charaID === 10208 && Number(document.getElementById("charaSpecific10208-1").value) > 9){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
         //kitaru fukuonna
         if ((subskillID_1 === 155 || subskillID_2 === 155) && Number(document.getElementById("shared21003").value) > 0){
             try {
@@ -2933,6 +2953,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat7//
     if (type === "stat7"){
+        //chizane
+        if (masterValues.charaID === 10208){
+            multEffect3.buff -= 10 * Math.floor(Number(document.getElementById("charaSpecific10208-1").value)/10);
+        }
         //margel's token buff
         if (selfConditions["1006"]===4||selfConditions["1006"]===5||selfConditions["1006"]===6||selfConditions["1006"]===7||selfConditions["1006"]===8){
             multEffect3.buff -= 10 * document.getElementById("shared22003").value;
