@@ -501,7 +501,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1165;
+    let lastSubskillID = 1166;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -589,9 +589,9 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10016,10101,10112,10118,10160,10196,10235].includes(masterValues.charaID)){
+    if ([10016,10101,10112,10118,10160,10196,10230,10235].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
-        //stat1 dependent here too (10016,10196)
+        //stat1 dependent here too (10016,10196,10230)
         calculateStat(level,cc,"stat2");
     }
     if ([10041,10079].includes(masterValues.charaID)){
@@ -1868,6 +1868,14 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //elter
+        if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[30]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[30]]];
+            }
+        }
         //chizane
         if (masterValues.charaID === 10208 && Number(document.getElementById("charaSpecific10208-1").value) > 9){
             try {
@@ -2214,6 +2222,16 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //rogdanno's stat1 dependent buff
+        if (masterValues.charaID === 10230){
+            addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+        }
+        //elter's atk buff
+        if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked && document.getElementById("otherPassive10220-2").checked){
+            multEffect2.buff += 40;
+        } else if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked){
+            multEffect2.buff += 30;
+        }
         //arge's sorcery drone
         if (masterValues.unitcard.element === 5) {
             multEffect2.buff += 8 * Number(document.getElementById("shared22004").value);
@@ -2491,6 +2509,10 @@ function calculateStat(level,cc,type){
     if (type === "stat7" && (subskillID_1 === 155 || subskillID_2 === 155)){
         multEffect2.buff -= 10 * Number(document.getElementById("shared21003").value);
     }
+    //sen'i keishou
+    if (type === "stat2"){
+        multEffect2.buff += 100 * Number(document.getElementById("shared21004").value);
+    }
     //aSpd debuff limit
     if (type === "stat6"){
         if (multEffect2.buff < 50){multEffect2.buff=50}
@@ -2693,6 +2715,14 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //elter
+        if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[30]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[30]]];
+            }
+        }
         //chizane
         if (masterValues.charaID === 10208 && Number(document.getElementById("charaSpecific10208-1").value) > 9){
             try {
@@ -3045,6 +3075,16 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //rogdanno's stat1 dependent buff
+        if (masterValues.charaID === 10230){
+            addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+        }
+        //elter's atk buff
+        if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked && document.getElementById("otherPassive10220-2").checked){
+            multEffect3.buff += 40;
+        } else if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked){
+            multEffect3.buff += 30;
+        }
         //arge's sorcery drone
         if (masterValues.unitcard.element === 5) {
             multEffect3.buff += 8 * Number(document.getElementById("shared22004").value);
@@ -3356,6 +3396,10 @@ function calculateStat(level,cc,type){
     //kitaru fukuonna
     if (type === "stat7" && (subskillID_1 === 155 || subskillID_2 === 155)){
         multEffect3.buff -= 10 * Number(document.getElementById("shared21003").value);
+    }
+    //sen'i keishou
+    if (type === "stat2"){
+        multEffect3.buff += 100 * Number(document.getElementById("shared21004").value);
     }
     //aSpd debuff limit
     if (type === "stat6"){
@@ -4493,7 +4537,7 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10178,10209,10239];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10178,10209,10230,10239];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201];
     if (dpsC.includes(masterValues.charaID)){
@@ -4761,10 +4805,10 @@ const attachOptions = [
     {value: 1160, text: '豪華絢爛'},
     {value: 1161, text: '再出撃時間+出撃コスト減少'},
     {value: 1162, text: '攻撃強化+HP強化'},
-    //{value: 1163, text: 'ダミー'},
-    //{value: 1164, text: 'ダミー'},
-    //{value: 1165, text: 'ダミー'},
-    //{value: 1166, text: 'ダミー'},
+    {value: 1163, text: '戦意継承'},
+    {value: 1164, text: 'パートナーチアー'},
+    {value: 1165, text: '攻撃強化+攻撃待機短縮'},
+    {value: 1166, text: 'ムッツリ妄想フルパワー'},
     //{value: 1167, text: 'ダミー'},
     //{value: 1168, text: 'ダミー'},
     //{value: 1169, text: 'ダミー'},

@@ -171,6 +171,18 @@ document.write(`
                     <span class="shared-buff-label"></span>
                 </div>
             </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="再出撃までの時間を40%短縮(重複不可)\n自身の死亡時、味方全員の攻撃力を10秒間100%上昇させる" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">来たる福女！</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">死亡回数</span>
+                    <input id="shared21004" type="number" min="0" max="12" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
         </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　トークン（クリックで開く）</button>
