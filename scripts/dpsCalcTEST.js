@@ -4537,9 +4537,9 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10178,10209,10230,10239];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10178,10209,10239];
     //let dpsF = [];
-    let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201];
+    let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230];
     if (dpsC.includes(masterValues.charaID)){
         document.getElementById("battleC").style.display = "block";
         document.getElementById("skillC").style.display = "block";

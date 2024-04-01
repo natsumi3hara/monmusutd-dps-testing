@@ -555,22 +555,6 @@ const continuous_patterns = {
 			},
 		],
 	},
-	"230": {
-		"battle":[
-			{"cond":[],
-			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
-			"target":"target",
-			"time":"attack",
-			},
-		],
-		"skill":[
-			{"cond":[],
-			"damage":{"hitType":"物理","reference":"stat2","multiplier":50},
-			"target":"target",
-			"time":"attack",
-			},
-		],
-	},
 	"239": {
 		"battle":[
 			{"cond":[],

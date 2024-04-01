@@ -186,4 +186,20 @@ const additional_patterns_2 = {
 			},
 		],
 	},
+	"230": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":"attack",
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"物理","reference":"stat2","multiplier":50},
+			"target":"range",
+			"time":"attack",
+			},
+		],
+	},
 }
