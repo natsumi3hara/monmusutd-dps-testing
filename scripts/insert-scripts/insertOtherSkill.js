@@ -177,6 +177,18 @@ document.write(`
         </div>
         <div class="flex-container-otherSkill-buff-inner">
             <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10244_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">プロメスティン</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label"></span>
+                <span class="otherSkill-buff-label">範囲内</span>
+                <input type="checkbox" id="otherSkill10244-1" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
                 <img src="../../img/chara-icons/icon_10248_0_s.png" class="otherSkill-buff-img">
                 <span class="otherSkill-buff-name" style="font-size:0.5em;">ルププ＆タンタル</span>
             </div>

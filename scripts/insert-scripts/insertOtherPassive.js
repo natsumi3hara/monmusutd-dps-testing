@@ -236,6 +236,18 @@ document.write(`
                 <input type="checkbox" id="otherPassive10220-2" class="larger-check otherPassive-check" onchange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10244_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">プロメスティン</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">完凸/回数</span>
+                <span><input type="checkbox" id="otherPassive10244-1" class="larger-check otherPassive-check" style="display:inline;" onchange="allDPS();"><input id="otherPassive10244-2" type="number" min="0" max="20" value="0" class="otherPassive-nocheck" style="width:40%;height:70%;margin:2px auto;border:none;display:inline;" onChange="allDPS();"></span>
+                <span class="otherPassive-buff-label">基礎攻撃力</span>
+                <input id="otherPassive10244-3" type="number" min="0" max="9999" value="0" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">計算（工事中）</button>
     <div class="collapsible-content" style="display:none;">
@@ -246,10 +258,13 @@ document.write(`
 let otherPassivechecks = document.getElementsByClassName("otherPassive-check")
 for (let i=0;i<otherPassivechecks.length;i++){
     if (otherPassivechecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
-        if (masterValues.charaID === 10179){
+        if ([10179].includes(masterValues.charaID)){
             otherPassivechecks[i].checked = true;
+        } else if ([10244].includes(masterValues.charaID)){
+            otherPassivechecks[i].disabled = false;
+        } else {
+            otherPassivechecks[i].disabled = true;
         }
-        otherPassivechecks[i].disabled = true;
     } else {}
     if (otherPassivechecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && charAwaked){
         otherPassivechecks[i].disabled = true;

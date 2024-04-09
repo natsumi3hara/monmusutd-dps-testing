@@ -263,7 +263,7 @@ document.write(`
 <tr>
     <td id="exsub-1162" class="exsub" onclick="toggleExclude(1162)">攻撃強化+HP強化</td>
     <td id="exsub-1165" class="exsub excluded" onclick="toggleExclude(1165)">攻撃強化+攻撃待機短縮</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1167" class="exsub" onclick="toggleExclude(1167)">攻撃強化+底力(攻撃)</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>

@@ -433,6 +433,22 @@ const continuous_patterns = {
 			},
 		],
 	},
+	"150": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"target",
+			"time":"attack",
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":100},
+			"target":"range",
+			"time":750,
+			},
+		],
+	},
 	"178-1": {
 		"battle":[
 			{"cond":[],
@@ -568,6 +584,22 @@ const continuous_patterns = {
 			"damage":{"hitType":"貫通","reference":"stat2","multiplier":15},
 			"target":"range",
 			"time":30,
+			},
+		],
+	},
+	"245": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"target",
+			"time":"attack",
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":200},
+			"target":"range",
+			"time":600,
 			},
 		],
 	},

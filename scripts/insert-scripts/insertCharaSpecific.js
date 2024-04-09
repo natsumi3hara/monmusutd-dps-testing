@@ -506,6 +506,30 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10244">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10244_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">プロメスティン</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">味方が火・光属性</span>
+                <input id="charaSpecific10244-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10246">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10246_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">吸収した敵の攻撃力</span>
+                <input id="charaSpecific10246-1" class="" type="number" min="0" max="99999" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-11011">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/ui-icons/Icon_Job_11011.png" class="charaSpecific-buff-img">

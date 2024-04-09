@@ -713,6 +713,10 @@ document.write(`
         src="../../img/subskill-icons/subskill_1166.png"
         alt="ムッツリ妄想フルパワー-むっつりもうそうふるぱわー-物理防御+85、魔法防御+85\r\n鈍器装備クラスにセット時追加で\r\n攻撃力+19%、クリティカル率+19%-ぶつりぼうぎょ-まほうぼうぎょ-こうげきりょく-くりてぃかるりつ-どんき-こん棒-こんぼう"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1167.png"
+        alt="攻撃強化+底力(攻撃)-こうげききょうかそこぢからこうげき-攻撃力+17%、HP減少量に応じて攻撃力が上昇する(最大40%)"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

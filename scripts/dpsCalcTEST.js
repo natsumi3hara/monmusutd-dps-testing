@@ -501,7 +501,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1166;
+    let lastSubskillID = 1167;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -2061,6 +2061,11 @@ function calculateStat(level,cc,type){
             multEffect2.buff *= 150;
             multEffect2.count += 1;
         }
+        //promestein's self healing buff for fire/light allies
+        if (document.getElementById("charaSpecific10244-1").checked){
+            multEffect2.buff *= 130;
+            multEffect2.count += 1;
+        }
         addEffect2 = {"buff":0,"count":1};
     } else {
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
@@ -2222,6 +2227,20 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //promestein's atk increase on heal buff
+        if (document.getElementById("otherPassive10244-1").checked){
+            addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10244-2").value) * Number(document.getElementById("otherPassive10244-3").value) / 100);
+        } else {
+            addEffect2.buff += Math.floor(40 * Number(document.getElementById("otherPassive10244-2").value) * Number(document.getElementById("otherPassive10244-3").value) / 100);
+        }
+        //vanilla's attack steal buff
+        if (masterValues.charaID === 10246){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(4 * Number(document.getElementById("charaSpecific10246-1").value) / 100);
+            } else {
+                addEffect2.buff += Math.floor(6 * Number(document.getElementById("charaSpecific10246-1").value) / 100);
+            }
+        }
         //rogdanno's stat1 dependent buff
         if (masterValues.charaID === 10230){
             addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
@@ -2438,6 +2457,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat1//
     if (type === "stat1"){
+        //promestein skill hp buff
+        if (document.getElementById("otherSkill10244-1").checked && masterValues.charaID !== 10244){
+            multEffect2.buff += 30;
+        }
         //demolish ACT
         if (selfConditions["34"]===1 && selfConditions["1007"]===12025){
             multEffect2.buff += 50;
@@ -2918,6 +2941,11 @@ function calculateStat(level,cc,type){
             multEffect3.buff *= 130;
             multEffect3.count += 1;
         }
+        //promestein's self healing buff for fire/light allies
+        if (document.getElementById("charaSpecific10244-1").checked){
+            multEffect3.buff *= 130;
+            multEffect3.count += 1;
+        }
         addEffect3 = {"buff":0,"count":1};
     } else {
         multEffect3 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
@@ -3075,6 +3103,20 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //promestein's atk increase on heal buff
+        if (document.getElementById("otherPassive10244-1").checked){
+            addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10244-2").value) * Number(document.getElementById("otherPassive10244-3").value) / 100);
+        } else {
+            addEffect2.buff += Math.floor(40 * Number(document.getElementById("otherPassive10244-2").value) * Number(document.getElementById("otherPassive10244-3").value) / 100);
+        }
+        //vanilla's attack steal buff
+        if (masterValues.charaID === 10246){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(4 * Number(document.getElementById("charaSpecific10246-1").value) / 100);
+            } else {
+                addEffect3.buff += Math.floor(6 * Number(document.getElementById("charaSpecific10246-1").value) / 100);
+            }
+        }
         //rogdanno's stat1 dependent buff
         if (masterValues.charaID === 10230){
             addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
@@ -3308,6 +3350,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat1//
     if (type === "stat1"){
+        //promestein skill hp buff
+        if (document.getElementById("otherSkill10244-1").checked && masterValues.charaID !== 10244){
+            multEffect3.buff += 30;
+        }
         //demolish ACT
         if (selfConditions["34"]===1 && selfConditions["1007"]===12025){
             multEffect3.buff += 50;
@@ -4537,7 +4583,7 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10178,10209,10239];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10150,10178,10209,10239,10245];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230];
     if (dpsC.includes(masterValues.charaID)){
@@ -4809,7 +4855,7 @@ const attachOptions = [
     {value: 1164, text: 'パートナーチアー'},
     {value: 1165, text: '攻撃強化+攻撃待機短縮'},
     {value: 1166, text: 'ムッツリ妄想フルパワー'},
-    //{value: 1167, text: 'ダミー'},
+    {value: 1167, text: '攻撃強化+底力(攻撃)'},
     //{value: 1168, text: 'ダミー'},
     //{value: 1169, text: 'ダミー'},
     //{value: 1170, text: 'ダミー'},
