@@ -248,6 +248,30 @@ document.write(`
                 <input id="otherPassive10244-3" type="number" min="0" max="9999" value="0" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10264_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">壊奏ブンコ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10264-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10264-2" class="larger-check otherPassive-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10264_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">壊奏ブンコ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">演奏(9秒)</span>
+                <input id="otherPassive10264-3" type="number" min="0" max="20" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="otherPassive-buff-label">基本攻撃力</span>
+                <input id="otherPassive10264-4" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">計算（工事中）</button>
     <div class="collapsible-content" style="display:none;">
@@ -260,7 +284,7 @@ for (let i=0;i<otherPassivechecks.length;i++){
     if (otherPassivechecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
         if ([10179].includes(masterValues.charaID)){
             otherPassivechecks[i].checked = true;
-        } else if ([10244].includes(masterValues.charaID)){
+        } else if ([10244,10264].includes(masterValues.charaID)){
             otherPassivechecks[i].disabled = false;
         } else {
             otherPassivechecks[i].disabled = true;

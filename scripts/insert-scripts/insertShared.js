@@ -237,6 +237,18 @@ document.write(`
                     <span class="otherPassive-buff-label"></span>
                 </div>
             </div>
+            <div class="flex-container-otherPassive-buff-inner">
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <abbr title="付与した味方の攻撃力を40秒+12%" style="cursor: help;"><img src="../../img/chara-icons/icon_50044_0_s.png" class="otherPassive-buff-img"></abbr>
+                    <span class="otherPassive-buff-name">劇薬リコ</span>
+                </div>
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <span class="otherPassive-buff-label"></span>
+                    <span class="otherPassive-buff-label">トークン数</span>
+                    <input id="shared22005" type="number" min="0" max="12" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="otherPassive-buff-label"></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

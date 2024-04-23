@@ -810,8 +810,8 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
     let cooldown4to4 = (masterValues.charaID===10234);
     console.log(cooldown4to4);
-    let cooldown4to1 = (masterValues.charaID===10066)&&document.getElementById("unique-equip-check").checked;
-    let cooldown2to1 = (masterValues.charaID===10015)&&selfConditions["2"]===1&&document.getElementById("unique-equip-check").checked;
+    let cooldown4to1 = ((masterValues.charaID===10066)&&document.getElementById("unique-equip-check").checked);
+    let cooldown2to1 = ((masterValues.charaID===10015)&&selfConditions["2"]===1&&document.getElementById("unique-equip-check").checked)||(masterValues.charaID===10263&&selfConditions["1010"].includes(5));
     let cooldown1to1 = (masterValues.charaID===10147||masterValues.charaID===10198) && selfConditions["2"]===1;
     //duration manipulation//
     if (duration === 0){duration = Number(document.getElementById("dps-dps-skill-averageFrame").innerHTML)/30}
@@ -2177,6 +2177,12 @@ function calculateStat(level,cc,type){
     }
     //battle - stat4//
     if (type === "stat4"){
+        //school bunko's youkai buff
+        if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10264-2").checked){
+                addEffect2.buff += 180;
+            } else {addEffect2.buff += 150;}
+        }
         //arge's sorcery drone
         if (true){
             multEffect2.buff += 5 * Number(document.getElementById("shared22004").value);
@@ -2188,6 +2194,12 @@ function calculateStat(level,cc,type){
     }
     //battle - stat3//
     if (type === "stat3"){
+        //school bunko's youkai buff
+        if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10264-2").checked){
+                addEffect2.buff += 180;
+            } else {addEffect2.buff += 150;}
+        }
         //arge's sorcery drone
         if (true){
             multEffect2.buff += 5 * Number(document.getElementById("shared22004").value);
@@ -2227,6 +2239,20 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //school lico's token buff
+        if (true){
+            multEffect2.buff += 12 * document.getElementById("shared22005").value;
+        }
+        //school bunko's youkai buff
+        if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10264-2").checked){
+                addEffect2.buff += 180;
+            } else {addEffect2.buff += 150;}
+        }
+        //school bunko's buff on attack
+        if (true){
+            addEffect2.buff += Math.floor(9 * Number(document.getElementById("otherPassive10264-3").value) * Number(document.getElementById("otherPassive10264-4").value) / 100);
+        }
         //promestein's atk increase on heal buff
         if (document.getElementById("otherPassive10244-1").checked){
             addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10244-2").value) * Number(document.getElementById("otherPassive10244-3").value) / 100);
@@ -2590,6 +2616,14 @@ function calculateStat(level,cc,type){
     //PAD minimum 1 frame//
     if (["stat7"].includes(type)){
         if (outputBattle <= 0){outputBattle = 1;}
+    }
+    //school lico override//
+    if (masterValues.charaID === 10265){
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "魔法";
+        } else if (masterValues.language === "en"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "Magical";
+        }
     }
     //chifa override//
     if (masterValues.charaID === 10131){
@@ -3057,6 +3091,12 @@ function calculateStat(level,cc,type){
     }
     //skill - stat4//
     if (type === "stat4"){
+        //school bunko's youkai buff
+        if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10264-2").checked){
+                addEffect3.buff += 180;
+            } else {addEffect3.buff += 150;}
+        }
         //arge's sorcery drone
         if (true){
             multEffect3.buff += 5 * Number(document.getElementById("shared22004").value);
@@ -3068,6 +3108,12 @@ function calculateStat(level,cc,type){
     }
     //skill - stat3//
     if (type === "stat3"){
+        //school bunko's youkai buff
+        if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10264-2").checked){
+                addEffect3.buff += 180;
+            } else {addEffect3.buff += 150;}
+        }
         //arge's sorcery drone
         if (true){
             multEffect3.buff += 5 * Number(document.getElementById("shared22004").value);
@@ -3103,6 +3149,20 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //school lico's token buff
+        if (true){
+            multEffect3.buff += 12 * document.getElementById("shared22005").value;
+        }
+        //school bunko's youkai buff
+        if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
+            if (document.getElementById("otherPassive10264-2").checked){
+                addEffect3.buff += 180;
+            } else {addEffect3.buff += 150;}
+        }
+        //school bunko's buff on attack
+        if (true){
+            addEffect3.buff += Math.floor(9 * Number(document.getElementById("otherPassive10264-3").value) * Number(document.getElementById("otherPassive10264-4").value) / 100);
+        }
         //promestein's atk increase on heal buff
         if (document.getElementById("otherPassive10244-1").checked){
             addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10244-2").value) * Number(document.getElementById("otherPassive10244-3").value) / 100);
@@ -4583,7 +4643,7 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10150,10178,10209,10239,10245];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10150,10178,10209,10239,10245,10265];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230];
     if (dpsC.includes(masterValues.charaID)){

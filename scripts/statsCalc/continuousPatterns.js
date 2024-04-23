@@ -603,4 +603,20 @@ const continuous_patterns = {
 			},
 		],
 	},
+	"265": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"target",
+			"time":"attack",
+			},
+		],
+		"skill":[
+			{"cond":[["condition","25","",1]],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":100},
+			"target":"range",
+			"time":150,
+			},
+		],
+	},
 }
