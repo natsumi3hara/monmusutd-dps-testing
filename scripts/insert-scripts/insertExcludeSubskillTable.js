@@ -264,7 +264,7 @@ document.write(`
     <td id="exsub-1162" class="exsub" onclick="toggleExclude(1162)">攻撃強化+HP強化</td>
     <td id="exsub-1165" class="exsub excluded" onclick="toggleExclude(1165)">攻撃強化+攻撃待機短縮</td>
     <td id="exsub-1167" class="exsub" onclick="toggleExclude(1167)">攻撃強化+底力(攻撃)</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1168" class="exsub" onclick="toggleExclude(1168)">2nd Anniversaryの恩寵</td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -289,7 +289,14 @@ document.write(`
     <td id="exsub-1150" class="exsub" onclick="toggleExclude(1150)">オーバードーピング</td>
     <td id="exsub-1151" class="exsub excluded" onclick="toggleExclude(1151)">ラッキーヒール</td>
     <td id="exsub-1152" class="exsub excluded" onclick="toggleExclude(1152)">ケルベロスソウル</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1169" class="exsub excluded" onclick="toggleExclude(1169)">魔法攻撃回避 IV</td>
+</tr>
+<tr>
+    <td id="exsub-1170" class="exsub excluded" onclick="toggleExclude(1170)">生命力吸収 IV</td>
+    <td id="exsub-1171" class="exsub excluded" onclick="toggleExclude(1171)">パワードバリア</td>
+    <td id="exsub-1172" class="exsub excluded" onclick="toggleExclude(1172)">鉄壁の守り</td>
+    <td id="exsub-1173" class="exsub" onclick="toggleExclude(1173)">ファイアエクステンド</td>
+    <td id="exsub-1174" class="exsub excluded" onclick="toggleExclude(1174)">ミノタウロスソウル</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">その他</td>

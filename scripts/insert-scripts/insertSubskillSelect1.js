@@ -721,6 +721,30 @@ document.write(`
         src="../../img/subskill-icons/subskill_1168.png"
         alt="2nd Anniversaryの恩寵-せかんどあにばーさりーのおんちょう-攻撃力+22%\r\nクリティカル率+22%\r\nクリティカルダメージ+22%-こうげきりょく-くりてぃかるりつ-くりてぃかるだめーじ"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1169.png"
+        alt="魔法攻撃回避 IV-まほうこうげきかいひよん-35%の確率で魔法攻撃を回避-まほうこうげきかいひ-まほうかいひ"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1170.png"
+        alt="生命力吸収 IV-せいめいりょくきゅうしゅうよん-攻撃時、HPが最大値の4%回復-こうげきじかいふく"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1171.png"
+        alt="パワードバリア-ぱわーどばりあ-スキル発動時、自身のHPを25%回復し、自身に戦闘前の攻撃力の250%のバリアを付与-かいふく"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1172.png"
+        alt="鉄壁の守り-てっぺきのまもり-与ダメージが30%減少するが、自身が受ける物理魔法ダメージが30%減少-よだめーじ-ぶつりだめーじげんしょう-まほうだめーじげんしょう"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1173.png"
+        alt="ファイアエクステンド-ふぁいあえくすてんど-編成時火属性モンスター娘のHPと攻撃力+10%-へんせいじ-ひぞくせい-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1174.png"
+        alt="ミノタウロスソウル-みのたうろすそうる-ブロック中の敵への与ダメージ1.2倍\r\nミノタウロス（原種）をトークンとして使役可能-ぶろっくちゅう-ぶろっくじ-よだめーじ-とーくん"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

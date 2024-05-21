@@ -501,7 +501,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1168;
+    let lastSubskillID = 1174;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -4065,6 +4065,13 @@ function pdMultValues(type){ //timing = 4//
         }
         totalPartyBuff += Number(document.getElementById("partySub-1130").value) * 10;
     }
+    //fire extend //
+    if ((type==="stat1"||type==="stat2") && masterValues.unitcard["element"]===2){
+        if (getAttachID("subskill1") === 172 || getAttachID("subskill2") === 172){
+            totalPartyBuff += 10;
+        }
+        totalPartyBuff += Number(document.getElementById("partySub-1173").value) * 10;
+    }
     //soleia's dragon buff
     if (document.getElementById("party10082").checked && (type==="stat3"||type==="stat4") && dragonCharas.includes(masterValues.charaID)){
         totalPartyBuff += 10;
@@ -4951,8 +4958,18 @@ const attachOptions = [
     {value: 1166, text: 'ムッツリ妄想フルパワー'},
     {value: 1167, text: '攻撃強化+底力(攻撃)'},
     {value: 1168, text: '2nd Anniversaryの恩寵'},
-    //{value: 1169, text: 'ダミー'},
-    //{value: 1170, text: 'ダミー'},
+    {value: 1169, text: '魔法攻撃回避 IV'},
+    {value: 1170, text: '生命力吸収 IV'},
+    {value: 1171, text: 'パワードバリア'},
+    {value: 1172, text: '鉄壁の守り'},
+    {value: 1173, text: 'ファイアエクステンド'},
+    {value: 1174, text: 'ミノタウロスソウル'},
+    //{value: 1175, text: 'ダミー'},
+    //{value: 1176, text: 'ダミー'},
+    //{value: 1177, text: 'ダミー'},
+    //{value: 1178, text: 'ダミー'},
+    //{value: 1179, text: 'ダミー'},
+    //{value: 1180, text: 'ダミー'},
 ];
 
 //loaders//
