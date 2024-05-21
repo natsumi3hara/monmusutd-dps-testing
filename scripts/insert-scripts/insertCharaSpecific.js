@@ -182,6 +182,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10056">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10056_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">物防アップ(専)</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル発動回数</span>
+                <input id="charaSpecific10056-2" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfReferenceChange('102',this.value);allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10057">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10057_0_s.png" class="charaSpecific-buff-img">

@@ -3090,6 +3090,28 @@ const attack_patterns = {
 		"BPL":0,
 		"SPL":0,
 	},
+	"10075": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":-1,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":-1,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
 	"76": {
 		"attack":[
 			{"cond":[],
@@ -3289,6 +3311,28 @@ const attack_patterns = {
 		"SPL":0,
 	},
 	"83": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":5500,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"10083": {
 		"attack":[
 			{"cond":[],
 			"pattern":[
@@ -7659,6 +7703,118 @@ const attack_patterns = {
 		"BPL":0,
 		"SPL":0,
 	},
+	"254": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":5500,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"255": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"257": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":75,"time":5000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+				{"probability":25,"time":5000,"extraTarget":-2,"extraMulti":0,"text-ja":"特殊攻撃","text-en":"Special Attack","text-zhtw":"特殊攻撃","text-zhcn":"特殊攻击","text-kr":"특수공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":5000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"258": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":2,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"259": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":6500,"extraTarget":0,"extraMulti":5,"text-ja":"攻撃","text-en":"Attack","text-zhtw":"攻撃","text-zhcn":"攻击","text-kr":"공격"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+				{"probability":100,"time":4000,"extraTarget":98,"extraMulti":2,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
 	"263": {
 		"attack":[
 			{"cond":[],
@@ -7736,6 +7892,28 @@ const attack_patterns = {
 			{"cond":[],
 			"pattern":[
 				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル攻撃","text-en":"Skill Attack","text-zhtw":"技能攻撃","text-zhcn":"技能攻击","text-kr":"스킬공격"},
+			]},
+		],
+		"critical":[],
+		"skill_critical":[],
+		"penetration":[],
+		"skill_penetration":[],
+		"BCL":0,
+		"SCL":0,
+		"BPL":0,
+		"SPL":0,
+	},
+	"275": {
+		"attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"回復","text-en":"Heal","text-zhtw":"恢復","text-zhcn":"恢复","text-kr":"회복"},
+			]},
+		],
+		"skill_attack":[
+			{"cond":[],
+			"pattern":[
+				{"probability":100,"time":4000,"extraTarget":0,"extraMulti":0,"text-ja":"スキル回復","text-en":"Skill Heal","text-zhtw":"技能恢復","text-zhcn":"技能恢复","text-kr":"스킬회복"},
 			]},
 		],
 		"critical":[],

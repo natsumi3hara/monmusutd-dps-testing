@@ -715,7 +715,11 @@ document.write(`
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
         <img class="subskill-select-img-2"
         src="../../img/subskill-icons/subskill_1167.png"
-        alt="攻撃強化+底力(攻撃)-こうげききょうかそこぢからこうげき-攻撃力+17%、HP減少量に応じて攻撃力が上昇する(最大40%)"
+        alt="攻撃強化+底力(攻撃)-こうげききょうかそこぢからこうげき-攻撃力+17%、HP減少量に応じて攻撃力が上昇する(最大40%)-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1168.png"
+        alt="2nd Anniversaryの恩寵-せかんどあにばーさりーのおんちょう-攻撃力+22%\r\nクリティカル率+22%\r\nクリティカルダメージ+22%-こうげきりょく-くりてぃかるりつ-くりてぃかるだめーじ"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>

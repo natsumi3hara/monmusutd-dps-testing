@@ -92,7 +92,7 @@ function giveAttributeTile(menuBattleSkill){
         enemyConditions["1010"].push(3);
     }
     //other give tile in future goes here
-    console.log(selfConditions["1010"]);
+    ///console.log(selfConditions["1010"]);
 }
 function skillNumber(value){
     if (value == 10000){
@@ -501,7 +501,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1167;
+    let lastSubskillID = 1168;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -834,6 +834,8 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (getAttachID("subskill1") === 128||getAttachID("subskill2") === 128){initial -= 4;}
     if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
     if ((masterValues.charaID===10030)&&document.getElementById("unique-equip-check").checked){initial-=20;}
+    if ((masterValues.charaID===10254)&&masterValues.charaAwaked){initial-=10;}
+    else if ((masterValues.charaID===10254)){initial-=8;}
     //division madness//
     if (fullHeart && mattari && cooldown1to1){
         initial = Math.floor(initial/13)*4 + Math.ceil((initial%13)/3);
@@ -2131,6 +2133,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat7//
     if (type === "stat7"){
+        //syir
+        if (masterValues.charaID !== 10254 && document.getElementById("otherSkill10254").checked){
+            multEffect2.buff -= 20;
+        }
         //chizane
         if (masterValues.charaID === 10208){
             multEffect2.buff -= 10 * Math.floor(Number(document.getElementById("charaSpecific10208-1").value)/10);
@@ -2194,6 +2200,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat3//
     if (type === "stat3"){
+        //rotona's unique weapon buff
+        if(masterValues.charaID === 10056 && document.getElementById("unique-equip-check").checked){
+            multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10056-2").value);
+        }
         //school bunko's youkai buff
         if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
             if (document.getElementById("otherPassive10264-2").checked){
@@ -2239,6 +2249,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //lucitani
+        if (masterValues.charaID !== 10275){
+            addEffect2.buff += Math.floor(Number(document.getElementById("otherSkill10275-1").value) * Number(document.getElementById("otherSkill10275-2").value) / 100);
+        }
         //school lico's token buff
         if (true){
             multEffect2.buff += 12 * document.getElementById("shared22005").value;
@@ -2437,7 +2451,7 @@ function calculateStat(level,cc,type){
         if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
             multEffect2.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
             multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
-        } else if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
+        } else if (masterValues.charaID === 10083 && selfConditions["26"] === 0){
             multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
             multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
         }
@@ -2616,6 +2630,14 @@ function calculateStat(level,cc,type){
     //PAD minimum 1 frame//
     if (["stat7"].includes(type)){
         if (outputBattle <= 0){outputBattle = 1;}
+    }
+    //gorgon loren skill penetration override//
+    if (masterValues.charaID === 10258){
+        if (masterValues.language === "ja" && (enemyConditions["24"] === 1||enemyConditions["25"] === 1)){
+            document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
+        } else if (masterValues.language === "en" && (enemyConditions["24"] === 1||enemyConditions["25"] === 1)){
+            document.getElementById("dps-output-skill-value-stat22").innerHTML = "Penetrate";
+        }
     }
     //school lico override//
     if (masterValues.charaID === 10265){
@@ -3045,6 +3067,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat7//
     if (type === "stat7"){
+        //syir
+        if (masterValues.charaID !== 10254 && document.getElementById("otherSkill10254").checked){
+            multEffect3.buff -= 20;
+        }
         //chizane
         if (masterValues.charaID === 10208){
             multEffect3.buff -= 10 * Math.floor(Number(document.getElementById("charaSpecific10208-1").value)/10);
@@ -3108,6 +3134,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat3//
     if (type === "stat3"){
+        //rotona's unique weapon buff
+        if(masterValues.charaID === 10056 && document.getElementById("unique-equip-check").checked){
+            multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10056-2").value);
+        }
         //school bunko's youkai buff
         if (document.getElementById("otherPassive10264-1").checked&&youkaiCharas.includes(masterValues.charaID)){
             if (document.getElementById("otherPassive10264-2").checked){
@@ -3149,6 +3179,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //lucitani
+        if (masterValues.charaID !== 10275){
+            addEffect3.buff += Math.floor(Number(document.getElementById("otherSkill10275-1").value) * Number(document.getElementById("otherSkill10275-2").value) / 100);
+        }
         //school lico's token buff
         if (true){
             multEffect3.buff += 12 * document.getElementById("shared22005").value;
@@ -3364,7 +3398,7 @@ function calculateStat(level,cc,type){
         if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
             multEffect3.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
             multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
-        } else if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
+        } else if (masterValues.charaID === 10083 && selfConditions["26"] === 0){
             multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
             multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
         }
@@ -4916,7 +4950,7 @@ const attachOptions = [
     {value: 1165, text: '攻撃強化+攻撃待機短縮'},
     {value: 1166, text: 'ムッツリ妄想フルパワー'},
     {value: 1167, text: '攻撃強化+底力(攻撃)'},
-    //{value: 1168, text: 'ダミー'},
+    {value: 1168, text: '2nd Anniversaryの恩寵'},
     //{value: 1169, text: 'ダミー'},
     //{value: 1170, text: 'ダミー'},
 ];

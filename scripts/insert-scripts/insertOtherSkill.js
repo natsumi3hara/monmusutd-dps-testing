@@ -199,6 +199,38 @@ document.write(`
                 <input id="level10248" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
             </div>
         </div>
+        <div class="flex-container-otherSkill-buff-inner">
+            <div class="flex-container-otherSkill-buff-inner2">
+                <img src="../../img/chara-icons/icon_10254_0_s.png" class="otherSkill-buff-img">
+                <span class="otherSkill-buff-name">シィール</span>
+            </div>
+            <div class="flex-container-otherSkill-buff-inner2">
+                <span class="otherSkill-buff-label">発動</span>
+                <input type="checkbox" id="otherSkill10254" class="larger-check otherSkill-check" onChange="allDPS();">
+                <span class="otherSkill-buff-label">スキルLv</span>
+                <input id="level10254" class="otherSkill-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();" disabled>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10275_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ルシターニ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">魔力段階</span>
+                <select name="otherPassive10275-1" id="otherSkill10275-1" class="otherPassive-check" style="width:80%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="allDPS();">
+                    <option value="0">段階0</option>
+                    <option value="25">段階1</option>
+                    <option value="50">段階2</option>
+                    <option value="75">段階3</option>
+                    <option value="30">完凸+段階1</option>
+                    <option value="60">完凸+段階2</option>
+                    <option value="90">完凸+段階3</option>
+                </select>
+                <span class="otherPassive-buff-label">基本攻撃力</span>
+                <input id="otherSkill10275-2" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
 </div>
 <script>

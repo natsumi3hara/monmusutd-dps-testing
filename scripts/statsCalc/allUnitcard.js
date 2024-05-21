@@ -30,7 +30,9 @@ var card10001 ={
   "gender": 1,
   "mainTribe": 1,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -199,7 +201,7 @@ var card10100 ={
   "mainTribe": 100,
   "subTribe": 0,
   "trait_id_array": [
-    10
+    9999
   ],
   "receiveType": 1,
   "drawSize": 30,
@@ -283,7 +285,9 @@ var card10101 ={
   "gender": 1,
   "mainTribe": 101,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -366,7 +370,9 @@ var card10102 ={
   "gender": 1,
   "mainTribe": 102,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -449,7 +455,9 @@ var card10103 ={
   "gender": 1,
   "mainTribe": 103,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -532,7 +540,9 @@ var card10104 ={
   "gender": 1,
   "mainTribe": 104,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -785,7 +795,9 @@ var card10107 ={
   "gender": 1,
   "mainTribe": 107,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -868,7 +880,9 @@ var card10108 ={
   "gender": 1,
   "mainTribe": 108,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 50,
   "lookReversed": 0,
@@ -951,7 +965,9 @@ var card10109 ={
   "gender": 1,
   "mainTribe": 109,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 35,
   "lookReversed": 0,
@@ -1034,7 +1050,9 @@ var card10011 ={
   "gender": 1,
   "mainTribe": 11,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1202,7 +1220,9 @@ var card10111 ={
   "gender": 1,
   "mainTribe": 111,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 22,
   "lookReversed": 0,
@@ -1285,7 +1305,9 @@ var card10112 ={
   "gender": 1,
   "mainTribe": 112,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1368,7 +1390,9 @@ var card10113 ={
   "gender": 1,
   "mainTribe": 113,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1451,7 +1475,9 @@ var card10114 ={
   "gender": 1,
   "mainTribe": 114,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1534,7 +1560,9 @@ var card10115 ={
   "gender": 1,
   "mainTribe": 115,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1617,7 +1645,9 @@ var card10116 ={
   "gender": 1,
   "mainTribe": 116,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1785,7 +1815,9 @@ var card10118 ={
   "gender": 1,
   "mainTribe": 118,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1868,7 +1900,9 @@ var card10119 ={
   "gender": 1,
   "mainTribe": 119,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -1951,7 +1985,9 @@ var card10012 ={
   "gender": 1,
   "mainTribe": 12,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2034,7 +2070,9 @@ var card10120 ={
   "gender": 1,
   "mainTribe": 120,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2117,7 +2155,9 @@ var card10121 ={
   "gender": 1,
   "mainTribe": 121,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    11
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2200,7 +2240,9 @@ var card10122 ={
   "gender": 1,
   "mainTribe": 122,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2283,7 +2325,9 @@ var card10123 ={
   "gender": 1,
   "mainTribe": 123,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2451,7 +2495,9 @@ var card10125 ={
   "gender": 1,
   "mainTribe": 125,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2534,7 +2580,9 @@ var card10126 ={
   "gender": 1,
   "mainTribe": 126,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2617,7 +2665,9 @@ var card10127 ={
   "gender": 1,
   "mainTribe": 127,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -2870,7 +2920,9 @@ var card10013 ={
   "gender": 1,
   "mainTribe": 13,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3038,7 +3090,9 @@ var card10132 ={
   "gender": 1,
   "mainTribe": 132,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3121,7 +3175,9 @@ var card10133 ={
   "gender": 1,
   "mainTribe": 133,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3204,7 +3260,9 @@ var card10134 ={
   "gender": 1,
   "mainTribe": 134,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3372,7 +3430,9 @@ var card10136 ={
   "gender": 1,
   "mainTribe": 136,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3455,7 +3515,9 @@ var card10137 ={
   "gender": 1,
   "mainTribe": 137,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3538,7 +3600,9 @@ var card10138 ={
   "gender": 1,
   "mainTribe": 138,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 35,
   "lookReversed": 0,
@@ -3621,7 +3685,9 @@ var card10139 ={
   "gender": 1,
   "mainTribe": 139,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3704,7 +3770,9 @@ var card10014 ={
   "gender": 1,
   "mainTribe": 14,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3787,7 +3855,9 @@ var card10140 ={
   "gender": 1,
   "mainTribe": 140,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -3870,7 +3940,9 @@ var card10141 ={
   "gender": 1,
   "mainTribe": 141,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4038,7 +4110,9 @@ var card10143 ={
   "gender": 1,
   "mainTribe": 143,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4121,7 +4195,9 @@ var card10144 ={
   "gender": 1,
   "mainTribe": 144,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4204,7 +4280,9 @@ var card10145 ={
   "gender": 1,
   "mainTribe": 145,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4287,7 +4365,9 @@ var card10146 ={
   "gender": 1,
   "mainTribe": 146,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4370,7 +4450,9 @@ var card10147 ={
   "gender": 1,
   "mainTribe": 147,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4453,7 +4535,9 @@ var card10148 ={
   "gender": 1,
   "mainTribe": 148,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4536,7 +4620,9 @@ var card10149 ={
   "gender": 1,
   "mainTribe": 149,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4619,7 +4705,9 @@ var card10015 ={
   "gender": 1,
   "mainTribe": 15,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4702,7 +4790,9 @@ var card10150 ={
   "gender": 1,
   "mainTribe": 150,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4785,7 +4875,9 @@ var card10151 ={
   "gender": 1,
   "mainTribe": 151,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4868,7 +4960,9 @@ var card10152 ={
   "gender": 1,
   "mainTribe": 152,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -4951,7 +5045,9 @@ var card10153 ={
   "gender": 1,
   "mainTribe": 153,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 22,
   "lookReversed": 0,
@@ -5034,7 +5130,9 @@ var card10154 ={
   "gender": 1,
   "mainTribe": 154,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -5202,7 +5300,9 @@ var card10156 ={
   "gender": 1,
   "mainTribe": 156,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -5455,7 +5555,9 @@ var card10159 ={
   "gender": 1,
   "mainTribe": 159,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -5538,7 +5640,9 @@ var card10016 ={
   "gender": 1,
   "mainTribe": 16,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 35,
   "lookReversed": 0,
@@ -5706,7 +5810,9 @@ var card10161 ={
   "gender": 1,
   "mainTribe": 161,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -5874,7 +5980,9 @@ var card10163 ={
   "gender": 1,
   "mainTribe": 163,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -5957,7 +6065,9 @@ var card10164 ={
   "gender": 1,
   "mainTribe": 164,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -6040,7 +6150,9 @@ var card10165 ={
   "gender": 1,
   "mainTribe": 165,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 50,
   "lookReversed": 0,
@@ -6123,7 +6235,9 @@ var card10166 ={
   "gender": 1,
   "mainTribe": 166,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 18,
   "lookReversed": 0,
@@ -6291,7 +6405,9 @@ var card10169 ={
   "gender": 1,
   "mainTribe": 169,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -6374,7 +6490,9 @@ var card10017 ={
   "gender": 1,
   "mainTribe": 17,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -6457,7 +6575,9 @@ var card10170 ={
   "gender": 1,
   "mainTribe": 170,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -6880,7 +7000,9 @@ var card10175 ={
   "gender": 1,
   "mainTribe": 175,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -7048,7 +7170,9 @@ var card10177 ={
   "gender": 1,
   "mainTribe": 177,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -7131,7 +7255,9 @@ var card10178 ={
   "gender": 1,
   "mainTribe": 178,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -7299,7 +7425,9 @@ var card10182 ={
   "gender": 1,
   "mainTribe": 182,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -7382,7 +7510,9 @@ var card10183 ={
   "gender": 1,
   "mainTribe": 183,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -7465,7 +7595,9 @@ var card10184 ={
   "gender": 1,
   "mainTribe": 184,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -7888,7 +8020,9 @@ var card10019 ={
   "gender": 1,
   "mainTribe": 19,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -8226,7 +8360,9 @@ var card10193 ={
   "gender": 1,
   "mainTribe": 193,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -8310,7 +8446,7 @@ var card10195 ={
   "mainTribe": 195,
   "subTribe": 0,
   "trait_id_array": [
-    9
+    9999
   ],
   "receiveType": 1,
   "drawSize": 30,
@@ -8394,7 +8530,9 @@ var card10196 ={
   "gender": 1,
   "mainTribe": 196,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -8477,7 +8615,9 @@ var card10198 ={
   "gender": 1,
   "mainTribe": 198,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -8560,7 +8700,9 @@ var card10199 ={
   "gender": 1,
   "mainTribe": 199,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -8643,7 +8785,9 @@ var card10020 ={
   "gender": 1,
   "mainTribe": 20,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 22,
   "lookReversed": 0,
@@ -8981,7 +9125,9 @@ var card10203 ={
   "gender": 1,
   "mainTribe": 203,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9064,7 +9210,9 @@ var card10204 ={
   "gender": 1,
   "mainTribe": 204,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9147,7 +9295,9 @@ var card10205 ={
   "gender": 1,
   "mainTribe": 205,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9230,7 +9380,9 @@ var card10206 ={
   "gender": 1,
   "mainTribe": 206,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9568,7 +9720,9 @@ var card10021 ={
   "gender": 1,
   "mainTribe": 21,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9651,7 +9805,9 @@ var card10210 ={
   "gender": 1,
   "mainTribe": 210,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9734,7 +9890,9 @@ var card10211 ={
   "gender": 1,
   "mainTribe": 211,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9818,7 +9976,7 @@ var card10212 ={
   "mainTribe": 212,
   "subTribe": 0,
   "trait_id_array": [
-    10
+    9999
   ],
   "receiveType": 1,
   "drawSize": 30,
@@ -9902,7 +10060,9 @@ var card10217 ={
   "gender": 1,
   "mainTribe": 217,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -9985,7 +10145,9 @@ var card10218 ={
   "gender": 1,
   "mainTribe": 218,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10068,7 +10230,9 @@ var card10219 ={
   "gender": 1,
   "mainTribe": 219,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10151,7 +10315,9 @@ var card10022 ={
   "gender": 1,
   "mainTribe": 22,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10489,7 +10655,9 @@ var card10224 ={
   "gender": 1,
   "mainTribe": 224,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10572,7 +10740,9 @@ var card10225 ={
   "gender": 1,
   "mainTribe": 225,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10655,7 +10825,9 @@ var card10226 ={
   "gender": 1,
   "mainTribe": 226,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10823,7 +10995,9 @@ var card10229 ={
   "gender": 1,
   "mainTribe": 229,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -10991,7 +11165,9 @@ var card10230 ={
   "gender": 1,
   "mainTribe": 230,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 50,
   "lookReversed": 0,
@@ -11159,7 +11335,9 @@ var card10234 ={
   "gender": 1,
   "mainTribe": 234,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11242,7 +11420,9 @@ var card10235 ={
   "gender": 1,
   "mainTribe": 235,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11325,7 +11505,9 @@ var card10236 ={
   "gender": 1,
   "mainTribe": 236,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11493,7 +11675,9 @@ var card10238 ={
   "gender": 1,
   "mainTribe": 238,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11576,7 +11760,9 @@ var card10239 ={
   "gender": 1,
   "mainTribe": 239,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11659,7 +11845,9 @@ var card10024 ={
   "gender": 1,
   "mainTribe": 24,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11742,7 +11930,9 @@ var card10242 ={
   "gender": 1,
   "mainTribe": 242,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11825,7 +12015,9 @@ var card10243 ={
   "gender": 1,
   "mainTribe": 243,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11908,7 +12100,9 @@ var card10244 ={
   "gender": 1,
   "mainTribe": 244,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -11991,7 +12185,9 @@ var card10245 ={
   "gender": 1,
   "mainTribe": 245,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12074,7 +12270,9 @@ var card10246 ={
   "gender": 1,
   "mainTribe": 246,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12157,7 +12355,9 @@ var card10248 ={
   "gender": 1,
   "mainTribe": 248,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12240,7 +12440,9 @@ var card10249 ={
   "gender": 1,
   "mainTribe": 249,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12323,7 +12525,9 @@ var card10025 ={
   "gender": 1,
   "mainTribe": 25,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12407,7 +12611,7 @@ var card10250 ={
   "mainTribe": 250,
   "subTribe": 0,
   "trait_id_array": [
-    10
+    9999
   ],
   "receiveType": 1,
   "drawSize": 30,
@@ -12577,7 +12781,7 @@ var card10252 ={
   "mainTribe": 252,
   "subTribe": 0,
   "trait_id_array": [
-    10
+    9999
   ],
   "receiveType": 1,
   "drawSize": 30,
@@ -12662,7 +12866,7 @@ var card10253 ={
   "mainTribe": 253,
   "subTribe": 0,
   "trait_id_array": [
-    10
+    9999
   ],
   "receiveType": 1,
   "drawSize": 30,
@@ -12714,6 +12918,431 @@ var card10253 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
+var card10254 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "254",
+  "id": 254,
+  "nickname": "パズズ娘",
+  "charaName": "シィール",
+  "kana": "しぃぃる",
+  "text": "【パズズ娘】シィール",
+  "element": 4,
+  "life": 120,
+  "power": 126,
+  "defense": 120,
+  "magicDefense": 114,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 254,
+  "subTribe": 0,
+  "trait_id_array": [
+    9999
+  ],
+  "receiveType": 2,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "",
+  "resource": 10254,
+  "picture": 239,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 16021,
+  "skillId1": 254,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 0,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90037,
+  "awakingAbilityId4": 90038,
+  "awakingAbilityId5": 90041,
+  "moveAction": 5,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10255 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "255",
+  "id": 255,
+  "nickname": "リリス娘",
+  "charaName": "クロミ",
+  "kana": "くろみ",
+  "text": "【リリス娘】クロミ",
+  "element": 6,
+  "life": 116,
+  "power": 127,
+  "defense": 113,
+  "magicDefense": 124,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 255,
+  "subTribe": 0,
+  "trait_id_array": [
+    9999
+  ],
+  "receiveType": 2,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "",
+  "resource": 10255,
+  "picture": 238,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 14021,
+  "skillId1": 255,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 10038,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90038,
+  "awakingAbilityId4": 90038,
+  "awakingAbilityId5": 90041,
+  "moveAction": 5,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10257 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "257",
+  "id": 257,
+  "nickname": "ベヒモス娘",
+  "charaName": "デイン",
+  "kana": "でいん",
+  "text": "【ベヒモス娘】デイン",
+  "element": 7,
+  "life": 117,
+  "power": 113,
+  "defense": 128,
+  "magicDefense": 122,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 257,
+  "subTribe": 0,
+  "trait_id_array": [
+    9999
+  ],
+  "receiveType": 1,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "ef_10002",
+  "resource": 10257,
+  "picture": 235,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 12011,
+  "skillId1": 257,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 0,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90037,
+  "awakingAbilityId4": 90039,
+  "awakingAbilityId5": 90049,
+  "moveAction": 1,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10258 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "258",
+  "id": 258,
+  "nickname": "ゴルゴーン娘",
+  "charaName": "ローレン",
+  "kana": "ろぉれん",
+  "text": "【ゴルゴーン娘】ローレン",
+  "element": 7,
+  "life": 114,
+  "power": 130,
+  "defense": 132,
+  "magicDefense": 104,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 258,
+  "subTribe": 0,
+  "trait_id_array": [
+    9999
+  ],
+  "receiveType": 2,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "",
+  "resource": 10258,
+  "picture": 237,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 14011,
+  "skillId1": 258,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 10031,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90038,
+  "awakingAbilityId4": 90038,
+  "awakingAbilityId5": 90046,
+  "moveAction": 5,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
+var card10259 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "259",
+  "id": 259,
+  "nickname": "ブラスドラゴン娘",
+  "charaName": "セレン",
+  "kana": "せれん",
+  "text": "【ブラスドラゴン娘】セレン",
+  "element": 7,
+  "life": 132,
+  "power": 132,
+  "defense": 116,
+  "magicDefense": 100,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 259,
+  "subTribe": 0,
+  "trait_id_array": [
+    3
+  ],
+  "receiveType": 1,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "ef_10002",
+  "resource": 10259,
+  "picture": 236,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 12021,
+  "skillId1": 259,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 0,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90037,
+  "awakingAbilityId4": 90038,
+  "awakingAbilityId5": 90058,
+  "moveAction": 1,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
 var card10026 ={
   "m_GameObject": {
     "m_FileID": 0,
@@ -12746,7 +13375,9 @@ var card10026 ={
   "gender": 1,
   "mainTribe": 26,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12829,7 +13460,9 @@ var card10263 ={
   "gender": 1,
   "mainTribe": 263,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -12997,7 +13630,9 @@ var card10265 ={
   "gender": 1,
   "mainTribe": 265,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13165,7 +13800,9 @@ var card10027 ={
   "gender": 1,
   "mainTribe": 27,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13216,6 +13853,91 @@ var card10027 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
+var card10275 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "275",
+  "id": 275,
+  "nickname": "ジャヒー娘",
+  "charaName": "ルシターニ",
+  "kana": "るしたぁに",
+  "text": "【ジャヒー娘】ルシターニ",
+  "element": 6,
+  "life": 121,
+  "power": 124,
+  "defense": 120,
+  "magicDefense": 115,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 1,
+  "mainTribe": 275,
+  "subTribe": 0,
+  "trait_id_array": [
+    9999
+  ],
+  "receiveType": 1,
+  "drawSize": 30,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "ef_30002",
+  "resource": 10275,
+  "picture": 240,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 1,
+  "rarityId": 5460818,
+  "classId": 15021,
+  "skillId1": 275,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 5,
+  "missileId": 0,
+  "subSkillSlot": 1,
+  "reSortieInterval": 1800,
+  "awakingAbilityId1": 90026,
+  "awakingAbilityId2": 90026,
+  "awakingAbilityId3": 90038,
+  "awakingAbilityId4": 90041,
+  "awakingAbilityId5": 90051,
+  "moveAction": 1,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
 var card10028 ={
   "m_GameObject": {
     "m_FileID": 0,
@@ -13248,7 +13970,9 @@ var card10028 ={
   "gender": 1,
   "mainTribe": 28,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13331,7 +14055,9 @@ var card10029 ={
   "gender": 1,
   "mainTribe": 29,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13414,7 +14140,9 @@ var card10003 ={
   "gender": 1,
   "mainTribe": 3,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13497,7 +14225,9 @@ var card10030 ={
   "gender": 1,
   "mainTribe": 30,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13580,7 +14310,9 @@ var card10031 ={
   "gender": 1,
   "mainTribe": 31,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13748,7 +14480,9 @@ var card10033 ={
   "gender": 1,
   "mainTribe": 33,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13831,7 +14565,9 @@ var card10034 ={
   "gender": 1,
   "mainTribe": 34,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13914,7 +14650,9 @@ var card10035 ={
   "gender": 1,
   "mainTribe": 35,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -13997,7 +14735,9 @@ var card10036 ={
   "gender": 1,
   "mainTribe": 36,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14080,7 +14820,9 @@ var card10037 ={
   "gender": 1,
   "mainTribe": 37,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14163,7 +14905,9 @@ var card10038 ={
   "gender": 1,
   "mainTribe": 38,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14246,7 +14990,9 @@ var card10039 ={
   "gender": 1,
   "mainTribe": 39,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14414,7 +15160,9 @@ var card10040 ={
   "gender": 1,
   "mainTribe": 40,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14497,7 +15245,9 @@ var card10041 ={
   "gender": 1,
   "mainTribe": 41,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 50,
   "lookReversed": 0,
@@ -14580,7 +15330,9 @@ var card10042 ={
   "gender": 1,
   "mainTribe": 42,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14663,7 +15415,9 @@ var card10043 ={
   "gender": 1,
   "mainTribe": 43,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14746,7 +15500,9 @@ var card10044 ={
   "gender": 1,
   "mainTribe": 44,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14829,7 +15585,9 @@ var card10046 ={
   "gender": 1,
   "mainTribe": 46,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14912,7 +15670,9 @@ var card10047 ={
   "gender": 1,
   "mainTribe": 47,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -14995,7 +15755,9 @@ var card10049 ={
   "gender": 1,
   "mainTribe": 49,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15078,7 +15840,9 @@ var card10005 ={
   "gender": 1,
   "mainTribe": 5,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15161,7 +15925,9 @@ var card10050 ={
   "gender": 1,
   "mainTribe": 50,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15329,7 +16095,9 @@ var card60002 ={
   "gender": 0,
   "mainTribe": 50002,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 27,
   "lookReversed": 0,
@@ -15412,7 +16180,9 @@ var card60003 ={
   "gender": 1,
   "mainTribe": 50003,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15495,7 +16265,9 @@ var card60004 ={
   "gender": 1,
   "mainTribe": 50004,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15578,7 +16350,9 @@ var card60005 ={
   "gender": 3,
   "mainTribe": 50005,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 22,
   "lookReversed": 0,
@@ -15661,7 +16435,9 @@ var card60006 ={
   "gender": 3,
   "mainTribe": 50006,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 25,
   "lookReversed": 0,
@@ -15744,7 +16520,9 @@ var card60007 ={
   "gender": 3,
   "mainTribe": 50007,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 25,
   "lookReversed": 0,
@@ -15827,7 +16605,9 @@ var card60008 ={
   "gender": 1,
   "mainTribe": 50008,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15910,7 +16690,9 @@ var card60009 ={
   "gender": 1,
   "mainTribe": 50009,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -15993,7 +16775,9 @@ var card60010 ={
   "gender": 1,
   "mainTribe": 50010,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16076,7 +16860,9 @@ var card60011 ={
   "gender": 3,
   "mainTribe": 50011,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16159,7 +16945,9 @@ var card60012 ={
   "gender": 3,
   "mainTribe": 50012,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16242,7 +17030,9 @@ var card60013 ={
   "gender": 3,
   "mainTribe": 50013,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16325,7 +17115,9 @@ var card60014 ={
   "gender": 3,
   "mainTribe": 50014,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16408,7 +17200,9 @@ var card60015 ={
   "gender": 3,
   "mainTribe": 50015,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 35,
   "lookReversed": 0,
@@ -16491,7 +17285,9 @@ var card60016 ={
   "gender": 1,
   "mainTribe": 50016,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16574,7 +17370,9 @@ var card60017 ={
   "gender": 3,
   "mainTribe": 50017,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16657,7 +17455,9 @@ var card60018 ={
   "gender": 3,
   "mainTribe": 50018,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 18,
   "lookReversed": 0,
@@ -16740,7 +17540,9 @@ var card60019 ={
   "gender": 0,
   "mainTribe": 50019,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -16823,7 +17625,9 @@ var card60020 ={
   "gender": 3,
   "mainTribe": 50020,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 18,
   "lookReversed": 0,
@@ -16991,7 +17795,9 @@ var card60022 ={
   "gender": 3,
   "mainTribe": 50022,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17074,7 +17880,9 @@ var card60023 ={
   "gender": 3,
   "mainTribe": 50023,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17157,7 +17965,9 @@ var card60024 ={
   "gender": 3,
   "mainTribe": 50024,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17240,7 +18050,9 @@ var card60025 ={
   "gender": 3,
   "mainTribe": 50025,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17323,7 +18135,9 @@ var card60026 ={
   "gender": 1,
   "mainTribe": 50026,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17406,7 +18220,9 @@ var card60027 ={
   "gender": 3,
   "mainTribe": 50027,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17489,7 +18305,9 @@ var card60028 ={
   "gender": 1,
   "mainTribe": 50028,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    11
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17572,7 +18390,9 @@ var card60029 ={
   "gender": 1,
   "mainTribe": 82,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17655,7 +18475,9 @@ var card60030 ={
   "gender": 1,
   "mainTribe": 82,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17738,7 +18560,9 @@ var card60031 ={
   "gender": 1,
   "mainTribe": 50031,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17821,7 +18645,9 @@ var card60032 ={
   "gender": 3,
   "mainTribe": 50032,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -17904,7 +18730,9 @@ var card60033 ={
   "gender": 3,
   "mainTribe": 50007,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 20,
   "lookReversed": 0,
@@ -17987,7 +18815,9 @@ var card60034 ={
   "gender": 1,
   "mainTribe": 50034,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 18,
   "lookReversed": 0,
@@ -18070,7 +18900,9 @@ var card60035 ={
   "gender": 3,
   "mainTribe": 50035,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18153,7 +18985,9 @@ var card60036 ={
   "gender": 3,
   "mainTribe": 50036,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18236,7 +19070,9 @@ var card60037 ={
   "gender": 3,
   "mainTribe": 50037,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 25,
   "lookReversed": 0,
@@ -18319,7 +19155,9 @@ var card60038 ={
   "gender": 3,
   "mainTribe": 50038,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 24,
   "lookReversed": 0,
@@ -18402,7 +19240,9 @@ var card60039 ={
   "gender": 3,
   "mainTribe": 50039,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18485,7 +19325,9 @@ var card60040 ={
   "gender": 3,
   "mainTribe": 50040,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 26,
   "lookReversed": 0,
@@ -18568,7 +19410,9 @@ var card60041 ={
   "gender": 3,
   "mainTribe": 50041,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18651,7 +19495,9 @@ var card60042 ={
   "gender": 3,
   "mainTribe": 50042,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18734,7 +19580,9 @@ var card60043 ={
   "gender": 1,
   "mainTribe": 50043,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18817,7 +19665,9 @@ var card60044 ={
   "gender": 1,
   "mainTribe": 50044,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -18985,7 +19835,9 @@ var card60046 ={
   "gender": 3,
   "mainTribe": 50046,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19068,7 +19920,9 @@ var card60047 ={
   "gender": 3,
   "mainTribe": 50047,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19234,7 +20088,9 @@ var card60049 ={
   "gender": 3,
   "mainTribe": 50049,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19317,7 +20173,9 @@ var card60050 ={
   "gender": 3,
   "mainTribe": 50050,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19400,7 +20258,9 @@ var card60051 ={
   "gender": 3,
   "mainTribe": 50051,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 24,
   "lookReversed": 0,
@@ -19483,7 +20343,9 @@ var card60052 ={
   "gender": 3,
   "mainTribe": 50052,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 35,
   "lookReversed": 0,
@@ -19651,7 +20513,9 @@ var card60054 ={
   "gender": 3,
   "mainTribe": 50054,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19734,7 +20598,9 @@ var card60055 ={
   "gender": 3,
   "mainTribe": 50055,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19817,7 +20683,9 @@ var card60056 ={
   "gender": 3,
   "mainTribe": 50056,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19900,7 +20768,9 @@ var card60057 ={
   "gender": 1,
   "mainTribe": 50057,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -19983,7 +20853,9 @@ var card60058 ={
   "gender": 1,
   "mainTribe": 50058,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20066,7 +20938,9 @@ var card60059 ={
   "gender": 3,
   "mainTribe": 50059,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 35,
   "lookReversed": 0,
@@ -20149,7 +21023,9 @@ var card60060 ={
   "gender": 3,
   "mainTribe": 50060,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 40,
   "lookReversed": 0,
@@ -20232,7 +21108,9 @@ var card60061 ={
   "gender": 3,
   "mainTribe": 50061,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20315,7 +21193,9 @@ var card60062 ={
   "gender": 3,
   "mainTribe": 50062,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20398,7 +21278,9 @@ var card60063 ={
   "gender": 3,
   "mainTribe": 50063,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 25,
   "lookReversed": 0,
@@ -20481,7 +21363,9 @@ var card60064 ={
   "gender": 1,
   "mainTribe": 50064,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20564,7 +21448,9 @@ var card60065 ={
   "gender": 1,
   "mainTribe": 50065,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20647,7 +21533,9 @@ var card60066 ={
   "gender": 1,
   "mainTribe": 50066,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20730,7 +21618,9 @@ var card60067 ={
   "gender": 1,
   "mainTribe": 50067,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 80,
   "lookReversed": 0,
@@ -20813,7 +21703,9 @@ var card60068 ={
   "gender": 3,
   "mainTribe": 50068,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 50,
   "lookReversed": 0,
@@ -20896,7 +21788,9 @@ var card60069 ={
   "gender": 3,
   "mainTribe": 50069,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -20947,6 +21841,91 @@ var card60069 ={
   "awakingCost4": 1,
   "awakingCost5": 1
 }
+var card60070 ={
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 0,
+    "m_PathID": -8147975948737501285
+  },
+  "m_Name": "50070",
+  "id": 50070,
+  "nickname": "原種",
+  "charaName": "ミノタウロス(原種)",
+  "kana": "みのたうろす",
+  "text": "ミノタウロス（原種）トークン",
+  "element": 7,
+  "life": 100,
+  "power": 100,
+  "defense": 100,
+  "magicDefense": 100,
+  "receiveRange": 30,
+  "ability": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gender": 3,
+  "mainTribe": 50070,
+  "subTribe": 0,
+  "trait_id_array": [
+    9999
+  ],
+  "receiveType": 1,
+  "drawSize": 45,
+  "lookReversed": 0,
+  "colorSetting": 0,
+  "effect": "ef_10002",
+  "resource": 50047,
+  "picture": 999999,
+  "deadIndex": 0,
+  "attackMotion": 0,
+  "attackMotionBlock": 0,
+  "attackSkillMotion": 0,
+  "attackSkillMotionBlock": 0,
+  "attackExtraMotion": 0,
+  "attackClassActionMotion": 0,
+  "attackClassActionMotionBlock": 0,
+  "attackSkillClassActionMotion": 0,
+  "attackSkillClassActionMotionBlock": 0,
+  "attackOverChargeMotion": 0,
+  "attackOverChargeMotionBlock": 0,
+  "attackClassActionOverChargeMotion": 0,
+  "attackClassActionOverChargeMotionBlock": 0,
+  "drawOrder": 0,
+  "type": 2,
+  "rarityId": 1853849455,
+  "classId": 50060,
+  "skillId1": 50070,
+  "skillId2": 0,
+  "skillId3": 0,
+  "cost": 0,
+  "missileId": 0,
+  "subSkillSlot": 0,
+  "reSortieInterval": 0,
+  "awakingAbilityId1": 0,
+  "awakingAbilityId2": 0,
+  "awakingAbilityId3": 0,
+  "awakingAbilityId4": 0,
+  "awakingAbilityId5": 0,
+  "moveAction": 2,
+  "nextId": 0,
+  "familyId": 0,
+  "specialSkill": 0,
+  "god": 0,
+  "country": 0,
+  "department": 0,
+  "awakingCost1": 1,
+  "awakingCost2": 1,
+  "awakingCost3": 1,
+  "awakingCost4": 1,
+  "awakingCost5": 1
+}
 var card10051 ={
   "m_GameObject": {
     "m_FileID": 0,
@@ -20979,7 +21958,9 @@ var card10051 ={
   "gender": 1,
   "mainTribe": 51,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21062,7 +22043,9 @@ var card10052 ={
   "gender": 1,
   "mainTribe": 52,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21145,7 +22128,9 @@ var card10053 ={
   "gender": 1,
   "mainTribe": 53,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21228,7 +22213,9 @@ var card10054 ={
   "gender": 1,
   "mainTribe": 54,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21311,7 +22298,9 @@ var card10055 ={
   "gender": 1,
   "mainTribe": 55,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21394,7 +22383,9 @@ var card10056 ={
   "gender": 1,
   "mainTribe": 56,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21562,7 +22553,9 @@ var card10058 ={
   "gender": 1,
   "mainTribe": 58,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21645,7 +22638,9 @@ var card10059 ={
   "gender": 1,
   "mainTribe": 59,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21728,7 +22723,9 @@ var card10006 ={
   "gender": 1,
   "mainTribe": 6,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21811,7 +22808,9 @@ var card10060 ={
   "gender": 1,
   "mainTribe": 60,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    11
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -21979,7 +22978,9 @@ var card10062 ={
   "gender": 1,
   "mainTribe": 62,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22062,7 +23063,9 @@ var card10063 ={
   "gender": 1,
   "mainTribe": 63,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22145,7 +23148,9 @@ var card10064 ={
   "gender": 1,
   "mainTribe": 64,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22228,7 +23233,9 @@ var card10065 ={
   "gender": 1,
   "mainTribe": 65,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22311,7 +23318,9 @@ var card10066 ={
   "gender": 1,
   "mainTribe": 66,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22394,7 +23403,9 @@ var card10067 ={
   "gender": 1,
   "mainTribe": 67,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22477,7 +23488,9 @@ var card10068 ={
   "gender": 1,
   "mainTribe": 68,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22560,7 +23573,9 @@ var card10069 ={
   "gender": 1,
   "mainTribe": 69,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22643,7 +23658,9 @@ var card10007 ={
   "gender": 1,
   "mainTribe": 7,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22726,7 +23743,9 @@ var card10070 ={
   "gender": 1,
   "mainTribe": 70,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22809,7 +23828,9 @@ var card10071 ={
   "gender": 1,
   "mainTribe": 71,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22892,7 +23913,9 @@ var card10072 ={
   "gender": 1,
   "mainTribe": 72,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -22975,7 +23998,9 @@ var card10073 ={
   "gender": 1,
   "mainTribe": 73,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23058,7 +24083,9 @@ var card10074 ={
   "gender": 1,
   "mainTribe": 74,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23170,7 +24197,7 @@ var card10075 ={
   "rarityId": 5460818,
   "classId": 17021,
   "skillId1": 75,
-  "skillId2": 0,
+  "skillId2": 10075,
   "skillId3": 0,
   "cost": 5,
   "missileId": 0,
@@ -23226,7 +24253,9 @@ var card10076 ={
   "gender": 1,
   "mainTribe": 76,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23394,7 +24423,9 @@ var card10078 ={
   "gender": 1,
   "mainTribe": 78,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23477,7 +24508,9 @@ var card10079 ={
   "gender": 1,
   "mainTribe": 79,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 50,
   "lookReversed": 0,
@@ -23560,7 +24593,9 @@ var card10008 ={
   "gender": 1,
   "mainTribe": 8,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23728,7 +24763,9 @@ var card10081 ={
   "gender": 1,
   "mainTribe": 81,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23896,7 +24933,9 @@ var card10083 ={
   "gender": 1,
   "mainTribe": 83,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -23923,7 +24962,7 @@ var card10083 ={
   "rarityId": 5460818,
   "classId": 11011,
   "skillId1": 83,
-  "skillId2": 0,
+  "skillId2": 10083,
   "skillId3": 0,
   "cost": 5,
   "missileId": 0,
@@ -23979,7 +25018,9 @@ var card10084 ={
   "gender": 1,
   "mainTribe": 84,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24147,7 +25188,9 @@ var card10086 ={
   "gender": 1,
   "mainTribe": 86,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24230,7 +25273,9 @@ var card10087 ={
   "gender": 1,
   "mainTribe": 87,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24313,12 +25358,14 @@ var card10088 ={
   "gender": 1,
   "mainTribe": 88,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
   "colorSetting": 0,
-  "effect": "ef_10003",
+  "effect": "ef_10002",
   "resource": 10088,
   "picture": 74,
   "deadIndex": 0,
@@ -24396,7 +25443,9 @@ var card10089 ={
   "gender": 1,
   "mainTribe": 89,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24479,7 +25528,9 @@ var card10090 ={
   "gender": 1,
   "mainTribe": 90,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24647,7 +25698,9 @@ var card10092 ={
   "gender": 1,
   "mainTribe": 92,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24730,7 +25783,9 @@ var card10093 ={
   "gender": 1,
   "mainTribe": 93,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 2,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24813,7 +25868,9 @@ var card10094 ={
   "gender": 1,
   "mainTribe": 94,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24896,7 +25953,9 @@ var card10095 ={
   "gender": 1,
   "mainTribe": 95,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -24979,7 +26038,9 @@ var card10096 ={
   "gender": 1,
   "mainTribe": 96,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -25147,7 +26208,9 @@ var card10098 ={
   "gender": 1,
   "mainTribe": 98,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,
@@ -25230,7 +26293,9 @@ var card10099 ={
   "gender": 1,
   "mainTribe": 99,
   "subTribe": 0,
-  "trait_id_array": [],
+  "trait_id_array": [
+    9999
+  ],
   "receiveType": 1,
   "drawSize": 30,
   "lookReversed": 0,

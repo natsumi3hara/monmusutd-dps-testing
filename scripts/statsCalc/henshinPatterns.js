@@ -15,5 +15,8 @@ const henshin_patterns = {
 	"199": 2000,
 	"219": 4000,
 	"242": 4000,
+	"254": 4000, //skill stop male enemies
+	"258": 4000, //petrify
 	"263": 6000,
+	"275": 4000, //release magical energy
 }
