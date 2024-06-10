@@ -58,7 +58,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30000" class="larger-check divine-check" checked onChange="divineOneOnly('divine30000');allDPS();">
+                <input type="checkbox" id="divine30000" class="larger-check divine-check" checked onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30000" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" disabled>
             </div>
@@ -70,7 +70,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30001" class="larger-check divine-check" onChange="divineOneOnly('divine30001');allDPS();">
+                <input type="checkbox" id="divine30001" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30001" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -82,7 +82,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30002" class="larger-check divine-check" onChange="divineOneOnly('divine30002');allDPS();">
+                <input type="checkbox" id="divine30002" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30002" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -94,7 +94,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30003" class="larger-check divine-check" onChange="divineOneOnly('divine30003');allDPS();">
+                <input type="checkbox" id="divine30003" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30003" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -106,7 +106,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30004" class="larger-check divine-check" onChange="divineOneOnly('divine30004');allDPS();">
+                <input type="checkbox" id="divine30004" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30004" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -118,7 +118,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30006" class="larger-check divine-check" onChange="divineOneOnly('divine30006');allDPS();">
+                <input type="checkbox" id="divine30006" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30006" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -130,7 +130,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30007" class="larger-check divine-check" onChange="divineOneOnly('divine30007');allDPS();">
+                <input type="checkbox" id="divine30007" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30007" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -142,7 +142,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30008" class="larger-check divine-check" onChange="divineOneOnly('divine30008');allDPS();">
+                <input type="checkbox" id="divine30008" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30008" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -154,7 +154,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30009" class="larger-check divine-check" onChange="divineOneOnly('divine30009');allDPS();">
+                <input type="checkbox" id="divine30009" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30009" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -166,7 +166,7 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30010" class="larger-check divine-check" onChange="divineOneOnly('divine30010');allDPS();">
+                <input type="checkbox" id="divine30010" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30010" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
@@ -178,9 +178,38 @@ document.write(`
             </div>
             <div class="flex-container-divine-buff-inner2">
                 <span class="divine-buff-label">編成</span>
-                <input type="checkbox" id="divine30011" class="larger-check divine-check" onChange="divineOneOnly('divine30011');allDPS();">
+                <input type="checkbox" id="divine30011" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30011" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+    </div>
+    <button type="button" class="collapsible-button inputInsertButton">獣神所持バフ（工事中）</button>
+    <div class="collapsible-content" style="display:block;">
+        <div id="flex-container-divine-buff">
+            <div class="flex-container-divine-buff-inner">
+                <div class="flex-container-divine-buff-inner2">
+                    <img src="../../img/equipment-icons/0000.png" class="divine-buff-img">
+                    <span class="divine-buff-name">---</span>
+                </div>
+                <div class="flex-container-divine-buff-inner2">
+                    <span class="divine-buff-label"></span>
+                    <span class="divine-buff-label">所持数</span>
+                    <input id="divineTotalPossess" type="number" min="1" max="11" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="divine-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-divine-buff-inner">
+                <div class="flex-container-divine-buff-inner2">
+                    <img src="../../img/equipment-icons/0000.png" class="divine-buff-img">
+                    <span class="divine-buff-name">---</span>
+                </div>
+                <div class="flex-container-divine-buff-inner2">
+                    <span class="divine-buff-label"></span>    
+                    <span class="divine-buff-label">総Lv</span>
+                    <input id="divineTotalLevel" type="number" min="1" max="130" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <span class="divine-buff-label"></span>
+                </div>
             </div>
         </div>
     </div>

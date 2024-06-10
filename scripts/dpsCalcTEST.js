@@ -1603,7 +1603,7 @@ function calculateStat(level,cc,type){
     let classObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.baseClass+cc)})];
     let traitObject = ability_data["table"][ability_data["table"].findIndex(object => {return object.id === (masterValues.charaID-10000)})];
     let uniqueObject = unique_weapon_ability_data["table"][unique_weapon_ability_data["table"].findIndex(object => {return object.id === (1000*(masterValues.charaID-10000)+1)})];
-    let uniqueStats = unique_weapon_data["table"][unique_weapon_data["table"].findIndex(object => {return object.uw_id === (1000*(masterValues.charaID-10000)+1)})];
+    let uniqueStats = unique_weapon_data["table"][unique_weapon_data["table"].findIndex(object => {return object.uw_id === (1000*(masterValues.charaID-10000)+Number(document.getElementById("unique-equip-level").value))})];
     ///console.log("uniqueStats",uniqueStats);
     let skillaltnumber = Number(document.getElementById("skill-alt-select").value);
     let skillchangenumber = Number(document.getElementById("skill-change-select").value);
@@ -1870,6 +1870,20 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //bridal suzu
+        if (masterValues.charaID !== 10282 && document.getElementById("otherPassive10282-1").checked && document.getElementById("otherPassive10282-2").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[25]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[25]]];
+            }
+        } else if (masterValues.charaID !== 10282 && document.getElementById("otherPassive10282-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
         //elter
         if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked){
             try {
@@ -2038,6 +2052,14 @@ function calculateStat(level,cc,type){
             multEffect2.buff *= 250;
             multEffect2.count += 1;
         } else {}
+        //piperi's troublesome effect//
+        if (masterValues.charaID === 10268 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
+            multEffect2.buff *= 150;
+            multEffect2.count += 1;
+        } else if (masterValues.charaID === 10268 && selfConditions["26"] === 1 && document.getElementById('enemybackattack').checked){
+            multEffect2.buff *= 180;
+            multEffect2.count += 1;
+        } else {}
         //dhirio's poison damage up//
         if (masterValues.charaID !== 10067 && enemyConditions["25"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherPassive10067").checked){
             multEffect2.buff *= 110;
@@ -2075,6 +2097,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat193//
     if (type === "stat193"){
+        //bridal yasefa's crit rate buff
+        if (masterValues.charaID !== 10281 && masterValues.unitcard.element === 4 && document.getElementById("otherSkill10281").checked){
+            addEffect2.buff += 20;
+        }
         //usuko's reworked crit buff//
         if (masterValues.charaID !== 10185 && (document.getElementById("otherPassive10185-2").value === "deploy"||document.getElementById("otherPassive10185-2").value === "skill")){
             addEffect2.buff += 25;
@@ -2082,6 +2108,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat191//
     if (type === "stat191"){
+        //bridal yasefa's crit rate buff
+        if (masterValues.charaID !== 10281 && masterValues.unitcard.element === 4 && document.getElementById("otherSkill10281").checked){
+            addEffect2.buff += 20;
+        }
         //ala's enemy attack stacking buff//
         if (masterValues.charaID === 10091 && document.getElementById("skill-alt-select").value === "0"){
             addEffect2.buff += 5 * Number(document.getElementById("charaSpecific10091-1").value);
@@ -2111,6 +2141,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat192//
     if (type === "stat192"){
+        //piperi's on crit buff
+        if (masterValues.charaID === 10268){
+            addEffect2.buff += 5 * Number(document.getElementById("charaSpecific10268-1").value);
+        }
         //christmas recliff's skill ally buff//
         if (masterValues.charaID !== 10217 && document.getElementById("otherSkill10217").checked){
             addEffect2.buff += 30;
@@ -2249,9 +2283,21 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //bridal darcy's attack steal buff
+        if (masterValues.charaID === 10280){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(2 * Number(document.getElementById("charaSpecific10280-1").value) / 100);
+            } else {
+                addEffect2.buff += Math.floor(3 * Number(document.getElementById("charaSpecific10280-1").value) / 100);
+            }
+        }
         //lucitani
         if (masterValues.charaID !== 10275){
             addEffect2.buff += Math.floor(Number(document.getElementById("otherSkill10275-1").value) * Number(document.getElementById("otherSkill10275-2").value) / 100);
+        } else if (masterValues.charaID === 10275 && masterValues.charaAwaked){
+            multEffect2.buff += 60 * Number(document.getElementById("charaSpecific10275-1").value);
+        } else {
+            multEffect2.buff += 50 * Number(document.getElementById("charaSpecific10275-1").value);
         }
         //school lico's token buff
         if (true){
@@ -2450,10 +2496,10 @@ function calculateStat(level,cc,type){
         //veratu's buffs//
         if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
             multEffect2.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
-            multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+            multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10083-2").value);
         } else if (masterValues.charaID === 10083 && selfConditions["26"] === 0){
             multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
-            multEffect2.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+            multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10083-2").value);
         }
         //vile's atk up buff//
         if (true){ //vile is exception, since healer, no need to set individual (practicality)
@@ -2794,6 +2840,20 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //bridal suzu
+        if (masterValues.charaID !== 10282 && document.getElementById("otherPassive10282-1").checked && document.getElementById("otherPassive10282-2").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[25]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[25]]];
+            }
+        } else if (masterValues.charaID !== 10282 && document.getElementById("otherPassive10282-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
         //elter
         if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked){
             try {
@@ -2967,6 +3027,14 @@ function calculateStat(level,cc,type){
             multEffect3.buff *= 250;
             multEffect3.count += 1;
         } else {}
+        //piperi's troublesome effect//
+        if (masterValues.charaID === 10268 && selfConditions["26"] === 0 && document.getElementById('enemybackattack').checked){
+            multEffect3.buff *= 150;
+            multEffect3.count += 1;
+        } else if (masterValues.charaID === 10268 && selfConditions["26"] === 1 && document.getElementById('enemybackattack').checked){
+            multEffect3.buff *= 180;
+            multEffect3.count += 1;
+        } else {}
         //dhirio's poison damage up//
         if (masterValues.charaID !== 10067 && enemyConditions["25"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherPassive10067").checked){
             multEffect3.buff *= 110;
@@ -3009,6 +3077,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat193//
     if (type === "stat193"){
+        //bridal yasefa's crit rate buff
+        if (masterValues.charaID !== 10281 && masterValues.unitcard.element === 4 && document.getElementById("otherSkill10281").checked){
+            addEffect3.buff += 20;
+        }
         //usuko's reworked crit buff//
         if (masterValues.charaID !== 10185 && (document.getElementById("otherPassive10185-2").value === "deploy"||document.getElementById("otherPassive10185-2").value === "skill")){
             addEffect3.buff += 25;
@@ -3016,6 +3088,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat191//
     if (type === "stat191"){
+        //bridal yasefa's crit rate buff
+        if (masterValues.charaID !== 10281 && masterValues.unitcard.element === 4 && document.getElementById("otherSkill10281").checked){
+            addEffect3.buff += 20;
+        }
         //ala's enemy attack stacking buff//
         if (masterValues.charaID === 10091 && document.getElementById("skill-alt-select").value === "0"){
             addEffect3.buff += 5 * Number(document.getElementById("charaSpecific10091-1").value);
@@ -3045,6 +3121,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat192//
     if (type === "stat192"){
+        //piperi's on crit buff
+        if (masterValues.charaID === 10268){
+            addEffect3.buff += 5 * Number(document.getElementById("charaSpecific10268-1").value);
+        }
         //christmas recliff's skill ally buff//
         if (masterValues.charaID !== 10217 && document.getElementById("otherSkill10217").checked){
             addEffect3.buff += 30;
@@ -3179,9 +3259,21 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //bridal darcy's attack steal buff
+        if (masterValues.charaID === 10280){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(2 * Number(document.getElementById("charaSpecific10280-1").value) / 100);
+            } else {
+                addEffect3.buff += Math.floor(3 * Number(document.getElementById("charaSpecific10280-1").value) / 100);
+            }
+        }
         //lucitani
         if (masterValues.charaID !== 10275){
             addEffect3.buff += Math.floor(Number(document.getElementById("otherSkill10275-1").value) * Number(document.getElementById("otherSkill10275-2").value) / 100);
+        } else if (masterValues.charaID === 10275 && masterValues.charaAwaked){
+            multEffect3.buff += 60 * Number(document.getElementById("charaSpecific10275-1").value);
+        } else {
+            multEffect3.buff += 50 * Number(document.getElementById("charaSpecific10275-1").value);
         }
         //school lico's token buff
         if (true){
@@ -3397,10 +3489,10 @@ function calculateStat(level,cc,type){
         //veratu's buffs//
         if (masterValues.charaID === 10083 && selfConditions["26"] === 1){
             multEffect3.buff += 37 * Number(document.getElementById("charaSpecific10083-1").value);
-            multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+            multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10083-2").value);
         } else if (masterValues.charaID === 10083 && selfConditions["26"] === 0){
             multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10083-1").value);
-            multEffect3.buff += 25 * Number(document.getElementById("charaSpecific10083-2").value);
+            multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10083-2").value);
         }
         //vile's atk up buff//
         if (true){ //vile is exception, since healer, no need to set individual (practicality)
@@ -4099,6 +4191,19 @@ function pdMultValues(type){ //timing = 4//
             totalPartyBuff += 8;
         }
     }
+    //perplop's alien buff
+    if (document.getElementById("party10267").checked && (type==="stat1") && alienCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 12;
+        if (document.getElementById("awake10267").checked){
+            totalPartyBuff += 3;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10267){
+            totalPartyBuff += 12;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 3;
+            }
+        }
+    }
     //hokaku 1 - warrior
     if (type === "stat2" && selfConditions["1006"]==2 && (getAttachID("subskill1") === 157 || getAttachID("subskill2") === 157)){
         totalPartyBuff += 15;
@@ -4164,38 +4269,74 @@ function pdMultValues(type){ //timing = 4//
     }
     //↑ ratzel's partybuff copy ↑//
     ///console.log(type+"-pBuff:",totalPartyBuff);
+    let totalDivineBuffMinus = 0;
+    let totalDivineBuffPlus = 0;
+    let divineBufftoCount = 0;
+    //let totalDivineCount = document.querySelectorAll(".divine-check:checked").length;
     for (let i=0;i<divinechecks.length;i++){
         let divineCB = divinechecks[i];
         let divineLV = Number(document.getElementById("level"+divineCB.id.split("divine")[1]).value);
         //console.log(partybuffref[divineCB.id].cond)
         if (divineCB.checked){
-            if (partybuffref[divineCB.id].cond.length == 0){
-                try {
-                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]+100);
-                    break
-                } catch (err) {//console.log("No buff")
-                    totalPartyBuff *= 100;
-                }
+            try{
+                divineBufftoCount = partybuffref[divineCB.id][type][divineLV-1];
+            } catch (err){
+                divineBufftoCount = 0;
             }
-            else if (partybuffref[divineCB.id].cond.includes(masterValues.unitcard["element"])||partybuffref[divineCB.id].cond.includes(masterValues.baseClass)){
-                try {
-                    //console.log(partybuffref[divineCB.id][type][divineLV-1])
-                    if (typeof partybuffref[divineCB.id][type][divineLV-1] == "number"){
-                    totalPartyBuff *= (partybuffref[divineCB.id][type][divineLV-1]+100);
-                    break
-                    } else {
-                        totalPartyBuff *= 100;
+            console.log(divineBufftoCount,totalDivineBuffPlus,totalDivineBuffMinus);
+            try {
+                if (partybuffref[divineCB.id].cond.length == 0 && divineBufftoCount>0 && divineBufftoCount > totalDivineBuffPlus){
+                    try {
+                        //console.log("plus added without condition");
+                        totalDivineBuffPlus = divineBufftoCount;
+                    } catch (err) {
+                        //console.log("No buff")
                     }
-                } catch (err) {//console.log("No buff")
-                    totalPartyBuff *= 100;
                 }
-            } else {//console.log("condition + not met")
-                totalPartyBuff *= 100;
+                else if (partybuffref[divineCB.id].cond.length == 0 && divineBufftoCount < 0 && divineBufftoCount < totalDivineBuffMinus){
+                    try {
+                        //console.log("minus added without condition");
+                        totalDivineBuffMinus = divineBufftoCount;
+                    } catch (err) {
+                        //console.log("No buff")
+                    }
+                }
+                else if ((partybuffref[divineCB.id].cond.includes(masterValues.unitcard["element"])||partybuffref[divineCB.id].cond.includes(masterValues.baseClass)) && divineBufftoCount>0 && divineBufftoCount > totalDivineBuffPlus){
+                    try {
+                        //console.log("plus added with condition");
+                        //console.log(partybuffref[divineCB.id][type][divineLV-1])
+                        if (typeof partybuffref[divineCB.id][type][divineLV-1] == "number"){
+                            totalDivineBuffPlus = divineBufftoCount;
+                        } else {
+                            //not a number
+                        }
+                    } catch (err) {
+                        //console.log("No buff")
+                    }
+                }
+                else if ((partybuffref[divineCB.id].cond.includes(masterValues.unitcard["element"])||partybuffref[divineCB.id].cond.includes(masterValues.baseClass)) && divineBufftoCount<0 && divineBufftoCount < totalDivineBuffMinus){
+                    try {
+                        //console.log("minus added with condition");
+                        //console.log(partybuffref[divineCB.id][type][divineLV-1])
+                        if (typeof partybuffref[divineCB.id][type][divineLV-1] == "number"){
+                            totalDivineBuffMinus = divineBufftoCount;
+                        } else {
+                            //not a number
+                        }
+                    } catch (err) {
+                        //console.log("No buff")
+                    }
+                } else {
+                    //console.log("condition + not met")
+                }
+            } catch (err) {
+                //type not match
             }
         } else {}
     }
     ///console.log(type+"-pdBuff:",totalPartyBuff)
-    return totalPartyBuff/100;
+    ///console.log(totalPartyBuff*(100+totalDivineBuffPlus+totalDivineBuffMinus)/100);
+    return totalPartyBuff*(100+totalDivineBuffPlus+totalDivineBuffMinus)/100;
 }
 
 function partyAdd(type){
@@ -4370,12 +4511,17 @@ function skilltextreplace(){
     ///console.log(beforeArray);
     let maxDuration = skillObject["maxDurationTime"];
     let minDuration = skillObject["minDurationTime"];
+    let maxCost = skillObject["maxCost"];
+    let minCost = skillObject["minCost"];
     try {
         for (let i=0; i<beforeArray.length;i++){
             let B4Asplit = beforeArray[i].split(",")
             if (beforeArray[i] === "duration"){
                 let replaceDuration = Math.floor((minDuration + (maxDuration-minDuration)/4*(skilllevelnumber-1))/30);
                 baseText = baseText.replace("duration",replaceDuration.toString());
+            } else if (beforeArray[i] === "cost"){
+                let replaceCost = Math.floor((minCost + (maxCost-minCost)/4*(skilllevelnumber-1)));
+                baseText = baseText.replace("cost",replaceCost.toString());
             } else if (B4Asplit[0] === "MAG") {
                 let minParam = skillObject["talentList"][B4Asplit[1]]["param"][B4Asplit[2]]["num"][0];
                 let maxParam = skillObject["talentList"][B4Asplit[1]]["maxParam"][B4Asplit[2]]["num"][0];
@@ -4510,7 +4656,7 @@ function traittextreplace(){
         for (let i=0; i<pattern.length;i++){
             let replaceText = "("+pattern[i]+")";
             if (masterValues.language === "ja"){
-                replaceText = replaceText.replace("awaked,","フル覚醒で");
+                replaceText = replaceText.replace("awaked,","完凸で");
             } else if (masterValues.language === "en"){
                 replaceText = replaceText.replace("awaked,","full potential,&nbsp");
             }
@@ -4587,7 +4733,7 @@ function charaInfoReplace(){
             for (let i=0; i<pattern.length;i++){
                 let replaceText = "("+pattern[i]+")";
                 if (masterValues.language === "ja"){
-                    replaceText = replaceText.replace("awaked,","フル覚醒で");
+                    replaceText = replaceText.replace("awaked,","完凸で");
                 } else if (masterValues.language === "en"){
                     replaceText = replaceText.replace("awaked,","full potential,&nbsp");
                 }
@@ -4619,16 +4765,16 @@ function uniqueWeaponReplace(charaID){
     if (uniqueCharas.includes(uwID)){
         let uwSRC = "'../../img/equipment-icons/uw_"+uwID+"001.png'";
         if (masterValues.language === "ja"){
-            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;" rowspan="2"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;" rowspan="2"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr><tr><td style="border:none;text-align:left;width: 33%;"><span>レベル </span><input id="unique-equip-level" type="number" value="1" min="1" max="11" style="width:30%;" onchange="allDPS();"></td></tr></table>'
         } else if (masterValues.language === "en"){
-            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;" rowspan="2"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;" rowspan="2"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr><tr><td style="border:none;text-align:left;width: 33%;"><span>レベル </span><input id="unique-equip-level" type="number" value="1" min="1" max="11" style="width:30%;" onchange="allDPS();"></td></tr></table>'
         }
     } else {
         let uwSRC = "'../../img/chara-icons/icon_10000_0_s.png'";
         if (masterValues.language === "ja"){
-            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;" rowspan="2"><span>専用武器</span></td><td style="border:none;text-align:right;width: 33%;" rowspan="2"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr><tr><td style="border:none;text-align:left;width: 33%;"><span>レベル </span><input id="unique-equip-level" type="number" value="1" min="1" max="11" style="width:30%;" onchange="allDPS();"></td></tr></table>'
         } else if (masterValues.language === "en"){
-            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr></table>'
+            targetDiv.innerHTML = '<table style="display:none;height:100%;width:100%;border:3px solid white;"><tr><td style="border:none;vertical-align:top;width: 33%;" rowspan="2"><span>Unique<br>Weapon</span></td><td style="border:none;text-align:right;width: 33%;" rowspan="2"><img class="equip-icon" src='+uwSRC+'></td><td style="border:none;text-align:left;width: 33%;"><input id="unique-equip-check" type="checkbox" class="larger-check" onchange="isUniqueWeaponEquipped(this.checked);allDPS();"></td></tr><tr><td style="border:none;text-align:left;width: 33%;"><span>レベル </span><input id="unique-equip-level" type="number" value="1" min="1" max="11" style="width:30%;" onchange="allDPS();"></td></tr></table>'
         }
     }
 }
@@ -4684,7 +4830,7 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10150,10178,10209,10239,10245,10265];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10150,10178,10209,10239,10245,10265,10279];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230];
     if (dpsC.includes(masterValues.charaID)){

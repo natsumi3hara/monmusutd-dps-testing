@@ -272,6 +272,18 @@ document.write(`
                 <input id="otherPassive10264-4" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10282_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">憧嫁スズ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10282-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10282-2" class="larger-check otherPassive-check" onchange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">計算（工事中）</button>
     <div class="collapsible-content" style="display:none;">

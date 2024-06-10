@@ -452,7 +452,7 @@ const continuous_patterns = {
 	"178-1": {
 		"battle":[
 			{"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":60},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
 			"target":"range",
 			"time":60,
 			},
@@ -468,7 +468,7 @@ const continuous_patterns = {
 	"178-2": {
 		"battle":[
 			{"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":70},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
 			"target":"range",
 			"time":60,
 			},
@@ -484,7 +484,7 @@ const continuous_patterns = {
 	"178-3": {
 		"battle":[
 			{"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
 			"target":"range",
 			"time":60,
 			},
@@ -500,7 +500,7 @@ const continuous_patterns = {
 	"178-4": {
 		"battle":[
 			{"cond":[],
-			"damage":{"hitType":"貫通","reference":"stat2","multiplier":90},
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
 			"target":"range",
 			"time":60,
 			},
@@ -516,7 +516,87 @@ const continuous_patterns = {
 	"178-5": {
 		"battle":[
 			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":60,
+			},
+		],
+		"skill":[
+			{"cond":[],
 			"damage":{"hitType":"貫通","reference":"stat2","multiplier":100},
+			"target":"range",
+			"time":60,
+			},
+		],
+	},
+	"178a-1": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":60,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":60},
+			"target":"range",
+			"time":60,
+			},
+		],
+	},
+	"178a-2": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":60,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":70},
+			"target":"range",
+			"time":60,
+			},
+		],
+	},
+	"178a-3": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":60,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":80},
+			"target":"range",
+			"time":60,
+			},
+		],
+	},
+	"178a-4": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":60,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":90},
+			"target":"range",
+			"time":60,
+			},
+		],
+	},
+	"178a-5": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
 			"target":"range",
 			"time":60,
 			},
@@ -616,6 +696,166 @@ const continuous_patterns = {
 			"damage":{"hitType":"貫通","reference":"stat2","multiplier":100},
 			"target":"range",
 			"time":150,
+			},
+		],
+	},
+	"279-1": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":50},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279-2": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":52},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279-3": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":55},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279-4": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":57},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279-5": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":60},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279a-1": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":50},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279a-2": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":52},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279a-3": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":55},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279a-4": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":57},
+			"target":"range",
+			"time":30,
+			},
+		],
+	},
+	"279a-5": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":30,
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"貫通","reference":"stat2","multiplier":60},
+			"target":"range",
+			"time":30,
 			},
 		],
 	},

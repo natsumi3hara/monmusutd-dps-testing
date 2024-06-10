@@ -105,7 +105,34 @@ div{
 hr{
     margin:5px;
 }
-
+/*----------*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #dcdcdc;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #9a9a9a;
+    border-radius: 10px;
+}
+#dps-input-info{
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    overflow-y:scroll;
+    direction: rtl;
+}
+#dps-input-info div{
+    direction: ltr;
+}
+#dps-dps-output{
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    overflow-y:scroll;
+}
 #dps-input{
     width: 100%;
 }
@@ -118,7 +145,7 @@ hr{
 #dps-info{
     width: 100%;
 }
-
+/*----------*/
 #dps-input td{
     border: 3px solid white;
 }

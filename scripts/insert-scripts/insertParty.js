@@ -393,6 +393,42 @@ document.write(`
                 <input type="checkbox" id="awake10251" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、エイリアンの最大HP+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10267_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">パープロープ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10267" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10267" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、火属性モンスター娘の攻撃力+12%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10279_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">灼嫁ｲﾌｨｼﾞｬｰﾙ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10279" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10279" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、風属性モンスター娘の攻撃力+12%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10281_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">風嫁ヤーセファ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10281" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10281" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">
@@ -405,7 +441,7 @@ document.write(`
                 <div class="flex-container-party-buff-inner2">
                     <span class="party-buff-label"></span>
                     <span class="party-buff-label">枚数</span>
-                    <input id="partySub-1119" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <input id="partySub-1119" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                     <span class="party-buff-label"></span>
                 </div>
             </div>
@@ -417,7 +453,7 @@ document.write(`
                 <div class="flex-container-party-buff-inner2">
                     <span class="party-buff-label"></span>
                     <span class="party-buff-label">枚数</span>
-                    <input id="partySub-1120" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <input id="partySub-1120" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                     <span class="party-buff-label"></span>
                 </div>
             </div>
@@ -429,7 +465,7 @@ document.write(`
                 <div class="flex-container-party-buff-inner2">
                     <span class="party-buff-label"></span>
                     <span class="party-buff-label">枚数</span>
-                    <input id="partySub-1130" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <input id="partySub-1130" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                     <span class="party-buff-label"></span>
                 </div>
             </div>
@@ -441,7 +477,7 @@ document.write(`
                 <div class="flex-container-party-buff-inner2">
                     <span class="party-buff-label"></span>
                     <span class="party-buff-label">枚数</span>
-                    <input id="partySub-1158" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <input id="partySub-1158" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                     <span class="party-buff-label"></span>
                 </div>
             </div>
@@ -453,7 +489,7 @@ document.write(`
                 <div class="flex-container-party-buff-inner2">
                     <span class="party-buff-label"></span>
                     <span class="party-buff-label">枚数</span>
-                    <input id="partySub-1159" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <input id="partySub-1159" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                     <span class="party-buff-label"></span>
                 </div>
             </div>
@@ -465,7 +501,7 @@ document.write(`
                 <div class="flex-container-party-buff-inner2">
                     <span class="party-buff-label"></span>
                     <span class="party-buff-label">枚数</span>
-                    <input id="partySub-1173" class="" type="number" min="0" max="2" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                    <input id="partySub-1173" class="" type="number" min="0" max="3" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                     <span class="party-buff-label"></span>
                 </div>
             </div>
@@ -512,6 +548,9 @@ document.write(`
                         <option value="10237">参詣ロヴィリス</option>
                         <option value="10239">旋律アテエル</option>
                         <option value="10251">ヒミノ</option>
+                        <option value="10267">パープロープ</option>
+                        <option value="10279">灼嫁イフィジャール</option>
+                        <option value="10281">風嫁ヤーセファ</option>
                     </select>
                     <span class="party-buff-label"><abbr title="自身ではなく変身元" style="cursor: help;">完凸/専用武器</abbr></span>
                     <span class="party-buff-lebel"><input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">　<input type="checkbox" id="henshin-10169-unique" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();"></span>
