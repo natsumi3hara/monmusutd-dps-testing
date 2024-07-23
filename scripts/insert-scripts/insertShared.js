@@ -198,7 +198,6 @@ document.write(`
                     <input type="checkbox" id="shared22001-1" class="larger-check shared-check" onChange="allDPS();">
                     <span class="shared-buff-label">トークン数</span>
                     <input id="shared22001-2" type="number" min="0" max="30" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                    
                 </div>
             </div>
             <div class="flex-container-shared-buff-inner">
@@ -246,6 +245,18 @@ document.write(`
                     <span class="otherPassive-buff-label"></span>
                     <span class="otherPassive-buff-label">トークン数</span>
                     <input id="shared22005" type="number" min="0" max="12" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="otherPassive-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner">
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <abbr title="範囲内の敵の被ダメージを10%増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_50050_0_s.png" class="otherPassive-buff-img"></abbr>
+                    <span class="otherPassive-buff-name">偵察ドローン</span>
+                </div>
+                <div class="flex-container-otherPassive-buff-inner2">
+                    <span class="otherPassive-buff-label"></span>
+                    <span class="otherPassive-buff-label">スキル発動</span>
+                    <input type="checkbox" id="shared22006" class="larger-check shared-check" onChange="allDPS();">
                     <span class="otherPassive-buff-label"></span>
                 </div>
             </div>

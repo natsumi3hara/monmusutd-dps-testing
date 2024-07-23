@@ -293,4 +293,11 @@ const eBuffType = {
 	"1128":["stat0","none-none"],
 	"1129":["stat0","none-none"],
 	"1130":["stat0","none-none"],
+	"1131":["stat0","none-none"],
+	"1132":["stat0","none-none"],
+	"1133":["stat0","none-none"],
+	"1134":["stat0","none-none"],
+	"1135":["stat0","none-none"],
+	"1136":["stat0","none-none"],
+	"1137":["stat0","none-none"],
 }

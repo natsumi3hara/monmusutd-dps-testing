@@ -245,6 +245,10 @@ var partybuffref = {
         "cond":[11011,11021,11031,11041],
         "stat2":[17,18,19,20,21]
     },
+    "divine30013": {
+        "cond":[],
+        "stat2":[0,0,0,0,0]
+    },
     /*otherSkills
     "otherSkill10070": {
         "cond":[],

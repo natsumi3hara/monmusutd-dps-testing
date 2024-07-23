@@ -35,6 +35,7 @@ var selfConditions = {
 	"33": 0, //isFrozen (NEW)
 	"34": 0, //isClassActionActivated (NEW)
 	"35": 0, //isDarkness
+	"36": 0, //isOverChargeSkillActivated
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -62,7 +63,8 @@ var selfConditions = {
 	"2012": 0, //attackTargetCount (フィロソフィア、ラフーカ)
 	"2013": 0, //blockCount (いろいろ)
 	"2014": 0, //destroyCount
-	"2015": 0, //TotalDestroyCount
+	"2015": 0, //totalDestroyCount
+	"2016": 0, //privateGeneralCounter
 	"3000": undefined, //questCategory (無用)
 	"3001": undefined, //questId (無用?)
 	"3002": undefined, //timeLimit (無用)
@@ -74,6 +76,7 @@ var selfConditions = {
 	"5001": undefined, //sortieJobSystem (無用)
 	"5002": undefined, //sortieJob (無用)
 	"5003": undefined, //sortieChara (無用)
+	"5004": undefined, //sortieOwnerToken
 	"10000": undefined, //exclusive (無用?)
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
@@ -81,6 +84,7 @@ var selfConditions = {
 	"40003": 0, //touchArea (NEW)
 	"40004": 0, //totalLimit (NEW)
 	"40005": 0, //classActionTalent
+	"40006": 0, //overChargeSkillTalent
 	"80000": 0, //isUniqueWeaponEquipped
 }
 var selfReference = {
@@ -136,6 +140,7 @@ var enemyConditions = {
 	"33": 0, //isFrozen (NEW)
 	"34": 0, //isClassActionActivated (NEW)
 	"35": 0, //isDarkness
+	"36": 0, //isOverChargeSkillActivated
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute
@@ -164,6 +169,7 @@ var enemyConditions = {
 	"2013": 0, //blockCount
 	"2014": 0, //destroyCount
 	"2015": 0, //TotalDestroyCount
+	"2016": 0, //privateGeneralCounter
 	"3000": undefined, //questCategory
 	"3001": undefined, //questId
 	"3002": undefined, //timeLimit
@@ -175,6 +181,7 @@ var enemyConditions = {
 	"5001": undefined, //sortieJobSystem
 	"5002": undefined, //sortieJob
 	"5003": undefined, //sortieChara
+	"5004": undefined, //sortieOwnerToken
 	"10000": undefined, //exclusive
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
@@ -182,5 +189,6 @@ var enemyConditions = {
 	"40003": 0, //touchArea (NEW)
 	"40004": 0, //totalLimit (NEW)
 	"40005": 0, //classActionTalent
+	"40006": 0, //overChargeSkillTalent
 	"80000": 0, //isUniqueWeaponEquipped
 }

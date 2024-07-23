@@ -184,7 +184,7 @@ document.write(`
 <tr>
     <td id="exsub-1135" class="exsub excluded" onclick="toggleExclude(1135)">聖女の加護</td>
     <td id="exsub-1160" class="exsub excluded" onclick="toggleExclude(1160)">豪華絢爛</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1176" class="exsub excluded" onclick="toggleExclude(1176)">暗部の聖衣</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
@@ -220,7 +220,7 @@ document.write(`
     <td id="exsub-1118" class="exsub excluded" onclick="toggleExclude(1118)">灼熱噴然の討伐証</td>
     <td id="exsub-1157" class="exsub excluded" onclick="toggleExclude(1157)">煩悶淫竜の討伐証</td>
     <td id="exsub-1166" class="exsub" onclick="toggleExclude(1166)">ムッツリ妄想フルパワー</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1177" class="exsub excluded" onclick="toggleExclude(1177)">愛造暴玩の討伐証</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">有料</td>
@@ -311,7 +311,7 @@ document.write(`
 <tr>
     <td id="exsub-1139" class="exsub" onclick="toggleExclude(1139)">一級ご主人証明書</td>
     <td id="exsub-1154" class="exsub" onclick="toggleExclude(1154)">妖怪島探検家</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1175" class="exsub excluded" onclick="toggleExclude(1175)">被検体R13</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>

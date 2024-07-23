@@ -77,7 +77,7 @@ document.write(`
         </div>
         <div class="flex-container-divine-buff-inner">
             <div class="flex-container-divine-buff-inner2">
-                <abbr title="編成中、スナイパーとソーサラーの攻撃力が\n[13%,14%,15%,16%,17%]上昇、\nその代わりに最大HPが\n[9%,8%,7%,6%,6%]ダウン" style="cursor: help;"><img src="../../img/chara-icons/icon_30002_0_s.png" class="divine-buff-img"></abbr>
+                <abbr title="編成中、スナイパーとソーサラーの攻撃力が\n[14%,15%,16%,17%,18%]上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30002_0_s.png" class="divine-buff-img"></abbr>
                 <span class="divine-buff-name">ニーズホッグ</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
@@ -125,7 +125,7 @@ document.write(`
         </div>
         <div class="flex-container-divine-buff-inner">
             <div class="flex-container-divine-buff-inner2">
-                <abbr title="編成中、ソーサラーの攻撃力が\n[10%,11%,12%,13%,15%]上昇、\n射程が\n[10,10,11,11,12]上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30007_0_s.png" class="divine-buff-img"></abbr>
+                <abbr title="編成中、ソーサラーの攻撃力が\n[17%,18%,19%,20%,21%]上昇、\n射程が\n[12,12,13,13,14]上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30007_0_s.png" class="divine-buff-img"></abbr>
                 <span class="divine-buff-name">ソラス</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
@@ -173,7 +173,7 @@ document.write(`
         </div>
         <div class="flex-container-divine-buff-inner">
             <div class="flex-container-divine-buff-inner2">
-                <abbr title="編成中、ウォリアーの最大HPが\n[15%,18%,22%,26%,30%]上昇、\n攻撃力が\n[10%,12%,15%,17%,20%]上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30011_0_s.png" class="divine-buff-img"></abbr>
+                <abbr title="編成中、ウォリアーの攻撃力が[18%,19%,20%,21%,22%]上昇、出撃コスト-2" style="cursor: help;"><img src="../../img/chara-icons/icon_30011_0_s.png" class="divine-buff-img"></abbr>
                 <span class="divine-buff-name">リーファー</span>
             </div>
             <div class="flex-container-divine-buff-inner2">
@@ -181,6 +181,18 @@ document.write(`
                 <input type="checkbox" id="divine30011" class="larger-check divine-check" onChange="allDPS();">
                 <span class="divine-buff-label">加護Lv</span>
                 <input id="level30011" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-divine-buff-inner">
+            <div class="flex-container-divine-buff-inner2">
+                <abbr title="編成中、妖怪の攻撃力が[12%,13%,14%,15%,17%]上昇、出撃コスト-2" style="cursor: help;"><img src="../../img/chara-icons/icon_30013_0_s.png" class="divine-buff-img"></abbr>
+                <span class="divine-buff-name">天逆毎姫</span>
+            </div>
+            <div class="flex-container-divine-buff-inner2">
+                <span class="divine-buff-label">編成</span>
+                <input type="checkbox" id="divine30013" class="larger-check divine-check" onChange="allDPS();">
+                <span class="divine-buff-label">加護Lv</span>
+                <input id="level30013" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
     </div>

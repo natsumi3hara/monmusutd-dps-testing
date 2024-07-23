@@ -745,6 +745,18 @@ document.write(`
         src="../../img/subskill-icons/subskill_1174.png"
         alt="ミノタウロスソウル-みのたうろすそうる-ブロック中の敵への与ダメージ1.2倍\r\nミノタウロス（原種）をトークンとして使役可能-ぶろっくちゅう-ぶろっくじ-よだめーじ-とーくん"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1175.png"
+        alt="被検体R13-ひけんたいあーるいちさん-ひけんたいあーるじゅうさん-【改造リザードマン娘】サウラをトークンとして使役可能\r\n（元々トークン所持している場合は無効）-とーくん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1176.png"
+        alt="暗部の聖衣-あんぶのせいい-HP+18%\r\nヒーラー系クラスにセット時、追加で物理と魔法ダメージを5%軽減-えいちぴー-ひーらー-ぶつりだめーじげんしょう-まほうだめーじげんしょう"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1177.png"
+        alt="愛造暴玩の討伐証-あいぞうぼうがんのとうばつしょう-物理ダメージを10％減少\r\nガーディアン系クラスにセット時追加で物理ダメージを20％減少-ぶつりだめーじげんしょう-がーでぃあん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

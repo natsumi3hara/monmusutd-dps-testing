@@ -274,6 +274,30 @@ document.write(`
         </div>
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10273_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">クルクリ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>    
+                <span class="otherPassive-buff-label">トラップ数</span>
+                <input id="otherPassive10273-1" type="number" min="0" max="20" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="otherPassive-buff-label"></span>    
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10277_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">オセヴィア</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">範囲内</span>
+                <input type="checkbox" id="otherPassive10277-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10277-2" class="larger-check otherPassive-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10282_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">憧嫁スズ</span>
             </div>
@@ -282,6 +306,30 @@ document.write(`
                 <input type="checkbox" id="otherPassive10282-1" class="larger-check otherPassive-check" onchange="allDPS();">
                 <span class="otherPassive-buff-label">完凸</span>
                 <input type="checkbox" id="otherPassive10282-2" class="larger-check otherPassive-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10289_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ナナエ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>    
+                <span class="otherPassive-buff-label">基本攻撃力</span>
+                <input id="otherPassive10289-1" type="number" min="0" max="19999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="otherPassive-buff-label"></span>    
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10290_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">幽霊アメリ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10290-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">人数</span>
+                <input id="otherPassive10290-2" type="number" min="0" max="12" value="0" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
     </div>
@@ -296,7 +344,7 @@ for (let i=0;i<otherPassivechecks.length;i++){
     if (otherPassivechecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
         if ([10179].includes(masterValues.charaID)){
             otherPassivechecks[i].checked = true;
-        } else if ([10244,10264].includes(masterValues.charaID)){
+        } else if ([10244,10264,10273,10290].includes(masterValues.charaID)){
             otherPassivechecks[i].disabled = false;
         } else {
             otherPassivechecks[i].disabled = true;
