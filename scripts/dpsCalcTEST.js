@@ -78,6 +78,11 @@ function attributeTile(){
 function giveAttributeTile(menuBattleSkill){
     selfConditions["1010"].splice(1);
     enemyConditions["1010"].splice(1);
+    //summer maggie's give water tile
+    if (document.getElementById("otherPassive10272-1").checked) {
+        selfConditions["1010"].push(3);
+        enemyConditions["1010"].push(3);
+    }
     //igni's give fire tile
     if (masterValues.charaID !== 10209 && document.getElementById("otherPassive10209-2").checked) {
         selfConditions["1010"].push(2);
@@ -506,7 +511,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1177;
+    let lastSubskillID = 1179;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -594,7 +599,7 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10016,10101,10112,10118,10160,10196,10230,10235].includes(masterValues.charaID)){
+    if ([10016,10101,10112,10118,10160,10196,10230,10235,10287].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
         //stat1 dependent here too (10016,10196,10230)
         calculateStat(level,cc,"stat2");
@@ -2373,6 +2378,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //summer narcepafne's stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10287){
+            addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
         //osevia's skill attack buff (for other allies)
         if (masterValues.charaID !== 10277 && document.getElementById("otherSkill10277").checked){
             multEffect2.buff += 30;
@@ -2426,9 +2435,9 @@ function calculateStat(level,cc,type){
                 addEffect2.buff += Math.floor(6 * Number(document.getElementById("charaSpecific10246-1").value) / 100);
             }
         }
-        //rogdanno's stat1 dependent buff
+        //rogdanno's stat1 dependent buff (base HP)
         if (masterValues.charaID === 10230){
-            addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+            addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
         }
         //elter's atk buff
         if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked && document.getElementById("otherPassive10220-2").checked){
@@ -2506,10 +2515,10 @@ function calculateStat(level,cc,type){
                 multEffect2.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
             }
         }
-        //silva's unique weapon stat1 dependent buff (on base)
+        //silva's unique weapon stat1 dependent buff (base HP)
         if (masterValues.charaID === 10016){
             if (document.getElementById("unique-equip-check").checked){
-                addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+                addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
             }
         }
         //sports nigru's stat 2 dependent buff (passive)
@@ -3428,6 +3437,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //summer narcepafne's stat1 dependent buff (base HP)
+        if (masterValues.charaID === 10287){
+            addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
         //osevia's skill attack buff (for other allies)
         if (masterValues.charaID !== 10277 && document.getElementById("otherSkill10277").checked){
             multEffect2.buff += 30;
@@ -3480,9 +3493,9 @@ function calculateStat(level,cc,type){
                 addEffect3.buff += Math.floor(6 * Number(document.getElementById("charaSpecific10246-1").value) / 100);
             }
         }
-        //rogdanno's stat1 dependent buff
+        //rogdanno's stat1 dependent buff (base HP)
         if (masterValues.charaID === 10230){
-            addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) / 100);
+            addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
         }
         //elter's atk buff
         if (masterValues.charaID !== 10220 && document.getElementById("otherPassive10220-1").checked && document.getElementById("otherPassive10220-2").checked){
@@ -3572,10 +3585,10 @@ function calculateStat(level,cc,type){
                 multEffect3.buff += 30 * Number(document.getElementById("charaSpecific10044-1").value);
             }
         }
-        //silva's unique weapon stat1 dependent buff
+        //silva's unique weapon stat1 dependent buff (base HP)
         if (masterValues.charaID === 10016){
             if (document.getElementById("unique-equip-check").checked){
-                addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+                addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
             }
         }
         //sports nigru's stat 2 dependent buff (passive)
@@ -5304,8 +5317,8 @@ const attachOptions = [
     {value: 1175, text: '被検体R13'},
     {value: 1176, text: '暗部の聖衣'},
     {value: 1177, text: '愛造暴玩の討伐証'},
-    //{value: 1178, text: 'ダミー'},
-    //{value: 1179, text: 'ダミー'},
+    {value: 1178, text: 'エンジョイサマーリゾート'},
+    {value: 1179, text: 'アセンションバケーション'},
     //{value: 1180, text: 'ダミー'},
     //{value: 1181, text: 'ダミー'},
 ];

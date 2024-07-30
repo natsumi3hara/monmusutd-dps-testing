@@ -274,6 +274,18 @@ document.write(`
         </div>
         <div class="flex-container-otherPassive-buff-inner">
             <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10272_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">戯夏マギー</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label"></span>
+                <span class="otherPassive-buff-label">配置(20秒)</span>
+                <input type="checkbox" id="otherPassive10272-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
                 <img src="../../img/chara-icons/icon_10273_0_s.png" class="otherPassive-buff-img">
                 <span class="otherPassive-buff-name">クルクリ</span>
             </div>
@@ -344,7 +356,7 @@ for (let i=0;i<otherPassivechecks.length;i++){
     if (otherPassivechecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
         if ([10179].includes(masterValues.charaID)){
             otherPassivechecks[i].checked = true;
-        } else if ([10244,10264,10273,10290].includes(masterValues.charaID)){
+        } else if ([10244,10264,10272,10273,10290].includes(masterValues.charaID)){
             otherPassivechecks[i].disabled = false;
         } else {
             otherPassivechecks[i].disabled = true;

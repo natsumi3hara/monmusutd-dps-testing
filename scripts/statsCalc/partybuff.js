@@ -188,6 +188,12 @@ var partybuffref = {
     "awake10267": {
         "cond":[],"stat1":[0] //this is settled directly until revamp
     },
+    "party10271": {
+        "cond":[3],"stat2":[6],"stat3":[6]
+    },
+    "awake10271": {
+        "cond":[3],"stat2":[2],"stat3":[2]
+    },
     "party10279": {
         "cond":[2],"stat2":[12]
     },

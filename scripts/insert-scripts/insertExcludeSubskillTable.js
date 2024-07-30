@@ -265,7 +265,7 @@ document.write(`
     <td id="exsub-1165" class="exsub excluded" onclick="toggleExclude(1165)">攻撃強化+攻撃待機短縮</td>
     <td id="exsub-1167" class="exsub" onclick="toggleExclude(1167)">攻撃強化+底力(攻撃)</td>
     <td id="exsub-1168" class="exsub" onclick="toggleExclude(1168)">2nd Anniversaryの恩寵</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1179" class="exsub" onclick="toggleExclude(1179)">アセンションバケーション</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">生成</td>
@@ -312,6 +312,7 @@ document.write(`
     <td id="exsub-1139" class="exsub" onclick="toggleExclude(1139)">一級ご主人証明書</td>
     <td id="exsub-1154" class="exsub" onclick="toggleExclude(1154)">妖怪島探検家</td>
     <td id="exsub-1175" class="exsub excluded" onclick="toggleExclude(1175)">被検体R13</td>
+    <td id="exsub-1178" class="exsub excluded" onclick="toggleExclude(1178)">エンジョイサマーリゾート</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>

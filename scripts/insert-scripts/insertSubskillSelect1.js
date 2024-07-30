@@ -757,6 +757,14 @@ document.write(`
         src="../../img/subskill-icons/subskill_1177.png"
         alt="愛造暴玩の討伐証-あいぞうぼうがんのとうばつしょう-物理ダメージを10％減少\r\nガーディアン系クラスにセット時追加で物理ダメージを20％減少-ぶつりだめーじげんしょう-がーでぃあん"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1178.png"
+        alt="エンジョイサマーリゾート-えんじょいさまーりぞーと-配置時、マップ上のマスをランダムで\r\n水地光属性に変更する(各属性最大3マス)-はいち-ますへんこう"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1179.png"
+        alt="アセンションバケーション-あせんしょんばけーしょん-非スキル中通常の攻撃を行わなくなるが\r\nスキル中の与えるダメージが1.4倍\r\n(サポーター系クラスは効果の対象外)-ひすきる-与ダメージ-よだめーじ"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

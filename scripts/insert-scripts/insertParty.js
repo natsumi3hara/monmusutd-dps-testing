@@ -407,6 +407,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、水属性モンスター娘の攻撃と物理防御+6%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10271_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">浜球フリス</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10271" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10271" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="編成時、火属性モンスター娘の攻撃力+12%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10279_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">灼嫁ｲﾌｨｼﾞｬｰﾙ</span>
             </div>
