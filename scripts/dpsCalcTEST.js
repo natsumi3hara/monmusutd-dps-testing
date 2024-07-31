@@ -2147,6 +2147,11 @@ function calculateStat(level,cc,type){
             multEffect2.buff *= 130;
             multEffect2.count += 1;
         }
+        //summer narcepafne's self healing buff for water allies
+        if (document.getElementById("charaSpecific10287-1").checked){
+            multEffect2.buff *= 120;
+            multEffect2.count += 1;
+        }
         addEffect2 = {"buff":0,"count":1};
     } else {
         multEffect2 = tempCompile(masterValues.allBuff,[1,20],"rate",type);
@@ -3204,6 +3209,11 @@ function calculateStat(level,cc,type){
         //promestein's self healing buff for fire/light allies
         if (document.getElementById("charaSpecific10244-1").checked){
             multEffect3.buff *= 130;
+            multEffect3.count += 1;
+        }
+        //summer narcepafne's self healing buff for water allies
+        if (document.getElementById("charaSpecific10287-1").checked){
+            multEffect3.buff *= 120;
             multEffect3.count += 1;
         }
         addEffect3 = {"buff":0,"count":1};
