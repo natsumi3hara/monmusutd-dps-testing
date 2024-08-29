@@ -1,5 +1,5 @@
 let conditions = ["filterDiv", "all"];
-const rarityList = ["common", "rare", "epic", "legend","free"];
+const rarityList = ["common", "rare", "epic", "legend","free","paid","limited","collab"];
 const classList = ["scimitar","spear","axe","fist","sword","hammer","tachi","bow","gun","staff","book","scepter","orb","dagger","fan","shuriken","twig","instrument"];
 const attrList = ["fireA","waterA","windA","earthA","lightA","darkA"];
 const speciesList = ["youkai","goblin","dragon"];
