@@ -1472,6 +1472,9 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,skill
         if(skillCritPen && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
             noPenProb=noPenProb*1/3; //naberius bug//
         } else {noPenProb=noPenProb*2/3;}
+    }
+    if(masterValues.charaID === 10130 && selfConditions["2"] === 1){
+            noPenProb=noPenProb*9/10;
     } 
     if (noPenProb === 100){penProb = [100];}
     else {penProb = [noPenProb,100-noPenProb];}
@@ -2383,6 +2386,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //polpe's enemy defeat buff//
+        if (masterValues.charaID === 10197){
+            multEffect2.buff += 9 * Number(document.getElementById("charaSpecific10197-1").value);
+        }
         //summer narcepafne's stat1 dependent buff (base HP)
         if (masterValues.charaID === 10287){
             addEffect2.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
@@ -3447,6 +3454,14 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //polpe's enemy defeat buff//
+        if (masterValues.charaID === 10197){
+            multEffect3.buff += 9 * Number(document.getElementById("charaSpecific10197-1").value);
+        }
+        //obscalite's self atk buff based on no of allies
+        if (masterValues.charaID === 10241){
+            multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10241-1").value);
+        }
         //summer narcepafne's stat1 dependent buff (base HP)
         if (masterValues.charaID === 10287){
             addEffect3.buff += Math.floor(3 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
@@ -3740,6 +3755,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat1//
     if (type === "stat1"){
+        //lumivael's self hp buff based on no of allies
+        if (masterValues.charaID === 10276){
+            multEffect3.buff += 15 * Number(document.getElementById("charaSpecific10276-1").value);
+        }
         //promestein skill hp buff
         if (document.getElementById("otherSkill10244-1").checked && masterValues.charaID !== 10244){
             multEffect3.buff += 30;
@@ -4403,6 +4422,32 @@ function pdMultValues(type){ //timing = 4//
         }
         if (Number(document.getElementById("henshin-10169-select").value) === 10267){
             totalPartyBuff += 12;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 3;
+            }
+        }
+    }
+    //obscalite's fairy buff
+    if (document.getElementById("party10241").checked && (type==="stat2") && fairyCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 14;
+        if (document.getElementById("awake10241").checked){
+            totalPartyBuff += 4;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10241){
+            totalPartyBuff += 14;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 4;
+            }
+        }
+    }
+    //lumivael's fairy buff
+    if (document.getElementById("party10276").checked && (type==="stat1"||type==="stat2") && fairyCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 10;
+        if (document.getElementById("awake10276").checked){
+            totalPartyBuff += 3;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10276){
+            totalPartyBuff += 10;
             if (document.getElementById("henshin-10169-awake").checked){
                 totalPartyBuff += 3;
             }

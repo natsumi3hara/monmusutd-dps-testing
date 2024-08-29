@@ -28,6 +28,7 @@
             <div id="buttonContainer">
                 <button id="showAll" class="btn" onclick="filterSelection('all')"> 全表示 (リセット)</button>
                 <button class="btn commonB" onclick="filterSelection('free')"> イベ産・配布</button>
+                <button class="btn commonB" onclick="filterSelection('paid')"> 課金限定</button>
                 <button class="btn legendB" onclick="filterSelection('legend')"> レジェンド(L)</button>
                 <button class="btn epicB" onclick="filterSelection('epic')"> エピック(E)</button>
                 <button class="btn rareB" onclick="filterSelection('rare')"> レア(R)</button>
@@ -72,6 +73,7 @@
                     <button class="btn" onclick="filterSelection('goblin')"> ゴブリン</button>
                     <button class="btn" onclick="filterSelection('kobold')"> コボルト</button>
                     <button class="btn" onclick="filterSelection('alien')"> エイリアン</button>
+                    <button class="btn" onclick="filterSelection('fairy')"> 妖精</button>
                 </div>
                 <hr class="hline">
                 <button style="background-color: #88ff20;" class="collapsible-button">その他(AND選択) -- [工事中]</button>
@@ -197,7 +199,7 @@
                 <div class="filterDiv free epic staff darkA multiTarget aoe noTarget moveGround" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10019_0_s.png">
                 </div>
-                <div class="filterDiv rare bow lightA multiShot noTarget freeDeploy moveFly" style="background-color:#87ceeb;">
+                <div class="filterDiv rare bow lightA fairy multiShot noTarget freeDeploy moveFly" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10020_0_s.png">
                 </div>
                 <div class="filterDiv free rare book darkA multiTarget dmgUp lifesteal debuffer moveGround" style="background-color:#87ceeb;">
@@ -464,7 +466,7 @@
                 <div class="filterDiv legend tachi waterA youkai" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10110_0_s.png">
                 </div>
-                <div class="filterDiv legend spear lightA" style="background-color:#efdfb0;">
+                <div class="filterDiv legend spear lightA fairy" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10111_0_s.png">
                 </div>
                 <div class="filterDiv legend hammer lightA" style="background-color:#efdfb0;">
@@ -520,6 +522,9 @@
                 </div>
                 <div class="filterDiv epic instrument windA youkai" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10129_0_s.png">
+                </div>
+                <div class="filterDiv free epic spear earthA" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10130_0_s.png">
                 </div>
                 <div class="filterDiv rare sword fireA dragon" style="background-color:#87ceeb;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10131_0_s.png">
@@ -587,7 +592,7 @@
                 <div class="filterDiv legend orb waterA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10152_0_s.png">
                 </div>
-                <div class="filterDiv free epic bow fireA" style="background-color:#ef80ef;">
+                <div class="filterDiv free epic bow fireA fairy" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10153_0_s.png">
                 </div>
                 <div class="filterDiv legend axe windA" style="background-color:#efdfb0;">
@@ -710,6 +715,9 @@
                 <div class="filterDiv legend bow earthA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10196_0_s.png">
                 </div>
+                <div class="filterDiv free epic fan windA" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10197_0_s.png">
+                </div>
                 <div class="filterDiv free epic hammer waterA" style="background-color:#ef80ef;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10198_0_s.png">
                 </div>
@@ -804,7 +812,7 @@
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10232_0_s.png">
                 </div>
                 <div class="filterDiv epic shuriken darkA youkai" style="background-color:#ef80ef;">
-                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10223_0_s.png">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10233_0_s.png">
                 </div>
                 <div class="filterDiv legend gun darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10234_0_s.png">
@@ -823,6 +831,12 @@
                 </div>
                 <div class="filterDiv free legend staff fireA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10239_0_s.png">
+                </div>
+                <div class="filterDiv free epic dagger windA fairy" style="background-color:#ef80ef;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10240_0_s.png">
+                </div>
+                <div class="filterDiv legend staff windA fairy" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10241_0_s.png">
                 </div>
                 <div class="filterDiv free legend hammer earthA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10242_0_s.png">
@@ -905,6 +919,9 @@
                 <div class="filterDiv legend orb darkA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10275_0_s.png">
                 </div>
+                <div class="filterDiv legend sword windA fairy" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10276_0_s.png">
+                </div>
                 <div class="filterDiv legend instrument earthA" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10277_0_s.png">
                 </div>
@@ -931,6 +948,15 @@
                 </div>
                 <div class="filterDiv legend shuriken waterA youkai" style="background-color:#efdfb0;">
                     <img class="smallCharaImg" src="../../img/chara-icons/icon_10290_0_s.png">
+                </div>
+                <div class="filterDiv paid legend scepter lightA" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10291_0_s.png">
+                </div>
+                <div class="filterDiv legend hammer waterA" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10292_0_s.png">
+                </div>
+                <div class="filterDiv legend fan waterA" style="background-color:#efdfb0;">
+                    <img class="smallCharaImg" src="../../img/chara-icons/icon_10296_0_s.png">
                 </div>
             </div>
             </td></tr></table>

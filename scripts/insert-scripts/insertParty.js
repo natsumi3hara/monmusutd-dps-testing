@@ -383,6 +383,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、妖精の攻撃力+14%(完凸で+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10241_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">オブスカリテ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10241" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10241" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="編成時、妖怪系・火属性のモンスター娘それぞれの攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_10251_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">ヒミノ</span>
             </div>
@@ -419,6 +431,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、妖精の最大HP、攻撃力+10%(完凸で+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10276_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">リュミヴェル</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10276" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10276" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="編成時、火属性モンスター娘の攻撃力+12%(+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10279_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">灼嫁ｲﾌｨｼﾞｬｰﾙ</span>
             </div>
@@ -439,6 +463,18 @@ document.write(`
                 <input type="checkbox" id="party10281" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10281" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、全モンスター娘のHPと魔法防御力+12%(完凸で+4%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10291_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">ファロリエット</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10291" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10291" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
     </div>
