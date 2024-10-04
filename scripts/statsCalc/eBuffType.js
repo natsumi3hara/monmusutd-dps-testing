@@ -62,33 +62,51 @@ const eBuffType = {
     "58":["stat14","fixed-none"],
 	"59":["stat15","actual-plus"],
     "60":["stat15","actual-minus"],
-	"61":["stat16","actual-plus"],
-    "62":["stat16","actual-minus"],
-	"63":["stat17","rate-none"],
-    "64":["stat17","actual-none"],
-	"65":["stat18","rate-none"],
-    "66":["stat18","actual-none"],
-	"67":["stat19","fixed-none"],
-	"68":["stat20","fixed-none"],
-	"69":["stat21","fixed-none"],
-	"70":["stat22","fixed-none"],
-	"71":["stat23","rate-plus"],
-	"72":["stat23","rate-minus"],
-	"73":["stat24","fixed-none"],
-	"74":["stat25","fixed-none"],
-	"75":["stat185","fixed-none"],
-	"76":["stat186","fixed-none"],
-	"77":["stat191","rate-plus"],//critChance
-	"78":["stat191","actual-plus"],//critChance
-	"79":["stat191","rate-minus"],//critChance
-	"80":["stat191","actual-minus"],//critChance
-	"81":["stat192","rate-plus"],//critDmg
-	"82":["stat192","actual-plus"],//critDmg
-	"83":["stat192","rate-minus"],//critDmg
-	"84":["stat192","actual-minus"],//critDmg
-	"85":["stat193","actual-plus"],//critChanceMax
-	"86":["stat194","actual-plus"],//critDmgMax
-	"87":["stat207","rate-plus"],
+	"61":["stat15","rate-plus"],
+	"62":["stat15","rate-minus"],
+	"63":["stat16","actual-plus"],
+    "64":["stat16","actual-minus"],
+	"65":["stat17","rate-none"],
+    "66":["stat17","actual-none"],
+	"67":["stat18","rate-none"],
+    "68":["stat18","actual-none"],
+	"69":["stat19","fixed-none"],
+	"70":["stat20","fixed-none"],
+	"71":["stat21","fixed-none"],
+	"72":["stat22","fixed-none"],
+	"73":["stat23","rate-plus"],
+	"74":["stat23","rate-minus"],
+	"75":["stat24","fixed-none"],
+	"76":["stat25","fixed-none"],
+	"77":["stat185","fixed-none"],
+	"78":["stat186","fixed-none"],
+	"79":["stat191","rate-plus"],//critChance
+	"80":["stat191","actual-plus"],//critChance
+	"81":["stat191","rate-minus"],//critChance
+	"82":["stat191","actual-minus"],//critChance
+	"83":["stat192","rate-plus"],//critDmg
+	"84":["stat192","actual-plus"],//critDmg
+	"85":["stat192","rate-minus"],//critDmg
+	"86":["stat192","actual-minus"],//critDmg
+	"87":["stat193","actual-plus"],//critChanceMax
+	"88":["stat194","actual-plus"],//critDmgMax
+	"89":["stat207","rate-plus"],
+	"90":["stat0","none-none"],
+	"91":["stat0","none-none"],
+	"92":["stat0","none-none"],
+	"93":["stat0","none-none"],
+	//Status Chance Manipulation//
+	"300":["stat0","none-none"],
+	"301":["stat0","none-none"],
+	"302":["stat0","none-none"],
+	"303":["stat0","none-none"],
+	"304":["stat0","none-none"],
+	"305":["stat0","none-none"],
+	"306":["stat0","none-none"],
+	"307":["stat0","none-none"],
+	"308":["stat0","none-none"],
+	"309":["stat0","none-none"],
+	"310":["stat0","none-none"],
 	//Resistances//
 	"400":["stat26","actual-plus"],
 	"401":["stat26","actual-minus"],
@@ -150,6 +168,7 @@ const eBuffType = {
 	"523":["stat201","none-none"],
 	"524":["stat202","none-none"],
 	"525":["stat0","none-none"],
+	"526":["stat0","none-none"],
 	//Status negation//
 	"901":["stat60","none-none"],
 	"902":["stat61","none-none"],

@@ -765,6 +765,22 @@ document.write(`
         src="../../img/subskill-icons/subskill_1179.png"
         alt="アセンションバケーション-あせんしょんばけーしょん-非スキル中通常の攻撃を行わなくなるが\r\nスキル中の与えるダメージが1.4倍\r\n(サポーター系クラスは効果の対象外)-ひすきる-与ダメージ-よだめーじ"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1180.png"
+        alt="マジックリダクション-まじっくりだくしょん-HPが50%以上の時、魔法ダメージを40%減少-まほうだめーじげんしょう"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1181.png"
+        alt="クラスアクション強化(攻撃)-くらすあくしょんきょうかこうげき-クラスアクション中、攻撃力+30%-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1182.png"
+        alt="被検体T42-ひけんたいてぃーよんじゅうに-ひけんたいてぃーよんに-【改造ローパー娘】ネルをトークンとして使役可能\r\n(元々トークン所持している場合は無効)-とーくん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1183.png"
+        alt="巨擬嶺の討伐証-きょぎれいのとうばつしょう-配置してから30秒間、与ダメージ1.15倍\r\n水属性モンスター娘にセット時追加でHPが\r\n1秒ごとに100回復する-与ダメージ-よだめーじ-HP回復-かいふく-みずぞくせい"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

@@ -1,3 +1,9 @@
+var formula10000 = {
+    "stat1":[000,000,000,000,000,000,111,111,111,111],
+    "stat2":[000,000,000,000,000,000,111,111,111,111],
+    "stat3":[000,000,000,000,000,000,111,111,111,111],
+    "stat4":[000,000,000,000,000,000,111,111,111,111]
+}
 var equip10000 = {
     "0":[
         {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
@@ -450,6 +456,45 @@ var equip14021 = {
         {"stat1":0,"stat2":26,"stat3":0,"stat4":17,"stat5":0,"stat6":0,"stat7":0,"stat8":5},
         {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
         {"stat1":0,"stat2":0,"stat3":10,"stat4":25,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+	"4":[
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ]
+}
+var formula14031 = {
+    "stat1":[9,0.06,0.0435,0.036,0.03225,0.03,2.369,2.007,2.62,2.883],
+    "stat2":[1.85,0.0123333333,0.009,0.0097777778,0.0103333333,0.0106,0.274,0.293,0.34,0.353],
+    "stat3":[0.39,0.0023333333,0.0018333333,0.002,0.0020833333,0.0021333333,0.3,0.385,0.487,0.59],
+    "stat4":[1.35,0.009,0.0065,0.0071111111,0.0075833333,0.0077333333,0.317,0.345,0.392,0.43]
+}
+//weapon,head,accessory,body
+var equip14031 = {
+    "0":[
+        {"stat1":150,"stat2":5,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":4},
+        {"stat1":0,"stat2":0,"stat3":9,"stat4":11,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":5,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":12,"stat4":8,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "1":[
+        {"stat1":200,"stat2":10,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":4},
+        {"stat1":0,"stat2":0,"stat3":11,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":10,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "2":[
+        {"stat1":250,"stat2":15,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":4},
+        {"stat1":0,"stat2":0,"stat3":13,"stat4":17,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":18,"stat4":12,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "3":[
+        {"stat1":270,"stat2":18,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":4},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":20,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
         {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ],
 	"4":[

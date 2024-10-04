@@ -36,6 +36,7 @@ var selfConditions = {
 	"34": 0, //isClassActionActivated (NEW)
 	"35": 0, //isDarkness
 	"36": 0, //isOverChargeSkillActivated
+	"37": 0, //isCurse
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -77,6 +78,7 @@ var selfConditions = {
 	"5002": undefined, //sortieJob (無用)
 	"5003": undefined, //sortieChara (無用)
 	"5004": undefined, //sortieOwnerToken
+	"6000": undefined, //aliasNumber
 	"10000": undefined, //exclusive (無用?)
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
@@ -85,6 +87,7 @@ var selfConditions = {
 	"40004": 0, //totalLimit (NEW)
 	"40005": 0, //classActionTalent
 	"40006": 0, //overChargeSkillTalent
+	"40007": 0, //giveLottery
 	"80000": 0, //isUniqueWeaponEquipped
 }
 var selfReference = {
@@ -141,6 +144,7 @@ var enemyConditions = {
 	"34": 0, //isClassActionActivated (NEW)
 	"35": 0, //isDarkness
 	"36": 0, //isOverChargeSkillActivated
+	"37": 0, //isCurse
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute
@@ -182,6 +186,7 @@ var enemyConditions = {
 	"5002": undefined, //sortieJob
 	"5003": undefined, //sortieChara
 	"5004": undefined, //sortieOwnerToken
+	"6000": undefined, //aliasNumber
 	"10000": undefined, //exclusive
 	"40000": 1, //giveTalent (1 for ally, 2 for enemy?)
 	"40001": 0, //skillTalent (values of 1,2,3 ???)
@@ -190,5 +195,6 @@ var enemyConditions = {
 	"40004": 0, //totalLimit (NEW)
 	"40005": 0, //classActionTalent
 	"40006": 0, //overChargeSkillTalent
+	"40007": 0, //giveLottery
 	"80000": 0, //isUniqueWeaponEquipped
 }

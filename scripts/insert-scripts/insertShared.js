@@ -97,7 +97,7 @@ document.write(`
         </div>
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
-                <abbr title="発動時に味方遠距離のスキル準備時間を-10秒\n\nカヅネEXスキル\n効果時間25秒\n再使用:[44,43,42,41,40]秒" style="cursor: help;"><img src="../../img/chara-icons/icon_10068_0_s.png" class="shared-buff-img"></abbr>
+                <abbr title="EXスキルI\n発動時に味方遠距離のスキル準備時間を-10秒\n\nEXスキルII\n発動時に味方遠距離のスキル準備時間を-7秒" style="cursor: help;"><img src="../../img/chara-icons/icon_10068_0_s.png" class="shared-buff-img"></abbr>
                 <span class="shared-buff-name">カヅネ</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
@@ -129,6 +129,18 @@ document.write(`
                 <input type="checkbox" id="shared20006-1" class="larger-check shared-check" onChange="allDPS();">
                 <span class="shared-buff-label">完凸</span>
                 <input type="checkbox" id="shared20006-2" class="larger-check shared-check" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="範囲内味方のスキル再使用時間を-2秒" style="cursor: help;"><img src="../../img/chara-icons/icon_10300_0_s.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">ティッカ</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label">回数</span>
+                <input id="shared20007-2" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="shared-buff-label"></span>
             </div>
         </div>
     </div>
@@ -258,6 +270,23 @@ document.write(`
                     <span class="otherPassive-buff-label">スキル発動</span>
                     <input type="checkbox" id="shared22006" class="larger-check shared-check" onChange="allDPS();">
                     <span class="otherPassive-buff-label"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="collapsible-button inputInsertButton">　　-　獣神（クリックで開く）</button>
+    <div class="collapsible-content" style="display:none;">
+        <div id="flex-container-shared-buff">
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="範囲内の味方のHPを[1000~2800]回復し、攻撃力[40%~60%]と攻撃速度を30秒上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30012_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">パニエスキル</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label">発動</span>
+                    <input type="checkbox" id="shared23001-1" class="larger-check shared-check" onChange="allDPS();">
+                    <span class="shared-buff-label">レベル</span>
+                    <input id="shared23001-2" type="number" min="1" max="10" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                 </div>
             </div>
         </div>

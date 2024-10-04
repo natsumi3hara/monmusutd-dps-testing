@@ -419,6 +419,18 @@ document.write(`
         </div>
         <div class="flex-container-party-buff-inner">
             <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、エイリアンの最大HPと攻撃力を9%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10269_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">プリプリダ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10269" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10269" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
                 <abbr title="編成時、水属性モンスター娘の攻撃と物理防御+6%(+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10271_0_s.png" class="party-buff-img"></abbr>
                 <span class="party-buff-name">浜球フリス</span>
             </div>
@@ -475,6 +487,18 @@ document.write(`
                 <input type="checkbox" id="party10291" class="larger-check party-check" onchange="allDPS();">
                 <span class="party-buff-label">完凸</span>
                 <input type="checkbox" id="awake10291" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、光属性モンスター娘の最大HPと攻撃+10%(完凸で+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10300_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">ティッカ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10300" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10300" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
     </div>
@@ -595,8 +619,12 @@ document.write(`
                         <option value="10228">賀照ソレイア</option>
                         <option value="10237">参詣ロヴィリス</option>
                         <option value="10239">旋律アテエル</option>
+                        <option value="10241">オブスカリテ</option>
                         <option value="10251">ヒミノ</option>
                         <option value="10267">パープロープ</option>
+                        <option value="10269">プリプリダ</option>
+                        <option value="10271">浜球フリス</option>
+                        <option value="10276">リュミヴェル</option>
                         <option value="10279">灼嫁イフィジャール</option>
                         <option value="10281">風嫁ヤーセファ</option>
                     </select>

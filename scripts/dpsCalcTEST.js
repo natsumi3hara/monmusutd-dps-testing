@@ -133,6 +133,10 @@ function enemyFrozen(checked){
     if (checked) {enemyConditions["33"] = 1;}
     else {enemyConditions["33"] = 0;}
 }
+function enemyCurse(checked){
+    if (checked) {enemyConditions["37"] = 1;}
+    else {enemyConditions["37"] = 0;}
+}
 function enemyFlying(checked){
     if (checked) {enemyConditions["5"] = 1;selfConditions["5"] = 1;}
     else {enemyConditions["5"] = 0;selfConditions["5"] = 0;}
@@ -281,7 +285,7 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
-    let ex2List = [10001,10004,10006,10008,10012,10014,10017,10019,10020,10022,10023,10024,10025,10026,10028,10029,10030,10031,10032,10035,10037,10038,10039,10040,10041,10044,10046,10047,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10089,10090,10091,10093,10094,10100];
+    let ex2List = [10001,10004,10006,10008,10012,10014,10017,10019,10020,10022,10023,10024,10025,10026,10028,10029,10030,10031,10032,10035,10037,10038,10039,10040,10041,10044,10046,10047,10049,10050,10055,10058,10060,10063,10064,10065,10068,10078,10079,10085,10088,10089,10090,10091,10093,10094,10100,10147,10173];
     let exChangeList = [10088,10106,10126,10211,10214,10237];
     let exChangeRefr = [[0,4],[4],[3],[2],[4],[4]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
@@ -511,7 +515,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1179;
+    let lastSubskillID = 1183;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -646,9 +650,15 @@ function allDPS(slot1=-1,slot2=-1){
     updateAttackTypes(battleAttackTypes,false);
     let skillAttackTypes = getAttackTypeList("skill",attackPatternReference);
     updateAttackTypes(skillAttackTypes,true);
+    //vorpal beast lapinus on-crit//
+    let onCritBattle = 100;
+    let onCritSkill = 100;
+    if (masterValues.charaID===10302){
+        onCritSkill = 300;
+    }
     //new crit list//
-    let battleCritList = [{"probability":Number(document.getElementById("dps-output-battle-value-stat191").innerHTML),"damage":Number(document.getElementById("dps-output-battle-value-stat192").innerHTML)}];
-    let skillCritList = [{"probability":Number(document.getElementById("dps-output-skill-value-stat191").innerHTML),"damage":Number(document.getElementById("dps-output-skill-value-stat192").innerHTML)}];
+    let battleCritList = [{"probability":Number(document.getElementById("dps-output-battle-value-stat191").innerHTML),"damage":onCritBattle*Number(document.getElementById("dps-output-battle-value-stat192").innerHTML)/100}];
+    let skillCritList = [{"probability":Number(document.getElementById("dps-output-skill-value-stat191").innerHTML),"damage":onCritSkill*Number(document.getElementById("dps-output-skill-value-stat192").innerHTML)/100}];
     //legacy crit buff//
     //let battleCritList = attack_patterns[attackPatternReference]["critical"];
     //let skillCritList = attack_patterns[attackPatternReference]["skill_critical"];
@@ -831,7 +841,8 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     else if (selfConditions["1003"] === 18514) {initial = Math.round(initial * 60 / 100);}
     else if (selfConditions["1003"] === 21330) {initial = Math.round(initial * 50 / 100);}
     else if (selfConditions["1003"] === 5460818) {initial = Math.round(initial * 30 / 100);}
-    if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
+    if (document.getElementById("divine30012").checked){initial = Math.round(initial * [80,79,78,77,75][document.getElementById("level30012").value-1] / 100);}
+    else if (document.getElementById("divine30003").checked){initial = Math.round(initial * [90,89,88,87,85][document.getElementById("level30003").value-1] / 100);}
     //initial CD talent//
     for (let i = 3; i < 6; i++){
         if (document.getElementById("talent"+i.toString()+"check").checked) {
@@ -904,6 +915,10 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     console.log(Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3));
     console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
     console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
+    //ticca
+    if (true/*document.getElementById("shared20007-1").checked*/){
+        cooldown -= 2*Number(document.getElementById("shared20007-2").value);
+    }
     //rupupu&tantal
     if (document.getElementById("shared20006-1").checked && document.getElementById("shared20006-2").checked && (selfConditions["1006"]===2||selfConditions["1006"]===3||selfConditions["1006"]===7) && masterValues.charaID!==10248){
         cooldown -= 6;
@@ -1906,6 +1921,28 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //panie
+        if (document.getElementById("shared23001-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
+        //ticca
+        if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked && document.getElementById("otherPassive10300-2").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        } else if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[10]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[10]]];
+            }
+        }
         //reworked yasefa
         if (masterValues.charaID !== 10127 && document.getElementById("otherSkill10127").checked && masterValues.unitcard.element === 4){
             try {
@@ -1915,7 +1952,7 @@ function calculateStat(level,cc,type){
             }
         }
         //bridal suzu
-        if (masterValues.charaID !== 10127 && document.getElementById("otherPassive10282-1").checked && document.getElementById("otherPassive10282-2").checked){
+        if (masterValues.charaID !== 10282 && document.getElementById("otherPassive10282-1").checked && document.getElementById("otherPassive10282-2").checked){
             try {
                 masterValues.allBuff["rate-plus-1"].push([[25]]);
             } catch(err) {
@@ -2078,6 +2115,11 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - battle//
         multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect2.count += 1;
+        // niddra's skill curse damage up//
+        if (masterValues.charaID !== 10299 && enemyConditions["37"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherSkill10299").checked){
+            multEffect2.buff *= 130;
+            multEffect2.count += 1;
+        }
         // christmas lupche' skill damage up//
         if (masterValues.charaID !== 10225 && enemyConditions["33"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherSkill10225").checked){
             multEffect2.buff *= 130;
@@ -2254,6 +2296,16 @@ function calculateStat(level,cc,type){
     }
     //battle - stat7//
     if (type === "stat7"){
+        //panie's skill buff//
+        if (document.getElementById("shared23001-1").checked){
+            multEffect2.buff -= 10;
+        }
+        //ticca
+        if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked && document.getElementById("otherPassive10300-2").checked){
+            multEffect2.buff -= 20;
+        } else if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked) {
+            multEffect2.buff -= 10;
+        }
         //reworked yasefa
         if (masterValues.charaID !== 10127 && document.getElementById("otherSkill10127").checked && masterValues.unitcard.element === 4){
             multEffect2.buff -= 50;
@@ -2386,6 +2438,18 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //panie's skill buff//
+        if (document.getElementById("shared23001-1").checked){
+            multEffect2.buff += [40,42,45,47,48,50,52,55,57,60][Number(document.getElementById("shared23001-2").value)-1];
+        }
+        //lapinus' enemy defeat buff//
+        if (masterValues.charaID === 10302){
+            if (selfConditions["26"] === 0){
+                multEffect2.buff += 10 * Number(document.getElementById("charaSpecific10302-1").value);
+            } else {
+                multEffect2.buff += 15 * Number(document.getElementById("charaSpecific10302-1").value);
+            }
+        }
         //polpe's enemy defeat buff//
         if (masterValues.charaID === 10197){
             multEffect2.buff += 9 * Number(document.getElementById("charaSpecific10197-1").value);
@@ -2964,6 +3028,28 @@ function calculateStat(level,cc,type){
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //panie
+        if (document.getElementById("shared23001-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
+        //ticca
+        if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked && document.getElementById("otherPassive10300-2").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        } else if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[10]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[10]]];
+            }
+        }
         //reworked yasefa
         if (masterValues.charaID !== 10127 && document.getElementById("otherSkill10127").checked && masterValues.unitcard.element === 4){
             try {
@@ -3141,6 +3227,11 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - skill//
         multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect3.count += 1;
+        // niddra's skill curse damage up//
+        if (masterValues.charaID !== 10299 && enemyConditions["37"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherSkill10299").checked){
+            multEffect3.buff *= 130;
+            multEffect3.count += 1;
+        }
         // christmas lupche' skill damage up//
         if (masterValues.charaID !== 10225 && enemyConditions["33"] === 1 && enemyConditions["12"] === 1 && document.getElementById("otherSkill10225").checked){
             multEffect3.buff *= 130;
@@ -3322,6 +3413,16 @@ function calculateStat(level,cc,type){
     }
     //skill - stat7//
     if (type === "stat7"){
+        //panie's skill buff//
+        if (document.getElementById("shared23001-1").checked){
+            multEffect3.buff -= 10;
+        }
+        //ticca
+        if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked && document.getElementById("otherPassive10300-2").checked){
+            multEffect3.buff -= 20;
+        } else if (masterValues.charaID !== 10300 && document.getElementById("otherPassive10300-1").checked) {
+            multEffect3.buff -= 10;
+        }
         //reworked yasefa
         if (masterValues.charaID !== 10127 && document.getElementById("otherSkill10127").checked && masterValues.unitcard.element === 4){
             multEffect3.buff -= 50;
@@ -3454,6 +3555,18 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //panie's skill buff//
+        if (document.getElementById("shared23001-1").checked){
+            multEffect3.buff += [40,42,45,47,48,50,52,55,57,60][Number(document.getElementById("shared23001-2").value)-1];
+        }
+        //lapinus' enemy defeat buff//
+        if (masterValues.charaID === 10302){
+            if (selfConditions["26"] === 0){
+                multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10302-1").value);
+            } else {
+                multEffect3.buff += 15 * Number(document.getElementById("charaSpecific10302-1").value);
+            }
+        }
         //polpe's enemy defeat buff//
         if (masterValues.charaID === 10197){
             multEffect3.buff += 9 * Number(document.getElementById("charaSpecific10197-1").value);
@@ -4427,6 +4540,19 @@ function pdMultValues(type){ //timing = 4//
             }
         }
     }
+    //puripurida's alien buff
+    if (document.getElementById("party10269").checked && (type==="stat1"||type==="stat2") && alienCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 9;
+        if (document.getElementById("awake10269").checked){
+            totalPartyBuff += 2;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10269){
+            totalPartyBuff += 9;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 2;
+            }
+        }
+    }
     //obscalite's fairy buff
     if (document.getElementById("party10241").checked && (type==="stat2") && fairyCharas.includes(masterValues.charaID)){
         totalPartyBuff += 14;
@@ -5089,7 +5215,7 @@ function overchargeReplace(charaID){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10150,10178,10209,10239,10245,10265,10279,10289];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10147,10150,10173,10178,10209,10239,10245,10265,10279,10289];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230];
     if (dpsC.includes(masterValues.charaID)){
@@ -5374,8 +5500,26 @@ const attachOptions = [
     {value: 1177, text: '愛造暴玩の討伐証'},
     {value: 1178, text: 'エンジョイサマーリゾート'},
     {value: 1179, text: 'アセンションバケーション'},
-    //{value: 1180, text: 'ダミー'},
-    //{value: 1181, text: 'ダミー'},
+    {value: 1180, text: 'マジックリダクション'},
+    {value: 1181, text: 'クラスアクション強化(攻撃)'},
+    {value: 1182, text: '被検体T42'},
+    {value: 1183, text: '巨擬嶺の討伐証'},
+    //{value: 1184, text: 'ダミー'},
+    //{value: 1185, text: 'ダミー'},
+    //{value: 1186, text: 'ダミー'},
+    //{value: 1187, text: 'ダミー'},
+    //{value: 1188, text: 'ダミー'},
+    //{value: 1189, text: 'ダミー'},
+    //{value: 1190, text: 'ダミー'},
+    //{value: 1191, text: 'ダミー'},
+    //{value: 1192, text: 'ダミー'},
+    //{value: 1193, text: 'ダミー'},
+    //{value: 1194, text: 'ダミー'},
+    //{value: 1195, text: 'ダミー'},
+    //{value: 1196, text: 'ダミー'},
+    //{value: 1197, text: 'ダミー'},
+    //{value: 1198, text: 'ダミー'},
+    //{value: 1199, text: 'ダミー'},
 ];
 
 //loaders//

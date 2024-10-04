@@ -185,6 +185,18 @@ document.write(`
         </div>
         <div class="flex-container-divine-buff-inner">
             <div class="flex-container-divine-buff-inner2">
+                <abbr title="編成中、サポーターの最大HP[25%,26%,27%,28%,30%]上昇、\r\nスキルの初回使用までの時間が[20%,21%,22%,23%,25%]短縮" style="cursor: help;"><img src="../../img/chara-icons/icon_30012_0_s.png" class="divine-buff-img"></abbr>
+                <span class="divine-buff-name">パニエ</span>
+            </div>
+            <div class="flex-container-divine-buff-inner2">
+                <span class="divine-buff-label">編成</span>
+                <input type="checkbox" id="divine30012" class="larger-check divine-check" onChange="allDPS();">
+                <span class="divine-buff-label">加護Lv</span>
+                <input id="level30012" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-divine-buff-inner">
+            <div class="flex-container-divine-buff-inner2">
                 <abbr title="編成中、妖怪の攻撃力が[12%,13%,14%,15%,17%]上昇、出撃コスト-2" style="cursor: help;"><img src="../../img/chara-icons/icon_30013_0_s.png" class="divine-buff-img"></abbr>
                 <span class="divine-buff-name">天逆毎姫</span>
             </div>

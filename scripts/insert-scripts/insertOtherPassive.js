@@ -344,6 +344,18 @@ document.write(`
                 <input id="otherPassive10290-2" type="number" min="0" max="12" value="0" class="otherPassive-nocheck" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-otherPassive-buff-inner">
+            <div class="flex-container-otherPassive-buff-inner2">
+                <img src="../../img/chara-icons/icon_10300_0_s.png" class="otherPassive-buff-img">
+                <span class="otherPassive-buff-name">ティッカ</span>
+            </div>
+            <div class="flex-container-otherPassive-buff-inner2">
+                <span class="otherPassive-buff-label">範囲内</span>
+                <input type="checkbox" id="otherPassive10300-1" class="larger-check otherPassive-check" onchange="allDPS();">
+                <span class="otherPassive-buff-label">スキル中</span>
+                <input type="checkbox" id="otherPassive10300-2" class="larger-check otherPassive-check" onchange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">計算（工事中）</button>
     <div class="collapsible-content" style="display:none;">

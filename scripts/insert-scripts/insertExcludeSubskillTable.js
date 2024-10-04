@@ -203,7 +203,7 @@ document.write(`
     <td id="exsub-1126" class="exsub" onclick="toggleExclude(1126)">魔導傑作の討伐証</td>
     <td id="exsub-1138" class="exsub excluded" onclick="toggleExclude(1138)">怪幹呑獣の討伐証</td>
     <td id="exsub-1153" class="exsub" onclick="toggleExclude(1153)">膨大巨嚢の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1183" class="exsub" onclick="toggleExclude(1183)">巨擬嶺の討伐証</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">変異ボスチャレンジ</td>
@@ -268,6 +268,13 @@ document.write(`
     <td id="exsub-1179" class="exsub" onclick="toggleExclude(1179)">アセンションバケーション</td>
 </tr>
 <tr>
+    <td id="exsub-1180" class="exsub excluded" onclick="toggleExclude(1180)">マジックリダクション</td>
+    <td id="exsub-1181" class="exsub excluded" onclick="toggleExclude(1181)">クラスアクション強化(攻撃)</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">生成</td>
 </tr>
 <tr>
@@ -313,7 +320,7 @@ document.write(`
     <td id="exsub-1154" class="exsub" onclick="toggleExclude(1154)">妖怪島探検家</td>
     <td id="exsub-1175" class="exsub excluded" onclick="toggleExclude(1175)">被検体R13</td>
     <td id="exsub-1178" class="exsub excluded" onclick="toggleExclude(1178)">エンジョイサマーリゾート</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1182" class="exsub excluded" onclick="toggleExclude(1182)">被検体T42</td>
     <td class="exsub excluded"></td>
 </tr>
 `);

@@ -202,8 +202,9 @@
                                 <span style="text-align: center;">スタン</span><input type="checkbox" id="enemystun" class="larger-check" style="vertical-align: bottom;" onchange="enemyStun(this.checked);allDPS();">
                                 <span style="text-align: center;">毒</span><input type="checkbox" id="enemypoison" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();">
                                 <span style="text-align: center;">石化</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyPetrify(this.checked);allDPS();">
-                                <span style="text-align: center;">凍結</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyFrozen(this.checked);allDPS();">
-                                <span style="text-align: center;">背面攻撃</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();"><br>
+                                <span style="text-align: center;">凍結</span><input type="checkbox" id="enemyfrozen" class="larger-check" style="vertical-align: bottom;" onchange="enemyFrozen(this.checked);allDPS();">
+                                <span style="text-align: center;">呪詛</span><input type="checkbox" id="enemycurse" class="larger-check" style="vertical-align: bottom;" onchange="enemyCurse(this.checked);allDPS();">
+                                <span style="text-align: center;">背面攻撃</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"><br>
                                 <span style="text-align: center; border: 1px solid black;">&nbsp;移動タイプ&nbsp;</span><br>
                                 <span style="text-align: center;">地上</span><input type="checkbox" id="enemyground" class="larger-check" style="vertical-align: bottom;" onchange="enemyGround(this.checked);allDPS();">
                                 <span style="text-align: center;">飛行</span><input type="checkbox" id="enemyflying" class="larger-check" style="vertical-align: bottom;" onchange="enemyFlying(this.checked);allDPS();"><br>
@@ -255,7 +256,7 @@
                                 <tr style="display: none;">
                                     <td class="displaytext" style="width: 25%;">除外したサブスキル</td>
                                     <td style="width: 75%;">
-                                        <input id="excluded-subskills" value="0,1052,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1028,1029,1030,1031,1032,1033,1034,1037,1040,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1088,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112,1115,1116,1118,1120,1122,1123,1124,1125,1127,1133,1134,1135,1138,1140,1141,1146,1149,1151,1152,1155,1157,1160,1161,1163,1164,1165,1169,1170,1171,1172,1174,1175,1176,1177,1178" style="font-size:8px;" disabled>
+                                        <input id="excluded-subskills" value="0,1052,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1028,1029,1030,1031,1032,1033,1034,1037,1040,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1088,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112,1115,1116,1118,1120,1122,1123,1124,1125,1127,1133,1134,1135,1138,1140,1141,1146,1149,1151,1152,1155,1157,1160,1161,1163,1164,1165,1169,1170,1171,1172,1174,1175,1176,1177,1178,1180,1181,1182" style="font-size:8px;" disabled>
                                     </td>
                                 </tr>
                                 <tr>
@@ -738,14 +739,17 @@
                                     <td id="compare-gunCharas" class="compChara" onclick="toggleChara('gunCharas','class');"><img src="../../img/equipment-icons/2101.png">銃</td>
                                     <td id="compare-staffCharas" class="compChara" onclick="toggleChara('staffCharas','class');"><img src="../../img/equipment-icons/3001.png">杖</td>
                                     <td id="compare-bookCharas" class="compChara" onclick="toggleChara('bookCharas','class');"><img src="../../img/equipment-icons/3101.png">本</td>
-                                    <td id="compare-scepterCharas" class="compChara" onclick="toggleChara('scepterCharas','class');"><img src="../../img/equipment-icons/3201.png">錫杖</td>
+                                    <td id="compare-puppetCharas" class="compChara" onclick="toggleChara('puppetCharas','class');"><img src="../../img/equipment-icons/3701.png">人形</td>
                                 </tr>
                                 <tr>
+                                    <td id="compare-scepterCharas" class="compChara" onclick="toggleChara('scepterCharas','class');"><img src="../../img/equipment-icons/3201.png">錫杖</td>
                                     <td id="compare-orbCharas" class="compChara" onclick="toggleChara('orbCharas','class');"><img src="../../img/equipment-icons/3301.png">オーブ</td>
                                     <td id="compare-daggerCharas" class="compChara" onclick="toggleChara('daggerCharas','class');"><img src="../../img/equipment-icons/1501.png">短剣</td>
                                     <td id="compare-fanCharas" class="compChara" onclick="toggleChara('fanCharas','class');"><img src="../../img/equipment-icons/3501.png">扇</td>
                                     <td id="compare-shurikenCharas" class="compChara" onclick="toggleChara('shurikenCharas','class');"><img src="../../img/equipment-icons/1701.png">手裏剣</td>
                                     <td id="compare-twigCharas" class="compChara" onclick="toggleChara('twigCharas','class');"><img src="../../img/equipment-icons/3401.png">霊枝</td>
+                                </tr>
+                                <tr>
                                     <td id="compare-instrumentCharas" class="compChara" onclick="toggleChara('instrumentCharas','class');"><img src="../../img/equipment-icons/3601.png">楽器</td>
                                 </tr>
                             </table>
