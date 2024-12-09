@@ -106,6 +106,7 @@ hr{
     margin:5px;
 }
 /*----------*/
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -299,6 +300,7 @@ hr{
     width: 100%;
     text-align: left;
     font-family: mtdfont;
+    font-size: 1em;
     background-color: #ff7d7d;
     border: none;
     border-radius: 5px;

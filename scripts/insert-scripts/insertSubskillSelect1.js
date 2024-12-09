@@ -781,6 +781,46 @@ document.write(`
         src="../../img/subskill-icons/subskill_1183.png"
         alt="巨擬嶺の討伐証-きょぎれいのとうばつしょう-配置してから30秒間、与ダメージ1.15倍\r\n水属性モンスター娘にセット時追加でHPが\r\n1秒ごとに100回復する-与ダメージ-よだめーじ-HP回復-かいふく-みずぞくせい"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1184.png"
+        alt="爆食爆漢の討伐証-ばくしょくばっかんのとうばつしょう-攻撃力+17%\r\nウォリアー系クラスにセット時、追加でブロック中の敵に\r\n攻撃力15%の継続ダメージを与える-こうげきりょく-うぉりあー-けいぞくだめーじ"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1185.png"
+        alt="攻撃待機短縮+貫通攻撃-こうげきたんしゅく+かんつうこうげき-攻撃後の待機時間を20%短縮、10%の確率で敵の防御力を無視する"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1186.png"
+        alt="物理攻撃回避 IV-ぶつりこうげきかいひよん-35%の確率で物理攻撃を回避"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1187.png"
+        alt="攻撃待機時間短縮 IV-こうげきたいきじかんたんしゅくよん-攻撃後の待機時間を32%短縮"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1188.png"
+        alt="アサルトクリティカル-あさるとくりてぃかる-クリティカル発生時、攻撃力+2%\r\n(最大50回/死亡撤退時リセット)-こうげきりょく-くりてぃかるじ"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1189.png"
+        alt="マジックプロテクト-まじっくぷろてくと-配置中、全味方が受ける魔法ダメージ15%減少-はいち-ぜんみかた-まほうだめーじげんしょう-HP回復-かいふく-みずぞくせい"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1190.png"
+        alt="リカバリームーブ-りかばりーむーぶ-移動コスト-1\r\n物理と魔法攻撃を18%の確率で回避\r\n配置、移動完了後15秒間、1秒ごとにHPが200回復-はいち-いどうこすと-HP回復-まほうこうげきかいひ-まほうかいひ-ぶつりこうげきかいひ-ぶつりかいひ-"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1191.png"
+        alt="ターロスソウル-たーろすそうる-物理防御力と魔法防御力+22%\r\nターロス(原種)をトークンとして使役可能\r\n(元々トークン所持している場合は無効)-ぶつりぼうぎょ-まほうぼうぎょ-とーくん"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1193.png"
+        alt="2.5th Anniversaryの恵愛-2.5しゅうねんのけいあい-せかんどはーふすあにばーさりーのけいあい-攻撃力+25%、クリティカル率+25%-こうげきりょく-くりてぃかるりつ-とーくん"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1194.png"
+        alt="被検体O8-ひけんたいおーはち-【改造オーク娘】ポデルをトークンとして使役可能\r\n(元々トークン所持している場合は無効)-とーくん"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

@@ -63,11 +63,11 @@
 .btn:hover {
   background-color: #ddd;
 }
-
 .btn.active {
   background-color: #666;
   color: white;
 }
+
 .legendB{background-color:#fff6da;border:1px solid #ffbf00;}
 .legendB:hover{background-color:#edd58f;border:1px solid #ffbf00;}
 .legendB.active{background-color:#ffbf00;border:1px solid #ffbf00;}

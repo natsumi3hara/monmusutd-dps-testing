@@ -202,4 +202,20 @@ const additional_patterns_2 = {
 			},
 		],
 	},
+	"305": {
+		"battle":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"target",
+			"time":"attack",
+			},
+		],
+		"skill":[
+			{"cond":[],
+			"damage":{"hitType":"無し","reference":"stat2","multiplier":0},
+			"target":"range",
+			"time":"attack",
+			},
+		],
+	},
 }

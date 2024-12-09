@@ -207,6 +207,18 @@ document.write(`
                 <input id="level30013" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-divine-buff-inner">
+            <div class="flex-container-divine-buff-inner2">
+                <abbr title="レンタルを含めず同属性のモンスター娘が、8体以上編成されている時\r\n全モンスター娘の攻撃力が[13%,14%,15%,16%,18%]上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_30014_0_s.png" class="divine-buff-img"></abbr>
+                <span class="divine-buff-name">天逆毎姫</span>
+            </div>
+            <div class="flex-container-divine-buff-inner2">
+                <span class="divine-buff-label">編成</span>
+                <input type="checkbox" id="divine30014" class="larger-check divine-check" onChange="allDPS();">
+                <span class="divine-buff-label">加護Lv</span>
+                <input id="level30014" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">獣神所持バフ（工事中）</button>
     <div class="collapsible-content" style="display:block;">

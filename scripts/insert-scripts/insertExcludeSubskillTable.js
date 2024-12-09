@@ -45,12 +45,14 @@ document.write(`
     <td id="exsub-1016" class="exsub excluded" onclick="toggleExclude(1016)">物理攻撃回避 I</td>
     <td id="exsub-1017" class="exsub excluded" onclick="toggleExclude(1017)">物理攻撃回避 II</td>
     <td id="exsub-1018" class="exsub excluded" onclick="toggleExclude(1018)">物理攻撃回避 III</td>
+    <td id="exsub-1186" class="exsub excluded" onclick="toggleExclude(1186)">物理攻撃回避 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1019" class="exsub excluded" onclick="toggleExclude(1019)">魔法攻撃回避 I</td>
     <td id="exsub-1020" class="exsub excluded" onclick="toggleExclude(1020)">魔法攻撃回避 II</td>
     <td id="exsub-1021" class="exsub excluded" onclick="toggleExclude(1021)">魔法攻撃回避 III</td>
+    <td id="exsub-1169" class="exsub excluded" onclick="toggleExclude(1169)">魔法攻撃回避 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -84,12 +86,14 @@ document.write(`
     <td id="exsub-1031" class="exsub excluded" onclick="toggleExclude(1031)">生命力吸収 I</td>
     <td id="exsub-1032" class="exsub excluded" onclick="toggleExclude(1032)">生命力吸収 II</td>
     <td id="exsub-1033" class="exsub excluded" onclick="toggleExclude(1033)">生命力吸収 III</td>
+    <td id="exsub-1170" class="exsub excluded" onclick="toggleExclude(1170)">生命力吸収 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1034" class="exsub excluded" onclick="toggleExclude(1034)">攻撃待機短縮 I</td>
     <td id="exsub-1035" class="exsub" onclick="toggleExclude(1035)">攻撃待機短縮 II</td>
     <td id="exsub-1036" class="exsub" onclick="toggleExclude(1036)">攻撃待機短縮 III</td>
+    <td id="exsub-1187" class="exsub" onclick="toggleExclude(1187)">攻撃待機短縮 IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -223,6 +227,13 @@ document.write(`
     <td id="exsub-1177" class="exsub excluded" onclick="toggleExclude(1177)">愛造暴玩の討伐証</td>
 </tr>
 <tr>
+    <td id="exsub-1184" class="exsub excluded" onclick="toggleExclude(1184)">爆食爆漢の討伐証</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">有料</td>
 </tr>
 <tr>
@@ -270,8 +281,8 @@ document.write(`
 <tr>
     <td id="exsub-1180" class="exsub excluded" onclick="toggleExclude(1180)">マジックリダクション</td>
     <td id="exsub-1181" class="exsub excluded" onclick="toggleExclude(1181)">クラスアクション強化(攻撃)</td>
-    <td class="exsub excluded"></td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1185" class="exsub" onclick="toggleExclude(1185)">攻撃待機短縮+貫通攻撃</td>
+    <td id="exsub-1193" class="exsub" onclick="toggleExclude(1193)">2.5th Anniversaryの恵愛</td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -296,14 +307,21 @@ document.write(`
     <td id="exsub-1150" class="exsub" onclick="toggleExclude(1150)">オーバードーピング</td>
     <td id="exsub-1151" class="exsub excluded" onclick="toggleExclude(1151)">ラッキーヒール</td>
     <td id="exsub-1152" class="exsub excluded" onclick="toggleExclude(1152)">ケルベロスソウル</td>
-    <td id="exsub-1169" class="exsub excluded" onclick="toggleExclude(1169)">魔法攻撃回避 IV</td>
+    <td id="exsub-1171" class="exsub excluded" onclick="toggleExclude(1171)">パワードバリア</td>
 </tr>
 <tr>
-    <td id="exsub-1170" class="exsub excluded" onclick="toggleExclude(1170)">生命力吸収 IV</td>
-    <td id="exsub-1171" class="exsub excluded" onclick="toggleExclude(1171)">パワードバリア</td>
     <td id="exsub-1172" class="exsub excluded" onclick="toggleExclude(1172)">鉄壁の守り</td>
     <td id="exsub-1173" class="exsub" onclick="toggleExclude(1173)">ファイアエクステンド</td>
     <td id="exsub-1174" class="exsub excluded" onclick="toggleExclude(1174)">ミノタウロスソウル</td>
+    <td id="exsub-1188" class="exsub excluded" onclick="toggleExclude(1188)">アサルトクリティカル</td>
+    <td id="exsub-1189" class="exsub excluded" onclick="toggleExclude(1189)">マジックプロテクト</td>
+</tr>
+<tr>
+    <td id="exsub-1190" class="exsub excluded" onclick="toggleExclude(1190)">リカバリームーブ</td>
+    <td id="exsub-1191" class="exsub excluded" onclick="toggleExclude(1191)">ターロスソウル</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">その他</td>
@@ -321,6 +339,12 @@ document.write(`
     <td id="exsub-1175" class="exsub excluded" onclick="toggleExclude(1175)">被検体R13</td>
     <td id="exsub-1178" class="exsub excluded" onclick="toggleExclude(1178)">エンジョイサマーリゾート</td>
     <td id="exsub-1182" class="exsub excluded" onclick="toggleExclude(1182)">被検体T42</td>
+</tr>
+<tr>
+    <td id="exsub-1194" class="exsub excluded" onclick="toggleExclude(1194)">被検体O8</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
 `);

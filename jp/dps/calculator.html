@@ -33,8 +33,8 @@
         <script src="../../scripts/charaGroups.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
         <script>
-            var console = {};
-            console.log = function(){};
+            //var console = {};
+            //console.log = function(){};
             const params = (new URL(document.location)).searchParams;
             var masterValues = {};
             masterValues["language"] = "ja";
@@ -104,6 +104,12 @@
                                 <input type="checkbox" id="equip4" class="larger-check" style="vertical-align: middle;" onchange="allDPS();">
                             </div>
                             <table style="width:50%;text-align: center;vertical-align: middle;">
+                                <tr id="talent1hide" style="display: none;">
+                                    <td><span id="talent1" style="padding:5px;text-align: center;"></span><input type="checkbox" id="talent1check" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"></td>
+                                </tr>
+                                <tr id="talent2hide" style="display: none;">
+                                    <td><span id="talent2" style="padding:5px;text-align: center;"></span><input type="checkbox" id="talent2check" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"></td>
+                                </tr>
                                 <tr>
                                     <td><span id="talent3" style="padding:5px;text-align: center;"></span><input type="checkbox" id="talent3check" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"></td>
                                 </tr>
@@ -165,9 +171,12 @@
                         <script src="../../scripts/insert-scripts/insertShared.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertParty.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertDivine.js"></script><br>
+                        <script src="../../scripts/insert-scripts/insertOtherCombined.js"></script><br>
+                        <!--
                         <script src="../../scripts/insert-scripts/insertOtherPassive.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertOtherSkill.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertOtherUnique.js"></script><br>
+                        -->
                         <script src="../../scripts/insert-scripts/insertSupporter.js"></script><br>
                         <script src="../../scripts/insert-scripts/insertExtraBuffs.js"></script>
                     </div>
@@ -177,8 +186,8 @@
                             <span>&nbsp;魔法防御：</span><input id="input-enemy-stat4" type="number" min="0" max="99999" value="0" onchange="allDPS();"><br>
                             <span>&nbsp;敵のダメージ軽減率：</span><input id="input-enemy-dmgRed" type="number" min="0" max="100" value="0" onchange="allDPS();" style="width:15%"><span> %</span><br>
                             <hr>
-                            <span>&nbsp;ブロックしている敵：</span><input id="input-number-blocked" type="number" min="0" max="99" value="0" onchange="isBlock(this.value);allDPS();" style="width:15%"><br>
-                            <span>&nbsp;範囲内にいる敵：</span><input id="input-number-inRange" type="number" min="0" max="99" value="0" onchange="attackTargetCount(this.value);allDPS();" style="width:15%"><br>
+                            <span>&nbsp;ブロックしている敵：</span><input id="input-number-blocked" type="number" min="0" max="99" value="0" onchange="isBlock(this.value);attackTargetCount();allDPS();" style="width:15%"><br>
+                            <span>&nbsp;範囲内にいる敵：</span><input id="input-number-inRange" type="number" min="0" max="99" value="0" onchange="attackTargetCount();allDPS();" style="width:15%"><br>
                             <!-- exclude until can reliably determine
                             <span>&nbsp;AOE等に巻き込んだ敵(追加)：</span><input id="input-number-extraAffect" type="number" min="0" max="99" value="0" onchange="allDPS();" style="width:15%">
                             <span>&nbsp;ダメージ倍率：</span><input id="input-number-extraAffectDamage" type="number" value="100" style="width:10%" disabled><br>
@@ -203,6 +212,8 @@
                                 <span style="text-align: center;">毒</span><input type="checkbox" id="enemypoison" class="larger-check" style="vertical-align: bottom;" onchange="enemyPoison(this.checked);allDPS();">
                                 <span style="text-align: center;">石化</span><input type="checkbox" id="enemypetrify" class="larger-check" style="vertical-align: bottom;" onchange="enemyPetrify(this.checked);allDPS();">
                                 <span style="text-align: center;">凍結</span><input type="checkbox" id="enemyfrozen" class="larger-check" style="vertical-align: bottom;" onchange="enemyFrozen(this.checked);allDPS();">
+                                <span style="text-align: center;">暗闇</span><input type="checkbox" id="enemyfrozen" class="larger-check" style="vertical-align: bottom;" onchange="enemyDarkness(this.checked);allDPS();">
+                                <span style="text-align: center;">火傷</span><input type="checkbox" id="enemycurse" class="larger-check" style="vertical-align: bottom;" onchange="enemyBurn(this.checked);allDPS();">
                                 <span style="text-align: center;">呪詛</span><input type="checkbox" id="enemycurse" class="larger-check" style="vertical-align: bottom;" onchange="enemyCurse(this.checked);allDPS();">
                                 <span style="text-align: center;">背面攻撃</span><input type="checkbox" id="enemybackattack" class="larger-check" style="vertical-align: bottom;" onchange="allDPS();"><br>
                                 <span style="text-align: center; border: 1px solid black;">&nbsp;移動タイプ&nbsp;</span><br>
@@ -256,7 +267,7 @@
                                 <tr style="display: none;">
                                     <td class="displaytext" style="width: 25%;">除外したサブスキル</td>
                                     <td style="width: 75%;">
-                                        <input id="excluded-subskills" value="0,1052,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1028,1029,1030,1031,1032,1033,1034,1037,1040,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1088,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112,1115,1116,1118,1120,1122,1123,1124,1125,1127,1133,1134,1135,1138,1140,1141,1146,1149,1151,1152,1155,1157,1160,1161,1163,1164,1165,1169,1170,1171,1172,1174,1175,1176,1177,1178,1180,1181,1182" style="font-size:8px;" disabled>
+                                        <input id="excluded-subskills" value="0,1052,1001,1002,1003,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1028,1029,1030,1031,1032,1033,1034,1037,1040,1043,1044,1045,1046,1047,1048,1049,1051,1053,1054,1055,1058,1060,1061,1062,1065,1066,1067,1068,1069,1072,1075,1078,1079,1081,1083,1084,1085,1086,1088,1092,1093,1094,1095,1097,1099,1100,1105,1107,1108,1110,1111,1112,1115,1116,1118,1120,1122,1123,1124,1125,1127,1133,1134,1135,1138,1140,1141,1146,1149,1151,1152,1155,1157,1160,1161,1163,1164,1165,1169,1170,1171,1172,1174,1175,1176,1177,1178,1180,1181,1182,1184,1186,1188,1189,1190,1191,1192,1194" style="font-size:8px;" disabled>
                                     </td>
                                 </tr>
                                 <tr>

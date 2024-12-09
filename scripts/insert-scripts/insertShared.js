@@ -195,6 +195,18 @@ document.write(`
                     <span class="shared-buff-label"></span>
                 </div>
             </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="クリティカル発生時、攻撃力+2%\n(最大50回/死亡撤退時リセット)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">来たる福女！</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">CRI数</span>
+                    <input id="shared21005" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
         </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　トークン（クリックで開く）</button>
@@ -224,52 +236,52 @@ document.write(`
                     <span class="shared-buff-label"></span>
                 </div>
             </div>
-            <div class="flex-container-otherPassive-buff-inner">
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <abbr title="付与した味方のステータスを撤退するまで強化する\n近接クラス：HP、攻撃力+10%\n遠隔/スカウト系クラス：攻撃力+10%、攻撃間隔-10%" style="cursor: help;"><img src="../../img/chara-icons/icon_50037_0_s.png" class="otherPassive-buff-img"></abbr>
-                    <span class="otherPassive-buff-name">マージェル</span>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="付与した味方のステータスを撤退するまで強化する\n近接クラス：HP、攻撃力+10%\n遠隔/スカウト系クラス：攻撃力+10%、攻撃間隔-10%" style="cursor: help;"><img src="../../img/chara-icons/icon_50037_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">マージェル</span>
                 </div>
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <span class="otherPassive-buff-label"></span>
-                    <span class="otherPassive-buff-label">トークン数</span>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">トークン数</span>
                     <input id="shared22003" type="number" min="0" max="999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                    <span class="otherPassive-buff-label"></span>
+                    <span class="shared-buff-label"></span>
                 </div>
             </div>
-            <div class="flex-container-otherPassive-buff-inner">
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <abbr title="射程内の味方の物理魔法防御力を+5%\n光属性の場合は追加で攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_50040_0_s.png" class="otherPassive-buff-img"></abbr>
-                    <span class="otherPassive-buff-name">アージェ</span>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="射程内の味方の物理魔法防御力を+5%\n光属性の場合は追加で攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_50040_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">アージェ</span>
                 </div>
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <span class="otherPassive-buff-label"></span>
-                    <span class="otherPassive-buff-label">トークン数</span>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">トークン数</span>
                     <input id="shared22004" type="number" min="0" max="2" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                    <span class="otherPassive-buff-label"></span>
+                    <span class="shared-buff-label"></span>
                 </div>
             </div>
-            <div class="flex-container-otherPassive-buff-inner">
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <abbr title="付与した味方の攻撃力を40秒+12%" style="cursor: help;"><img src="../../img/chara-icons/icon_50044_0_s.png" class="otherPassive-buff-img"></abbr>
-                    <span class="otherPassive-buff-name">劇薬リコ</span>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="付与した味方の攻撃力を40秒+12%" style="cursor: help;"><img src="../../img/chara-icons/icon_50044_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">劇薬リコ</span>
                 </div>
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <span class="otherPassive-buff-label"></span>
-                    <span class="otherPassive-buff-label">トークン数</span>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">トークン数</span>
                     <input id="shared22005" type="number" min="0" max="12" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
-                    <span class="otherPassive-buff-label"></span>
+                    <span class="shared-buff-label"></span>
                 </div>
             </div>
-            <div class="flex-container-otherPassive-buff-inner">
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <abbr title="範囲内の敵の被ダメージを10%増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_50050_0_s.png" class="otherPassive-buff-img"></abbr>
-                    <span class="otherPassive-buff-name">偵察ドローン</span>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="範囲内の敵の被ダメージを10%増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_50050_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">偵察ドローン</span>
                 </div>
-                <div class="flex-container-otherPassive-buff-inner2">
-                    <span class="otherPassive-buff-label"></span>
-                    <span class="otherPassive-buff-label">スキル発動</span>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">スキル発動</span>
                     <input type="checkbox" id="shared22006" class="larger-check shared-check" onChange="allDPS();">
-                    <span class="otherPassive-buff-label"></span>
+                    <span class="shared-buff-label"></span>
                 </div>
             </div>
         </div>

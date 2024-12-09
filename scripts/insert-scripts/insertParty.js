@@ -501,6 +501,42 @@ document.write(`
                 <input type="checkbox" id="awake10300" class="larger-check party-check" onchange="allDPS();">
             </div>
         </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、全モンスター娘の攻撃力+4%(完凸で+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10301_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">ニーサ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10301" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10301" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="レンタルを含めず火属性が8体以上編成されている場合、全モンスター娘の攻撃力+10%(完凸で+3%)上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_10308_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">リャオホァ</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10308" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10308" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div class="flex-container-party-buff-inner">
+            <div class="flex-container-party-buff-inner2">
+                <abbr title="編成時、全モンスター娘の攻撃力+4%(完凸で+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10313_0_s.png" class="party-buff-img"></abbr>
+                <span class="party-buff-name">リンフー</span>
+            </div>
+            <div class="flex-container-party-buff-inner2">
+                <span class="party-buff-label">編成</span>
+                <input type="checkbox" id="party10313" class="larger-check party-check" onchange="allDPS();">
+                <span class="party-buff-label">完凸</span>
+                <input type="checkbox" id="awake10313" class="larger-check party-check" onchange="allDPS();">
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">
@@ -627,6 +663,11 @@ document.write(`
                         <option value="10276">リュミヴェル</option>
                         <option value="10279">灼嫁イフィジャール</option>
                         <option value="10281">風嫁ヤーセファ</option>
+                        <option value="10291">ファロリエット</option>
+                        <option value="10300">ティッカ</option>
+                        <option value="10301">ニーサ</option>
+                        <option value="10308">リャオホァ</option>
+                        <option value="10313">リンフー</option>
                     </select>
                     <span class="party-buff-label"><abbr title="自身ではなく変身元" style="cursor: help;">完凸/専用武器</abbr></span>
                     <span class="party-buff-lebel"><input type="checkbox" id="henshin-10169-awake" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();">　<input type="checkbox" id="henshin-10169-unique" class="larger-check" style="margin:auto;flex:1;" onchange="allDPS();"></span>
@@ -637,17 +678,32 @@ document.write(`
 </div>
 <script>
 let partychecks = document.getElementsByClassName("party-check")
+let partychecksExcluded = [10308,10313];
 for (let i=0;i<partychecks.length;i++){
     if (partychecks[i].id == "party"+masterValues.charaID.toString()){
-        partychecks[i].disabled = true;
-        partychecks[i].checked = true;
-    } else {}
+        if (partychecksExcluded.includes(masterValues.charaID)){
+            partychecks[i].disabled = false;
+            partychecks[i].checked = true;
+        } else {
+            partychecks[i].disabled = true;
+            partychecks[i].checked = true;
+        }
+    }
     if (partychecks[i].id == "awake"+masterValues.charaID.toString() && masterValues.charaAwaked){
-        partychecks[i].disabled = true;
-        partychecks[i].checked = true;
+        if (partychecksExcluded.includes(masterValues.charaID)){
+            partychecks[i].disabled = false;
+            partychecks[i].checked = true;
+        } else {
+            partychecks[i].disabled = true;
+            partychecks[i].checked = true;
+        }
     } else if (partychecks[i].id == "awake"+masterValues.charaID.toString()){
-        partychecks[i].disabled = true;
-    } else {}
+        if (partychecksExcluded.includes(masterValues.charaID)){
+            partychecks[i].disabled = false;
+        } else {
+            partychecks[i].disabled = true;
+        }
+    }
 }
 </script>
 
