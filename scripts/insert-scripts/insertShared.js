@@ -214,8 +214,8 @@ document.write(`
         <div id="flex-container-shared-buff">
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
-                    <abbr title="付与した味方の攻撃力を20秒+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_50012_0_s.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">リコ</span>
+                    <abbr title="【リッチ娘】リコ\n付与した味方の攻撃力を20秒+12%(+3%)" style="cursor: help;"><img src="../../img/chara-icons/icon_50012_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">霊魂</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label">覚醒?</span>
@@ -226,8 +226,8 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
-                    <abbr title="風属性味方の攻撃力+25%" style="cursor: help;"><img src="../../img/chara-icons/icon_40210_0_s.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">ヤーセファ</span>
+                    <abbr title="【ジン娘】ヤーセファ\n風属性味方の攻撃力+25%" style="cursor: help;"><img src="../../img/chara-icons/icon_40210_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">風エレメンタル</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
@@ -238,8 +238,8 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
-                    <abbr title="付与した味方のステータスを撤退するまで強化する\n近接クラス：HP、攻撃力+10%\n遠隔/スカウト系クラス：攻撃力+10%、攻撃間隔-10%" style="cursor: help;"><img src="../../img/chara-icons/icon_50037_0_s.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">マージェル</span>
+                    <abbr title="【マモン娘】マージェル\n付与した味方のステータスを撤退するまで強化する\n近接クラス：HP、攻撃力+10%\n遠隔/スカウト系クラス：攻撃力+10%、攻撃間隔-10%" style="cursor: help;"><img src="../../img/chara-icons/icon_50037_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">御買得品</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
@@ -250,8 +250,8 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
-                    <abbr title="射程内の味方の物理魔法防御力を+5%\n光属性の場合は追加で攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_50040_0_s.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">アージェ</span>
+                    <abbr title="【万機の祖たる者】アージェ\n射程内の味方の物理魔法防御力を+5%\n光属性の場合は追加で攻撃力+8%" style="cursor: help;"><img src="../../img/chara-icons/icon_50040_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">魔導ドローン</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
@@ -262,8 +262,8 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
-                    <abbr title="付与した味方の攻撃力を40秒+12%" style="cursor: help;"><img src="../../img/chara-icons/icon_50044_0_s.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">劇薬リコ</span>
+                    <abbr title="【劇薬のリッチ娘】リコ\n付与した味方の攻撃力を40秒+12%" style="cursor: help;"><img src="../../img/chara-icons/icon_50044_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">助手霊魂</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
@@ -274,7 +274,7 @@ document.write(`
             </div>
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
-                    <abbr title="範囲内の敵の被ダメージを10%増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_50050_0_s.png" class="shared-buff-img"></abbr>
+                    <abbr title="【ドヴェルグ娘】クルクリ\n範囲内の敵の被ダメージを10%増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_50050_0_s.png" class="shared-buff-img"></abbr>
                     <span class="shared-buff-name">偵察ドローン</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
@@ -282,6 +282,18 @@ document.write(`
                     <span class="shared-buff-label">スキル発動</span>
                     <input type="checkbox" id="shared22006" class="larger-check shared-check" onChange="allDPS();">
                     <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="【劇薬のリッチ娘】リコ\n遠隔ユニットと遠近距離ユニットに付与した時、与ダメージ20%(完凸で+4%)上昇\nスキル中、近接ユニットにもこの効果が発生する" style="cursor: help;"><img src="../../img/chara-icons/icon_50056_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">ライトソウル</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label">効果発生</span>
+                    <input type="checkbox" id="shared22007-1" class="larger-check shared-check" onChange="allDPS();">
+                    <span class="shared-buff-label">覚醒?</span>
+                    <input type="checkbox" id="shared22007-2" class="larger-check shared-check" onChange="allDPS();">
                 </div>
             </div>
         </div>

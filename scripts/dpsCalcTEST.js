@@ -2222,6 +2222,17 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - battle//
         multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect2.count += 1;
+        //christmas lico's token damage buff//
+        if (document.getElementById("shared22007-1").checked){
+            if (document.getElementById("shared22007-2").checked){
+                multEffect2.buff *= 124;
+                multEffect2.count += 1;
+            }
+            else {
+                multEffect2.buff *= 120;
+                multEffect2.count += 1;
+            }
+        }
         //nisa's damage up for poison - excluding nisa//
         if (masterValues.charaID !== 10301 && document.getElementById('otherSkill10301-1').checked  && enemyConditions["25"] === 1){
             multEffect2.buff *= 120;
@@ -3367,6 +3378,17 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - skill//
         multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect3.count += 1;
+        //christmas lico's token damage buff//
+        if (document.getElementById("shared22007-1").checked){
+            if (document.getElementById("shared22007-2").checked){
+                multEffect3.buff *= 124;
+                multEffect3.count += 1;
+            }
+            else {
+                multEffect3.buff *= 120;
+                multEffect3.count += 1;
+            }
+        }
         //nisa's damage up for poison - including nisa for skill//
         if ((masterValues.charaID === 10301 || document.getElementById('otherSkill10301-1').checked) && enemyConditions["25"] === 1){
             multEffect3.buff *= 120;

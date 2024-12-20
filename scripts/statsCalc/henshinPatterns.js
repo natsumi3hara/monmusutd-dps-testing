@@ -25,4 +25,6 @@ const henshin_patterns = {
 	"296": 4000, //weredragon
 	"297": 4000, //lukifer
 	"303": 4000, //g-dekaio brinie
+	"310": 4000, //christmas wight's curse
+	"311": 4000, //christmas lich's buff
 }
