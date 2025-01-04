@@ -18,6 +18,8 @@ const henshin_patterns = {
 	"242": 4000, //hilde
 	"255": 4000, //kuromi skill stop male enemies
 	"258": 4000, //gorgon loren
+	"260": 4000, //wakan tanka waemawa
+	"261": 4000, //franci's web
 	"262": 4000, //asta
 	"263": 6000, //magical lulu carbuncle
 	"275": 4000, //release magical energy (lucitani)
@@ -27,4 +29,5 @@ const henshin_patterns = {
 	"303": 4000, //g-dekaio brinie
 	"310": 4000, //christmas wight's curse
 	"311": 4000, //christmas lich's buff
+	"318": 4000, //ny bicorn's status effect infliction
 }

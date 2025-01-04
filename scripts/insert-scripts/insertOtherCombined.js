@@ -683,7 +683,7 @@ document.write(`
         <div title="ニーサ-にーさ" class="flex-container-otherCombined-buff-inner damageD">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="スキル中、味方の毒状態の敵に対し与えるダメージが1.2倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10301_0_s.png" class="otherCombined-buff-img"></abbr>
-                <span class="otherCombined-buff-name" style="font-size:0.5em;">ニーサ</span>
+                <span class="otherCombined-buff-name">ニーサ</span>
             </div>
             <div class="flex-container-otherCombined-buff-inner2">
                 <span class="otherCombined-buff-label"></span>
@@ -701,6 +701,23 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
                 <span class="otherCombined-buff-label">スキル1中</span>
                 <input type="checkbox" id="otherSkill10304-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="暗陰巫ヴァリナ-ヴぁりな-ゔぁりな" class="flex-container-otherCombined-buff-inner damageD">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="スキル中、範囲内の味方は毒・暗闇・スタン状態の敵へそれぞれ与えるダメージ1.1倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10318_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">暗陰巫ヴァリナ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">スキル1中+</span>
+                <span class="otherCombined-buff-label">状態異常数</span>
+                <select name="otherSkill10318-1" id="otherSkill10318-1" class="otherCombined-check" style="width:80%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="allDPS();">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>

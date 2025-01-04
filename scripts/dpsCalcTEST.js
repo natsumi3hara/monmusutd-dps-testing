@@ -2222,6 +2222,19 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - battle//
         multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect2.count += 1;
+        //ny varina's damage buffs//
+        if (true){
+            if (document.getElementById('otherSkill10318-1').value === "3"){
+                multEffect2.buff *= 13310;
+                multEffect2.count += 2;
+            } else if (document.getElementById('otherSkill10318-1').value === "2"){
+                multEffect2.buff *= 121;
+                multEffect2.count += 1;
+            } else if (document.getElementById('otherSkill10318-1').value === "1"){
+                multEffect2.buff *= 110;
+                multEffect2.count += 1;
+            }
+        }
         //christmas lico's token damage buff//
         if (document.getElementById("shared22007-1").checked){
             if (document.getElementById("shared22007-2").checked){
@@ -2569,6 +2582,16 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //ny kokonoha's self buff based on youkai//
+        if (masterValues.charaID === 10317){
+            if (masterValues.charaAwaked){
+                multEffect2.buff += 15 * Number(document.getElementById("charaSpecific10317-1").value);
+                multEffect2.buff -= 12; //to account for the double count in ability data
+            } else {
+                multEffect2.buff += 12 * Number(document.getElementById("charaSpecific10317-1").value);
+                multEffect2.buff -= 12; //to account for the double count in ability data
+            }
+        }
         //chupina's self buff//
         if (masterValues.charaID === 10305){
             if (masterValues.charaAwaked){
@@ -3378,6 +3401,19 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - skill//
         multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect3.count += 1;
+        //ny varina's damage buffs//
+        if (true){
+            if (document.getElementById('otherSkill10318-1').value === "3"){
+                multEffect3.buff *= 13310;
+                multEffect3.count += 2;
+            } else if (document.getElementById('otherSkill10318-1').value === "2"){
+                multEffect3.buff *= 121;
+                multEffect3.count += 1;
+            } else if (document.getElementById('otherSkill10318-1').value === "1"){
+                multEffect3.buff *= 110;
+                multEffect3.count += 1;
+            }
+        }
         //christmas lico's token damage buff//
         if (document.getElementById("shared22007-1").checked){
             if (document.getElementById("shared22007-2").checked){
@@ -3730,6 +3766,16 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //ny kokonoha's self buff based on youkai//
+        if (masterValues.charaID === 10317){
+            if (masterValues.charaAwaked){
+                multEffect3.buff += 15 * Number(document.getElementById("charaSpecific10317-1").value);
+                multEffect3.buff -= 12; //to account for the double count in ability data
+            } else {
+                multEffect3.buff += 12 * Number(document.getElementById("charaSpecific10317-1").value);
+                multEffect3.buff -= 12; //to account for the double count in ability data
+            }
+        }
         //chupina's self buff//
         if (masterValues.charaID === 10305){
             if (masterValues.charaAwaked){
@@ -4780,6 +4826,13 @@ function pdMultValues(type){ //timing = 4//
             if (document.getElementById("henshin-10169-awake").checked){
                 totalPartyBuff += 3;
             }
+        }
+    }
+    //ny kokonoha's youkai buff
+    if (document.getElementById("party10317").checked && youkaiCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 12;
+        if (Number(document.getElementById("henshin-10169-select").value) === 10251){
+            totalPartyBuff += 12;
         }
     }
     //hokaku 1 - warrior

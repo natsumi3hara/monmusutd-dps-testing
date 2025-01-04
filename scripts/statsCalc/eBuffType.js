@@ -128,6 +128,10 @@ const eBuffType = {
 	"417":["stat195","actual-minus"],
 	"418":["stat196","actual-plus"],
 	"419":["stat196","actual-minus"],
+	"420":["stat0","none-none"],
+	"421":["stat0","none-none"],
+	"422":["stat0","none-none"],
+	"423":["stat0","none-none"],
 	//More resistances//
 	"450":["stat34","actual-plus"],
 	"451":["stat34","actual-minus"],
@@ -181,6 +185,7 @@ const eBuffType = {
 	"908":["stat203","none-none"],
 	"909":["stat204","none-none"],
 	"910":["stat205","none-none"],
+	"911":["stat0","none-none"],
 	"1000":["stat67","none-none"],
 	//Talent definitions//
 	"1001":["stat68","none-none"],
