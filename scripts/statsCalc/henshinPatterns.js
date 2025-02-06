@@ -14,6 +14,7 @@ const henshin_patterns = {
 	"182": 4000, //miradola
 	"198": 4000, //swimsuit werepenguin
 	"199": 2000, //halloween chimera
+	"215": 4000, //beezlebub torrent
 	"219": 4000, //christmas werebear
 	"242": 4000, //hilde
 	"255": 4000, //kuromi skill stop male enemies
@@ -27,6 +28,7 @@ const henshin_patterns = {
 	"296": 4000, //weredragon
 	"297": 4000, //lukifer
 	"303": 4000, //g-dekaio brinie
+	//"307": 4000, //ruixia's sp_attack?
 	"310": 4000, //christmas wight's curse
 	"311": 4000, //christmas lich's buff
 	"318": 4000, //ny bicorn's status effect infliction

@@ -210,6 +210,13 @@ document.write(`
     <td id="exsub-1183" class="exsub" onclick="toggleExclude(1183)">巨擬嶺の討伐証</td>
 </tr>
 <tr>
+    <td id="exsub-1197" class="exsub" onclick="toggleExclude(1197)">金煌爆球の討伐証</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
     <td colspan="5" class="displaytext category">変異ボスチャレンジ</td>
 </tr>
 <tr>
@@ -283,7 +290,7 @@ document.write(`
     <td id="exsub-1181" class="exsub excluded" onclick="toggleExclude(1181)">クラスアクション強化(攻撃)</td>
     <td id="exsub-1185" class="exsub" onclick="toggleExclude(1185)">攻撃待機短縮+貫通攻撃</td>
     <td id="exsub-1193" class="exsub" onclick="toggleExclude(1193)">2.5th Anniversaryの恵愛</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1195" class="exsub excluded" onclick="toggleExclude(1195)">盛大鏡開き</td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">生成</td>
@@ -342,7 +349,7 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1194" class="exsub excluded" onclick="toggleExclude(1194)">被検体O8</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1196" class="exsub" onclick="toggleExclude(1196)">ゆく年くる年</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>

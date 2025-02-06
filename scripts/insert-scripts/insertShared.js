@@ -186,7 +186,7 @@ document.write(`
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
                     <abbr title="再出撃までの時間を40%短縮(重複不可)\n自身の死亡時、味方全員の攻撃力を10秒間100%上昇させる" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">来たる福女！</span>
+                    <span class="shared-buff-name">戦意継承</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
@@ -198,12 +198,24 @@ document.write(`
             <div class="flex-container-shared-buff-inner">
                 <div class="flex-container-shared-buff-inner2">
                     <abbr title="クリティカル発生時、攻撃力+2%\n(最大50回/死亡撤退時リセット)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
-                    <span class="shared-buff-name">来たる福女！</span>
+                    <span class="shared-buff-name">アサルトｸﾘﾃｨｶﾙ</span>
                 </div>
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
                     <span class="shared-buff-label">CRI数</span>
                     <input id="shared21005" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="移動速度+50％\n配置、移動完了後5秒間、攻撃速度が少し増加する" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">ゆく年くる年</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">移動回数</span>
+                    <input id="shared21006" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                     <span class="shared-buff-label"></span>
                 </div>
             </div>

@@ -154,8 +154,8 @@ function enemyGround(checked){
     else {enemyConditions["6"] = 0;selfConditions["6"] = 0;}
 }
 function enemyHuman(checked){
-    if (checked) {enemyConditions["1004"] = 60000;}
-    else {enemyConditions["1004"] = 0;}
+    if (checked) {enemyConditions["1004"] = 60000;selfConditions["1004"] = 60000;}
+    else {enemyConditions["1004"] = 0;selfConditions["1004"] = 0;}
 }
 // ↑ conditions ↑ //
 function updateSummonType(){
@@ -293,7 +293,12 @@ function compareChara(){
     console.log("allIncluded",allIncluded);
     //using the allIncluded array to cycle//
     let dpsRanking = [];
-    let ex2List = [10001,10004,10006,10008,10012,10014,10017,10019,10020,10022,10023,10024,10025,10026,10028,10029,10030,10031,10032,10035,10037,10038,10039,10040,10041,10044,10046,10047,10049,10050,10055,10058,10059,10060,10063,10064,10065,10068,10078,10079,10080,10085,10088,10089,10090,10091,10093,10094,10097,10100,10104,10121,10147,10173,10179];
+    let ex2List =   [10001,10004,10006,10008,10012,10014,10017,10019,10020,10022,
+                    10023,10024,10025,10026,10027,10028,10029,10030,10031,10032,
+                    10035,10037,10038,10039,10040,10041,10044,10046,10047,10049,
+                    10050,10055,10058,10059,10060,10063,10064,10065,10066,10068,
+                    10078,10079,10080,10085,10088,10089,10090,10091,10093,10094,
+                    10097,10100,10104,10121,10147,10173,10179];
     let exChangeList = [10088,10106,10126,10211,10214,10237,10297];
     let exChangeRefr = [[0,4],[4],[3],[2],[4],[4],[3]];
     let sortMethod = Number(document.getElementById("compChara-type-select").value);
@@ -523,7 +528,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1193;
+    let lastSubskillID = 1197;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -611,9 +616,9 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10016,10097,10101,10112,10118,10160,10196,10230,10235,10287].includes(masterValues.charaID)){
+    if ([10016,10097,10101,10112,10118,10160,10196,10230,10235,10287,10325].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
-        //stat1 dependent here too (10016,10196,10230,10097[ex2])
+        //stat1 dependent here too (10016,10196,10230,10097[ex2],10325)
         calculateStat(level,cc,"stat2");
     }
     if ([10041,10079].includes(masterValues.charaID)){
@@ -841,7 +846,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     let cooldown1per4  = ((masterValues.charaID===10066)&& document.getElementById("unique-equip-check").checked);
     let cooldown1per2  = ((masterValues.charaID===10015)&& selfConditions["2"]===1&&document.getElementById("unique-equip-check").checked)||(masterValues.charaID===10263&&selfConditions["1010"].includes(5));
     let cooldown1per1  = (masterValues.charaID===10198) && selfConditions["2"]===1;
-    let cooldown2per1  = ((masterValues.charaID===10147) && selfConditions["2"]===1)||((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===1);
+    let cooldown2per1  = ((masterValues.charaID===10147) && selfConditions["2"]===1)||((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===1)||((masterValues.charaID===10324) && selfConditions["1010"].includes(2));
     let cooldown4per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===2);
     let cooldown6per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===3)
     let cooldown8per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===4)
@@ -2025,9 +2030,18 @@ function calculateStat(level,cc,type){
     if (type === "stat5"){
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff);
     }
+    //battle - stat6//
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //yuku toshi kuru toshi
+        if ((subskillID_1 === 195 || subskillID_2 === 195) && Number(document.getElementById("shared21006").value) > 0){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
         //panie
         if (document.getElementById("shared23001-1").checked){
             try {
@@ -2152,7 +2166,7 @@ function calculateStat(level,cc,type){
             }
         }
         //place to include aSpd buffs//
-        //extraBuff for stat6 - battle//
+        //extraBuff//
         let extraASpdMult = Number(document.getElementById("extra-"+type+"-1").value);
         let extraASpdAdd = Number(document.getElementById("extra-"+type+"-2").value);
         if (extraASpdMult > 0){
@@ -2304,7 +2318,7 @@ function calculateStat(level,cc,type){
             multEffect2.count += 1;
         }
         //lapis' skill damage up//
-        if (masterValues.charaID !== 10067 && document.getElementById("otherSkill10139").checked){
+        if (masterValues.charaID !== 10139 && document.getElementById("otherSkill10139").checked){
             multEffect2.buff *= 130;
             multEffect2.count += 1;
         }
@@ -2582,6 +2596,14 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //valentine's rogdanno current stat1 dependent buff
+        if (masterValues.charaID === 10325){
+            addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+        }
+        //aesmana's enemy defeat buff//
+        if (masterValues.charaID === 10322){
+            multEffect2.buff += 10 * Number(document.getElementById("charaSpecific10322-1").value);
+        }
         //ny kokonoha's self buff based on youkai//
         if (masterValues.charaID === 10317){
             if (masterValues.charaAwaked){
@@ -2781,7 +2803,7 @@ function calculateStat(level,cc,type){
                 multEffect2.buff += [40,50,60,70,80][Number(document.getElementById("level10179").value)-1];
             }
         }
-        //summer diffnilla's stat1 dependent buff
+        //summer diffnilla's current stat1 dependent buff
         if (masterValues.charaID === 10196){
             if (selfConditions["26"] === 0){
                 addEffect2.buff += Math.floor(9 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
@@ -2983,6 +3005,10 @@ function calculateStat(level,cc,type){
     //assault critical
     if (type === "stat2"){
         multEffect2.buff += 2 * Number(document.getElementById("shared21005").value);
+    }
+    //yuku toshi kuru toshi
+    if (type === "stat7" && (subskillID_1 === 195 || subskillID_2 === 195)){
+        multEffect2.buff -= 4 * Number(document.getElementById("shared21006").value);
     }
     //aSpd debuff limit
     if (type === "stat6"){
@@ -3199,9 +3225,18 @@ function calculateStat(level,cc,type){
     if (selfConditions["1010"].includes(masterValues.unitcard.element)){
         cycleAllTalents(summon_point_data["table"][0],type,"attribute");
     }
+    //skill - stat6//
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //yuku toshi kuru toshi
+        if ((subskillID_1 === 195 || subskillID_2 === 195) && Number(document.getElementById("shared21006").value) > 0){
+            try {
+                masterValues.allBuff["rate-plus-1"].push([[20]]);
+            } catch(err) {
+                masterValues.allBuff["rate-plus-1"] = [[[20]]];
+            }
+        }
         //panie
         if (document.getElementById("shared23001-1").checked){
             try {
@@ -3326,7 +3361,7 @@ function calculateStat(level,cc,type){
             }
         }
         //place to include aSpd buffs//
-        //extraBuff for stat6 - skill//
+        //extraBuff//
         let extraASpdMult = Number(document.getElementById("extra-"+type+"-1").value);
         let extraASpdAdd = Number(document.getElementById("extra-"+type+"-2").value);
         if (extraASpdMult > 0){
@@ -3766,6 +3801,14 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //valentine's rogdanno current stat1 dependent buff
+        if (masterValues.charaID === 10325){
+            addEffect3.buff += Math.floor(10 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
+        }
+        //aesmana's enemy defeat buff//
+        if (masterValues.charaID === 10322){
+            multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10322-1").value);
+        }
         //ny kokonoha's self buff based on youkai//
         if (masterValues.charaID === 10317){
             if (masterValues.charaAwaked){
@@ -3988,7 +4031,7 @@ function calculateStat(level,cc,type){
                 multEffect3.buff += [40,50,60,70,80][Number(document.getElementById("level10179").value)-1];
             }
         }
-        //summer diffnilla's stat1 dependent buff
+        //summer diffnilla's current stat1 dependent buff
         if (masterValues.charaID === 10196){
             if (selfConditions["26"] === 0){
                 addEffect3.buff += Math.floor(9 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
@@ -4217,6 +4260,10 @@ function calculateStat(level,cc,type){
     //assault critical
     if (type === "stat2"){
         multEffect3.buff += 2 * Number(document.getElementById("shared21005").value);
+    }
+    //yuku toshi kuru toshi
+    if (type === "stat7" && (subskillID_1 === 195 || subskillID_2 === 195)){
+        multEffect3.buff -= 4 * Number(document.getElementById("shared21006").value);
     }
     //aSpd debuff limit
     if (type === "stat6"){
@@ -4829,10 +4876,49 @@ function pdMultValues(type){ //timing = 4//
         }
     }
     //ny kokonoha's youkai buff
-    if (document.getElementById("party10317").checked && youkaiCharas.includes(masterValues.charaID)){
+    if (document.getElementById("party10317").checked && youkaiCharas.includes(masterValues.charaID) && (type==="stat2")){
         totalPartyBuff += 12;
         if (Number(document.getElementById("henshin-10169-select").value) === 10251){
             totalPartyBuff += 12;
+        }
+    }
+    //azep's demon buff
+    if (document.getElementById("party10215").checked && (type==="stat2") && demonCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 14;
+        if (document.getElementById("awake10215").checked){
+            totalPartyBuff += 3;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10215){
+            totalPartyBuff += 14;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 3;
+            }
+        }
+    }
+    //darmst's demon buff
+    if (document.getElementById("party10295").checked && (type==="stat2") && demonCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 9;
+        if (document.getElementById("awake10295").checked){
+            totalPartyBuff += 2;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10295){
+            totalPartyBuff += 9;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 2;
+            }
+        }
+    }
+    //aesmana's demon buff
+    if (document.getElementById("party10322").checked && (type==="stat2") && demonCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 12;
+        if (document.getElementById("awake10322").checked){
+            totalPartyBuff += 3;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10322){
+            totalPartyBuff += 12;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 3;
+            }
         }
     }
     //hokaku 1 - warrior
@@ -5491,7 +5577,9 @@ function talentShow(){
 }
 
 function dpsDetailShow(){
-    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10147,10150,10173,10178,10209,10239,10245,10265,10279,10289,10297,10304];
+    let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10147,10150,
+                10173,10178,10209,10215,10239,10245,10265,10279,10289,10297,
+                10304];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230,10305];
     if (dpsC.includes(masterValues.charaID)){
@@ -5791,9 +5879,9 @@ const attachOptions = [
     //{value: 1192, text: 'ダミー'},
     {value: 1193, text: '2.5th Anniversaryの恵愛'},
     {value: 1194, text: '被検体O8'},
-    //{value: 1195, text: 'ダミー'},
-    //{value: 1196, text: 'ダミー'},
-    //{value: 1197, text: 'ダミー'},
+    {value: 1195, text: '盛大鏡開き'},
+    {value: 1196, text: 'ゆく年くる年'},
+    {value: 1197, text: '金煌爆球の討伐証'},
     //{value: 1198, text: 'ダミー'},
     //{value: 1199, text: 'ダミー'},
     //{value: 1200, text: 'ダミー'},

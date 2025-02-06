@@ -821,6 +821,18 @@ document.write(`
         src="../../img/subskill-icons/subskill_1194.png"
         alt="被検体O8-ひけんたいおーはち-【改造オーク娘】ポデルをトークンとして使役可能\r\n(元々トークン所持している場合は無効)-とーくん"
         onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1195.png"
+        alt="盛大鏡開き-せいだいかがみびらき-最大HPが-50％になるが、15秒毎に最大HP50％分のバリアを付与する-ばりあ"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1196.png"
+        alt="ゆく年くる年-ゆくとしくるとし-移動速度+50%\r\n配置、移動完了後5秒間、攻撃速度が少し増加する-はいち-いどう-こうげきそくど"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-1"
+        src="../../img/subskill-icons/subskill_1197.png"
+        alt="金煌爆球の討伐証-きんこうばくきゅうのとうばつしょう-攻撃力+17%\r\nスナイパー系クラスにセット時追加で\r\n人間に対しての攻撃が1.2倍に上昇-にんげん-よだめーじ-すないぱー-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'1');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);
