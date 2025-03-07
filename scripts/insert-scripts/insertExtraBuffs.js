@@ -348,8 +348,20 @@ document.write(`
             </div>
             <div class="flex-container-extra-buff-inner2">
                 <span class="extra-buff-label"></span>
-                <span class="extra-buff-label">ダメージ%</span>
-                <span class="extra-buff-label"><input id="extra-stat76-1" type="number" min="0" max="9000" value="100" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label">与ダメージ%</span>
+                <span class="extra-buff-label"><input id="extra-stat76-1" type="number" min="0" max="99999" value="100" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
+                <span class="extra-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-extra-buff-inner">
+            <div class="flex-container-extra-buff-inner2">
+                <img src="../../img/ui-icons/Home_BtnNumBase_Enh.png" class="extra-buff-img">
+                <span class="extra-buff-name">バフ/デバフ</span>
+            </div>
+            <div class="flex-container-extra-buff-inner2">
+                <span class="extra-buff-label"></span>
+                <span class="extra-buff-label">被ダメージ%</span>
+                <span class="extra-buff-label"><input id="extra-stat77-1" type="number" min="0" max="99999" value="100" style="width:70%;height:50%;margin:2px auto;border:none;font-size:0.85em;" onChange="allDPS();">&nbsp;</span>
                 <span class="extra-buff-label"></span>
             </div>
         </div>

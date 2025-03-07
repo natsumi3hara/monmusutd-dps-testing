@@ -833,6 +833,26 @@ document.write(`
         src="../../img/subskill-icons/subskill_1197.png"
         alt="金煌爆球の討伐証-きんこうばくきゅうのとうばつしょう-攻撃力+17%\r\nスナイパー系クラスにセット時追加で\r\n人間に対しての攻撃が1.2倍に上昇-にんげん-よだめーじ-すないぱー-こうげきりょく"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1198.png"
+        alt="攻撃強化+再出撃時間短縮-こうげききょうかさいしゅつげきじかんたんしゅく-攻撃力+17%、再出撃までの時間を45%短縮\r\n(再出撃時間短縮は重複不可)-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1199.png"
+        alt="クリティカルフォーカス-くりてぃかるふぉーかす-クリティカル発生時、クリティカル率2%上昇\r\n(最大25回/死亡撤退時リセット）-くりてぃかるりつ"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1200.png"
+        alt="ダッシュバースト-だっしゅばーすと-移動速度+100、移動コスト-2\r\n移動開始時、攻撃力10%上昇\r\n(最大10回/死亡撤退時リセット）-いどうそくど-いどうこすと-こうげきりょく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1201.png"
+        alt="革新派の暗器-かくしんはのあんき-毒状態の敵への攻撃時HPが最大値の4%回復、スカウト系クラスにセット時追加で射程+10-しゃてい-すかうと"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1202.png"
+        alt="スタックアタック-すたっくあたっく-スタン/石化/凍結、いずれかの状態の敵に与えるダメージ1.2倍-よだめーじ-すたん-せきか-とうけつ"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

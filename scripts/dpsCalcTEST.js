@@ -133,7 +133,7 @@ function enemyFrozen(checked){
     if (checked) {enemyConditions["33"] = 1;}
     else {enemyConditions["33"] = 0;}
 }
-function enemyDarkness(checked){
+function enemyBlind(checked){
     if (checked) {enemyConditions["35"] = 1;}
     else {enemyConditions["35"] = 0;}
 }
@@ -607,6 +607,7 @@ function allDPS(slot1=-1,slot2=-1){
     calculateStat(level,cc,"stat21");
     calculateStat(level,cc,"stat22");
     calculateStat(level,cc,"stat76");
+    calculateStat(level,cc,"stat77");
     calculateStat(level,cc,"stat86");
     calculateStat(level,cc,"stat193");
     calculateStat(level,cc,"stat194");
@@ -616,9 +617,10 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10016,10097,10101,10112,10118,10160,10196,10230,10235,10287,10325].includes(masterValues.charaID)){
+    if ([10016,10097,10101,10112,10118,10160,10196,10230,10235,10287,10325,10326,10328].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
-        //stat1 dependent here too (10016,10196,10230,10097[ex2],10325)
+        //stat1 dependent here too (10016,10196,10230,10097[ex2],10325,10326)
+        //stat5 dependent here too (10328)
         calculateStat(level,cc,"stat2");
     }
     if ([10041,10079].includes(masterValues.charaID)){
@@ -1152,7 +1154,7 @@ function getAdditionalAttackDamage(battleskill,AAReference,exclude=false,stunChe
         document.getElementById("dps-dps-"+battleskill+"-hitTypeAA").innerHTML = indivAA["damage"]["hitType"];
         if (indivAA["cond"].length === 0){
             dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
-            dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+            dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"],battleskill);
             document.getElementById("dps-dps-"+battleskill+"-dmgAA").innerHTML = dmgAA;
             let targets = 0;
             if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
@@ -1185,7 +1187,7 @@ function getAdditionalAttackDamage(battleskill,AAReference,exclude=false,stunChe
             }
             if (allCondTrue){
                 dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
-                dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+                dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"],battleskill);
                 document.getElementById("dps-dps-"+battleskill+"-dmgAA").innerHTML = dmgAA;
                 let targets = 0;
                 if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
@@ -1239,7 +1241,7 @@ function getAdditionalAttackDamage2(battleskill,AAReference,exclude=false,stunCh
         document.getElementById("dps-dps-"+battleskill+"-hitTypeAA2").innerHTML = indivAA["damage"]["hitType"];
         if (indivAA["cond"].length === 0){
             dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
-            dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+            dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"],battleskill);
             document.getElementById("dps-dps-"+battleskill+"-dmgAA2").innerHTML = dmgAA;
             let targets = 0;
             if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
@@ -1272,7 +1274,7 @@ function getAdditionalAttackDamage2(battleskill,AAReference,exclude=false,stunCh
             }
             if (allCondTrue){
                 dmgAA = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivAA["damage"]["reference"]).innerHTML) * Number(indivAA["damage"]["multiplier"]) / 100);
-                dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"]);
+                dmgAA = damageCalc(dmgAA,indivAA["damage"]["hitType"],battleskill);
                 document.getElementById("dps-dps-"+battleskill+"-dmgAA2").innerHTML = dmgAA;
                 let targets = 0;
                 if (indivAA["target"]==="block"){console.log("refBlock");targets = blockCount;targetAA = blockCount;}
@@ -1327,7 +1329,7 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false,stunC
         document.getElementById("dps-dps-"+battleskill+"-hitTypeC").innerHTML = indivCont["damage"]["hitType"];
         if (indivCont["cond"].length === 0){
             dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivCont["damage"]["reference"]).innerHTML) * Number(indivCont["damage"]["multiplier"]) / 100);
-            dmgC = damageCalc(dmgC,indivCont["damage"]["hitType"]);
+            dmgC = damageCalc(dmgC,indivCont["damage"]["hitType"],battleskill);
             document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
             let targets = 0;
             if (indivCont["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
@@ -1360,7 +1362,7 @@ function getContinuousDamage(battleskill,continuousReference,exclude=false,stunC
             }
             if (allCondTrue){
                 dmgC = Math.floor(Number(document.getElementById("dps-output-"+battleskill+"-value-"+indivCont["damage"]["reference"]).innerHTML) * Number(indivCont["damage"]["multiplier"]) / 100);
-                dmgC = damageCalc(dmgC,indivCont["damage"]["hitType"]);
+                dmgC = damageCalc(dmgC,indivCont["damage"]["hitType"],battleskill);
                 document.getElementById("dps-dps-"+battleskill+"-dmgC").innerHTML = dmgC;
                 let targets = 0;
                 if (indivCont["target"]==="block"){console.log("refBlock");targets = blockCount;targetC = blockCount;}
@@ -1533,9 +1535,10 @@ function subskillGetPen(subskillID){
     else {return undefined;}
 }
 
-function updateCritPen(critList,penList,skillCritPen){
+function updateCritPen(critList,penList,isSkillCalc){
+    //isSkillCalc is true when calculating for skill
     let targetTable,attack,hitType,idType;
-    if (skillCritPen){
+    if (isSkillCalc){
         targetTable=document.getElementById("dps-critPen-skill");
         attack=Number(document.getElementById("dps-output-skill-value-stat2").innerHTML);
         attack*=Number(document.getElementById("dps-output-skill-value-stat76").innerHTML)/100;
@@ -1558,13 +1561,14 @@ function updateCritPen(critList,penList,skillCritPen){
     //console.log("rowcount: ",rowCount);
     while(--rowCount) {targetTable.deleteRow(rowCount)};
     //one crit only//
-    insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType,skillCritPen);
+    insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType,isSkillCalc);
     ////console.log(insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType));
     //here
 }
 
-function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,skillCritPen){
-    //console.log(skillCritPen);
+function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,isSkillCalc){
+    //isSkillCalc is true when calculating for skill
+    //console.log(isSkillCalc);
     let critProb,penProb;
     if (critList.length === 1){
         critProb = [100-critList[0]["probability"],critList[0]["probability"]];
@@ -1581,7 +1585,7 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,skill
     noPenProb /= (100**penList.length); //noPenProb now 73.6
     //account for valkyrie, sharpshooter and duelist
     if([11025,13024,13025].includes(selfConditions["1007"])){
-        if(skillCritPen && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
+        if(isSkillCalc && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
             noPenProb=noPenProb*1/3; //naberius bug//
         } else {noPenProb=noPenProb*2/3;}
     }
@@ -1642,25 +1646,25 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,skill
                 if (penProb.length === 1){
                     try {
                         finalAttack = attack * critList[i-1]["damage"] / 100;
-                        cell.innerHTML = damageCalc(finalAttack,hitType);
+                        cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
                     } catch (err) {
                         finalAttack = attack;
-                        cell.innerHTML = damageCalc(finalAttack,hitType);
+                        cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
                     }
                 } else {
                     try {
                         finalAttack = attack * critList[Math.floor(i/2)-1]["damage"] / 100;
                         if (i%2 === 0){
-                            cell.innerHTML = damageCalc(finalAttack,hitType);
+                            cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
                         } else {
-                            cell.innerHTML = damageCalc(finalAttack,"貫通");
+                            cell.innerHTML = damageCalc(finalAttack,"貫通",isSkillCalc);
                         }
                     } catch (err) {
                         finalAttack = attack;
                         if (i%2 === 0){
-                            cell.innerHTML = damageCalc(finalAttack,hitType);
+                            cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
                         } else {
-                            cell.innerHTML = damageCalc(finalAttack,"貫通");
+                            cell.innerHTML = damageCalc(finalAttack,"貫通",isSkillCalc);
                         }
                     }
                 }
@@ -1671,7 +1675,7 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,skill
     return {"critProb":critProb,"penProb":penProb};
 }
 
-function damageCalc(attack,hitType){
+function damageCalc(attack,hitType,BSParam){
     //may need to add another parameter for continuous (because no guarantee + may not be affected by difora)
     let damage = 0;
     let guaranteeDamage = Math.floor(attack/10);
@@ -1691,13 +1695,13 @@ function damageCalc(attack,hitType){
         //console.log("pen");
         damage = Number(attack);
     }
-    //kulkuri's scouting drone token
-    if (document.getElementById("shared22006").checked){
-        dmgRed = dmgRed * 110 / 100;
-    }
-    //halloween difora's damage taken buff on skill
-    if (document.getElementById("otherSkill10304-1").checked){
-        dmgRed = dmgRed * 120 / 100;
+    //console.log(BSParam);
+    if ((typeof BSParam == "string" && BSParam === "skill")||(typeof BSParam == "boolean" && BSParam)) {
+        //console.log("Do skill calculation.");
+        dmgRed = dmgRed * Number(document.getElementById("dps-output-skill-value-stat77").innerHTML) / 100;
+    } else {
+        //console.log("Do battle calculation.");
+        dmgRed = dmgRed * Number(document.getElementById("dps-output-battle-value-stat77").innerHTML) / 100;
     }
     //final adjustment
     if (damage < guaranteeDamage){damage = guaranteeDamage;}
@@ -1831,8 +1835,8 @@ function calculateStat(level,cc,type){
         var rawStat = Math.floor(job["targetType"]);
     } else if (type == "stat22"){
         var rawStat = Math.floor(job["hitType"]);
-    } else if (type == "stat76"){
-        var rawStat = 100; //damageUp
+    } else if (["stat76","stat77"].includes(type)){
+        var rawStat = 100; //damageUp, damageCut
     } else if (["stat17","stat19","stat86",""].includes(type)){
         var rawStat = 0;
     } else {}
@@ -1855,6 +1859,14 @@ function calculateStat(level,cc,type){
                 rawStat += 600;
             } else if (type == "stat2"){
                 rawStat += 75;
+            }
+        }
+    }
+    // phyllis exception (pricipality) -- until pattern is found with damage/healing //
+    if (masterValues.charaID === 10330) {
+        if (document.getElementById("talent5check").checked) {
+            if (type == "stat76"){
+                rawStat = 120;
             }
         }
     }
@@ -2231,7 +2243,34 @@ function calculateStat(level,cc,type){
     }
     //↑ REPEAT ↑//
     let multEffect2, addEffect2;
-    if (type === "stat76"){
+    //battle - stat77//
+    if (type === "stat77"){
+        multEffect2 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
+        //extraBuff for stat77 - battle//
+        multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
+        multEffect2.count += 1;
+        //THIS STAT77 IS ONLY FOR ALL TYPES -- only phy like difora go directly in//
+        //---//
+        //ana's burn damageR up//
+        if (masterValues.charaID !== 10329 && document.getElementById('otherSkill10329-1').checked && enemyConditions["31"] === 1){
+            multEffect2.buff *= 140;
+            multEffect2.count += 1;
+        }
+        //kulkuri's scouting drone token
+        if (document.getElementById("shared22006").checked){
+            multEffect2.buff *= 110;
+            multEffect2.count += 1;
+        }
+        //halloween difora's damage taken buff on skill
+        if (document.getElementById("otherSkill10304-1").checked){
+            multEffect2.buff *= 120;
+            multEffect2.count += 1;
+        }
+        //correction
+        addEffect2 = {"buff":0,"count":1};
+    }
+    //battle - stat76//
+    else if (type === "stat76"){
         multEffect2 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
         //extraBuff for stat76 - battle//
         multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
@@ -2259,6 +2298,21 @@ function calculateStat(level,cc,type){
                 multEffect2.buff *= 120;
                 multEffect2.count += 1;
             }
+        }
+        //stack attack
+        if ((subskillID_1 === 201 || subskillID_2 === 201) && (document.getElementById('enemystun').checked||document.getElementById('enemypetrify').checked||document.getElementById('enemyfrozen').checked)){
+            multEffect2.buff *= 120;
+            multEffect2.count += 1;
+        }
+        //flower knight melon's damage up for wind - excluding self//
+        if (masterValues.charaID !== 10326 && document.getElementById('otherSkill10326-1').checked && selfConditions["1002"] === 4){
+            multEffect2.buff *= 120;
+            multEffect2.count += 1;
+        }
+        //oncidium's damage up for wind - excluding self//
+        if (masterValues.charaID !== 10328 && document.getElementById('otherSkill10328-1').checked && selfConditions["1002"] === 4){
+            multEffect2.buff *= 120;
+            multEffect2.count += 1;
         }
         //nisa's damage up for poison - excluding nisa//
         if (masterValues.charaID !== 10301 && document.getElementById('otherSkill10301-1').checked  && enemyConditions["25"] === 1){
@@ -2596,6 +2650,18 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //oncidium's stat5 dependent buff
+        if (masterValues.charaID === 10328){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(80 * Number(document.getElementById("dps-output-battle-value-stat5").innerHTML) / 100);
+            } else {
+                addEffect2.buff += Math.floor(100 * Number(document.getElementById("dps-output-battle-value-stat5").innerHTML) / 100);
+            }
+        }
+        //flower knight melon's base stat1 dependent buff
+        if (masterValues.charaID === 10326){
+            addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
         //valentine's rogdanno current stat1 dependent buff
         if (masterValues.charaID === 10325){
             addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
@@ -2917,6 +2983,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat1//
     if (type === "stat1"){
+        //phyllis skill hp buff for allies on light tile
+        if (document.getElementById("otherSkill10330-1").checked && selfConditions["1010"].includes(5) && masterValues.charaID !== 10330){
+            multEffect2.buff += 40;
+        }
         //promestein skill hp buff
         if (document.getElementById("otherSkill10244-1").checked && masterValues.charaID !== 10244){
             multEffect2.buff += 30;
@@ -2977,7 +3047,7 @@ function calculateStat(level,cc,type){
     multEffect2.buff += allAlliesSkillRate(type); //timing must be 1
     //extrabuffs
     try {
-        if (type === "stat6" || type === "stat76"){} else {
+        if (type === "stat6" || type === "stat76" || type === "stat77"){} else {
             multEffect2.buff += Number(document.getElementById("extra-"+type+"-1").value);
             addEffect2.buff += Number(document.getElementById("extra-"+type+"-2").value);
         }
@@ -3019,7 +3089,7 @@ function calculateStat(level,cc,type){
     ///console.log("addEffect2: "+addEffect2);
     ///console.log(addEffect2);
     let outputBattle = Math.floor(outputMenu * multEffect2.buff / 100**(multEffect2.count)) + Math.floor(addEffect2.buff);
-    if (["stat8","stat76"].includes(type)){
+    if (["stat8","stat76","stat77"].includes(type)){
         if (outputBattle < 0){outputBattle = 0;}
     }
     else if (["stat7"].includes(type)){
@@ -3431,7 +3501,34 @@ function calculateStat(level,cc,type){
         console.log(masterValues.allBuff);
     }    
     let multEffect3, addEffect3;
-    if (type === "stat76"){
+    //skill - stat77//
+    if (type === "stat77"){
+        multEffect3 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
+        //extraBuff for stat77 - skill//
+        multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
+        multEffect3.count += 1;
+        //THIS STAT77 IS ONLY FOR ALL TYPES -- only phy like difora go directly in//
+        //---//
+        //ana's burn damageR up//
+        if (masterValues.charaID !== 10329 && document.getElementById('otherSkill10329-1').checked && enemyConditions["31"] === 1){
+            multEffect3.buff *= 140;
+            multEffect3.count += 1;
+        }
+        //kulkuri's scouting drone token
+        if (document.getElementById("shared22006").checked){
+            multEffect3.buff *= 110;
+            multEffect3.count += 1;
+        }
+        //halloween difora's damage taken buff on skill
+        if (document.getElementById("otherSkill10304-1").checked){
+            multEffect3.buff *= 120;
+            multEffect3.count += 1;
+        }
+        //correction
+        addEffect3 = {"buff":0,"count":1};
+    }
+    //skill - stat76//
+    else if (type === "stat76"){
         multEffect3 = tempCompile(masterValues.allBuff,[1,2,20],"rate",type,true);
         //extraBuff for stat76 - skill//
         multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
@@ -3459,6 +3556,21 @@ function calculateStat(level,cc,type){
                 multEffect3.buff *= 120;
                 multEffect3.count += 1;
             }
+        }
+        //stack attack
+        if ((subskillID_1 === 201 || subskillID_2 === 201) && (document.getElementById('enemystun').checked||document.getElementById('enemypetrify').checked||document.getElementById('enemyfrozen').checked)){
+            multEffect3.buff *= 120;
+            multEffect3.count += 1;
+        }
+        //flower knight melon's damage up for wind - excluding self//
+        if (masterValues.charaID !== 10326 && document.getElementById('otherSkill10326-1').checked && selfConditions["1002"] === 4){
+            multEffect3.buff *= 120;
+            multEffect3.count += 1;
+        }
+        //oncidium's damage up for wind - excluding self//
+        if (masterValues.charaID !== 10328 && document.getElementById('otherSkill10328-1').checked && selfConditions["1002"] === 4){
+            multEffect3.buff *= 120;
+            multEffect3.count += 1;
         }
         //nisa's damage up for poison - including nisa for skill//
         if ((masterValues.charaID === 10301 || document.getElementById('otherSkill10301-1').checked) && enemyConditions["25"] === 1){
@@ -3801,6 +3913,18 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //oncidium's stat5 dependent buff
+        if (masterValues.charaID === 10328){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(80 * Number(document.getElementById("dps-output-skill-value-stat5").innerHTML) / 100);
+            } else {
+                addEffect3.buff += Math.floor(100 * Number(document.getElementById("dps-output-skill-value-stat5").innerHTML) / 100);
+            }
+        }
+        //flower knight melon's base stat1 dependent buff
+        if (masterValues.charaID === 10326){
+            addEffect3.buff += Math.floor(10 * Number(document.getElementById("dps-output-menu-value-stat1").innerHTML) / 100);
+        }
         //valentine's rogdanno current stat1 dependent buff
         if (masterValues.charaID === 10325){
             addEffect3.buff += Math.floor(10 * Number(document.getElementById("dps-output-skill-value-stat1").innerHTML) * Number(document.getElementById("shared20002").value) / 10000);
@@ -4150,6 +4274,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat1//
     if (type === "stat1"){
+        //phyllis skill hp buff for allies on light tile
+        if (document.getElementById("otherSkill10330-1").checked && selfConditions["1010"].includes(5) && masterValues.charaID !== 10330){
+            multEffect3.buff += 40;
+        }
         //lumivael's self hp buff based on no of allies
         if (masterValues.charaID === 10276){
             multEffect3.buff += 15 * Number(document.getElementById("charaSpecific10276-1").value);
@@ -4232,7 +4360,7 @@ function calculateStat(level,cc,type){
     multEffect3.buff += allAlliesSkillRate(type); //timing must be 1
     //extrabuffs
     try {
-        if (type === "stat6" || type === "stat76"){} else {
+        if (type === "stat6" || type === "stat76" || type === "stat77"){} else {
             multEffect3.buff += Number(document.getElementById("extra-"+type+"-1").value);
             addEffect3.buff += Number(document.getElementById("extra-"+type+"-2").value);
         }
@@ -4274,7 +4402,7 @@ function calculateStat(level,cc,type){
     ///console.log("addEffect3: "+addEffect3);
     ///console.log(addEffect3);
     let outputSkill = Math.floor(outputMenu * multEffect3.buff / 100**(multEffect3.count)) + Math.floor(addEffect3.buff);
-    if (["stat8","stat76"].includes(type)){
+    if (["stat8","stat76","stat77"].includes(type)){
         if (outputSkill < 0){outputSkill = 0;}
     }
     else if (["stat7"].includes(type)){
@@ -5611,6 +5739,8 @@ function conditionalOption(conditional, option, value){
         return (conditional.includes(value));
     } else if (option === "!^") {
         return (!conditional.includes(value));
+    } else if (option === "|1") {
+        return false;
     } else {return true;}
 }
 function statConvertUnique(statX){
@@ -5882,11 +6012,11 @@ const attachOptions = [
     {value: 1195, text: '盛大鏡開き'},
     {value: 1196, text: 'ゆく年くる年'},
     {value: 1197, text: '金煌爆球の討伐証'},
-    //{value: 1198, text: 'ダミー'},
-    //{value: 1199, text: 'ダミー'},
-    //{value: 1200, text: 'ダミー'},
-    //{value: 1201, text: 'ダミー'},
-    //{value: 1202, text: 'ダミー'},
+    {value: 1198, text: '攻撃強化+再出撃時間短縮'},
+    {value: 1199, text: 'クリティカルフォーカス'},
+    {value: 1200, text: 'ダッシュバースト'},
+    {value: 1201, text: '革新派の暗器'},
+    {value: 1202, text: 'スタックアタック'},
     //{value: 1203, text: 'ダミー'},
     //{value: 1204, text: 'ダミー'},
     //{value: 1205, text: 'ダミー'},
@@ -5904,6 +6034,26 @@ const attachOptions = [
     //{value: 1217, text: 'ダミー'},
     //{value: 1218, text: 'ダミー'},
     //{value: 1219, text: 'ダミー'},
+    //{value: 1220, text: 'ダミー'},
+    //{value: 1221, text: 'ダミー'},
+    //{value: 1222, text: 'ダミー'},
+    //{value: 1223, text: 'ダミー'},
+    //{value: 1224, text: 'ダミー'},
+    //{value: 1225, text: 'ダミー'},
+    //{value: 1226, text: 'ダミー'},
+    //{value: 1227, text: 'ダミー'},
+    //{value: 1228, text: 'ダミー'},
+    //{value: 1229, text: 'ダミー'},
+    //{value: 1230, text: 'ダミー'},
+    //{value: 1231, text: 'ダミー'},
+    //{value: 1232, text: 'ダミー'},
+    //{value: 1233, text: 'ダミー'},
+    //{value: 1234, text: 'ダミー'},
+    //{value: 1235, text: 'ダミー'},
+    //{value: 1236, text: 'ダミー'},
+    //{value: 1237, text: 'ダミー'},
+    //{value: 1238, text: 'ダミー'},
+    //{value: 1239, text: 'ダミー'},
 ];
 
 //loaders//

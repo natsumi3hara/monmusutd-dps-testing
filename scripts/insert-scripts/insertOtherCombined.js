@@ -721,6 +721,54 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
+        <div title="蘭華メロン-めろん" class="flex-container-otherCombined-buff-inner damageD">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="スキル中、射程内の風属性の味方の与えるダメージ1.3倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10326_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">蘭華メロン</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10326-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="オンシジューム-おんしじゅーむ" class="flex-container-otherCombined-buff-inner damageD">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="スキル中、射程内の風属性の味方の与えるダメージ1.3倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10328_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">オンシジューム</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10328-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="アナ-あな" class="flex-container-otherCombined-buff-inner damageR">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="スキル中、火傷状態の全敵の受けるダメージが1.4倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10329_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">アナ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10329-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="フィリス-ふぃりす" class="flex-container-otherCombined-buff-inner hp">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="スキル中、範囲内の味方が光属性マスに配置されている場合、最大HP+40%" style="cursor: help;"><img src="../../img/chara-icons/icon_10330_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">フィリス</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10330-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
     </div>
 </div>
 <script>

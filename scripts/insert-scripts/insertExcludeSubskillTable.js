@@ -189,7 +189,7 @@ document.write(`
     <td id="exsub-1135" class="exsub excluded" onclick="toggleExclude(1135)">聖女の加護</td>
     <td id="exsub-1160" class="exsub excluded" onclick="toggleExclude(1160)">豪華絢爛</td>
     <td id="exsub-1176" class="exsub excluded" onclick="toggleExclude(1176)">暗部の聖衣</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1201" class="exsub excluded" onclick="toggleExclude(1201)">革新派の暗器</td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -291,6 +291,13 @@ document.write(`
     <td id="exsub-1185" class="exsub" onclick="toggleExclude(1185)">攻撃待機短縮+貫通攻撃</td>
     <td id="exsub-1193" class="exsub" onclick="toggleExclude(1193)">2.5th Anniversaryの恵愛</td>
     <td id="exsub-1195" class="exsub excluded" onclick="toggleExclude(1195)">盛大鏡開き</td>
+</tr>
+<tr>
+    <td id="exsub-1198" class="exsub excluded" onclick="toggleExclude(1198)">攻撃強化+再出撃時間短縮</td>
+    <td id="exsub-1199" class="exsub excluded" onclick="toggleExclude(1199)">クリティカルフォーカス</td>
+    <td id="exsub-1200" class="exsub excluded" onclick="toggleExclude(1200)">ダッシュバースト</td>
+    <td id="exsub-1202" class="exsub excluded" onclick="toggleExclude(1202)">スタックアタック</td>
+    <td class="exsub excluded"></td>
 </tr>
 <tr>
     <td colspan="5" class="displaytext category">生成</td>
