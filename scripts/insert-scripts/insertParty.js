@@ -627,7 +627,7 @@ document.write(`
         <div id="flex-container-party-buff">
             <div class="flex-container-party-buff-inner">
                 <div class="flex-container-party-buff-inner2">
-                    <abbr title="セット時、全モンスター娘の攻撃力+5%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <abbr title="セット時、全モンスター娘の攻撃力+5%" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="party-buff-img"></abbr>
                     <span class="party-buff-name">ツンデレ皇妹</span>
                 </div>
                 <div class="flex-container-party-buff-inner2">
@@ -639,7 +639,7 @@ document.write(`
             </div>
             <div class="flex-container-party-buff-inner">
                 <div class="flex-container-party-buff-inner2">
-                    <abbr title="セット時、全モンスター娘の最大HP+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <abbr title="セット時、全モンスター娘の最大HP+10%" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="party-buff-img"></abbr>
                     <span class="party-buff-name">おっとり皇姉</span>
                 </div>
                 <div class="flex-container-party-buff-inner2">
@@ -651,7 +651,7 @@ document.write(`
             </div>
             <div class="flex-container-party-buff-inner">
                 <div class="flex-container-party-buff-inner2">
-                    <abbr title="編成時風属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <abbr title="編成時風属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="party-buff-img"></abbr>
                     <span class="party-buff-name">風エクステンド</span>
                 </div>
                 <div class="flex-container-party-buff-inner2">
@@ -663,7 +663,7 @@ document.write(`
             </div>
             <div class="flex-container-party-buff-inner">
                 <div class="flex-container-party-buff-inner2">
-                    <abbr title="セット時、全ウォリアー系クラスの攻撃力+15%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <abbr title="セット時、全ウォリアー系クラスの攻撃力+15%" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="party-buff-img"></abbr>
                     <span class="party-buff-name">捕獲！女勇者</span>
                 </div>
                 <div class="flex-container-party-buff-inner2">
@@ -675,7 +675,7 @@ document.write(`
             </div>
             <div class="flex-container-party-buff-inner">
                 <div class="flex-container-party-buff-inner2">
-                    <abbr title="セット時、全スナイパー系クラスの攻撃速度が15%増加" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <abbr title="セット時、全スナイパー系クラスの攻撃速度が15%増加" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="party-buff-img"></abbr>
                     <span class="party-buff-name">捕獲！女海賊</span>
                 </div>
                 <div class="flex-container-party-buff-inner2">
@@ -687,7 +687,7 @@ document.write(`
             </div>
             <div class="flex-container-party-buff-inner">
                 <div class="flex-container-party-buff-inner2">
-                    <abbr title="編成時火属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/sub_skill.png" class="party-buff-img"></abbr>
+                    <abbr title="編成時火属性モンスター娘のHPと攻撃力+10%" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="party-buff-img"></abbr>
                     <span class="party-buff-name">火エクステンド</span>
                 </div>
                 <div class="flex-container-party-buff-inner2">

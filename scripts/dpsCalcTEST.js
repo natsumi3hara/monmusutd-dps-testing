@@ -231,9 +231,9 @@ function enemyReminder(){
             rmd2.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
             rmd3.innerHTML = "敵数が0です(敵ユニット > ブロックしている敵/範囲内にいる敵)";
         } else if (masterValues.language === "en"){
-            rmd1.innerHTML = "Number of enemies is 0 (Enemy > Blocked/In range)";
-            rmd2.innerHTML = "Number of enemies is 0 (Enemy > Blocked/In range)";
-            rmd3.innerHTML = "Number of enemies is 0 (Enemy > Blocked/In range)";
+            rmd1.innerHTML = "Number of enemies is 0 (Enemy -> Blocked/In range)";
+            rmd2.innerHTML = "Number of enemies is 0 (Enemy -> Blocked/In range)";
+            rmd3.innerHTML = "Number of enemies is 0 (Enemy -> Blocked/In range)";
         }
     } else {
         //console.log("at least one non zero");
@@ -5056,12 +5056,18 @@ function pdMultValues(type){ //timing = 4//
     if (type === "stat2" && selfConditions["1006"]==2){//other chara's or ratzel's
         totalPartyBuff += Number(document.getElementById("partySub-1158").value) * 15;
     }
-    //hokaku 2 - sniper
+    //hokaku 2 - sniper - aspd and pad
     if (type === "stat6" && selfConditions["1006"]==4 && (getAttachID("subskill1") === 158 || getAttachID("subskill2") === 158)){
         totalPartyBuff += 15;
     }
     if (type === "stat6" && selfConditions["1006"]==4){//other chara's or ratzel's
-        totalPartyBuff += Number(document.getElementById("partySub-1159").value) * 15; //might be take highest?
+        totalPartyBuff += Math.min(1,Number(document.getElementById("partySub-1159").value)) * 15; //might be take highest?
+    }
+    if (type === "stat7" && selfConditions["1006"]==4 && (getAttachID("subskill1") === 158 || getAttachID("subskill2") === 158)){
+        totalPartyBuff -= 15;
+    }
+    if (type === "stat7" && selfConditions["1006"]==4){//other chara's or ratzel's
+        totalPartyBuff -= Number(document.getElementById("partySub-1159").value) * 15; //might be take highest?
     }
     //↓ ratzel's partybuff copy (10169) ↓//
     let partyString = "party" + document.getElementById("henshin-10169-select").value;
