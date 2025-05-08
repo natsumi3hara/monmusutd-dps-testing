@@ -683,7 +683,7 @@ const continuous_patterns = {
 			{"cond":[],
 			"damage":{"hitType":"貫通","reference":"stat2","multiplier":10},
 			"target":"range",
-			"time":15,
+			"time":30,
 			},
 		],
 		"skill":[

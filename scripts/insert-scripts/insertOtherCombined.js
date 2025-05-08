@@ -165,6 +165,18 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
+        <div title="アルギュロ-あるぎゅろ" class="flex-container-otherCombined-buff-inner attack">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="配置中、竜特性の攻撃力+10%" style="cursor: help;"><img src="../../img/chara-icons/icon_10075_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">アルギュロ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">(専用武器)</span>
+                <span class="otherCombined-buff-label">配置中</span>
+                <input type="checkbox" id="otherUnique10075-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
         <div title="メアルス-めあるす" class="flex-container-otherCombined-buff-inner def">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="スキル中、全味方の物理防御力[2.00倍→2.50倍]" style="cursor: help;"><img src="../../img/chara-icons/icon_10103_0_s.png" class="otherCombined-buff-img"></abbr>
@@ -198,6 +210,18 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
                 <span class="otherCombined-buff-label">配置</span>
                 <input type="checkbox" id="otherPassive10121" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="マージェル-まーじぇる" class="flex-container-otherCombined-buff-inner attack">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="範囲内の敵の攻撃力を15秒間10%減少させ、減少値分全味方の攻撃力を15秒間増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_10122_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">マージェル</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">敵の攻撃力</span>
+                <input id="otherSkill10122-1" type="number" min="0" max="99999" value="0" class="otherCombined-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
@@ -402,7 +426,7 @@ document.write(`
             <div class="flex-container-otherCombined-buff-inner2">
                 <span class="otherCombined-buff-label">範囲内</span>
                 <input type="checkbox" id="otherPassive10209-1" class="larger-check otherCombined-check" onchange="allDPS();">
-                <span class="otherCombined-buff-label">スキル中</span>
+                <span class="otherCombined-buff-label">スキル1中</span>
                 <input type="checkbox" id="otherPassive10209-2" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
@@ -721,6 +745,18 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
+        <div title="氷竜フリス-ふりす" class="flex-container-otherCombined-buff-inner attribute">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="スキル中、射程内の味方を水属性マスに配置中の状態にする" style="cursor: help;"><img src="../../img/chara-icons/icon_10321_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">氷竜フリス</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">範囲内</span>
+                <input type="checkbox" id="otherPassive10321-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherPassive10321-2" class="larger-check otherCombined-check" onchange="allDPS();">
+            </div>
+        </div>
         <div title="蘭華メロン-めろん" class="flex-container-otherCombined-buff-inner damageD">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="スキル中、射程内の風属性の味方の与えるダメージ1.3倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10326_0_s.png" class="otherCombined-buff-img"></abbr>
@@ -767,6 +803,42 @@ document.write(`
                 <span class="otherCombined-buff-label">スキル1中</span>
                 <input type="checkbox" id="otherSkill10330-1" class="larger-check otherCombined-check" onchange="allDPS();">
                 <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="購買マージェル-まーじぇる" class="flex-container-otherCombined-buff-inner attack">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="範囲内の敵の攻撃力を40秒間6%減少させ、減少値の半分の値分全味方の攻撃力を40秒間増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_10332_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">マージェル</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">敵の攻撃力</span>
+                <input id="otherSkill10332-1" type="number" min="0" max="99999" value="0" class="otherCombined-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="奏響ドネ-どね" class="flex-container-otherCombined-buff-inner def">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内の味方の物理防御力を、自身の攻撃力50%(完凸で+10%)分増加させる" style="cursor: help;"><img src="../../img/chara-icons/icon_10333_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">奏響ドネ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10333-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label">攻撃力</span>
+                <input id="otherPassive10333-2" type="number" min="0" max="19999" value="0" class="otherCombined-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div title="呪剣ニッドラ-にっどら" class="flex-container-otherCombined-buff-inner damageR">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="ニッドラがブロックしている敵の受ける魔法ダメージが1.2倍(完凸で+0.05倍)" style="cursor: help;"><img src="../../img/chara-icons/icon_10335_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">幽霊アメリ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">ブロック中</span>
+                <input type="checkbox" id="otherPassive10335-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10335-2" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
     </div>

@@ -31,5 +31,6 @@ const henshin_patterns = {
 	//"307": 4000, //ruixia's sp_attack?
 	"310": 4000, //christmas wight's curse
 	"311": 4000, //christmas lich's buff
+	"316": 4000, //anni platina's henshin
 	"318": 4000, //ny bicorn's status effect infliction
 }

@@ -39,6 +39,7 @@ document.write(`
     <td id="exsub-1013" class="exsub excluded" onclick="toggleExclude(1013)">リジェネ I</td>
     <td id="exsub-1014" class="exsub excluded" onclick="toggleExclude(1014)">リジェネ II</td>
     <td id="exsub-1015" class="exsub excluded" onclick="toggleExclude(1015)">リジェネ III</td>
+    <td id="exsub-1207" class="exsub excluded" onclick="toggleExclude(1207)">リジェネ IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -105,8 +106,9 @@ document.write(`
 <tr>
     <td class="displaytext" style="border:none"></td>
     <td id="exsub-1040" class="exsub excluded" onclick="toggleExclude(1040)">底力(攻撃) I</td>
-    <td id="exsub-1041" class="exsub" onclick="toggleExclude(1041)">底力(攻撃) II</td>
+    <td id="exsub-1041" class="exsub excluded" onclick="toggleExclude(1041)">底力(攻撃) II</td>
     <td id="exsub-1042" class="exsub" onclick="toggleExclude(1042)">底力(攻撃) III</td>
+    <td id="exsub-1206" class="exsub" onclick="toggleExclude(1206)">底力(攻撃) IV</td>
 </tr>
 <tr>
     <td class="displaytext" style="border:none"></td>
@@ -235,7 +237,7 @@ document.write(`
 </tr>
 <tr>
     <td id="exsub-1184" class="exsub excluded" onclick="toggleExclude(1184)">爆食爆漢の討伐証</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1204" class="exsub" onclick="toggleExclude(1204)">愛のエマルション☆</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
@@ -297,6 +299,13 @@ document.write(`
     <td id="exsub-1199" class="exsub excluded" onclick="toggleExclude(1199)">クリティカルフォーカス</td>
     <td id="exsub-1200" class="exsub excluded" onclick="toggleExclude(1200)">ダッシュバースト</td>
     <td id="exsub-1202" class="exsub excluded" onclick="toggleExclude(1202)">スタックアタック</td>
+    <td id="exsub-1203" class="exsub excluded" onclick="toggleExclude(1203)">春の息吹</td>
+</tr>
+<tr>
+    <td id="exsub-1198" class="exsub excluded" onclick="toggleExclude(1198)">攻撃強化+再出撃時間短縮</td>
+    <td id="exsub-1212" class="exsub" onclick="toggleExclude(1212)">3rd Anniversaryの加護</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -333,6 +342,13 @@ document.write(`
 <tr>
     <td id="exsub-1190" class="exsub excluded" onclick="toggleExclude(1190)">リカバリームーブ</td>
     <td id="exsub-1191" class="exsub excluded" onclick="toggleExclude(1191)">ターロスソウル</td>
+    <td id="exsub-1208" class="exsub excluded" onclick="toggleExclude(1208)">タクティカルマスター</td>
+    <td id="exsub-1209" class="exsub" onclick="toggleExclude(1209)">伸るか反るか</td>
+    <td id="exsub-1210" class="exsub" onclick="toggleExclude(1210)">スタンエンチャント</td>
+</tr>
+<tr>
+    <td id="exsub-1211" class="exsub" onclick="toggleExclude(1211)">デュラハンソウル</td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
@@ -345,7 +361,7 @@ document.write(`
     <td id="exsub-1061" class="exsub excluded" onclick="toggleExclude(1061)">純白ヴェール</td>
     <td id="exsub-1115" class="exsub excluded" onclick="toggleExclude(1115)">きらめきの星騎士</td>
     <td id="exsub-1134" class="exsub excluded" onclick="toggleExclude(1134)">麗しき藝術家</td>
-    <td id="exsub-1052" class="exsub excluded" onclick="toggleExclude(1052)">エレメンタルブースト</td>
+    <td id="exsub-1052" class="exsub" onclick="toggleExclude(1052)">エレメンタルブースト</td>
 </tr>
 <tr>
     <td id="exsub-1139" class="exsub" onclick="toggleExclude(1139)">一級ご主人証明書</td>
@@ -357,7 +373,7 @@ document.write(`
 <tr>
     <td id="exsub-1194" class="exsub excluded" onclick="toggleExclude(1194)">被検体O8</td>
     <td id="exsub-1196" class="exsub" onclick="toggleExclude(1196)">ゆく年くる年</td>
-    <td class="exsub excluded"></td>
+    <td id="exsub-1205" class="exsub excluded" onclick="toggleExclude(1205)">被検体H59</td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>

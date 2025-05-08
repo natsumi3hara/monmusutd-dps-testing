@@ -296,6 +296,24 @@ var partybuffref = {
     "awake10328": {
         "cond":[],"stat5":["a0"]
     },
+    "party10338": {
+        "cond":[6],"stat2":[8] //this is settled directly until revamp
+    },
+    "awake10338": {
+        "cond":[6],"stat2":[2] //this is settled directly until revamp
+    },
+    "party10341": {
+        "cond":[5],"stat2":[8] //this is settled directly until revamp
+    },
+    "awake10341": {
+        "cond":[5],"stat2":[2] //this is settled directly until revamp
+    },
+    "party10348": {
+        "cond":[5],"stat2":[8] //this is settled directly until revamp
+    },
+    "awake10348": {
+        "cond":[5],"stat2":[2] //this is settled directly until revamp
+    },
     //divine beasts
     "divine30000": {
         "cond":[]

@@ -853,6 +853,46 @@ document.write(`
         src="../../img/subskill-icons/subskill_1202.png"
         alt="スタックアタック-すたっくあたっく-スタン/石化/凍結、いずれかの状態の敵に与えるダメージ1.2倍-よだめーじ-すたん-せきか-とうけつ"
         onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1203.png"
+        alt="春の息吹-はるのいぶき-HPが半分以下の時、毎秒HPが5%回復する-かいふく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1204.png"
+        alt="愛のエマルション☆-あいのえまるしょん-最大HP+810、\r\n攻撃力+51、再出撃までの時間を41%短縮-えいちぴー-こうげきりょく-さいしゅつげきたんしゅく"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1205.png"
+        alt="被検体H59-ひけんたいえいちごじゅうきゅう-【改造ハーピー娘】フェルミをトークンとして使役可能\r\n（元々トークン所持している場合は無効）-とーくん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1206.png"
+        alt="底力(攻撃) IV-そこぢからこうげきよん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1207.png"
+        alt="リジェネレーション IV-りじぇねれーしょんよん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1208.png"
+        alt="タクティカルマスター-たくてぃかるますたー-配置中、全味方の物防・魔防+3％-はいち-ぶつりぼうぎょ-まほうぼうぎょ"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1209.png"
+        alt="伸るか反るか-のるかそるか-HPが100%以上の時与ダメージ1.1倍\r\nHP50％以下の時与ダメージ1.3倍-よだめーじ"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1210.png"
+        alt="スタンエンチャント-すたんえんちゃんと-攻撃した相手をスタンさせる(蓄積値：小)\r\nスタン状態の敵へ与ダメージ1.2倍-すたん-よだめーじ"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1211.png"
+        alt="デュラハンソウル-kana-ブロックしている敵1体につき攻撃力10％アップ\r\nデュラハン（原種）をトークンとして使役可能\r\n（元々トークン所持している場合は無効）-ぶろっく-こうげきりょく-とーくん"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
+        <img class="subskill-select-img-2"
+        src="../../img/subskill-icons/subskill_1212.png"
+        alt="3rd Anniversaryの加護-さーどあにばーさりーのかご-出撃コストと移動コスト-3\r\nスキル使用後、再発動までの時間を3秒短くする-しゅつげきこすと-いどうこすと-再使用-さいしよう-さいはつどう"
+        onclick="subskillSearchSelect(this.src,'2');subskillSearchClose();allDPS();">
     </div>
 </div>
 `);

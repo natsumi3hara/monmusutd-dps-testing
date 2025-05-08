@@ -54,7 +54,7 @@ document.write(`
     <div id="flex-container-shared-buff">
         <div class="flex-container-shared-buff-inner">
             <div class="flex-container-shared-buff-inner2">
-                <abbr title="配置時、攻撃と物防と魔防+15%、射程+10%" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_3.png" class="shared-buff-img"></abbr>
+                <abbr title="配置時、攻撃と物防と魔防+30%、射程+10%" style="cursor: help;"><img src="../../img/ui-icons/Summon_Type_3.png" class="shared-buff-img"></abbr>
                 <span class="shared-buff-name">属性マス</span>
             </div>
             <div class="flex-container-shared-buff-inner2">
@@ -143,6 +143,21 @@ document.write(`
                 <span class="shared-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="天候" style="cursor: help;"><img src="../../img/ui-icons/we_7_Icon.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">天候</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label">天候</span>
+                <select name="attribute-tile-select" id="shared20008-1" style="width:70%;height:20%;margin:2px auto;border:none;font-family:mtdfont;" onchange="weatherType();allDPS();">
+                    <option value="0">無し</option>
+                    <option value="15">雨</option>
+                </select>
+                <span class="shared-buff-label"></span>
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">
@@ -155,7 +170,7 @@ document.write(`
                 <div class="flex-container-shared-buff-inner2">
                     <span class="shared-buff-label"></span>
                     <span class="shared-buff-label">枚数</span>
-                    <input id="shared21001" type="number" min="0" max="9" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <input id="shared21001" type="number" min="0" max="11" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                     <span class="shared-buff-label"></span>
                 </div>
             </div>
@@ -216,6 +231,30 @@ document.write(`
                     <span class="shared-buff-label"></span>
                     <span class="shared-buff-label">移動回数</span>
                     <input id="shared21006" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="配置中、全味方の魔法防御力+4%\n(枚数は自身除外)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">タクティクスM</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">枚数</span>
+                    <input id="shared21007" type="number" min="0" max="11" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="配置中、全味方の物防・魔防+3%\n(枚数は自身除外)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">ﾀｸﾃｨｶﾙマスター</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">枚数</span>
+                    <input id="shared21008" type="number" min="0" max="11" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                     <span class="shared-buff-label"></span>
                 </div>
             </div>
@@ -306,6 +345,18 @@ document.write(`
                     <input type="checkbox" id="shared22007-1" class="larger-check shared-check" onChange="allDPS();">
                     <span class="shared-buff-label">覚醒?</span>
                     <input type="checkbox" id="shared22007-2" class="larger-check shared-check" onChange="allDPS();">
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="【購買のマモン娘】マージェル\n付与した味方に攻撃力+20%(完凸で+5%)を撤退するまで付与する" style="cursor: help;"><img src="../../img/chara-icons/icon_50059_0_s.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">購買部食品</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label">トークン数</span>
+                    <input id="shared22008-1" type="number" min="0" max="999" value="0" class="otherPassive-check" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label">覚醒?</span>
+                    <input type="checkbox" id="shared22008-2" class="larger-check shared-check" onChange="allDPS();">
                 </div>
             </div>
         </div>

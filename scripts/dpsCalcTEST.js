@@ -68,6 +68,10 @@ function isDungeon(checked){
     if (checked) {selfConditions["3003"] = 1;}
     else {selfConditions["3003"] = 0;}
 }
+function weatherType(){
+    selfConditions["1001"] = Number(document.getElementById("shared20008-1").value);
+    enemyConditions["1001"] = Number(document.getElementById("shared20008-1").value);
+}
 function attributeTile(){
     if (document.getElementById("shared20001-1").checked) {
         selfConditions["1010"][0] = Number(document.getElementById("shared20001-2").value);
@@ -78,6 +82,27 @@ function attributeTile(){
 function giveAttributeTile(menuBattleSkill){
     selfConditions["1010"].splice(1);
     enemyConditions["1010"].splice(1);
+    //console.log("attr: ", selfConditions["1010"]);
+    //frost drake anni fris' self forced water tile on skill
+    if (masterValues.charaID === 10321 && menuBattleSkill === "skill") {
+        selfConditions["1010"].push(3);
+        enemyConditions["1010"].push(3);
+    }
+    //frost drake anni fris' give water tile
+    if (masterValues.charaID !== 10321 && document.getElementById("otherPassive10321-2").checked) {
+        selfConditions["1010"].push(3);
+        enemyConditions["1010"].push(3);
+    }
+    //done's give self earth tile
+    if (masterValues.charaID === 10333 && menuBattleSkill === "skill"){
+        selfConditions["1010"].push(7);
+        enemyConditions["1010"].push(7);
+    }
+    //feiyue's give light tile
+    if (masterValues.charaID === 10306 && menuBattleSkill === "skill"){
+        selfConditions["1010"].push(5);
+        enemyConditions["1010"].push(5);
+    }
     //summer maggie's give water tile
     if (document.getElementById("otherPassive10272-1").checked) {
         selfConditions["1010"].push(3);
@@ -88,8 +113,10 @@ function giveAttributeTile(menuBattleSkill){
         selfConditions["1010"].push(2);
         enemyConditions["1010"].push(2);
     } else if (masterValues.charaID === 10209 && menuBattleSkill === "skill"){
-        selfConditions["1010"].push(2);
-        enemyConditions["1010"].push(2);
+        //removed this part due to some weird list interaction
+        //restore when igni has another effect that needs fire tile
+        //selfConditions["1010"].push(2);
+        //enemyConditions["1010"].push(2);
     }
     //yuyle's earth tile giving water tile
     if (masterValues.charaID === 10033 && document.getElementById("shared20001-1").checked && document.getElementById("shared20001-2").value == "7"){
@@ -529,7 +556,7 @@ function optimiseSubskill(number,battleSkillFinal){
     //battleSkillFinal is which value to optimise
     let sortMethod = Number(document.getElementById("optimise-type-select").value);
     let collection = [];
-    let lastSubskillID = 1197;
+    let lastSubskillID = 1212;
     let excludedSubskills = document.getElementById("excluded-subskills").value.split(",");
     let noOfSubskills = lastSubskillID - 1000 - excludedSubskills.length;
     //console.log("no of subskills is",noOfSubskills);
@@ -618,10 +645,10 @@ function allDPS(slot1=-1,slot2=-1){
     //19 must come after 22 because it reads 22 value//
     //right now battle doesn't need because same type//
     calculateStat(level,cc,"stat19");
-    if ([10016,10097,10101,10112,10118,10160,10196,10230,10235,10287,10325,10326,10328].includes(masterValues.charaID)){
+    if ([10016,10097,10101,10112,10118,10160,10196,10230,10235,10287,10325,10326,10328,10339].includes(masterValues.charaID)){
         //repeat because stat2 depends on stat3 (skill or no skill, place here)
         //stat1 dependent here too (10016,10196,10230,10097[ex2],10325,10326)
-        //stat5 dependent here too (10328)
+        //stat5 dependent here too (10328,10339)
         calculateStat(level,cc,"stat2");
     }
     if ([10041,10079].includes(masterValues.charaID)){
@@ -846,14 +873,16 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     let mattari = selfConditions["1006"]!==8 && (subskillID_1 === 88||subskillID_2 === 88);
     //console.log(cooldown4per4);
     let cooldown4per4  = (masterValues.charaID===10234);
-    let cooldown1per4  = ((masterValues.charaID===10066)&& document.getElementById("unique-equip-check").checked);
-    let cooldown1per2  = ((masterValues.charaID===10015)&& selfConditions["2"]===1&&document.getElementById("unique-equip-check").checked)||(masterValues.charaID===10263&&selfConditions["1010"].includes(5));
+    let cooldown1per4  = ((masterValues.charaID===10066) && document.getElementById("unique-equip-check").checked);
+    let cooldown2per3  = ((masterValues.charaID===10216) && selfConditions["1001"]===15 && selfConditions["1010"].includes(3));
+    let cooldown1per3  = ((masterValues.charaID===10216) && (selfConditions["1001"]===15||selfConditions["1010"].includes(3)));
+    let cooldown1per2  = ((masterValues.charaID===10015) && selfConditions["2"]===1&&document.getElementById("unique-equip-check").checked)||(masterValues.charaID===10263&&selfConditions["1010"].includes(5));
     let cooldown1per1  = (masterValues.charaID===10198) && selfConditions["2"]===1;
     let cooldown2per1  = ((masterValues.charaID===10147) && selfConditions["2"]===1)||((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===1)||((masterValues.charaID===10324) && selfConditions["1010"].includes(2));
     let cooldown4per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===2);
-    let cooldown6per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===3)
-    let cooldown8per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===4)
-    let cooldown10per1 = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)>=5)
+    let cooldown6per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===3);
+    let cooldown8per1  = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)===4);
+    let cooldown10per1 = ((masterValues.charaID===10303) && Number(document.getElementById("input-number-blocked").value)>=5);
     //duration manipulation//
     if (duration === 0){duration = Number(document.getElementById("dps-dps-skill-averageFrame").innerHTML)/30}
     //initial manipulation//
@@ -871,16 +900,40 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
             }
         }
     }
+    //other sources//
     if (selfConditions["1007"]===11024||selfConditions["1007"]===11044){initial -= 3;}
     if (selfConditions["1007"]===11025||selfConditions["1007"]===11045){initial -= 5;}
-    if (getAttachID("subskill1") === 128||getAttachID("subskill2") === 128){initial -= 4;}
+    if (getAttachID("subskill1") === 128 || getAttachID("subskill2") === 128){initial -= 4;}
     if (subskillID_1 === 71||subskillID_2 === 71){initial -= 10;}
     if ((masterValues.charaID===10030)&&document.getElementById("unique-equip-check").checked){initial-=20;}
     if ((masterValues.charaID===10055)&&document.getElementById("unique-equip-check").checked){initial-=8;}
     if ((masterValues.charaID===10254)&&masterValues.charaAwaked){initial-=10;}
     else if ((masterValues.charaID===10254)){initial-=8;}
+    if ((masterValues.charaID===10316)){
+        initial -= Number(document.getElementById("charaSpecific10316-1").value);
+    }
+    //check for conditions//
+    //console.log("Cooldown Condition: ",cooldown2per3);
     //division madness//
     if (false){
+        // stupid prime numbers (grumble grumble)
+    } else if (fullHeart && mattari && cooldown2per3){
+        initial = Math.floor(initial/35)*12 + [0,1,1,2,2,3,3,3,3,4,4,4,5,5,6,6,6,6,7,7,8,8,8,9,9,9,9,10,10,11,11,12,12,12,12][initial%35];
+    } else if (fullHeart && mattari && cooldown1per3){
+        initial = Math.floor(initial/31)*12 + [0,1,1,2,2,3,3,3,4,4,4,5,5,6,6,6,7,7,8,8,8,9,9,9,10,10,11,11,12,12,12][initial%31];
+    } else if (fullHeart && cooldown2per3){
+        initial = Math.floor(initial/23)*12 + [0,1,2,3,3,3,4,4,5,6,6,6,7,8,8,9,9,9,10,11,12,12,12][initial%23];
+    } else if (fullHeart && cooldown1per3){
+        initial = Math.floor(initial/19)*12 + [0,1,2,3,3,4,4,5,6,6,7,8,8,9,9,10,11,12,12][initial%19];
+    } else if (mattari && cooldown2per3){
+        initial = Math.floor(initial/8)*3 + Math.ceil((initial%8)/2.4); //2.4 is suitable for 2,2,4 sequence
+    } else if (mattari && cooldown1per3){
+        initial = Math.floor(initial/7)*3 + Math.ceil((initial%7)/2);
+    } else if (cooldown2per3){
+        initial = Math.floor(initial/5)*3 + Math.ceil((initial%5)/1.4); //1.4 is suitable for 1,1,3 sequence
+    } else if (cooldown1per3){
+        initial = Math.floor(initial/4)*3 + Math.ceil((initial%4));
+    } else if (false) {
         // fullheart + mattari + cooldown ↓
     } else if (fullHeart && mattari && cooldown10per1){
         initial = Math.floor(initial/49)*4 + Math.ceil((initial%49)/12);
@@ -960,6 +1013,7 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     // zero correction
     if (initial < 0){initial = 0;}
     //console.log(initial);
+
     //cooldown manipulation//
     for (let i = 3; i < 6; i++){
         if (document.getElementById("talent"+i.toString()+"check").checked) {
@@ -975,6 +1029,9 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     console.log(Math.floor(cooldown/13)*4 + Math.ceil((cooldown%13)/3));
     console.log(Math.floor(cooldown/9)*4 + Math.ceil((cooldown%9)/2));
     console.log(Math.floor(cooldown/5)*4 + Math.ceil(cooldown%5));*/
+    //unique weapons//
+    if ((masterValues.charaID===10047)&&document.getElementById("unique-equip-check").checked){cooldown-=3;}
+    if ((masterValues.charaID===10088)&&document.getElementById("unique-equip-check").checked){cooldown-=2;}
     //ticca
     if (true/*document.getElementById("shared20007-1").checked*/){
         cooldown -= 2*Number(document.getElementById("shared20007-2").value);
@@ -1004,14 +1061,33 @@ function overallCooldownDuration(subskillID_1,subskillID_2,battleFinalDPS,skillF
     if (masterValues.charaID === 10199){
         cooldown -= Number(document.getElementById("charaSpecific10199-1").value); 
     }
-    if (getAttachID("subskill1") === 49 || getAttachID("subskill2") === 49){
-        cooldown -= 3;
-    }
-    if (getAttachID("subskill1") === 128 || getAttachID("subskill2") === 128){
-        cooldown -= 4;
+    //other sources
+    if (getAttachID("subskill1") === 49 || getAttachID("subskill2") === 49){cooldown -= 3;}
+    if (getAttachID("subskill1") === 128 || getAttachID("subskill2") === 128){cooldown -= 4;}
+    if (getAttachID("subskill1") === 211 || getAttachID("subskill2") === 211){cooldown -= 3;}
+    if ((masterValues.charaID===10316)){
+        cooldown -= Number(document.getElementById("charaSpecific10316-1").value);
     }
     //division madness//
     if (false){
+        // stupid prime numbers (grumble grumble)
+    } else if (fullHeart && mattari && cooldown2per3){
+        cooldown = Math.floor(cooldown/35)*12 + [0,1,1,2,2,3,3,3,3,4,4,4,5,5,6,6,6,6,7,7,8,8,8,9,9,9,9,10,10,11,11,12,12,12,12][cooldown%35];
+    } else if (fullHeart && mattari && cooldown1per3){
+        cooldown = Math.floor(cooldown/31)*12 + [0,1,1,2,2,3,3,3,4,4,4,5,5,6,6,6,7,7,8,8,8,9,9,9,10,10,11,11,12,12,12][cooldown%31];
+    } else if (fullHeart && cooldown2per3){
+        cooldown = Math.floor(cooldown/23)*12 + [0,1,2,3,3,3,4,4,5,6,6,6,7,8,8,9,9,9,10,11,12,12,12][cooldown%23];
+    } else if (fullHeart && cooldown1per3){
+        cooldown = Math.floor(cooldown/19)*12 + [0,1,2,3,3,4,4,5,6,6,7,8,8,9,9,10,11,12,12][cooldown%19];
+    } else if (mattari && cooldown2per3){
+        cooldown = Math.floor(cooldown/8)*3 + Math.ceil((cooldown%8)/2.4); //2.4 is suitable for 2,2,4 sequence
+    } else if (mattari && cooldown1per3){
+        cooldown = Math.floor(cooldown/7)*3 + Math.ceil((cooldown%7)/2);
+    } else if (cooldown2per3){
+        cooldown = Math.floor(cooldown/5)*3 + Math.ceil((cooldown%5)/1.4); //1.4 is suitable for 1,1,3 sequence
+    } else if (cooldown1per3){
+        cooldown = Math.floor(cooldown/4)*3 + Math.ceil((cooldown%4));
+    } else if (false){
         // fullheart + mattari + cooldown ↓
     } else if (fullHeart && mattari && cooldown10per1){
         cooldown = Math.floor(cooldown/49)*4 + Math.ceil((cooldown%49)/12);
@@ -1585,14 +1661,17 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,isSki
     for (let i=0;i<penList.length;i++){noPenProb *= (100-penList[i]);}
     noPenProb /= (100**penList.length); //noPenProb now 73.6
     //account for valkyrie, sharpshooter and duelist
-    if([11025,13024,13025].includes(selfConditions["1007"])){
+    if ([11025,13024,13025].includes(selfConditions["1007"])){
         if(isSkillCalc && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
             noPenProb=noPenProb*1/3; //naberius bug//
         } else {noPenProb=noPenProb*2/3;}
     }
-    if(masterValues.charaID === 10130 && selfConditions["2"] === 1){
+    if (masterValues.charaID === 10130 && selfConditions["2"] === 1){
             noPenProb=noPenProb*9/10;
-    } 
+    }
+    if (masterValues.charaID === 10321 && document.getElementById("talent5check").checked){
+        noPenProb=noPenProb*7/10;
+    }
     if (noPenProb === 100){penProb = [100];}
     else {penProb = [noPenProb,100-noPenProb];}
     //arrays created//
@@ -1682,16 +1761,25 @@ function damageCalc(attack,hitType,BSParam){
     let guaranteeDamage = Math.floor(attack/10);
     let dmgRed = 100 - Number(document.getElementById("input-enemy-dmgRed").value);
     if (hitType === "物理" || hitType === "Physical"){
+
         //difora's self-checking is in place with else ifs//
         if (masterValues.charaID === 10173 && masterValues.charaAwaked && selfConditions["1"] === 1){dmgRed=dmgRed*128/100;}
         else if (masterValues.charaID === 10173 && selfConditions["1"] === 1){dmgRed=dmgRed*120/100;}
-        if (document.getElementById("otherSkill10173").checked && document.getElementById("otherSkill10173a").checked){dmgRed=dmgRed*128/100;}
-        else if (document.getElementById("otherSkill10173").checked){dmgRed=dmgRed*120/100;}
+        if (masterValues.charaID !== 10173 && document.getElementById("otherSkill10173").checked && document.getElementById("otherSkill10173a").checked){dmgRed=dmgRed*128/100;}
+        else if (masterValues.charaID !== 10173 && document.getElementById("otherSkill10173").checked){dmgRed=dmgRed*120/100;}
         //console.log("enemy-pDef:",document.getElementById("input-enemy-stat3").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat3").value);
+
     } else if (hitType === "魔法" || hitType === "Magical"){
+
+        //school niddra's self-checking is in place with else ifs//
+        if (masterValues.charaID === 10335 && masterValues.charaAwaked && selfConditions["1"] === 1){dmgRed=dmgRed*125/100;}
+        else if (masterValues.charaID === 10335 && selfConditions["1"] === 1){dmgRed=dmgRed*120/100;}
+        if (masterValues.charaID !== 10335 && document.getElementById("otherPassive10335-1").checked && document.getElementById("otherPassive10335-2").checked){dmgRed=dmgRed*125/100;}
+        else if (masterValues.charaID !== 10335 && document.getElementById("otherPassive10335-1").checked){dmgRed=dmgRed*120/100;}
         //console.log("enemy-mDef:",document.getElementById("input-enemy-stat4").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat4").value);
+
     } else if (hitType === "貫通" || hitType === "回復" || hitType === "Penetrate" || hitType === "Heal"){
         //console.log("pen");
         damage = Number(attack);
@@ -2276,6 +2364,16 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - battle//
         multEffect2.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect2.count += 1;
+        //gorgon loren reworked damage to poison and petrify//
+        if (masterValues.charaID === 10258){
+            if (selfConditions["26"] === 1 && (enemyConditions["24"] === 1||enemyConditions["25"] === 1)){
+                multEffect2.buff *= 170;
+                multEffect2.count += 1;
+            } else if (selfConditions["26"] === 0 && (enemyConditions["24"] === 1||enemyConditions["25"] === 1)){
+                multEffect2.buff *= 145;
+                multEffect2.count += 1;
+            }
+        }
         //ny varina's damage buffs//
         if (true){
             if (document.getElementById('otherSkill10318-1').value === "3"){
@@ -2420,6 +2518,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat191//
     if (type === "stat191"){
+        //sagittarius ACT critical sniping
+        if (selfConditions["34"]===1 && selfConditions["1007"]===13015){
+            addEffect2.buff += 30;
+        }
         //anse's ex2 crit rate buff
         if (masterValues.charaID !== 10104){
             addEffect2.buff += 15 * Number(document.getElementById("otherPassive10104-1").value);
@@ -2498,6 +2600,14 @@ function calculateStat(level,cc,type){
     }
     //battle - stat8//
     if (type === "stat8"){
+        //disaster ACT magic bump
+        if (selfConditions["34"]===1 && selfConditions["1007"]===14025){
+            addEffect2.buff += 80;
+        }
+        //sagittarius ACT critical sniping
+        if (selfConditions["34"]===1 && selfConditions["1007"]===13015){
+            addEffect2.buff += 100;
+        }
         //christmas recliff's permanent buff//
         if (masterValues.charaID === 10217){
             addEffect2.buff += 5 * Number(document.getElementById("charaSpecific10217-1").value);
@@ -2594,6 +2704,12 @@ function calculateStat(level,cc,type){
     }
     //battle - stat3//
     if (type === "stat3"){
+        //school done's stat 2 dependent buff (passive)
+        if (masterValues.charaID !== 10333 && !document.getElementById("otherPassive10333-1").checked){
+            addEffect2.buff += Math.floor(50 * Number(document.getElementById("otherPassive10333-2").value) /100);
+        } else if (masterValues.charaID !== 10333 && document.getElementById("otherPassive10333-1").checked){
+            addEffect2.buff += Math.floor(60 * Number(document.getElementById("otherPassive10333-2").value) /100);
+        }
         //osevia's earth tile buff (for other allies)
         if (masterValues.charaID !== 10277 && selfConditions["1010"].includes(7) && document.getElementById("otherPassive10277-1").checked){
             if (document.getElementById("otherPassive10277-2").checked){
@@ -2651,6 +2767,43 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //kuromi's added attack count buff
+        if (masterValues.charaID === 10255){
+            multEffect2.buff += 5 * Number(document.getElementById("charaSpecific10255-1").value);
+        }
+        //argyro's unique weapon buff for dragon
+        if ((masterValues.charaID===10075)&&document.getElementById("unique-equip-check").checked){
+            multEffect2.buff += 10;
+        }
+        if ((masterValues.charaID!==10075)&&document.getElementById("otherUnique10075-1").checked&&dragonCharas.includes(masterValues.charaID)){
+            multEffect2.buff += 10;
+        }
+        //school tunira's token summon buff//
+        if (masterValues.charaID === 10334){
+            multEffect2.buff += 5 * Number(document.getElementById("charaSpecific10334-1").value);
+        }
+        //school margel's skill buff
+        if (true){
+            addEffect2.buff += Math.floor(3 * Number(document.getElementById("otherSkill10332-1").value) /100);
+        }
+        //margel's skill buff
+        if (true){
+            addEffect2.buff += Math.floor(10 * Number(document.getElementById("otherSkill10122-1").value) /100);
+        }
+        //school margel's token buff
+        if (document.getElementById("shared22008-2").checked){
+            multEffect2.buff += 25 * document.getElementById("shared22008-1").value;
+        } else {
+            multEffect2.buff += 20 * document.getElementById("shared22008-1").value;
+        }
+        //mothranya's stat5 dependent buff
+        if (masterValues.charaID === 10339){
+            if (selfConditions["26"] === 0){
+                addEffect2.buff += Math.floor(50 * Number(document.getElementById("dps-output-battle-value-stat5").innerHTML) / 100);
+            } else {
+                addEffect2.buff += Math.floor(70 * Number(document.getElementById("dps-output-battle-value-stat5").innerHTML) / 100);
+            }
+        }
         //oncidium's stat5 dependent buff
         if (masterValues.charaID === 10328){
             if (selfConditions["26"] === 0){
@@ -3017,31 +3170,57 @@ function calculateStat(level,cc,type){
             multEffect2.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
         }
     }
-    //attribute tile effects//
+    //attribute tile effects - excluded basic bonuses from actual table//
     if (selfConditions["1010"].includes(masterValues.unitcard.element)){
+        let attrAPM = 30;
+        let attrRNG = 10;
+        //normal double tile//
         if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect2.buff += 30;
-            } else if (type === "stat8"){multEffect2.buff+=10} else {}
+            attrAPM *= 2;
+            attrRNG *= 2;
         }
-        if (masterValues.charaID !== 10209 && fireCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10209-1").checked || document.getElementById("otherPassive10209-2").checked)){
-            //console.log("attribute tile triple effect!(igni but not self)");
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect2.buff += 60;
-            } else if (type === "stat8"){multEffect2.buff+=20} else {}
-        }
-        if (masterValues.charaID === 10293 && document.getElementById("talent4check").checked){
-            //console.log("attribute tile triple effect!(baixue)");
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect2.buff += 60;
-            } else if (type === "stat8"){multEffect2.buff+=20} else {}
+        //feiyue//
+        if ([10306].includes(masterValues.charaID)){
+            if (masterValues.charaAwaked) {
+                //console.log("attribute tile triple effect!");
+                attrAPM *= 3;
+                attrRNG *= 3;
+            } else {
+                //console.log("attribute tile double effect!");
+                attrAPM *= 2;
+                attrRNG *= 2;
+            }
         }
         //elemental boost attribute tile x1.5//
         if (subskillID_1 === 51 || subskillID_2 === 51){
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect2.buff += 15; //if 7.5 gives problems then 8
-            } else if (type === "stat8"){multEffect2.buff+=5} else {}
+            attrAPM = attrAPM * 15 / 10;
+            attrRNG = attrRNG * 15 / 10;
+        }
+        //---additive here---//
+        //drake fris except self//
+        if (masterValues.charaID !== 10321 && waterCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10321-1").checked || document.getElementById("otherPassive10321-2").checked)){
+            //console.log("attribute tile triple effect!(fris but not self)");
+            attrAPM += 60;
+            attrRNG += 20;
+        }
+        //drake igni except self//
+        if (masterValues.charaID !== 10209 && fireCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10209-1").checked || document.getElementById("otherPassive10209-2").checked)){
+            //console.log("attribute tile triple effect!(igni but not self)");
+            attrAPM += 60;
+            attrRNG += 20;
+        }
+        //baixue//
+        if (masterValues.charaID === 10293 && document.getElementById("talent4check").checked){
+            //console.log("attribute tile triple effect!(baixue)");
+            attrAPM += 60;
+            attrRNG += 20;
+        }
+        //final adjustment//
+        if (["stat2","stat3","stat4"].includes(type)){
+            multEffect2.buff += attrAPM;
+        } else if (type === "stat8"){
+            multEffect2.buff += attrRNG;
         }
     }
     //other allies' skills
@@ -3060,7 +3239,13 @@ function calculateStat(level,cc,type){
     //tactics
     if (type === "stat3"){
         multEffect2.buff += Number(document.getElementById("shared21001").value)*4;
-    } else {}
+        multEffect2.buff += Number(document.getElementById("shared21008").value)*3; //tactical master
+    }
+    //tacticsM
+    if (type === "stat4"){
+        multEffect2.buff += Number(document.getElementById("shared21007").value)*4;
+        multEffect2.buff += Number(document.getElementById("shared21008").value)*3; //tactical master
+    }
     //shizanketsuga
     if (type === "stat2" && (subskillID_1 === 100 || subskillID_2 === 100)){
         multEffect2.buff += Number(document.getElementById("shared21002").value)*1;
@@ -3159,6 +3344,10 @@ function calculateStat(level,cc,type){
         } else if (masterValues.language === "en" && selfConditions["1010"].includes(2)){
             document.getElementById("dps-output-battle-value-stat22").innerHTML = "Magical";
         }
+    }
+    //whip ACT attack all stat11
+    if (selfConditions["34"]===1 && masterValues.baseClass===16041){
+        document.getElementById("dps-output-battle-value-stat11").innerHTML = "ALL";
     }
     //drake igni override//
     if (masterValues.charaID === 10209){
@@ -3298,7 +3487,7 @@ function calculateStat(level,cc,type){
     }
     //skill - stat6//
     if (type === "stat6"){ //can extend to all types, remove if statement
-        ///console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
+        //console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
         //place to include aSpd buffs -- directly add an entry to the allbuff array//
         //yuku toshi kuru toshi
         if ((subskillID_1 === 195 || subskillID_2 === 195) && Number(document.getElementById("shared21006").value) > 0){
@@ -3534,6 +3723,16 @@ function calculateStat(level,cc,type){
         //extraBuff for stat76 - skill//
         multEffect3.buff *= Number(document.getElementById("extra-"+type+"-1").value);
         multEffect3.count += 1;
+        //gorgon loren reworked damage to poison and petrify//
+        if (masterValues.charaID === 10258){
+            if (selfConditions["26"] === 1 && (enemyConditions["24"] === 1||enemyConditions["25"] === 1)){
+                multEffect3.buff *= 170;
+                multEffect3.count += 1;
+            } else if (selfConditions["26"] === 0 && (enemyConditions["24"] === 1||enemyConditions["25"] === 1)){
+                multEffect3.buff *= 145;
+                multEffect3.count += 1;
+            }
+        }
         //ny varina's damage buffs//
         if (true){
             if (document.getElementById('otherSkill10318-1').value === "3"){
@@ -3683,6 +3882,14 @@ function calculateStat(level,cc,type){
     }
     //skill - stat191//
     if (type === "stat191"){
+        //sagittarius ACT critical sniping
+        if (selfConditions["34"]===1 && selfConditions["1007"]===13015){
+            addEffect3.buff += 30;
+        }
+        //school tunira's token summon buff//
+        if (masterValues.charaID === 10334){
+            addEffect3.buff += 2 * Number(document.getElementById("charaSpecific10334-1").value);
+        }
         //anse's ex2 crit rate buff
         if (masterValues.charaID !== 10104){
             addEffect3.buff += 15 * Number(document.getElementById("otherPassive10104-1").value);
@@ -3761,6 +3968,14 @@ function calculateStat(level,cc,type){
     }
     //skill - stat8//
     if (type === "stat8"){
+        //disaster ACT magic bump
+        if (selfConditions["34"]===1 && selfConditions["1007"]===14025){
+            addEffect3.buff += 80;
+        }
+        //sagittarius ACT critical sniping
+        if (selfConditions["34"]===1 && selfConditions["1007"]===13015){
+            addEffect3.buff += 100;
+        }
         //christmas recliff's permanent buff//
         if (masterValues.charaID === 10217){
             addEffect3.buff += 5 * Number(document.getElementById("charaSpecific10217-1").value);
@@ -3857,6 +4072,12 @@ function calculateStat(level,cc,type){
     }
     //skill - stat3//
     if (type === "stat3"){
+        //school done's stat 2 dependent buff (passive)
+        if (masterValues.charaID !== 10333 && !document.getElementById("otherPassive10333-1").checked){
+            addEffect3.buff += Math.floor(50 * Number(document.getElementById("otherPassive10333-2").value) /100);
+        } else if (masterValues.charaID !== 10333 && document.getElementById("otherPassive10333-1").checked){
+            addEffect3.buff += Math.floor(60 * Number(document.getElementById("otherPassive10333-2").value) /100);
+        }
         //osevia's earth tile buff (for other allies)
         if (masterValues.charaID !== 10277 && selfConditions["1010"].includes(7) && document.getElementById("otherPassive10277-1").checked){
             if (document.getElementById("otherPassive10277-2").checked){
@@ -3914,6 +4135,43 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //kuromi's added attack count buff
+        if (masterValues.charaID === 10255){
+            multEffect3.buff += 5 * Number(document.getElementById("charaSpecific10255-1").value);
+        }
+        //argyro's unique weapon buff for dragon
+        if ((masterValues.charaID===10075)&&document.getElementById("unique-equip-check").checked){
+            multEffect3.buff += 10;
+        }
+        if ((masterValues.charaID!==10075)&&document.getElementById("otherUnique10075-1").checked&&dragonCharas.includes(masterValues.charaID)){
+            multEffect3.buff += 10;
+        }
+        //school tunira's token summon buff//
+        if (masterValues.charaID === 10334){
+            multEffect3.buff += 5 * Number(document.getElementById("charaSpecific10334-1").value);
+        }
+        //school margel's skill buff
+        if (true){
+            addEffect3.buff += Math.floor(3 * Number(document.getElementById("otherSkill10332-1").value) /100);
+        }
+        //margel's skill buff
+        if (true){
+            addEffect3.buff += Math.floor(10 * Number(document.getElementById("otherSkill10122-1").value) /100);
+        }
+        //school margel's token buff
+        if (document.getElementById("shared22008-2").checked){
+            multEffect3.buff += 25 * document.getElementById("shared22008-1").value;
+        } else {
+            multEffect3.buff += 20 * document.getElementById("shared22008-1").value;
+        }
+        //mothranya's stat5 dependent buff
+        if (masterValues.charaID === 10339){
+            if (selfConditions["26"] === 0){
+                addEffect3.buff += Math.floor(50 * Number(document.getElementById("dps-output-skill-value-stat5").innerHTML) / 100);
+            } else {
+                addEffect3.buff += Math.floor(70 * Number(document.getElementById("dps-output-skill-value-stat5").innerHTML) / 100);
+            }
+        }
         //oncidium's stat5 dependent buff
         if (masterValues.charaID === 10328){
             if (selfConditions["26"] === 0){
@@ -4312,31 +4570,57 @@ function calculateStat(level,cc,type){
             multEffect3.buff += 20 * Number(document.getElementById("charaSpecific10029-1").value);
         }
     }
-    //attribute tile effects//
+    //attribute tile effects - excluded basic bonuses from actual table//
     if (selfConditions["1010"].includes(masterValues.unitcard.element)){
+        let attrAPM = 30;
+        let attrRNG = 10;
+        //normal double tile//
         if ([10005,10008,10010,10012,10080,10157].includes(masterValues.charaID)){
             //console.log("attribute tile double effect!");
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 30;
-            } else if (type === "stat8"){multEffect3.buff+=10} else {}
+            attrAPM *= 2;
+            attrRNG *= 2;
         }
-        if (masterValues.charaID !== 10209 && fireCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10209-1").checked || document.getElementById("otherPassive10209-2").checked)){
-            //console.log("attribute tile triple effect!(igni but not self)");
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 60;
-            } else if (type === "stat8"){multEffect2.buff+=20} else {}
-        }
-        if (masterValues.charaID === 10293 && document.getElementById("talent4check").checked){
-            //console.log("attribute tile triple effect!(baixue)");
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 60;
-            } else if (type === "stat8"){multEffect3.buff+=20} else {}
+        //feiyue//
+        if ([10306].includes(masterValues.charaID)){
+            if (masterValues.charaAwaked) {
+                //console.log("attribute tile triple effect!");
+                attrAPM *= 3;
+                attrRNG *= 3;
+            } else {
+                //console.log("attribute tile double effect!");
+                attrAPM *= 2;
+                attrRNG *= 2;
+            }
         }
         //elemental boost attribute tile x1.5//
         if (subskillID_1 === 51 || subskillID_2 === 51){
-            if (["stat2","stat3","stat4"].includes(type)){
-                multEffect3.buff += 15; //if 7.5 gives problems then 8
-            } else if (type === "stat8"){multEffect3.buff+=5} else {}
+            attrAPM = attrAPM * 15 / 10;
+            attrRNG = attrRNG * 15 / 10;
+        }
+        //---additive here---//
+        //drake fris except self//
+        if (masterValues.charaID !== 10321 && waterCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10321-1").checked || document.getElementById("otherPassive10321-2").checked)){
+            //console.log("attribute tile triple effect!(fris but not self)");
+            attrAPM += 60;
+            attrRNG += 20;
+        }
+        //drake igni except self//
+        if (masterValues.charaID !== 10209 && fireCharas.includes(masterValues.charaID) && (document.getElementById("otherPassive10209-1").checked || document.getElementById("otherPassive10209-2").checked)){
+            //console.log("attribute tile triple effect!(igni but not self)");
+            attrAPM += 60;
+            attrRNG += 20;
+        }
+        //baixue//
+        if (masterValues.charaID === 10293 && document.getElementById("talent4check").checked){
+            //console.log("attribute tile triple effect!(baixue)");
+            attrAPM += 60;
+            attrRNG += 20;
+        }
+        //final adjustment//
+        if (["stat2","stat3","stat4"].includes(type)){
+            multEffect3.buff += attrAPM;
+        } else if (type === "stat8"){
+            multEffect3.buff += attrRNG;
         }
     }
     //when attribute tile is not selected, or attribute doesn't match -- only skill//
@@ -4345,7 +4629,7 @@ function calculateStat(level,cc,type){
             //console.log("attribute tile triple effect guaranteed during skill!");
             if (["stat2","stat3","stat4"].includes(type)){
                 multEffect3.buff += 90;
-            } else if (type === "stat8"){multEffect3.buff+=30} else {}
+            } else if (type === "stat8"){multEffect3.buff+=30;} else {}
         }
     }
     //yano's attribute tile//
@@ -4463,6 +4747,10 @@ function calculateStat(level,cc,type){
         } catch (err) {
             //console.log("no missile");
         }
+    }
+    //whip ACT attack all stat11
+    if (selfConditions["34"]===1 && masterValues.baseClass===16041){
+        document.getElementById("dps-output-skill-value-stat11").innerHTML = "ALL";
     }
     //drake igni override//
     if (masterValues.charaID === 10209){
@@ -4844,7 +5132,8 @@ function cycleAllTalents(abilityObject,type,parseType,addWithPrevious = false,re
                             //no change, param not added
                         }
                     }
-                    else if (addWithPrevious && allTalents[i]["talentId"] < 1000){
+                    //added stat6 as exclusion, rollback if needed?//
+                    else if (addWithPrevious && allTalents[i]["talentId"] < 1000 && type !== "stat6"){
                         ///console.log("addwithprevious");
                         let ABarray = masterValues.allBuff[eBuffTypeParse(allTalents[i]["talentId"])[1]+"-"+timing];
                         ABarray[ABarray.length-1][0] = [Number(ABarray[ABarray.length-1][0][0]) + Number(param[0])];
@@ -5047,6 +5336,45 @@ function pdMultValues(type){ //timing = 4//
             totalPartyBuff += 12;
             if (document.getElementById("henshin-10169-awake").checked){
                 totalPartyBuff += 3;
+            }
+        }
+    }
+    //pupipelza's alien buff
+    if (document.getElementById("party10338").checked && type==="stat2" && alienCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 8;
+        if (document.getElementById("awake10338").checked){
+            totalPartyBuff += 2;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10338){
+            totalPartyBuff += 8;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 2;
+            }
+        }
+    }
+    //pyentia's alien buff
+    if (document.getElementById("party10341").checked && type==="stat2" && alienCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 8;
+        if (document.getElementById("awake10341").checked){
+            totalPartyBuff += 2;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10341){
+            totalPartyBuff += 8;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 2;
+            }
+        }
+    }
+    //carbuncle dragon anni lulu's dragon buff
+    if (document.getElementById("party10348").checked && type==="stat2" && dragonCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 8;
+        if (document.getElementById("awake10348").checked){
+            totalPartyBuff += 2;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10348){
+            totalPartyBuff += 8;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 2;
             }
         }
     }
@@ -5679,6 +6007,24 @@ function classActReplace(classID){
         } else if (masterValues.language === "en"){
             targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>Kenki</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
         }
+    } else if (classID === 13011){
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>クリティカルスナイピング</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>Critical Sniping</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
+        }
+    } else if (classID === 14021){
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>マジックバンプ</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>Magic Bump</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
+        }
+    } else if (classID === 16041){
+        if (masterValues.language === "ja"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>テラーペイン</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
+        } else if (masterValues.language === "en"){
+            targetDiv.innerHTML = '<table style="border:none;"><tr><td style="border:none;vertical-align:top;"><span>Terror Pain</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
+        }
     } else {
         if (masterValues.language === "ja"){
             targetDiv.innerHTML = '<table style="border:none;display:none;"><tr><td style="border:none;vertical-align:top;"><span>ACT</span></td><td style="border:none;"><input id="class-act-check" type="checkbox" class="larger-check" onchange="isClassAct(this.checked);allDPS();"></td></tr></table>'
@@ -5716,7 +6062,8 @@ function dpsDetailShow(){
                 10173,10178,10209,10215,10239,10245,10265,10279,10289,10297,
                 10304];
     //let dpsF = [];
-    let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230,10305];
+    let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230,10233,
+                10290,10305,10321];
     if (dpsC.includes(masterValues.charaID)){
         document.getElementById("battleC").style.display = "block";
         document.getElementById("skillC").style.display = "block";
@@ -6024,16 +6371,16 @@ const attachOptions = [
     {value: 1200, text: 'ダッシュバースト'},
     {value: 1201, text: '革新派の暗器'},
     {value: 1202, text: 'スタックアタック'},
-    //{value: 1203, text: 'ダミー'},
-    //{value: 1204, text: 'ダミー'},
-    //{value: 1205, text: 'ダミー'},
-    //{value: 1206, text: 'ダミー'},
-    //{value: 1207, text: 'ダミー'},
-    //{value: 1208, text: 'ダミー'},
-    //{value: 1209, text: 'ダミー'},
-    //{value: 1210, text: 'ダミー'},
-    //{value: 1211, text: 'ダミー'},
-    //{value: 1212, text: 'ダミー'},
+    {value: 1203, text: '春の息吹'},
+    {value: 1204, text: '愛のエマルション☆'},
+    {value: 1205, text: '被検体H59'},
+    {value: 1206, text: '底力(攻撃) IV'},
+    {value: 1207, text: 'リジェネレーション IV'},
+    {value: 1208, text: 'タクティカルマスター'},
+    {value: 1209, text: '伸るか反るか'},
+    {value: 1210, text: 'スタンエンチャント'},
+    {value: 1211, text: 'デュラハンソウル'},
+    {value: 1212, text: '3rd Anniversaryの加護'},
     //{value: 1213, text: 'ダミー'},
     //{value: 1214, text: 'ダミー'},
     //{value: 1215, text: 'ダミー'},
@@ -6061,6 +6408,16 @@ const attachOptions = [
     //{value: 1237, text: 'ダミー'},
     //{value: 1238, text: 'ダミー'},
     //{value: 1239, text: 'ダミー'},
+    //{value: 1240, text: 'ダミー'},
+    //{value: 1241, text: 'ダミー'},
+    //{value: 1242, text: 'ダミー'},
+    //{value: 1243, text: 'ダミー'},
+    //{value: 1244, text: 'ダミー'},
+    //{value: 1245, text: 'ダミー'},
+    //{value: 1246, text: 'ダミー'},
+    //{value: 1247, text: 'ダミー'},
+    //{value: 1248, text: 'ダミー'},
+    //{value: 1249, text: 'ダミー'},
 ];
 
 //loaders//

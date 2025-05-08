@@ -330,4 +330,9 @@ const eBuffType = {
 	"1140":["stat0","none-none"],
 	"1141":["stat0","none-none"],
 	"1142":["stat0","none-none"],
+	//27 Mar Extract
+	"1143":["stat0","none-none"],
+	"1144":["stat0","none-none"],
+	"1145":["stat0","none-none"],
+	"1146":["stat0","none-none"],
 }

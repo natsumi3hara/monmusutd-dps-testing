@@ -699,6 +699,45 @@ var equip16031 = {
         {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
     ]
 }
+var formula16041 = {
+    "stat1":[18.3,0.122,0.0885,0.0731111111,0.0655833333,0.061,2.07,0.814,1.539,1.875],
+    "stat2":[1.93,0.019,0.0131666667,0.0132222222,0.01325,0.0133333333,0.381,0.423,0.473,0.499],
+    "stat3":[0.92,0.009,0.0061666667,0.0062222222,0.00625,0.0063333333,0.311,0.41,0.513,0.607],
+    "stat4":[0.42,0.004,0.0026666667,0.0027777778,0.0028333333,0.0028666667,0.211,0.266,0.316,0.367]
+}
+//weapon, head, accessory, body
+var equip16041 = {
+    "0":[
+        {"stat1":30,"stat2":27,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":9,"stat4":11,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":5,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":12,"stat4":8,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "1":[
+        {"stat1":80,"stat2":32,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":11,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":10,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":10,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "2":[
+        {"stat1":130,"stat2":37,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":13,"stat4":17,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":18,"stat4":12,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+    "3":[
+        {"stat1":150,"stat2":40,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":15,"stat4":20,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":20,"stat4":0,"stat5":0,"stat6":3,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":21,"stat4":14,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ],
+	"4":[
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0},
+        {"stat1":0,"stat2":0,"stat3":0,"stat4":0,"stat5":0,"stat6":0,"stat7":0,"stat8":0}
+    ]
+}
 var formula17011 = {
     "stat1":[10.5,0.07,0.0508333333,0.042,0.0376666667,0.035,2.0141,1.209,1.5339,1.813],
     "stat2":[0,0,0,0,0,0,0,0,0,0],

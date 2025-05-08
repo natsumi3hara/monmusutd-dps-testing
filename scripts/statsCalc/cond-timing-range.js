@@ -37,6 +37,8 @@ var selfConditions = {
 	"35": 0, //isDarkness
 	"36": 0, //isOverChargeSkillActivated
 	"37": 0, //isCurse
+	"38": 0, //isTentacle
+	"39": 0, //isLaunch
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -145,6 +147,8 @@ var enemyConditions = {
 	"35": 0, //isDarkness
 	"36": 0, //isOverChargeSkillActivated
 	"37": 0, //isCurse
+	"38": 0, //isTentacle
+	"39": 0, //isLaunch
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute
