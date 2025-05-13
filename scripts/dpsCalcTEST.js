@@ -83,6 +83,11 @@ function giveAttributeTile(menuBattleSkill){
     selfConditions["1010"].splice(1);
     enemyConditions["1010"].splice(1);
     //console.log("attr: ", selfConditions["1010"]);
+    //azurea's give self water tile
+    if (masterValues.charaID === 10336 && menuBattleSkill === "skill"){
+        selfConditions["1010"].push(3);
+        enemyConditions["1010"].push(3);
+    }
     //frost drake anni fris' self forced water tile on skill
     if (masterValues.charaID === 10321 && menuBattleSkill === "skill") {
         selfConditions["1010"].push(3);
