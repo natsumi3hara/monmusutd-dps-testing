@@ -2139,7 +2139,7 @@ function calculateStat(level,cc,type){
     //battle - stat6//
     if (type === "stat6"){ //can extend to all types, remove if statement
         ///console.log("allbuff-at-cl-tr-2:",masterValues.allBuff); //here
-        //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //place to include aSpd buffs mult buffs -- directly add an entry to the allbuff array//
         //yuku toshi kuru toshi
         if ((subskillID_1 === 195 || subskillID_2 === 195) && Number(document.getElementById("shared21006").value) > 0){
             try {
@@ -2271,7 +2271,24 @@ function calculateStat(level,cc,type){
                 }
             }
         }
-        //place to include aSpd buffs//
+        //place to include aSpd buffs mult buffs//
+        //place to include aSpd buffs add buffs -- directly add an entry to the allbuff array//
+        //lucretia's ally buff and self buff on attack
+        if (masterValues.charaID === 10357){
+            try {
+                masterValues.allBuff["actual-plus-1"].push([[10*Number(document.getElementById("charaSpecific10357-1").value)]]);
+            } catch(err) {
+                masterValues.allBuff["actual-plus-1"] = [[[10*Number(document.getElementById("charaSpecific10357-1").value)]]];
+            }
+        }
+        if (masterValues.charaID !== 10357 && document.getElementById("otherPassive10357-1").checked){
+            try {
+                masterValues.allBuff["actual-plus-1"].push([[40]]);
+            } catch(err) {
+                masterValues.allBuff["actual-plus-1"] = [[[40]]];
+            }
+        }
+        //place to include aSpd buffs add buffs//
         //extraBuff//
         let extraASpdMult = Number(document.getElementById("extra-"+type+"-1").value);
         let extraASpdAdd = Number(document.getElementById("extra-"+type+"-2").value);
@@ -2578,6 +2595,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat192//
     if (type === "stat192"){
+        //lucretia's enemy defeat crit dmg buff
+        if (masterValues.charaID === 10357){
+            addEffect2.buff += 10 * Number(document.getElementById("charaSpecific10357-1").value);
+        }
         //anse's ex2 crit dmg buff
         if (masterValues.charaID !== 10104){
             addEffect2.buff += 10 * Number(document.getElementById("otherPassive10104-1").value);
@@ -2772,6 +2793,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //mgq witch's enemy defeat buff//
+        if (masterValues.charaID === 10356){
+            multEffect2.buff += 10 * Number(document.getElementById("charaSpecific10356-1").value);
+        }
         //kuromi's added attack count buff
         if (masterValues.charaID === 10255){
             multEffect2.buff += 5 * Number(document.getElementById("charaSpecific10255-1").value);
@@ -3493,7 +3518,7 @@ function calculateStat(level,cc,type){
     //skill - stat6//
     if (type === "stat6"){ //can extend to all types, remove if statement
         //console.log("allbuff-at-cl-tr-3:",masterValues.allBuff); //here
-        //place to include aSpd buffs -- directly add an entry to the allbuff array//
+        //place to include aSpd mult buffs -- directly add an entry to the allbuff array//
         //yuku toshi kuru toshi
         if ((subskillID_1 === 195 || subskillID_2 === 195) && Number(document.getElementById("shared21006").value) > 0){
             try {
@@ -3625,7 +3650,24 @@ function calculateStat(level,cc,type){
                 }
             }
         }
-        //place to include aSpd buffs//
+        //place to include aSpd buffs mult buffs//
+        //place to include aSpd buffs add buffs -- directly add an entry to the allbuff array//
+        //lucretia's ally buff and self buff on attack
+        if (masterValues.charaID === 10357){
+            try {
+                masterValues.allBuff["actual-plus-1"].push([[10*Number(document.getElementById("charaSpecific10357-1").value)]]);
+            } catch(err) {
+                masterValues.allBuff["actual-plus-1"] = [[[10*Number(document.getElementById("charaSpecific10357-1").value)]]];
+            }
+        }
+        if (masterValues.charaID !== 10357 && document.getElementById("otherPassive10357-1").checked){
+            try {
+                masterValues.allBuff["actual-plus-1"].push([[40]]);
+            } catch(err) {
+                masterValues.allBuff["actual-plus-1"] = [[[40]]];
+            }
+        }
+        //place to include aSpd buffs add buffs//
         //extraBuff//
         let extraASpdMult = Number(document.getElementById("extra-"+type+"-1").value);
         let extraASpdAdd = Number(document.getElementById("extra-"+type+"-2").value);
@@ -3946,6 +3988,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat192//
     if (type === "stat192"){
+        //lucretia's enemy defeat crit dmg buff
+        if (masterValues.charaID === 10357){
+            addEffect3.buff += 10 * Number(document.getElementById("charaSpecific10357-1").value);
+        }
         //anse's ex2 crit dmg buff
         if (masterValues.charaID !== 10104){
             addEffect3.buff += 10 * Number(document.getElementById("otherPassive10104-1").value);
@@ -4140,6 +4186,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //mgq witch's enemy defeat buff//
+        if (masterValues.charaID === 10356){
+            multEffect3.buff += 10 * Number(document.getElementById("charaSpecific10356-1").value);
+        }
         //kuromi's added attack count buff
         if (masterValues.charaID === 10255){
             multEffect3.buff += 5 * Number(document.getElementById("charaSpecific10255-1").value);

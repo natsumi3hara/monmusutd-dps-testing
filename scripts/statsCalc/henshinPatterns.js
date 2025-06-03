@@ -33,4 +33,5 @@ const henshin_patterns = {
 	"311": 4000, //christmas lich's buff
 	"316": 4000, //anni platina's henshin
 	"318": 4000, //ny bicorn's status effect infliction
+	"355": 4000, //emily's bind infliction
 }

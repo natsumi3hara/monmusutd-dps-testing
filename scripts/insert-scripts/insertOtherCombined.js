@@ -841,6 +841,18 @@ document.write(`
                 <input type="checkbox" id="otherPassive10335-2" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
+        <div title="ルクレツィア-るくれつぃあ" class="flex-container-otherCombined-buff-inner attack aSpd">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内の味方の攻撃速度を上昇させる" style="cursor: help;"><img src="../../img/chara-icons/icon_10357_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ルクレツィア</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">範囲内</span>
+                <input type="checkbox" id="otherPassive10357-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
     </div>
 </div>
 <script>
