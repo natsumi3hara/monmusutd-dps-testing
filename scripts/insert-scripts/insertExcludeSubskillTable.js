@@ -253,59 +253,85 @@ document.write(`
     <td id="exsub-1083" class="exsub excluded" onclick="toggleExclude(1083)">ぐねぐねスライムくん（緑）</td>
 </tr>
 <tr>
-    <td id="exsub-1088" class="exsub excluded" onclick="toggleExclude(1088)">生命力吸収+攻撃待機短縮</td>
     <td id="exsub-1089" class="exsub" onclick="toggleExclude(1089)">まったり充電寝正月</td>
     <td id="exsub-1098" class="exsub" onclick="toggleExclude(1098)">1stAnniversaryの祝福</td>
     <td id="exsub-1116" class="exsub excluded" onclick="toggleExclude(1116)">触手も付けとくでぇ！</td>
     <td id="exsub-1117" class="exsub" onclick="toggleExclude(1117)">ハイテンションサマー</td>
+    <td id="exsub-1119" class="exsub" onclick="toggleExclude(1119)">テッパンツンデレ皇女</td>
 </tr>
 <tr>
-    <td id="exsub-1119" class="exsub" onclick="toggleExclude(1119)">テッパンツンデレ皇女</td>
     <td id="exsub-1120" class="exsub excluded" onclick="toggleExclude(1120)">おっとりお姉ちゃん皇女</td>
     <td id="exsub-1124" class="exsub excluded" onclick="toggleExclude(1124)">快適快速</td>
     <td id="exsub-1125" class="exsub excluded" onclick="toggleExclude(1125)">グレイトコンダクト</td>
-    <td id="exsub-1133" class="exsub excluded" onclick="toggleExclude(1133)">再出撃時間短縮+撤退時コスト回復</td>
-</tr>
-<tr>
-    <td id="exsub-1136" class="exsub" onclick="toggleExclude(1136)">クリティカル+貫通攻撃</td>
     <td id="exsub-1137" class="exsub" onclick="toggleExclude(1137)">1.5th Anniversaryの恩恵</td>
-    <td id="exsub-1144" class="exsub" onclick="toggleExclude(1144)">クリティカル+CRIダメージ強化</td>
     <td id="exsub-1145" class="exsub" onclick="toggleExclude(1145)">スキルエクステンド</td>
-    <td id="exsub-1146" class="exsub excluded" onclick="toggleExclude(1146)">攻撃強化+生命力吸収</td>
+    
 </tr>
 <tr>
-    <td id="exsub-1155" class="exsub excluded" onclick="toggleExclude(1155)">攻撃待機短縮+出撃コスト減少</td>
     <td id="exsub-1156" class="exsub" onclick="toggleExclude(1156)">来たる福女！</td>
     <td id="exsub-1158" class="exsub" onclick="toggleExclude(1158)">捕獲！自信に満ちた女勇者</td>
     <td id="exsub-1159" class="exsub" onclick="toggleExclude(1159)">捕獲！二丁使いの女海賊</td>
-    <td id="exsub-1161" class="exsub excluded" onclick="toggleExclude(1161)">再出撃時間+出撃コスト減少</td>
-</tr>
-<tr>
-    <td id="exsub-1162" class="exsub" onclick="toggleExclude(1162)">攻撃強化+HP強化</td>
-    <td id="exsub-1165" class="exsub excluded" onclick="toggleExclude(1165)">攻撃強化+攻撃待機短縮</td>
-    <td id="exsub-1167" class="exsub" onclick="toggleExclude(1167)">攻撃強化+底力(攻撃)</td>
     <td id="exsub-1168" class="exsub" onclick="toggleExclude(1168)">2nd Anniversaryの恩寵</td>
     <td id="exsub-1179" class="exsub" onclick="toggleExclude(1179)">アセンションバケーション</td>
 </tr>
 <tr>
     <td id="exsub-1180" class="exsub excluded" onclick="toggleExclude(1180)">マジックリダクション</td>
-    <td id="exsub-1181" class="exsub excluded" onclick="toggleExclude(1181)">クラスアクション強化(攻撃)</td>
-    <td id="exsub-1185" class="exsub" onclick="toggleExclude(1185)">攻撃待機短縮+貫通攻撃</td>
     <td id="exsub-1193" class="exsub" onclick="toggleExclude(1193)">2.5th Anniversaryの恵愛</td>
     <td id="exsub-1195" class="exsub excluded" onclick="toggleExclude(1195)">盛大鏡開き</td>
-</tr>
-<tr>
-    <td id="exsub-1198" class="exsub excluded" onclick="toggleExclude(1198)">攻撃強化+再出撃時間短縮</td>
     <td id="exsub-1199" class="exsub excluded" onclick="toggleExclude(1199)">クリティカルフォーカス</td>
     <td id="exsub-1200" class="exsub excluded" onclick="toggleExclude(1200)">ダッシュバースト</td>
-    <td id="exsub-1202" class="exsub excluded" onclick="toggleExclude(1202)">スタックアタック</td>
-    <td id="exsub-1203" class="exsub excluded" onclick="toggleExclude(1203)">春の息吹</td>
 </tr>
 <tr>
-    <td id="exsub-1198" class="exsub excluded" onclick="toggleExclude(1198)">攻撃強化+再出撃時間短縮</td>
+    <td id="exsub-1202" class="exsub excluded" onclick="toggleExclude(1202)">スタックアタック</td>
+    <td id="exsub-1203" class="exsub excluded" onclick="toggleExclude(1203)">春の息吹</td>
     <td id="exsub-1212" class="exsub" onclick="toggleExclude(1212)">3rd Anniversaryの加護</td>
+    <td id="exsub-1215" class="exsub excluded" onclick="toggleExclude(1215)">オーシャンパーティー</td>
+    <td id="exsub-1217" class="exsub excluded" onclick="toggleExclude(1217)">サンプル採取</td>
+</tr>
+<tr>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
+    <td colspan="5" class="displaytext category">先行入手</td>
+</tr>
+<tr>
+    <td id="exsub-1088" class="exsub excluded" onclick="toggleExclude(1088)">生命力吸収+攻撃待機短縮</td>
+    <td id="exsub-1133" class="exsub excluded" onclick="toggleExclude(1133)">再出撃時間短縮+撤退時コスト回復</td>
+    <td id="exsub-1136" class="exsub" onclick="toggleExclude(1136)">クリティカル+貫通攻撃</td>
+    <td id="exsub-1144" class="exsub" onclick="toggleExclude(1144)">クリティカル+CRIダメージ強化</td>
+    <td id="exsub-1146" class="exsub excluded" onclick="toggleExclude(1146)">攻撃強化+生命力吸収</td>
+</tr>
+<tr>
+    <td id="exsub-1155" class="exsub excluded" onclick="toggleExclude(1155)">攻撃待機短縮+出撃コスト減少</td>
+    <td id="exsub-1161" class="exsub excluded" onclick="toggleExclude(1161)">再出撃時間+出撃コスト減少</td>
+    <td id="exsub-1162" class="exsub" onclick="toggleExclude(1162)">攻撃強化+HP強化</td>
+    <td id="exsub-1165" class="exsub excluded" onclick="toggleExclude(1165)">攻撃強化+攻撃待機短縮</td>
+    <td id="exsub-1167" class="exsub" onclick="toggleExclude(1167)">攻撃強化+底力(攻撃)</td>
+</tr>
+<tr>
+    <td id="exsub-1181" class="exsub excluded" onclick="toggleExclude(1181)">クラスアクション強化(攻撃)</td>
+    <td id="exsub-1185" class="exsub" onclick="toggleExclude(1185)">攻撃待機短縮+貫通攻撃</td>
+    <td id="exsub-1198" class="exsub excluded" onclick="toggleExclude(1198)">攻撃強化+再出撃時間短縮</td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+    <td class="exsub excluded"></td>
+</tr>
+<tr>
+    <td id="exsub-1181" class="exsub excluded" onclick="toggleExclude(1181)">クラスアクション強化(攻撃)</td>
+    <td id="exsub-1185" class="exsub" onclick="toggleExclude(1185)">攻撃待機短縮+貫通攻撃</td>
+    <td id="exsub-1198" class="exsub excluded" onclick="toggleExclude(1198)">攻撃強化+再出撃時間短縮</td>
+    <td id="exsub-1219" class="exsub" onclick="toggleExclude(1219)">HP犠牲攻撃強化</td>
+    <td id="exsub-1220" class="exsub excluded" onclick="toggleExclude(1220)">魔法防御犠牲HP強化</td>
+</tr>
+<tr>
+    <td id="exsub-1221" class="exsub excluded" onclick="toggleExclude(1221)">攻撃強化+撤退時コスト回復</td>
+    <td id="exsub-1222" class="exsub excluded" onclick="toggleExclude(1222)">HP強化+再出撃時間短縮</td>
+    <td id="exsub-1223" class="exsub excluded" onclick="toggleExclude(1223)">リジェネレーション+再出撃時間短縮</td>
+    <td id="exsub-1224" class="exsub excluded" onclick="toggleExclude(1224)">攻撃犠牲HP強化</td>
     <td class="exsub excluded"></td>
 </tr>
 <tr>
@@ -374,6 +400,13 @@ document.write(`
     <td id="exsub-1194" class="exsub excluded" onclick="toggleExclude(1194)">被検体O8</td>
     <td id="exsub-1196" class="exsub" onclick="toggleExclude(1196)">ゆく年くる年</td>
     <td id="exsub-1205" class="exsub excluded" onclick="toggleExclude(1205)">被検体H59</td>
+    <td id="exsub-1213" class="exsub" onclick="toggleExclude(1213)">ドラゴンスピリット</td>
+    <td id="exsub-1214" class="exsub" onclick="toggleExclude(1214)">亡者の残影</td>
+</tr>
+<tr>
+    <td id="exsub-1216" class="exsub excluded" onclick="toggleExclude(1216)">真夏の水分チャージ</td>
+    <td id="exsub-1218" class="exsub excluded" onclick="toggleExclude(1218)">被検体K121</td>
+    <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
     <td class="exsub excluded"></td>
 </tr>

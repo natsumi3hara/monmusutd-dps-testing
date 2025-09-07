@@ -66,7 +66,7 @@ document.write(`
         <input type="search" id="otherCombined-searchbox-type" style="display:none;margin:3px;font-size:1.2vw;font-family:mtdfont;" value="all" disabled>
         キャラ名検索<input type="search" id="otherCombined-searchbox-name" style="margin:3px;font-size:1.2vw;font-family:mtdfont;" oninput="filterotherCombined()">
         <hr>
-        <div id="buttonContainer">
+        <div id="otherCombinedButtonContainer">
             <button class="otherCombinedBtn" onclick="addtootherCombinedSearch('attack');filterotherCombined();">攻撃力</button>
             <button class="otherCombinedBtn" onclick="addtootherCombinedSearch('damageD');filterotherCombined();">与ダメ</button>
             <button class="otherCombinedBtn" onclick="addtootherCombinedSearch('damageR');filterotherCombined();">被ダメ</button>
@@ -143,14 +143,14 @@ document.write(`
         </div>
         <div title="ディリオ-でぃりお" class="flex-container-otherCombined-buff-inner damageD">
             <div class="flex-container-otherCombined-buff-inner2">
-                <abbr title="配置中、味方の毒状態の敵への与ダメージ1.1倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10067_0_s.png" class="otherCombined-buff-img"></abbr>
+                <abbr title="配置中、味方の毒状態の敵への与ダメージ1.1倍\n[EXスキルII]種族特性の毒状態の敵への与ダメージが1.3倍になる" style="cursor: help;"><img src="../../img/chara-icons/icon_10067_0_s.png" class="otherCombined-buff-img"></abbr>
                 <span class="otherCombined-buff-name">ディリオ</span>
             </div>
             <div class="flex-container-otherCombined-buff-inner2">
                 <span class="otherCombined-buff-label">配置</span>
                 <input type="checkbox" id="otherPassive10067-1" class="larger-check otherCombined-check" onchange="allDPS();">
-                <span class="otherCombined-buff-label">完凸</span>
-                <input type="checkbox" id="otherPassive10067-2" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label">スキル2中</span>
+                <input type="checkbox" id="otherSkill10067-1" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
         <div title="ヴィルエ-ヴぃるえ-ゔぃるえ" class="flex-container-otherCombined-buff-inner attack">
@@ -165,6 +165,18 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
+        <div title="ドネ-どね" class="flex-container-otherCombined-buff-inner damageR">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内のスタン中の敵の被ダメ1.1倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10071_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ドネ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">専用武器</span>
+                <input type="checkbox" id="otherUnique10071" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
         <div title="アルギュロ-あるぎゅろ" class="flex-container-otherCombined-buff-inner attack">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="配置中、竜特性の攻撃力+10%" style="cursor: help;"><img src="../../img/chara-icons/icon_10075_0_s.png" class="otherCombined-buff-img"></abbr>
@@ -174,6 +186,18 @@ document.write(`
                 <span class="otherCombined-buff-label">(専用武器)</span>
                 <span class="otherCombined-buff-label">配置中</span>
                 <input type="checkbox" id="otherUnique10075-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="ソレイア-それいあ" class="flex-container-otherCombined-buff-inner def">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="配置中、ドラゴンの物防魔防+30%" style="cursor: help;"><img src="../../img/chara-icons/icon_10082_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ソレイア</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">専用武器</span>
+                <input type="checkbox" id="otherUnique10082" class="larger-check otherCombined-check" onchange="allDPS();">
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
@@ -668,6 +692,18 @@ document.write(`
                 <input type="checkbox" id="otherPassive10290-2" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
+        <div title="ミーデン-みーでん" class="flex-container-otherCombined-buff-inner attack">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内の自身を除く味方の攻撃力[+10%→+50%]" style="cursor: help;"><img src="../../img/chara-icons/icon_10294_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ミーデン</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10294-1" class="larger-check otherCombined-check" onChange="allDPS();">
+                <span class="otherCombined-buff-label">スキルLv</span>
+                <input id="otherSkill10294-2" class="otherCombined-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
         <div title="ルキファ-るきふぁ" class="flex-container-otherCombined-buff-inner attack">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="スキル終了時、永続的に味方の攻撃力を30%増加 (ラッツェルが居れば5回まで)" style="cursor: help;"><img src="../../img/chara-icons/icon_10297_0_s.png" class="otherCombined-buff-img"></abbr>
@@ -841,7 +877,43 @@ document.write(`
                 <input type="checkbox" id="otherPassive10335-2" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
-        <div title="ルクレツィア-るくれつぃあ" class="flex-container-otherCombined-buff-inner attack aSpd">
+        <div title="スクラティ-すくらてぃ" class="flex-container-otherCombined-buff-inner attack critical">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="種族特性の味方への付与効果に攻撃力+60%、CRI率+20%を追加" style="cursor: help;"><img src="../../img/chara-icons/icon_10343_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">スクラティ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10343-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="爽蒼ハイルィ-はいるぃ" class="flex-container-otherCombined-buff-inner critical">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内の味方のクリティカル率とクリティカル率上限+20%" style="cursor: help;"><img src="../../img/chara-icons/icon_10352_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">爽蒼ハイルィ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10352-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="ミレリア-みれりあ" class="flex-container-otherCombined-buff-inner critical">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="味方全体のクリティカル率+20%、クリティカル率上限+20%" style="cursor: help;"><img src="../../img/chara-icons/icon_10353_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ミレリア</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10353-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="ルクレツィア-るくれつぃあ" class="flex-container-otherCombined-buff-inner aSpd">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="射程内の味方の攻撃速度を上昇させる" style="cursor: help;"><img src="../../img/chara-icons/icon_10357_0_s.png" class="otherCombined-buff-img"></abbr>
                 <span class="otherCombined-buff-name">ルクレツィア</span>
@@ -850,6 +922,66 @@ document.write(`
                 <span class="otherCombined-buff-label"></span>
                 <span class="otherCombined-buff-label">範囲内</span>
                 <input type="checkbox" id="otherPassive10357-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="遊岸ペント-ぺんと" class="flex-container-otherCombined-buff-inner attack">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="配置中コボルト族の攻撃力+20%(+5%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10358_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">遊岸ペント</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10358" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label">完凸</span>
+                <input type="checkbox" id="awake10358" class="larger-check otherCombined-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div title="ナーダ-なーだ" class="flex-container-otherCombined-buff-inner damageR">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内の敵の被ダメージが15%上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_10361_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ナーダ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10361-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
+        <div title="マルゼア-まるぜあ" class="flex-container-otherCombined-buff-inner damageD">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="全味方の火傷状態の敵に与えるダメージ1.1(+0.05)倍" style="cursor: help;"><img src="../../img/chara-icons/icon_10366_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">マルゼア</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">配置</span>
+                <input type="checkbox" id="otherPassive10366-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label">完凸</span>
+                <input type="checkbox" id="otherPassive10366-2" class="larger-check otherCombined-check" onchange="allDPS();">
+            </div>
+        </div>
+        <div title="ダリナ-だりな" class="flex-container-otherCombined-buff-inner attack">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="配置されている味方の攻撃力[+20%→+60%]" style="cursor: help;"><img src="../../img/chara-icons/icon_10371_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">ダリナ</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10371-1" class="larger-check otherCombined-check" onChange="allDPS();">
+                <span class="otherCombined-buff-label">スキルLv</span>
+                <input id="otherSkill10371-2" class="otherCombined-level" type="number" min="1" max="5" value="1" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+            </div>
+        </div>
+        <div title="天城ダムストー-だむすとー" class="flex-container-otherCombined-buff-inner damageR">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="自身射程内の敵の被ダメージが30%上昇" style="cursor: help;"><img src="../../img/chara-icons/icon_10372_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">天城ダムストー</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">範囲内</span>
+                <input type="checkbox" id="otherPassive10372-1" class="larger-check otherCombined-check" onchange="allDPS();">
                 <span class="otherCombined-buff-label"></span>
             </div>
         </div>
@@ -862,7 +994,7 @@ for (let i=0;i<otherCombinedchecks.length;i++){
     //passives//
 
     if (otherCombinedchecks[i].id.split("-")[0] == "otherPassive"+masterValues.charaID.toString()){
-        if ([10179].includes(masterValues.charaID)){
+        if ([10060,10121,10179,10358].includes(masterValues.charaID)){
             otherCombinedchecks[i].checked = true;
         } else if ([10244,10264,10272,10273,10290,10297].includes(masterValues.charaID)){
             otherCombinedchecks[i].disabled = false;
@@ -870,7 +1002,7 @@ for (let i=0;i<otherCombinedchecks.length;i++){
             otherCombinedchecks[i].disabled = true;
         }
     } else {}
-    if (otherCombinedchecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && charAwaked){
+    if (otherCombinedchecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && masterValues.charaAwaked){
         otherCombinedchecks[i].disabled = true;
         otherCombinedchecks[i].checked = true;
     } else if (otherCombinedchecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString()){
@@ -904,7 +1036,7 @@ for (let i=0;i<otherCombinedchecks.length;i++){
             otherCombinedchecks[i].disabled = true;
         }
     }
-    if (otherCombinedchecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && charAwaked){
+    if (otherCombinedchecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString() && masterValues.charaAwaked){
         otherCombinedchecks[i].disabled = true;
         otherCombinedchecks[i].checked = true;
     } else if (otherCombinedchecks[i].id.split("-")[0] == "awake"+masterValues.charaID.toString()){
@@ -964,10 +1096,10 @@ function otherCombinedSelection(){
     this.className += " active";
     }
 }
-var btnContainer = document.getElementById("buttonContainer");
-var btns = btnContainer.getElementsByClassName("otherCombinedBtn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", otherCombinedSelection)
+var otherCombinedBtnContainer = document.getElementById("otherCombinedButtonContainer");
+var otherCombinedBtns = otherCombinedBtnContainer.getElementsByClassName("otherCombinedBtn");
+for (var i = 0; i < otherCombinedBtns.length; i++) {
+  otherCombinedBtns[i].addEventListener("click", otherCombinedSelection)
 }
 </script>
 

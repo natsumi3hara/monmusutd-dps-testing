@@ -158,6 +158,18 @@ document.write(`
                 <span class="shared-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-shared-buff-inner">
+            <div class="flex-container-shared-buff-inner2">
+                <abbr title="[鞭クラスACT]与ダメージ1.2倍" style="cursor: help;"><img src="../../img/equipment-icons/3801.png" class="shared-buff-img"></abbr>
+                <span class="shared-buff-name">テラーペイン</span>
+            </div>
+            <div class="flex-container-shared-buff-inner2">
+                <span class="shared-buff-label"></span>
+                <span class="shared-buff-label">ACT発動</span>
+                <input type="checkbox" id="shared20009" class="larger-check shared-check" onChange="isMove(this.checked);allDPS();">
+                <span class="shared-buff-label"></span>
+            </div>
+        </div>
     </div>
     <button type="button" class="collapsible-button inputInsertButton">　　-　サブスキル（クリックで開く）</button>
     <div class="collapsible-content" style="display:none;">
@@ -255,6 +267,30 @@ document.write(`
                     <span class="shared-buff-label"></span>
                     <span class="shared-buff-label">枚数</span>
                     <input id="shared21008" type="number" min="0" max="11" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="ドラゴンにセット時、最大HPと攻撃力+15%\r\n自身の攻撃で敵を撃破した時10秒間攻撃力10%上昇" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">ドラゴンｽﾋﾟﾘｯﾄ</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">倒した敵</span>
+                    <input id="shared21009" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
+                    <span class="shared-buff-label"></span>
+                </div>
+            </div>
+            <div class="flex-container-shared-buff-inner">
+                <div class="flex-container-shared-buff-inner2">
+                    <abbr title="アンデッドにセット時、攻撃力+25%、最大HP-15%\r\n敵撃破時、最大HP+5%(最大20回/死亡撤退時リセット)" style="cursor: help;"><img src="../../img/ui-icons/subskill_L.png" class="shared-buff-img"></abbr>
+                    <span class="shared-buff-name">亡者の残影</span>
+                </div>
+                <div class="flex-container-shared-buff-inner2">
+                    <span class="shared-buff-label"></span>
+                    <span class="shared-buff-label">倒した敵</span>
+                    <input id="shared21010" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onChange="allDPS();">
                     <span class="shared-buff-label"></span>
                 </div>
             </div>

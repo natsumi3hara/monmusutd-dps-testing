@@ -254,6 +254,18 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10086">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10086_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">HPアップ(専)</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル中時間</span>
+                <input id="charaSpecific10086-1" class="" type="number" min="0" max="30" value="0" step="3" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10091">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10091_0_s.png" class="charaSpecific-buff-img">
@@ -665,12 +677,36 @@ document.write(`
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10305">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10305_0_s.png" class="charaSpecific-buff-img">
-                <span class="charaSpecific-buff-name">チュピナ</span>
+                <span class="charaSpecific-buff-name">攻撃力アップ</span>
             </div>
             <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">倒した敵(10秒)</span>
                 <input id="charaSpecific10305-1" class="" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10314">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10314_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">配置バフ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">インジン配置</span>
+                <input id="charaSpecific10314-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10314">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10314_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃力アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">被弾回数</span>
+                <input id="charaSpecific10314-2" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
@@ -710,6 +746,30 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10331">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10331_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">配置バフ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">ジンリェ配置</span>
+                <input id="charaSpecific10331-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10331">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10331_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃力アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">攻撃回数</span>
+                <input id="charaSpecific10331-2" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10334">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10334_0_s.png" class="charaSpecific-buff-img">
@@ -734,6 +794,30 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10347">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10347_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">倒した敵</span>
+                <input id="charaSpecific10347-1" class="" type="number" min="0" max="10" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10350">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10350_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃力アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">受けたダメージ</span>
+                <input id="charaSpecific10350-1" class="" type="number" min="0" max="10000" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfReferenceChange('102',this.value);allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10356">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10356_0_s.png" class="charaSpecific-buff-img">
@@ -755,6 +839,102 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
                 <span class="charaSpecific-buff-label">倒した敵(5秒)</span>
                 <input id="charaSpecific10357-1" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10371">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10371_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">HPアップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">ダンジョン</span>
+                <input id="charaSpecific10371-1" type="checkbox" class="larger-check charaSpecific-check" onchange="isDungeon(this.checked);allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10371">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10371_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">物防アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">被弾回数</span>
+                <input id="charaSpecific10371-2" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10372">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10372_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">いろいろ上昇</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル発動回数</span>
+                <input id="charaSpecific10372-1" class="" type="number" min="0" max="5" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10372">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10372_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻速アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル中倒した敵数</span>
+                <input id="charaSpecific10372-2" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10379">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10379_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">再使用時間</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">倒した敵</span>
+                <input id="charaSpecific10379-1" class="" type="number" min="0" max="8" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10379">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10379_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻速アップ(専)</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">倒した敵(累計)</span>
+                <input id="charaSpecific10379-1" class="" type="number" min="0" max="20" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="selfConditionChange('2015',Number(this.value));enemyConditionChange('2015',Number(this.value));allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10380">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10380_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃アップ(専)</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">スキル発動後15秒</span>
+                <input id="charaSpecific10380-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10383">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10383_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">攻撃力アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">倒した敵(5秒)</span>
+                <input id="charaSpecific10383-1" class="" type="number" min="0" max="50" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
