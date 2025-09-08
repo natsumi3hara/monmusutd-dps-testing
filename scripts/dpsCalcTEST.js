@@ -3622,6 +3622,14 @@ function calculateStat(level,cc,type){
             document.getElementById("dps-output-battle-value-stat22").innerHTML = "Penetrate";
         }
     }
+    //ephtra override//
+    if (masterValues.charaID === 10362){
+        if (masterValues.language === "ja"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "貫通";
+        } else if (masterValues.language === "en"){
+            document.getElementById("dps-output-battle-value-stat22").innerHTML = "Penetrate";
+        }
+    }
     try {
         if (masterValues.language === "ja"){
             if (outputBattle < 0){
@@ -5278,8 +5286,8 @@ function calculateStat(level,cc,type){
             document.getElementById("dps-output-skill-value-stat22").innerHTML = "Penetrate";
         }
     }
-    //lapis, thunderSuzu, shirotae, arge override - true damage
-    if ([10139,10177,10187,10238].includes(masterValues.charaID)){
+    //lapis, thunderSuzu, shirotae, arge, ephtra override - true damage
+    if ([10139,10177,10187,10238,10362].includes(masterValues.charaID)){
         document.getElementById("dps-output-skill-value-stat22").innerHTML = "貫通";
     }
     //drakeIgni, sybillaArgyro override - magical damage
@@ -6591,7 +6599,7 @@ function talentShow(){
 function dpsDetailShow(){
     let dpsC = [10014,10040,10049,10063,10092,10131,10136,10145,10147,10150,
                 10173,10178,10209,10215,10239,10245,10265,10279,10289,10297,
-                10304,10366];
+                10304,10366,10381];
     //let dpsF = [];
     let dpsAA = [10067,10155,10162,10168,10174,10177,10188,10201,10230,10233,
                 10290,10305,10321];
