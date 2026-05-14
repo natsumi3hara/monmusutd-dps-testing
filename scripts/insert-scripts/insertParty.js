@@ -773,6 +773,18 @@ document.write(`
                 <input type="checkbox" id="awake10353" class="larger-check partyUnit-check" onchange="allDPS();">
             </div>
         </div>
+        <div title="セラ-せら" class="flex-container-partyUnit-buff-inner dragon">
+            <div class="flex-container-partyUnit-buff-inner2">
+                <abbr title="編成時、味方のドラゴンモンスター娘の攻撃力とHP+5%(完凸で+2%)" style="cursor: help;"><img src="../../img/chara-icons/icon_10370_0_s.png" class="partyUnit-buff-img"></abbr>
+                <span class="partyUnit-buff-name">セラ</span>
+            </div>
+            <div class="flex-container-partyUnit-buff-inner2">
+                <span class="partyUnit-buff-label">編成</span>
+                <input type="checkbox" id="party10370" class="larger-check partyUnit-check" onchange="allDPS();">
+                <span class="partyUnit-buff-label">完凸</span>
+                <input type="checkbox" id="awake10370" class="larger-check partyUnit-check" onchange="allDPS();">
+            </div>
+        </div>
         <div title="天城ダムストー-だむすとー" class="flex-container-partyUnit-buff-inner wind">
             <div class="flex-container-partyUnit-buff-inner2">
                 <abbr title="編成時、風属性の攻撃力+9%(完凸で+3%)、出撃コスト-1" style="cursor: help;"><img src="../../img/chara-icons/icon_10372_0_s.png" class="partyUnit-buff-img"></abbr>
@@ -931,6 +943,7 @@ document.write(`
                         <option value="10348">宝石竜ルルゥ</option>
                         <option value="10351">碧海ファロリエット</option>
                         <option value="10353">ミレリア</option>
+                        <option value="10370">セラ</option>
                         <option value="10372">天城ダムストー</option>
                     </select>
                     <span class="partyUnit-buff-label"><abbr title="自身ではなく変身元" style="cursor: help;">完凸/専用武器</abbr></span>

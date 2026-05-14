@@ -961,6 +961,18 @@ document.write(`
                 <input type="checkbox" id="otherPassive10366-2" class="larger-check otherCombined-check" onchange="allDPS();">
             </div>
         </div>
+        <div title="アラン-あらん" class="flex-container-otherCombined-buff-inner damageR">
+            <div class="flex-container-otherCombined-buff-inner2">
+                <abbr title="射程内の敵が受ける魔法ダメージが1.4倍になる" style="cursor: help;"><img src="../../img/chara-icons/icon_10369_0_s.png" class="otherCombined-buff-img"></abbr>
+                <span class="otherCombined-buff-name">アラン</span>
+            </div>
+            <div class="flex-container-otherCombined-buff-inner2">
+                <span class="otherCombined-buff-label"></span>
+                <span class="otherCombined-buff-label">スキル1中</span>
+                <input type="checkbox" id="otherSkill10369-1" class="larger-check otherCombined-check" onchange="allDPS();">
+                <span class="otherCombined-buff-label"></span>
+            </div>
+        </div>
         <div title="ダリナ-だりな" class="flex-container-otherCombined-buff-inner attack">
             <div class="flex-container-otherCombined-buff-inner2">
                 <abbr title="配置されている味方の攻撃力[+20%→+60%]" style="cursor: help;"><img src="../../img/chara-icons/icon_10371_0_s.png" class="otherCombined-buff-img"></abbr>

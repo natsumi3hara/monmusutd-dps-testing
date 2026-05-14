@@ -41,4 +41,8 @@ const henshin_patterns = {
 	"10362": 10000, //ephtra's 8-5 attack
 	"355": 4000, //emily's bind infliction
 	"381": 4000, //maria's attack on skill
+	"408": 4000, //anni dolthera's sandstorm
+	//"409": 6000, //apocalypse elute onskill attack (but deals damage?)
+	"414": 4000, //anni laplume's summon token
+	"431": 4000, //anni barrow's token destroy
 }

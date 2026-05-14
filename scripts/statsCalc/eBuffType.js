@@ -330,9 +330,32 @@ const eBuffType = {
 	"1140":["stat0","none-none"],
 	"1141":["stat0","none-none"],
 	"1142":["stat0","none-none"],
-	//27 Mar Extract
+	//27 Mar 2025 Extract
 	"1143":["stat0","none-none"],
 	"1144":["stat0","none-none"],
 	"1145":["stat0","none-none"],
 	"1146":["stat0","none-none"],
+	//15 Jan 2026 Extract
+	"1147":["stat0","none-none"],
+	"1148":["stat0","none-none"],
+	"1149":["stat0","none-none"],
+	"1150":["stat0","none-none"],
+	"1151":["stat0","none-none"],
+	"1152":["stat0","none-none"],
+	"1153":["stat0","none-none"],
+	"1154":["stat0","none-none"],
+	//23 Apr 2026 Extract
+	"1155":["stat0","none-none"],
+	"1156":["stat0","none-none"],
+	"1157":["stat0","none-none"],
+	"1158":["stat0","none-none"],
+	"1159":["stat0","none-none"],
+	"1160":["stat0","none-none"],
+	"1161":["stat0","none-none"],
+	"1162":["stat0","none-none"],
+	"1163":["stat0","none-none"],
+	"1164":["stat0","none-none"],
+	"1165":["stat0","none-none"],
+	"1166":["stat0","none-none"],
+	// xx
 }

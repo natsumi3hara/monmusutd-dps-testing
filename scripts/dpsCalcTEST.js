@@ -811,8 +811,8 @@ function allDPS(slot1=-1,slot2=-1){
     }*/
     ///console.log(battleCritList,battlePenList);
     ///console.log(skillCritList,skillPenList);
-    updateCritPen(battleCritList,battlePenList,false);
-    updateCritPen(skillCritList,skillPenList,true);
+    updateCritPen(battleCritList,battlePenList,"battle");
+    updateCritPen(skillCritList,skillPenList,"skill");
     let battleAvgDmg = calculateAvgDmg("battle");
     let skillAvgDmg = calculateAvgDmg("skill");
     let battleHitFrameList = calculateAvgHitFrame("battle");
@@ -1645,10 +1645,10 @@ function subskillGetPen(subskillID){
     else {return undefined;}
 }
 
-function updateCritPen(critList,penList,isSkillCalc){
-    //isSkillCalc is true when calculating for skill
+function updateCritPen(critList,penList,damagecalcBS){
+    //damagecalcBS is true when calculating for skill (outdated)
     let targetTable,attack,hitType,idType;
-    if (isSkillCalc){
+    if (damagecalcBS === "skill"){
         targetTable=document.getElementById("dps-critPen-skill");
         attack=Number(document.getElementById("dps-output-skill-value-stat2").innerHTML);
         attack*=Number(document.getElementById("dps-output-skill-value-stat76").innerHTML)/100;
@@ -1671,14 +1671,14 @@ function updateCritPen(critList,penList,isSkillCalc){
     //console.log("rowcount: ",rowCount);
     while(--rowCount) {targetTable.deleteRow(rowCount)};
     //one crit only//
-    insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType,isSkillCalc);
+    insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType,damagecalcBS);
     ////console.log(insertRowCellCritPen(targetTable,critList,penList,attack,hitType,idType));
     //here
 }
 
-function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,isSkillCalc){
-    //isSkillCalc is true when calculating for skill
-    //console.log(isSkillCalc);
+function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,damagecalcBS){
+    //damagecalcBS is true when calculating for skill (outdated)
+    //console.log(damagecalcBS);
     let critProb,penProb;
     if (critList.length === 1){
         critProb = [100-critList[0]["probability"],critList[0]["probability"]];
@@ -1695,7 +1695,7 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,isSki
     noPenProb /= (100**penList.length); //noPenProb now 73.6
     //account for valkyrie, sharpshooter and duelist
     if ([11025,13024,13025].includes(selfConditions["1007"])){
-        if(isSkillCalc && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
+        if(damagecalcBS === "skill" && masterValues.charaID === 10210 && document.getElementById("charaSpecific10210-1").checked){
             noPenProb=noPenProb*1/3; //naberius bug//
         } else {noPenProb=noPenProb*2/3;}
     }
@@ -1759,25 +1759,25 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,isSki
                 if (penProb.length === 1){
                     try {
                         finalAttack = attack * critList[i-1]["damage"] / 100;
-                        cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
+                        cell.innerHTML = damageCalc(finalAttack,hitType,damagecalcBS);
                     } catch (err) {
                         finalAttack = attack;
-                        cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
+                        cell.innerHTML = damageCalc(finalAttack,hitType,damagecalcBS);
                     }
                 } else {
                     try {
                         finalAttack = attack * critList[Math.floor(i/2)-1]["damage"] / 100;
                         if (i%2 === 0){
-                            cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
+                            cell.innerHTML = damageCalc(finalAttack,hitType,damagecalcBS);
                         } else {
-                            cell.innerHTML = damageCalc(finalAttack,"貫通",isSkillCalc);
+                            cell.innerHTML = damageCalc(finalAttack,"貫通",damagecalcBS);
                         }
                     } catch (err) {
                         finalAttack = attack;
                         if (i%2 === 0){
-                            cell.innerHTML = damageCalc(finalAttack,hitType,isSkillCalc);
+                            cell.innerHTML = damageCalc(finalAttack,hitType,damagecalcBS);
                         } else {
-                            cell.innerHTML = damageCalc(finalAttack,"貫通",isSkillCalc);
+                            cell.innerHTML = damageCalc(finalAttack,"貫通",damagecalcBS);
                         }
                     }
                 }
@@ -1788,7 +1788,7 @@ function insertRowCellCritPen(table,critList,penList,attack,hitType,idType,isSki
     return {"critProb":critProb,"penProb":penProb};
 }
 
-function damageCalc(attack,hitType,BSParam){
+function damageCalc(attack,hitType,damagecalcBS){
     //may need to add another parameter for continuous (because no guarantee + may not be affected by difora)
     let damage = 0;
     let guaranteeDamage = Math.floor(attack/10);
@@ -1810,6 +1810,11 @@ function damageCalc(attack,hitType,BSParam){
         else if (masterValues.charaID === 10335 && selfConditions["1"] === 1){dmgRed=dmgRed*120/100;}
         if (masterValues.charaID !== 10335 && document.getElementById("otherPassive10335-1").checked && document.getElementById("otherPassive10335-2").checked){dmgRed=dmgRed*125/100;}
         else if (masterValues.charaID !== 10335 && document.getElementById("otherPassive10335-1").checked){dmgRed=dmgRed*120/100;}
+
+        //aran's self-checking is in place with else ifs//
+        if (masterValues.charaID === 10369 && damagecalcBS === "skill"){dmgRed=dmgRed*140/100;}
+        if (masterValues.charaID !== 10369 && document.getElementById("otherSkill10369-1").checked){dmgRed=dmgRed*140/100;}
+
         //console.log("enemy-mDef:",document.getElementById("input-enemy-stat4").value);
         damage = Number(attack) - Number(document.getElementById("input-enemy-stat4").value);
 
@@ -1817,8 +1822,8 @@ function damageCalc(attack,hitType,BSParam){
         //console.log("pen");
         damage = Number(attack);
     }
-    //console.log(BSParam);
-    if ((typeof BSParam == "string" && BSParam === "skill")||(typeof BSParam == "boolean" && BSParam)) {
+    //console.log(damagecalcBS);
+    if (damagecalcBS === "skill") {
         //console.log("Do skill calculation.");
         dmgRed = dmgRed * Number(document.getElementById("dps-output-skill-value-stat77").innerHTML) / 100;
     } else {
@@ -2448,6 +2453,13 @@ function calculateStat(level,cc,type){
                 multEffect2.count += 1;
             }
         }
+        //sera's ally on fire tile buff//
+        if (masterValues.charaID === 10370){
+            if (document.getElementById("charaSpecific10370-1").checked){
+                multEffect2.buff *= 130;
+                multEffect2.count += 1;
+            }
+        }
         //dhirio's weird code logic rectification - battle only have 1.1
         if (masterValues.charaID === 10067) {
             if (enemyConditions["25"] === 1) {
@@ -2953,6 +2965,10 @@ function calculateStat(level,cc,type){
     }
     //battle - stat2//
     if (type === "stat2"){
+        //aran's enemy defeat buff//
+        if (masterValues.charaID === 10369){
+            multEffect2.buff += Math.min(700, 5 * Math.floor(Number(document.getElementById("charaSpecific10369-1").value) * 30 / 12));
+        }
         //tirma's stat3 and stat4 dependent buff//
         if (masterValues.charaID === 10365 && document.getElementById("unique-equip-check").checked){
             addEffect2.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
@@ -4048,6 +4064,13 @@ function calculateStat(level,cc,type){
                 multEffect3.count += 1;
             }
         }
+        //sera's ally on fire tile buff//
+        if (masterValues.charaID === 10370){
+            if (document.getElementById("charaSpecific10370-1").checked){
+                multEffect3.buff *= 130;
+                multEffect3.count += 1;
+            }
+        }
         //dhirio's weird code logic rectification - 1.3 if ex skill 2
         if (masterValues.charaID === 10067) {
             if (enemyConditions["25"] === 1) {
@@ -4574,6 +4597,10 @@ function calculateStat(level,cc,type){
     }
     //skill - stat2//
     if (type === "stat2"){
+        //aran's enemy defeat buff//
+        if (masterValues.charaID === 10369){
+            multEffect3.buff += Math.min(700, 5 * Math.floor(Number(document.getElementById("charaSpecific10369-1").value) * 30 / 12));
+        }
         //tirma's stat3 and stat4 dependent buff//
         if (masterValues.charaID === 10365 && document.getElementById("unique-equip-check").checked){
             addEffect3.buff += Math.floor(10 * Number(document.getElementById("dps-output-battle-value-stat3").innerHTML) / 100);
@@ -5917,6 +5944,19 @@ function pdMultValues(type){ //timing = 4//
             }
         }
     }
+    //sera's dragon buff
+    if (document.getElementById("party10370").checked && (type==="stat1"||type==="stat2") && dragonCharas.includes(masterValues.charaID)){
+        totalPartyBuff += 5;
+        if (document.getElementById("awake10370").checked){
+            totalPartyBuff += 2;
+        }
+        if (Number(document.getElementById("henshin-10169-select").value) === 10370){
+            totalPartyBuff += 5;
+            if (document.getElementById("henshin-10169-awake").checked){
+                totalPartyBuff += 2;
+            }
+        }
+    }
     //hokaku 1 - warrior
     if (type === "stat2" && selfConditions["1006"]==2 && (getAttachID("subskill1") === 157 || getAttachID("subskill2") === 157)){
         totalPartyBuff += 15;
@@ -5987,6 +6027,8 @@ function pdMultValues(type){ //timing = 4//
         } catch (err) {}
     }
     //↑ ratzel's partybuff copy ↑//
+    // dis nisa's self debuff
+    if (masterValues.charaID === 10375 && type === "stat1"){totalPartyBuff -= 15;}
     ///console.log(type+"-pBuff:",totalPartyBuff);
     let totalDivineBuffMinus = 0;
     let totalDivineBuffPlus = 0;

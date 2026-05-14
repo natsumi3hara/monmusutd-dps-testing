@@ -39,6 +39,8 @@ var selfConditions = {
 	"37": 0, //isCurse
 	"38": 0, //isTentacle
 	"39": 0, //isLaunch
+	"40": 0, //isFeverMode
+	"41": 0, //isGeneralBuffDebuff
 	"1000": 0, //Move (無用)
 	"1001": 0, //Weather (無用)
 	"1002": 0, //Attribute
@@ -68,6 +70,7 @@ var selfConditions = {
 	"2014": 0, //destroyCount
 	"2015": 0, //totalDestroyCount
 	"2016": 0, //privateGeneralCounter
+	"2024": 0, //moveDistance
 	"3000": undefined, //questCategory (無用)
 	"3001": undefined, //questId (無用?)
 	"3002": undefined, //timeLimit (無用)
@@ -97,9 +100,19 @@ var selfReference = {
 	"1": 0, //Life (無用?)
 	"2": 0, //Power (無用?)
 	"3": 0, //Defense (無用?)
+	"4": 0, //MagicDefense (無用?)
+	"5": 0, //AttackSpeed (無用?)
+	"6": 0, //Critical (無用?)
+	"7": 0, //CriticalRate (無用?)
+	"8": 0, //MoveSpeed	(無用?)
 	"11": 0, //currentLife (無用?)
 	"12": 0, //currentPower (無用?)
 	"13": 0, //currentDefense (無用?)
+	"14": 0, //currentMagicDefense (無用?)
+	"15": 0, //currentAttackSpeed (無用?)
+	"16": 0, //currentCritical (無用?)
+	"17": 0, //currentCriticalRate (無用?)
+	"18": 0, //currentMoveSpeed (無用?)
 	"100": 0, //existenceTime
 	"101": 0, //givenDamage (無用?)
 	"102": 0, //takenDamage
@@ -149,6 +162,8 @@ var enemyConditions = {
 	"37": 0, //isCurse
 	"38": 0, //isTentacle
 	"39": 0, //isLaunch
+	"40": 0, //isFeverMode
+	"41": 0, //isGeneralBuffDebuff
 	"1000": 0, //Move
 	"1001": 0, //Weather
 	"1002": 0, //Attribute
@@ -178,6 +193,7 @@ var enemyConditions = {
 	"2014": 0, //destroyCount
 	"2015": 0, //TotalDestroyCount
 	"2016": 0, //privateGeneralCounter
+	"2024": 0, //moveDistance
 	"3000": undefined, //questCategory
 	"3001": undefined, //questId
 	"3002": undefined, //timeLimit

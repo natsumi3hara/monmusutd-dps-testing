@@ -344,6 +344,12 @@ var partybuffref = {
     "awake10353": {
         "cond":[3],"stat1":[2],"stat2":[2]
     },
+    "party10370": {
+        "cond":[],"stat1":[0],"stat2":[0] //this is settled directly until revamp
+    },
+    "awake10370": {
+        "cond":[],"stat1":[0],"stat2":[0] //this is settled directly until revamp
+    },
     "party10372": {
         "cond":[4],"stat2":[9]
     },

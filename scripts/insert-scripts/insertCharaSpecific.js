@@ -842,6 +842,30 @@ document.write(`
                 <span class="charaSpecific-buff-label"></span>
             </div>
         </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10369">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10369_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">アラン</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">待機中時間(秒)</span>
+                <input id="charaSpecific10369-1" class="" type="number" min="0" max="60" value="0" style="width:70%;height:20%;margin:2px auto;border:none;" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
+        <div class="flex-container-charaSpecific-buff-inner chara-specific-10370">
+            <div class="flex-container-charaSpecific-buff-inner2">
+                <img src="../../img/chara-icons/icon_10370_0_s.png" class="charaSpecific-buff-img">
+                <span class="charaSpecific-buff-name">回復量アップ</span>
+            </div>
+            <div class="flex-container-charaSpecific-buff-inner2" style="flex:2;">
+                <span class="charaSpecific-buff-label"></span>
+                <span class="charaSpecific-buff-label">味方配置マスが火属性</span>
+                <input id="charaSpecific10370-1" type="checkbox" class="larger-check charaSpecific-check" onchange="allDPS();">
+                <span class="charaSpecific-buff-label"></span>
+            </div>
+        </div>
         <div class="flex-container-charaSpecific-buff-inner chara-specific-10371">
             <div class="flex-container-charaSpecific-buff-inner2">
                 <img src="../../img/chara-icons/icon_10371_0_s.png" class="charaSpecific-buff-img">
